@@ -1,0 +1,59 @@
+﻿using System;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace Ngducanh
+{
+    public partial class RegisterForm : Form
+    {
+        public RegisterForm()
+        {
+            InitializeComponent();
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text.Trim();
+            string fullname = txtFullName.Text.Trim();
+            string email = txtEmail.Text.Trim();
+            string phone = txtPhone.Text.Trim();
+
+            // Kiểm tra dữ liệu nhập vào
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(fullname))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ các trường bắt buộc!");
+                return;
+            }
+
+            using (var db = new LibraryContext())
+            {
+                // Kiểm tra tài khoản trùng
+                if (db.Users.Any(u => u.Username == username))
+                {
+                    MessageBox.Show("Tài khoản đã tồn tại!");
+                    return;
+                }
+
+                var user = new User
+                {
+                    Username = username,
+                    Password = password,
+                    FullName = fullname,
+                    Email = email,
+                    Phone = phone
+                };
+                db.Users.Add(user);
+                db.SaveChanges();
+                MessageBox.Show("Đăng ký thành công!");
+
+                this.Close(); // Đóng form đăng ký
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}
