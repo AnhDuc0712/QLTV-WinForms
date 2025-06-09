@@ -20,9 +20,11 @@ namespace Ngducanh
             LoadAuthors();
         }
 
-        private void LoadAuthors()
+        // Hàm nạp danh sách tác giả (toàn bộ hoặc theo từ khóa)
+        private void LoadAuthors(string keyword = "")
         {
             var authors = _context.Authors
+                .Where(a => a.Name.Contains(keyword))
                 .Select(a => new
                 {
                     a.AuthorId,
@@ -37,7 +39,7 @@ namespace Ngducanh
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var f = new fNewAuthor();
-            f.FormClosed += (s, args) => LoadAuthors();
+            f.FormClosed += (s, args) => LoadAuthors(txtSearch.Text);
             f.ShowDialog();
         }
 
@@ -47,7 +49,7 @@ namespace Ngducanh
             {
                 int authorId = (int)dgvAuthors.CurrentRow.Cells["AuthorId"].Value;
                 var f = new fEditAuthor(authorId);
-                f.FormClosed += (s, args) => LoadAuthors();
+                f.FormClosed += (s, args) => LoadAuthors(txtSearch.Text);
                 f.ShowDialog();
             }
         }
@@ -63,20 +65,23 @@ namespace Ngducanh
                 {
                     _context.Authors.Remove(author);
                     _context.SaveChanges();
-                    LoadAuthors();
+                    LoadAuthors(txtSearch.Text);
                 }
             }
         }
-        private void btnClose_Click(object sender, EventArgs e)
+
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            this.Close(); // đóng form hiện tại
+            LoadAuthors(txtSearch.Text);
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         private void dgvAuthors_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
     }
 }
-// Di chuyển vào Forms/Author
