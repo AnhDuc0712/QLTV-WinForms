@@ -19,10 +19,13 @@ namespace Ngducanh
             string email = txtEmail.Text.Trim();
             string phone = txtPhone.Text.Trim();
 
+            lblError.Visible = false;
+
             // Kiểm tra dữ liệu nhập vào
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(fullname))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ các trường bắt buộc!");
+                lblError.Text = "Vui lòng nhập đầy đủ các trường bắt buộc!";
+                lblError.Visible = true;
                 return;
             }
 
@@ -31,7 +34,8 @@ namespace Ngducanh
                 // Kiểm tra tài khoản trùng
                 if (db.Users.Any(u => u.Username == username))
                 {
-                    MessageBox.Show("Tài khoản đã tồn tại!");
+                    lblError.Text = "Tài khoản đã tồn tại!";
+                    lblError.Visible = true;
                     return;
                 }
 
@@ -45,8 +49,8 @@ namespace Ngducanh
                 };
                 db.Users.Add(user);
                 db.SaveChanges();
-                MessageBox.Show("Đăng ký thành công!");
 
+                MessageBox.Show("Đăng ký thành công!");
                 this.Close(); // Đóng form đăng ký
             }
         }

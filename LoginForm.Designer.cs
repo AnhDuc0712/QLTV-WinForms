@@ -17,121 +17,157 @@
 
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.btnRegister = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new System.Windows.Forms.Panel();
+            label3 = new System.Windows.Forms.Label();
+            lblError = new System.Windows.Forms.Label();
+            lblTitle = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            txtUsername = new System.Windows.Forms.TextBox();
+            label2 = new System.Windows.Forms.Label();
+            txtPassword = new System.Windows.Forms.TextBox();
+            btnLogin = new System.Windows.Forms.Button();
+            btnRegister = new System.Windows.Forms.Button();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.lblTitle);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtUsername);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtPassword);
-            this.panel1.Controls.Add(this.btnLogin);
-            this.panel1.Controls.Add(this.btnRegister);
-            this.panel1.Location = new System.Drawing.Point(200, 70);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(400, 250);
-            this.panel1.TabIndex = 0;
+            panel1.BackColor = System.Drawing.Color.White;
+            panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel1.Controls.Add(lblError);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(lblTitle);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(txtUsername);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(txtPassword);
+            panel1.Controls.Add(btnLogin);
+            panel1.Controls.Add(btnRegister);
+            panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(400, 250);
+            panel1.TabIndex = 0;
+            // 
+            // label3 - Quên mật khẩu
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = System.Drawing.Color.White;
+            label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic);
+            label3.ForeColor = System.Drawing.Color.Blue;
+            label3.Location = new System.Drawing.Point(30, 147);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(120, 20);
+            label3.TabIndex = 7;
+            label3.Text = "Quên mật khẩu?";
+            label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            label3.Click += label3_Click;
+            // 
+            // lblError - Báo lỗi
+            // 
+            lblError.AutoSize = true;
+            lblError.BackColor = System.Drawing.Color.White;
+            lblError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            lblError.ForeColor = System.Drawing.Color.Red;
+            lblError.Location = new System.Drawing.Point(160, 147); // Ngay bên phải "Quên mật khẩu?"
+            lblError.Name = "lblError";
+            lblError.Size = new System.Drawing.Size(0, 20);
+            lblError.TabIndex = 8;
+            lblError.Visible = false;
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = false;
-            this.lblTitle.Size = new System.Drawing.Size(400, 40);
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(0, 102, 204);
-            this.lblTitle.Location = new System.Drawing.Point(0, 10);
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblTitle.Text = "ĐĂNG NHẬP HỆ THỐNG THƯ VIỆN";
+            lblTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            lblTitle.ForeColor = System.Drawing.Color.FromArgb(0, 102, 204);
+            lblTitle.Location = new System.Drawing.Point(0, 10);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new System.Drawing.Size(400, 40);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "ĐĂNG NHẬP HỆ THỐNG THƯ VIỆN";
+            lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(30, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 23);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Tài khoản:";
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            label1.Location = new System.Drawing.Point(30, 65);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(86, 23);
+            label1.TabIndex = 1;
+            label1.Text = "Tài khoản:";
             // 
             // txtUsername
             // 
-            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtUsername.Location = new System.Drawing.Point(120, 62);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(230, 30);
-            this.txtUsername.TabIndex = 2;
+            txtUsername.Font = new System.Drawing.Font("Segoe UI", 10F);
+            txtUsername.Location = new System.Drawing.Point(120, 62);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new System.Drawing.Size(230, 30);
+            txtUsername.TabIndex = 2;
+            txtUsername.TextChanged += txtUsername_TextChanged;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(30, 110);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 23);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Mật khẩu:";
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            label2.Location = new System.Drawing.Point(30, 110);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(86, 23);
+            label2.TabIndex = 3;
+            label2.Text = "Mật khẩu:";
             // 
             // txtPassword
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPassword.Location = new System.Drawing.Point(120, 107);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(230, 30);
-            this.txtPassword.TabIndex = 4;
-            this.txtPassword.UseSystemPasswordChar = true;
+            txtPassword.Font = new System.Drawing.Font("Segoe UI", 10F);
+            txtPassword.Location = new System.Drawing.Point(120, 107);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new System.Drawing.Size(230, 30);
+            txtPassword.TabIndex = 4;
+            txtPassword.UseSystemPasswordChar = true;
+            txtPassword.TextChanged += txtPassword_TextChanged;
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(0, 153, 51);
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(80, 170);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(110, 36);
-            this.btnLogin.TabIndex = 5;
-            this.btnLogin.Text = "Đăng nhập";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            btnLogin.BackColor = System.Drawing.Color.FromArgb(0, 153, 51);
+            btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnLogin.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            btnLogin.ForeColor = System.Drawing.Color.White;
+            btnLogin.Location = new System.Drawing.Point(120, 183);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new System.Drawing.Size(110, 36);
+            btnLogin.TabIndex = 5;
+            btnLogin.Text = "Đăng nhập";
+            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // btnRegister
             // 
-            this.btnRegister.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnRegister.ForeColor = System.Drawing.Color.FromArgb(0, 153, 51);
-            this.btnRegister.Location = new System.Drawing.Point(210, 170);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(110, 36);
-            this.btnRegister.TabIndex = 6;
-            this.btnRegister.Text = "Đăng ký";
-            this.btnRegister.UseVisualStyleBackColor = false;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            btnRegister.BackColor = System.Drawing.Color.WhiteSmoke;
+            btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnRegister.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            btnRegister.ForeColor = System.Drawing.Color.FromArgb(0, 153, 51);
+            btnRegister.Location = new System.Drawing.Point(253, 183);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new System.Drawing.Size(110, 36);
+            btnRegister.TabIndex = 6;
+            btnRegister.Text = "Đăng ký";
+            btnRegister.UseVisualStyleBackColor = false;
+            btnRegister.Click += btnRegister_Click;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.BackColor = System.Drawing.Color.FromArgb(230, 245, 251);
-            this.Controls.Add(this.panel1);
-            this.Name = "LoginForm";
-            this.Text = "Đăng nhập hệ thống thư viện";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.White;
+            ClientSize = new System.Drawing.Size(400, 250); // vừa panel, không dư
+            Controls.Add(panel1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "LoginForm";
+            Text = "Đăng nhập hệ thống thư viện";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -144,6 +180,7 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblError;
     }
 }
-//
