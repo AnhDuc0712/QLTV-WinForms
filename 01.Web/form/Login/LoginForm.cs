@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using QLTV.Models;
+using QLTV;
+
 
 namespace Ngducanh
 {
     public partial class LoginForm : Form
     {
+        public string Username { get; set; }
+
         public LoginForm()
         {
             InitializeComponent();

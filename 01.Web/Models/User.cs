@@ -22,5 +22,7 @@ namespace QLTV.Models
         public string Address { get; set; }
 
         public virtual ICollection<BorrowReceipt> BorrowReceipts { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }
