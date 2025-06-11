@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using QLTV.Models;
+using QLTV;
+
 
 namespace Ngducanh
 {
