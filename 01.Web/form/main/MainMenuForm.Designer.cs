@@ -1,10 +1,11 @@
-﻿namespace Ngducanh
+﻿
+namespace Ngducanh
 {
     partial class MainMenuForm
     {
         private System.ComponentModel.IContainer components = null;
 
-   
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -122,7 +123,7 @@
             mnuSach.Name = "mnuSach";
             mnuSach.Size = new Size(170, 43);
             mnuSach.Text = "📚 Quản Lý Sách";
-           
+
             // 
             // mnuXemDanhSachSach
             // 
