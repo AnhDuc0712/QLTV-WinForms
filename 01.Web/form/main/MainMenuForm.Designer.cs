@@ -122,6 +122,7 @@
             mnuSach.Name = "mnuSach";
             mnuSach.Size = new Size(170, 43);
             mnuSach.Text = "📚 Quản Lý Sách";
+           
             // 
             // mnuXemDanhSachSach
             // 
@@ -212,6 +213,7 @@
             mnuTacGia.Name = "mnuTacGia";
             mnuTacGia.Size = new Size(198, 43);
             mnuTacGia.Text = "✍️ Quản Lý Tác Giả";
+            mnuTacGia.Click += mnuTacGia_Click;
             // 
             // mnuXemDanhSachTacGia
             // 

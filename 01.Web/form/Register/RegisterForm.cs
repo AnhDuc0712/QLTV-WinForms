@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using QLTV.Models;
 using QLTV;
 
-
 namespace Ngducanh
 {
     public partial class RegisterForm : Form
@@ -21,6 +20,8 @@ namespace Ngducanh
             string fullname = txtFullName.Text.Trim();
             string email = txtEmail.Text.Trim();
             string phone = txtPhone.Text.Trim();
+            string address = txtAddress.Text.Trim();
+
 
             lblError.Visible = false;
 
@@ -48,7 +49,8 @@ namespace Ngducanh
                     Password = password,
                     FullName = fullname,
                     Email = email,
-                    Phone = phone
+                    Phone = phone,
+                    Address = address  // Thêm dòng này
                 };
                 db.Users.Add(user);
                 db.SaveChanges();
@@ -61,6 +63,21 @@ namespace Ngducanh
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAddress_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
