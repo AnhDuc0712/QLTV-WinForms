@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using QLTV.Models;
 using QLTV;
 
-
 namespace Ngducanh
 {
     public partial class LoginForm : Form
@@ -29,10 +28,15 @@ namespace Ngducanh
                 {
                     lblError.Visible = false;
                     this.Hide();
-                    // Gửi tên đầy đủ qua MainMenuForm, có thể dùng user.Username nếu chỉ muốn hiển thị tài khoản
-                    MainMenuForm mainMenu = new MainMenuForm(user.FullName);
-                    mainMenu.ShowDialog();
-                    this.Show();
+
+                    // Show MainMenuForm, chỉ mở 1 form duy nhất
+                    using (var mainMenu = new MainMenuForm(user.FullName))
+                    {
+                        mainMenu.ShowDialog();
+                    }
+
+                    // Khi MainMenuForm đóng thì đóng luôn LoginForm (thoát app)
+                    this.Close();
                 }
                 else
                 {
@@ -45,8 +49,12 @@ namespace Ngducanh
         // Sự kiện đăng ký
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            RegisterForm regForm = new RegisterForm();
-            regForm.ShowDialog();
+            this.Hide();
+            using (var regForm = new RegisterForm())
+            {
+                regForm.ShowDialog();
+            }
+            this.Show();
         }
 
         // Nếu vẫn còn lỗi LoginForm_Load thì thêm hàm này vào cho yên tâm!
