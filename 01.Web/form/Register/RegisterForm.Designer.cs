@@ -17,207 +17,233 @@
 
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtFullName = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.btnRegister = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.lblError = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            panel = new Panel();
+            label6 = new Label();
+            txtAddress = new TextBox();
+            lblTitle = new Label();
+            label1 = new Label();
+            txtUsername = new TextBox();
+            label2 = new Label();
+            txtPassword = new TextBox();
+            label3 = new Label();
+            txtFullName = new TextBox();
+            label4 = new Label();
+            txtEmail = new TextBox();
+            label5 = new Label();
+            txtPhone = new TextBox();
+            btnRegister = new Button();
+            btnCancel = new Button();
+            lblError = new Label();
+            panel.SuspendLayout();
+            SuspendLayout();
             // 
-            // panel1
+            // panel
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.lblTitle);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtUsername);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtPassword);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtFullName);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtEmail);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.txtPhone);
-            this.panel1.Controls.Add(this.btnRegister);
-            this.panel1.Controls.Add(this.btnCancel);
-            this.panel1.Controls.Add(this.lblError);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(450, 350);
-            this.panel1.TabIndex = 0;
+            panel.BackColor = Color.White;
+            panel.BorderStyle = BorderStyle.FixedSingle;
+            panel.Controls.Add(label6);
+            panel.Controls.Add(txtAddress);
+            panel.Controls.Add(lblTitle);
+            panel.Controls.Add(label1);
+            panel.Controls.Add(txtUsername);
+            panel.Controls.Add(label2);
+            panel.Controls.Add(txtPassword);
+            panel.Controls.Add(label3);
+            panel.Controls.Add(txtFullName);
+            panel.Controls.Add(label4);
+            panel.Controls.Add(txtEmail);
+            panel.Controls.Add(label5);
+            panel.Controls.Add(txtPhone);
+            panel.Controls.Add(btnRegister);
+            panel.Controls.Add(btnCancel);
+            panel.Controls.Add(lblError);
+            panel.Dock = DockStyle.Fill;
+            panel.Location = new Point(0, 0);
+            panel.Name = "panel";
+            panel.Size = new Size(450, 350);
+            panel.TabIndex = 0;
+            panel.Paint += panel1_Paint;
+            // 
+            // label6
+            // 
+            label6.Font = new Font("Segoe UI", 10F);
+            label6.Location = new Point(30, 259);
+            label6.Name = "label6";
+            label6.Size = new Size(93, 23);
+            label6.TabIndex = 9;
+            label6.Text = "Địa chỉ:";
+            label6.Click += label6_Click;
+            // 
+            // txtAddress
+            // 
+            txtAddress.Location = new Point(150, 259);
+            txtAddress.Name = "txtAddress";
+            txtAddress.Size = new Size(250, 27);
+            txtAddress.TabIndex = 14;
+            txtAddress.TextChanged += txtAddress_TextChanged;
             // 
             // lblTitle
             // 
-            this.lblTitle.Size = new System.Drawing.Size(450, 40);
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(0, 102, 204);
-            this.lblTitle.Location = new System.Drawing.Point(0, 8);
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblTitle.Text = "ĐĂNG KÝ TÀI KHOẢN THƯ VIỆN";
+            lblTitle.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblTitle.ForeColor = Color.FromArgb(0, 102, 204);
+            lblTitle.Location = new Point(0, 8);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(450, 40);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "ĐĂNG KÝ TÀI KHOẢN THƯ VIỆN";
+            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label1.Location = new System.Drawing.Point(30, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 23);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Tài khoản:";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10F);
+            label1.Location = new Point(30, 55);
+            label1.Name = "label1";
+            label1.Size = new Size(86, 23);
+            label1.TabIndex = 1;
+            label1.Text = "Tài khoản:";
             // 
             // txtUsername
             // 
-            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtUsername.Location = new System.Drawing.Point(150, 52);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(250, 30);
-            this.txtUsername.TabIndex = 2;
+            txtUsername.Font = new Font("Segoe UI", 10F);
+            txtUsername.Location = new Point(150, 52);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(250, 30);
+            txtUsername.TabIndex = 2;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label2.Location = new System.Drawing.Point(30, 95);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 23);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Mật khẩu:";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10F);
+            label2.Location = new Point(30, 95);
+            label2.Name = "label2";
+            label2.Size = new Size(86, 23);
+            label2.TabIndex = 3;
+            label2.Text = "Mật khẩu:";
             // 
             // txtPassword
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtPassword.Location = new System.Drawing.Point(150, 92);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(250, 30);
-            this.txtPassword.TabIndex = 4;
-            this.txtPassword.UseSystemPasswordChar = true;
+            txtPassword.Font = new Font("Segoe UI", 10F);
+            txtPassword.Location = new Point(150, 92);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(250, 30);
+            txtPassword.TabIndex = 4;
+            txtPassword.UseSystemPasswordChar = true;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label3.Location = new System.Drawing.Point(30, 135);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 23);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Họ và tên:";
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10F);
+            label3.Location = new Point(30, 135);
+            label3.Name = "label3";
+            label3.Size = new Size(88, 23);
+            label3.TabIndex = 5;
+            label3.Text = "Họ và tên:";
             // 
             // txtFullName
             // 
-            this.txtFullName.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtFullName.Location = new System.Drawing.Point(150, 132);
-            this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(250, 30);
-            this.txtFullName.TabIndex = 6;
+            txtFullName.Font = new Font("Segoe UI", 10F);
+            txtFullName.Location = new Point(150, 132);
+            txtFullName.Name = "txtFullName";
+            txtFullName.Size = new Size(250, 30);
+            txtFullName.TabIndex = 6;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label4.Location = new System.Drawing.Point(30, 175);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 23);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Email:";
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 10F);
+            label4.Location = new Point(30, 175);
+            label4.Name = "label4";
+            label4.Size = new Size(55, 23);
+            label4.TabIndex = 7;
+            label4.Text = "Email:";
             // 
             // txtEmail
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtEmail.Location = new System.Drawing.Point(150, 172);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(250, 30);
-            this.txtEmail.TabIndex = 8;
+            txtEmail.Font = new Font("Segoe UI", 10F);
+            txtEmail.Location = new Point(150, 172);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(250, 30);
+            txtEmail.TabIndex = 8;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label5.Location = new System.Drawing.Point(30, 215);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 23);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Điện thoại:";
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 10F);
+            label5.Location = new Point(30, 215);
+            label5.Name = "label5";
+            label5.Size = new Size(93, 23);
+            label5.TabIndex = 9;
+            label5.Text = "Điện thoại:";
             // 
             // txtPhone
             // 
-            this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtPhone.Location = new System.Drawing.Point(150, 212);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(250, 30);
-            this.txtPhone.TabIndex = 10;
+            txtPhone.Font = new Font("Segoe UI", 10F);
+            txtPhone.Location = new Point(150, 212);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(250, 30);
+            txtPhone.TabIndex = 10;
             // 
             // btnRegister
             // 
-            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(0, 153, 51);
-            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(100, 270);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(110, 36);
-            this.btnRegister.TabIndex = 11;
-            this.btnRegister.Text = "Đăng ký";
-            this.btnRegister.UseVisualStyleBackColor = false;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            btnRegister.BackColor = Color.FromArgb(0, 153, 51);
+            btnRegister.FlatStyle = FlatStyle.Flat;
+            btnRegister.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnRegister.ForeColor = Color.White;
+            btnRegister.Location = new Point(100, 299);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(110, 36);
+            btnRegister.TabIndex = 11;
+            btnRegister.Text = "Đăng ký";
+            btnRegister.UseVisualStyleBackColor = false;
+            btnRegister.Click += btnRegister_Click;
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(0, 153, 51);
-            this.btnCancel.Location = new System.Drawing.Point(240, 270);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(110, 36);
-            this.btnCancel.TabIndex = 12;
-            this.btnCancel.Text = "Hủy";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            btnCancel.BackColor = Color.WhiteSmoke;
+            btnCancel.FlatStyle = FlatStyle.Flat;
+            btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnCancel.ForeColor = Color.FromArgb(0, 153, 51);
+            btnCancel.Location = new Point(251, 299);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(110, 36);
+            btnCancel.TabIndex = 12;
+            btnCancel.Text = "Hủy";
+            btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // lblError
             // 
-            this.lblError.AutoSize = true;
-            this.lblError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(100, 315); // Dưới nút Đăng ký
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(0, 20);
-            this.lblError.TabIndex = 13;
-            this.lblError.Visible = false;
+            lblError.AutoSize = true;
+            lblError.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblError.ForeColor = Color.Red;
+            lblError.Location = new Point(100, 315);
+            lblError.Name = "lblError";
+            lblError.Size = new Size(0, 20);
+            lblError.TabIndex = 13;
+            lblError.Visible = false;
             // 
             // RegisterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 350); // Chuẩn khít panel
-            this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "RegisterForm";
-            this.Text = "Đăng ký tài khoản thư viện";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(450, 350);
+            Controls.Add(panel);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "RegisterForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Đăng ký tài khoản thư viện";
+            panel.ResumeLayout(false);
+            panel.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -232,5 +258,7 @@
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblError;
+        private TextBox txtAddress;
+        private Label label6;
     }
 }
