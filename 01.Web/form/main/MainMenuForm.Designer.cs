@@ -123,7 +123,6 @@ namespace Ngducanh
             mnuSach.Name = "mnuSach";
             mnuSach.Size = new Size(170, 43);
             mnuSach.Text = "📚 Quản Lý Sách";
-
             // 
             // mnuXemDanhSachSach
             // 
@@ -299,6 +298,7 @@ namespace Ngducanh
             mnuSachDangMuon.Name = "mnuSachDangMuon";
             mnuSachDangMuon.Size = new Size(284, 26);
             mnuSachDangMuon.Text = "📕 Sách Đang Mượn";
+            mnuSachDangMuon.Click += mnuSachDangMuon_Click;
             // 
             // mnuSachTreHanNhieuNhat
             // 
