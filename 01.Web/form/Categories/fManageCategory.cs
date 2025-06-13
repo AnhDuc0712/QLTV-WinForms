@@ -79,7 +79,7 @@ namespace Ngducanh
             int stt = 1;
             foreach (var c in list)
             {
-                dgv.Rows.Add(stt++, c.CategoryId, c.Name, c.Count);
+                dgv.Rows.Add( c.CategoryId, c.Name, c.Count);
             }
         }
 
