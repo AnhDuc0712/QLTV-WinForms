@@ -18,12 +18,14 @@ namespace QLTV.Models
         public int CategoryId { get; set; }
         public int PublisherId { get; set; }
         public int StockQuantity { get; set; }
+        public string? ImageUrl { get; set; }
 
         [ForeignKey("CategoryId")]
         public Category Category { get; set; }
 
         [ForeignKey("PublisherId")]
         public Publisher Publisher { get; set; }
+
 
         public virtual ICollection<BookAuthor> BookAuthors { get; set; }
         public virtual ICollection<BorrowDetail> BorrowDetails { get; set; }
