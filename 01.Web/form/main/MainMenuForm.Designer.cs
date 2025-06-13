@@ -123,7 +123,6 @@ namespace Ngducanh
             mnuSach.Name = "mnuSach";
             mnuSach.Size = new Size(170, 43);
             mnuSach.Text = "📚 Quản Lý Sách";
-
             // 
             // mnuXemDanhSachSach
             // 
@@ -409,6 +408,8 @@ namespace Ngducanh
             mnuLocPhieu.Name = "mnuLocPhieu";
             mnuLocPhieu.Size = new Size(351, 26);
             mnuLocPhieu.Text = "\U0001f9e9 Lọc Theo Độc Giả/Sách/Trạng Thái";
+            mnuLocPhieu.Click += mnuLocPhieu_Click;
+
             // 
             // headerPanel
             // 

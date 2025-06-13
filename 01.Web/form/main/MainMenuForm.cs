@@ -1,4 +1,5 @@
 ﻿using Ngducanh_Quanlysach;
+using QLTV.form.Borrow;
 using QLTV.form.Reader;
 using QLTV.Models;
 using System;
@@ -18,9 +19,6 @@ namespace Ngducanh
         {
             InitializeComponent();
             this.IsMdiContainer = true;
-
-
-
         }
 
         public MainMenuForm(string username)
@@ -55,11 +53,10 @@ namespace Ngducanh
             mnuTimSach.Click += mnuTimSach_Click;
             mnuHienThiSachSoLuong.Click += mnuHienThiSachSoLuong_Click;
 
-            // ====== Gán sự kiện cho các menu QUẢN LÝ THE LOAI ======
+            // ====== Gán sự kiện cho các menu QUẢN LÝ THỂ LOẠI ======
             mnuXemDanhSachTheLoai.Click += mnuXemDanhSachTheLoai_Click;
             mnuThemSuaXoaTheLoai.Click += mnuThemSuaXoaTheLoai_Click;
             mnuTimTheLoai.Click += mnuTimTheLoai_Click;
-
 
             // ====== Gán sự kiện cho các menu QUẢN LÝ TÁC GIẢ ======
             mnuXemDanhSachTacGia.Click += mnuXemDanhSachTacGia_Click;
@@ -68,17 +65,21 @@ namespace Ngducanh
 
             // ====== Gán sự kiện cho menu Thoát ======
             mnuThoat.Click += mnuThoat_Click;
+
+
         }
+
+        // --- SỰ KIỆN MENU LỌC ĐỘC GIẢ/SÁCH/TRẠNG THÁI ---
+
 
         // --- SỰ KIỆN MENU QUẢN LÝ SÁCH ---
         private void mnuXemDanhSachSach_Click(object sender, EventArgs e)
         {
             var f = new fBookManager();
             f.MdiParent = this;
-            f.WindowState = FormWindowState.Maximized; // tuỳ, hoặc Normal
+            f.WindowState = FormWindowState.Maximized;
             f.Show();
         }
-
 
         private void mnuThemSuaXoaSach_Click(object sender, EventArgs e)
         {
@@ -95,32 +96,30 @@ namespace Ngducanh
         private void mnuHienThiSachSoLuong_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Chức năng hiển thị số lượng sách đang phát triển.", "Thông báo");
-
         }
+
         // --- SỰ KIỆN MENU QUẢN LÝ THỂ LOẠI ---
         private void mnuXemDanhSachTheLoai_Click(object sender, EventArgs e)
         {
             var f = new fManageCategory();
             f.MdiParent = this;
-            f.WindowState = FormWindowState.Maximized; // tuỳ, hoặc Normal
+            f.WindowState = FormWindowState.Maximized;
             f.Show();
         }
         private void mnuThemSuaXoaTheLoai_Click(object sender, EventArgs e)
         {
             var f = new fManageCategory();
             f.MdiParent = this;
-            f.WindowState = FormWindowState.Maximized; // tuỳ, hoặc Normal
+            f.WindowState = FormWindowState.Maximized;
             f.Show();
         }
         private void mnuTimTheLoai_Click(object sender, EventArgs e)
         {
             var f = new fManageCategory();
             f.MdiParent = this;
-            f.WindowState = FormWindowState.Maximized; // tuỳ, hoặc Normal
+            f.WindowState = FormWindowState.Maximized;
             f.Show();
         }
-
-
 
         // --- SỰ KIỆN MENU QUẢN LÝ TÁC GIẢ ---
         private void mnuXemDanhSachTacGia_Click(object sender, EventArgs e)
@@ -168,7 +167,6 @@ namespace Ngducanh
             this.Close();
         }
 
- 
         // --- Các sự kiện không cần thiết ---
         private void mnuXemDanhSachTacGia_Click_1(object sender, EventArgs e) { }
         private void mnuTacGia_Click(object sender, EventArgs e) { }
@@ -182,5 +180,18 @@ namespace Ngducanh
                 e.Graphics.FillRectangle(brush, ClientRectangle);
             }
         }
+
+        private void mnuLocPhieu_Click(object sender, EventArgs e)
+        {
+            foreach (Form child in this.MdiChildren)
+                child.Close();
+
+            var f = new QLTV.form.Borrow.mnuLocDocGiaSachTrangThai(); // đúng namespace và tên class!
+            f.MdiParent = this;
+            f.WindowState = FormWindowState.Maximized;
+            f.Show();
+        }
+
+
     }
 }
