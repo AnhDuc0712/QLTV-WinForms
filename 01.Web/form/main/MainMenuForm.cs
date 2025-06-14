@@ -11,6 +11,8 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using QLTV.form.Borrow;
+
 
 namespace Ngducanh
 {
@@ -82,6 +84,11 @@ namespace Ngducanh
         // --- SỰ KIỆN MENU QUẢN LÝ SÁCH ---
         private void mnuXemDanhSachSach_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close(); // hoặc child.Hide();
+            }
+
             var f = new fBookManager();
             f.MdiParent = this;
             f.WindowState = FormWindowState.Maximized;
@@ -108,6 +115,11 @@ namespace Ngducanh
         // --- SỰ KIỆN MENU QUẢN LÝ THỂ LOẠI ---
         private void mnuXemDanhSachTheLoai_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close(); // hoặc child.Hide();
+            }
+
             var f = new fManageCategory();
             f.MdiParent = this;
             f.WindowState = FormWindowState.Maximized;
@@ -115,6 +127,11 @@ namespace Ngducanh
         }
         private void mnuThemSuaXoaTheLoai_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close(); // hoặc child.Hide();
+            }
+
             var f = new fManageCategory();
             f.MdiParent = this;
             f.WindowState = FormWindowState.Maximized;
@@ -122,6 +139,11 @@ namespace Ngducanh
         }
         private void mnuTimTheLoai_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close(); // hoặc child.Hide();
+            }
+
             var f = new fManageCategory();
             f.MdiParent = this;
             f.WindowState = FormWindowState.Maximized;
@@ -131,6 +153,11 @@ namespace Ngducanh
         // --- SỰ KIỆN MENU QUẢN LÝ TÁC GIẢ ---
         private void mnuXemDanhSachTacGia_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close(); // hoặc child.Hide();
+            }
+
             var f = new fManageAuthor();
             f.MdiParent = this;
             f.WindowState = FormWindowState.Maximized; // tuỳ, hoặc Normal
@@ -139,6 +166,11 @@ namespace Ngducanh
 
         private void mnuThemSuaXoaTacGia_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close(); // hoặc child.Hide();
+            }
+
             var f = new fManageAuthor();
             f.MdiParent = this;
             f.WindowState = FormWindowState.Maximized; // tuỳ, hoặc Normal
@@ -162,6 +194,11 @@ namespace Ngducanh
         // sự kiện hiển thị danh sách độc giả 
         private void mnuHienThiDanhSachDocGia_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close(); // hoặc child.Hide();
+            }
+
             fManageReader f = new fManageReader();
             f.MdiParent = this;
             f.WindowState = FormWindowState.Maximized; // tuỳ, hoặc Normal
@@ -201,6 +238,11 @@ namespace Ngducanh
         //Sách đang mượn/ số lượng
         private void mnuSachDangMuon_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close(); // hoặc child.Hide();
+            }
+
             fBorrowedBooks f = new fBorrowedBooks();
             f.MdiParent = this;
             f.WindowState = FormWindowState.Maximized; // tuỳ, hoặc Normal
@@ -211,11 +253,30 @@ namespace Ngducanh
         // --- THỐNG KÊ SÁCH TRỄ HẠN ---
         private void mnuSachTreHanNhieuNhat_Click(object sender, EventArgs e)
         {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close(); // hoặc child.Hide();
+            }
+
             var f = new fLateBook();
             f.MdiParent = this;
             f.WindowState = FormWindowState.Maximized;
             f.Show();
         }
+        private void mnuLocPhieu_Click(object sender, EventArgs e)
+        {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close(); // hoặc child.Hide();
+            }
+
+            // Mở form lọc phiếu mượn theo độc giả/sách/trạng thái
+            var f = new mnuLocDocGiaSachTrangThai(); // nếu form bạn đặt tên khác thì sửa lại tên này
+            f.MdiParent = this;
+            f.WindowState = FormWindowState.Maximized;
+            f.Show();
+        }
+
 
     }
 }

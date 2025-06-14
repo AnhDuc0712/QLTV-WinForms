@@ -91,5 +91,10 @@ namespace QLTV.form.Borrow
                 dgvResult.DataSource = query.ToList();
             }
         }
+
+        private void dgvResult_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

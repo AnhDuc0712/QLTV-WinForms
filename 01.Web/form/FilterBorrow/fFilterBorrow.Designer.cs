@@ -86,7 +86,6 @@
             cbReader.Name = "cbReader";
             cbReader.Size = new Size(226, 33);
             cbReader.TabIndex = 1;
-            
             // 
             // lblBook
             // 
@@ -97,7 +96,6 @@
             lblBook.Size = new Size(58, 25);
             lblBook.TabIndex = 2;
             lblBook.Text = "Sách:";
-         
             // 
             // cbBook
             // 
@@ -106,7 +104,6 @@
             cbBook.Name = "cbBook";
             cbBook.Size = new Size(211, 33);
             cbBook.TabIndex = 3;
-         
             // 
             // lblStatus
             // 
@@ -126,7 +123,6 @@
             cbStatus.Name = "cbStatus";
             cbStatus.Size = new Size(140, 33);
             cbStatus.TabIndex = 5;
-            
             // 
             // btnFilter
             // 
@@ -154,6 +150,7 @@
             dgvResult.RowHeadersWidth = 51;
             dgvResult.Size = new Size(1000, 540);
             dgvResult.TabIndex = 0;
+            dgvResult.CellContentClick += dgvResult_CellContentClick;
             // 
             // mnuLocDocGiaSachTrangThai
             // 
