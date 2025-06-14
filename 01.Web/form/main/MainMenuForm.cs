@@ -57,9 +57,7 @@ namespace Ngducanh
 
             // ====== Gán sự kiện cho các menu QUẢN LÝ SÁCH ======
             mnuXemDanhSachSach.Click += mnuXemDanhSachSach_Click;
-            mnuThemSuaXoaSach.Click += mnuThemSuaXoaSach_Click;
-            mnuTimSach.Click += mnuTimSach_Click;
-            mnuHienThiSachSoLuong.Click += mnuHienThiSachSoLuong_Click;
+           
 
             // ====== Gán sự kiện cho các menu QUẢN LÝ THỂ LOẠI ======
             mnuXemDanhSachTheLoai.Click += mnuXemDanhSachTheLoai_Click;
