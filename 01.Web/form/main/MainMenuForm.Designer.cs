@@ -23,22 +23,10 @@ namespace Ngducanh
             mnuGiaoDienChinh = new ToolStripMenuItem();
             mnuThoat = new ToolStripMenuItem();
             mnuSach = new ToolStripMenuItem();
-            mnuXemDanhSachSach = new ToolStripMenuItem();
-            mnuThemSuaXoaSach = new ToolStripMenuItem();
-            mnuLocDanhMucTacGia = new ToolStripMenuItem();
-            mnuTimSach = new ToolStripMenuItem();
-            mnuHienThiSachSoLuong = new ToolStripMenuItem();
             mnuTheLoai = new ToolStripMenuItem();
-            mnuXemDanhSachTheLoai = new ToolStripMenuItem();
-            mnuThemSuaXoaTheLoai = new ToolStripMenuItem();
-            mnuTimTheLoai = new ToolStripMenuItem();
             mnuTacGia = new ToolStripMenuItem();
             mnuXemDanhSachTacGia = new ToolStripMenuItem();
-            mnuThemSuaXoaTacGia = new ToolStripMenuItem();
-            mnuTimTacGia = new ToolStripMenuItem();
             mnuDocGia = new ToolStripMenuItem();
-            mnuThemSuaXoaDocGia = new ToolStripMenuItem();
-            mnuTimKiemDocGia = new ToolStripMenuItem();
             mnuHienThiDanhSachDocGia = new ToolStripMenuItem();
             mnuBaoCao = new ToolStripMenuItem();
             mnuSachDangMuon = new ToolStripMenuItem();
@@ -51,6 +39,12 @@ namespace Ngducanh
             headerPanel = new Panel();
             lblTitle = new Label();
             menuContainer = new Panel();
+            mnuXemDanhSachTheLoai = new ToolStripMenuItem();
+            mnuHienThiSachSoLuong = new ToolStripMenuItem();
+            mnuTimSach = new ToolStripMenuItem();
+            mnuLocDanhMucTacGia = new ToolStripMenuItem();
+            mnuThemSuaXoaSach = new ToolStripMenuItem();
+            mnuXemDanhSachSach = new ToolStripMenuItem();
             menuMain.SuspendLayout();
             headerPanel.SuspendLayout();
             menuContainer.SuspendLayout();
@@ -98,91 +92,19 @@ namespace Ngducanh
             mnuSach.Size = new Size(170, 43);
             mnuSach.Text = "📚 Quản Lý Sách";
             // 
-            // mnuXemDanhSachSach
-            // 
-            mnuXemDanhSachSach.BackColor = Color.White;
-            mnuXemDanhSachSach.Font = new Font("Times New Roman", 10F);
-            mnuXemDanhSachSach.ForeColor = Color.Black;
-            mnuXemDanhSachSach.Name = "mnuXemDanhSachSach";
-            mnuXemDanhSachSach.Size = new Size(309, 26);
-            mnuXemDanhSachSach.Text = "📖 Xem Danh Sách Sách";
-            // 
-            // mnuThemSuaXoaSach
-            // 
-            mnuThemSuaXoaSach.BackColor = Color.White;
-            mnuThemSuaXoaSach.Font = new Font("Times New Roman", 10F);
-            mnuThemSuaXoaSach.ForeColor = Color.Black;
-            mnuThemSuaXoaSach.Name = "mnuThemSuaXoaSach";
-            mnuThemSuaXoaSach.Size = new Size(309, 26);
-            mnuThemSuaXoaSach.Text = "➕✏️🗑️ Thêm/Sửa/Xóa Sách";
-            // 
-            // mnuLocDanhMucTacGia
-            // 
-            mnuLocDanhMucTacGia.BackColor = Color.White;
-            mnuLocDanhMucTacGia.Font = new Font("Times New Roman", 10F);
-            mnuLocDanhMucTacGia.ForeColor = Color.Black;
-            mnuLocDanhMucTacGia.Name = "mnuLocDanhMucTacGia";
-            mnuLocDanhMucTacGia.Size = new Size(309, 26);
-            mnuLocDanhMucTacGia.Text = "\U0001f9e9 Lọc Theo Danh Mục/Tác Giả";
-            // 
-            // mnuTimSach
-            // 
-            mnuTimSach.BackColor = Color.White;
-            mnuTimSach.Font = new Font("Times New Roman", 10F);
-            mnuTimSach.ForeColor = Color.Black;
-            mnuTimSach.Name = "mnuTimSach";
-            mnuTimSach.Size = new Size(309, 26);
-            mnuTimSach.Text = "🔍 Tìm Kiếm Sách";
-            // 
-            // mnuHienThiSachSoLuong
-            // 
-            mnuHienThiSachSoLuong.BackColor = Color.White;
-            mnuHienThiSachSoLuong.Font = new Font("Times New Roman", 10F);
-            mnuHienThiSachSoLuong.ForeColor = Color.Black;
-            mnuHienThiSachSoLuong.Name = "mnuHienThiSachSoLuong";
-            mnuHienThiSachSoLuong.Size = new Size(309, 26);
-            mnuHienThiSachSoLuong.Text = "📋 Hiển Thị Sách và Số Lượng";
-            // 
             // mnuTheLoai
             // 
             mnuTheLoai.BackColor = Color.LightGray;
-            mnuTheLoai.DropDownItems.AddRange(new ToolStripItem[] { mnuXemDanhSachTheLoai, mnuThemSuaXoaTheLoai, mnuTimTheLoai });
+            mnuTheLoai.DropDownItems.AddRange(new ToolStripItem[] { mnuXemDanhSachTheLoai });
             mnuTheLoai.ForeColor = Color.Black;
             mnuTheLoai.Name = "mnuTheLoai";
             mnuTheLoai.Size = new Size(251, 43);
             mnuTheLoai.Text = "🏷️ Quản Lý Thể Loại Sách";
             // 
-            // mnuXemDanhSachTheLoai
-            // 
-            mnuXemDanhSachTheLoai.BackColor = Color.White;
-            mnuXemDanhSachTheLoai.Font = new Font("Times New Roman", 10F);
-            mnuXemDanhSachTheLoai.ForeColor = Color.Black;
-            mnuXemDanhSachTheLoai.Name = "mnuXemDanhSachTheLoai";
-            mnuXemDanhSachTheLoai.Size = new Size(310, 26);
-            mnuXemDanhSachTheLoai.Text = "📄 Xem Danh Sách Thể Loại";
-            // 
-            // mnuThemSuaXoaTheLoai
-            // 
-            mnuThemSuaXoaTheLoai.BackColor = Color.White;
-            mnuThemSuaXoaTheLoai.Font = new Font("Times New Roman", 10F);
-            mnuThemSuaXoaTheLoai.ForeColor = Color.Black;
-            mnuThemSuaXoaTheLoai.Name = "mnuThemSuaXoaTheLoai";
-            mnuThemSuaXoaTheLoai.Size = new Size(310, 26);
-            mnuThemSuaXoaTheLoai.Text = "➕✏️🗑️ Thêm/Sửa/Xóa Thể Loại";
-            // 
-            // mnuTimTheLoai
-            // 
-            mnuTimTheLoai.BackColor = Color.White;
-            mnuTimTheLoai.Font = new Font("Times New Roman", 10F);
-            mnuTimTheLoai.ForeColor = Color.Black;
-            mnuTimTheLoai.Name = "mnuTimTheLoai";
-            mnuTimTheLoai.Size = new Size(310, 26);
-            mnuTimTheLoai.Text = "🔍 Tìm Kiếm Thể Loại";
-            // 
             // mnuTacGia
             // 
             mnuTacGia.BackColor = Color.LightGray;
-            mnuTacGia.DropDownItems.AddRange(new ToolStripItem[] { mnuXemDanhSachTacGia, mnuThemSuaXoaTacGia, mnuTimTacGia });
+            mnuTacGia.DropDownItems.AddRange(new ToolStripItem[] { mnuXemDanhSachTacGia });
             mnuTacGia.ForeColor = Color.Black;
             mnuTacGia.Name = "mnuTacGia";
             mnuTacGia.Size = new Size(198, 43);
@@ -195,55 +117,19 @@ namespace Ngducanh
             mnuXemDanhSachTacGia.Font = new Font("Times New Roman", 10F);
             mnuXemDanhSachTacGia.ForeColor = Color.Black;
             mnuXemDanhSachTacGia.Name = "mnuXemDanhSachTacGia";
-            mnuXemDanhSachTacGia.Size = new Size(302, 26);
+            mnuXemDanhSachTacGia.Size = new Size(277, 26);
             mnuXemDanhSachTacGia.Text = "📄 Xem Danh Sách Tác Giả";
             mnuXemDanhSachTacGia.Click += mnuXemDanhSachTacGia_Click_1;
-            // 
-            // mnuThemSuaXoaTacGia
-            // 
-            mnuThemSuaXoaTacGia.BackColor = Color.White;
-            mnuThemSuaXoaTacGia.Font = new Font("Times New Roman", 10F);
-            mnuThemSuaXoaTacGia.ForeColor = Color.Black;
-            mnuThemSuaXoaTacGia.Name = "mnuThemSuaXoaTacGia";
-            mnuThemSuaXoaTacGia.Size = new Size(302, 26);
-            mnuThemSuaXoaTacGia.Text = "➕✏️🗑️ Thêm/Sửa/Xóa Tác Giả";
-            // 
-            // mnuTimTacGia
-            // 
-            mnuTimTacGia.BackColor = Color.White;
-            mnuTimTacGia.Font = new Font("Times New Roman", 10F);
-            mnuTimTacGia.ForeColor = Color.Black;
-            mnuTimTacGia.Name = "mnuTimTacGia";
-            mnuTimTacGia.Size = new Size(302, 26);
-            mnuTimTacGia.Text = "🔍 Tìm Kiếm/Lọc Tác Giả";
             // 
             // mnuDocGia
             // 
             mnuDocGia.BackColor = Color.LightGray;
-            mnuDocGia.DropDownItems.AddRange(new ToolStripItem[] { mnuThemSuaXoaDocGia, mnuTimKiemDocGia, mnuHienThiDanhSachDocGia });
+            mnuDocGia.DropDownItems.AddRange(new ToolStripItem[] { mnuHienThiDanhSachDocGia });
             mnuDocGia.ForeColor = Color.Black;
             mnuDocGia.Name = "mnuDocGia";
             mnuDocGia.Size = new Size(199, 43);
             mnuDocGia.Text = "👤 Quản Lý Độc Giả";
             mnuDocGia.Click += mnuDocGia_Click;
-            // 
-            // mnuThemSuaXoaDocGia
-            // 
-            mnuThemSuaXoaDocGia.BackColor = Color.White;
-            mnuThemSuaXoaDocGia.Font = new Font("Times New Roman", 10F);
-            mnuThemSuaXoaDocGia.ForeColor = Color.Black;
-            mnuThemSuaXoaDocGia.Name = "mnuThemSuaXoaDocGia";
-            mnuThemSuaXoaDocGia.Size = new Size(308, 26);
-            mnuThemSuaXoaDocGia.Text = "➕✏️🗑️ Thêm/Sửa/Xóa Độc Giả";
-            // 
-            // mnuTimKiemDocGia
-            // 
-            mnuTimKiemDocGia.BackColor = Color.White;
-            mnuTimKiemDocGia.Font = new Font("Times New Roman", 10F);
-            mnuTimKiemDocGia.ForeColor = Color.Black;
-            mnuTimKiemDocGia.Name = "mnuTimKiemDocGia";
-            mnuTimKiemDocGia.Size = new Size(308, 26);
-            mnuTimKiemDocGia.Text = "🔍 Tìm Kiếm Độc Giả";
             // 
             // mnuHienThiDanhSachDocGia
             // 
@@ -361,6 +247,60 @@ namespace Ngducanh
             menuContainer.Size = new Size(1522, 55);
             menuContainer.TabIndex = 0;
             // 
+            // mnuXemDanhSachTheLoai
+            // 
+            mnuXemDanhSachTheLoai.BackColor = Color.White;
+            mnuXemDanhSachTheLoai.Font = new Font("Times New Roman", 10F);
+            mnuXemDanhSachTheLoai.ForeColor = Color.Black;
+            mnuXemDanhSachTheLoai.Name = "mnuXemDanhSachTheLoai";
+            mnuXemDanhSachTheLoai.Size = new Size(285, 26);
+            mnuXemDanhSachTheLoai.Text = "📄 Xem Danh Sách Thể Loại";
+            // 
+            // mnuHienThiSachSoLuong
+            // 
+            mnuHienThiSachSoLuong.BackColor = Color.White;
+            mnuHienThiSachSoLuong.Font = new Font("Times New Roman", 10F);
+            mnuHienThiSachSoLuong.ForeColor = Color.Black;
+            mnuHienThiSachSoLuong.Name = "mnuHienThiSachSoLuong";
+            mnuHienThiSachSoLuong.Size = new Size(309, 26);
+            mnuHienThiSachSoLuong.Text = "📋 Hiển Thị Sách và Số Lượng";
+            // 
+            // mnuTimSach
+            // 
+            mnuTimSach.BackColor = Color.White;
+            mnuTimSach.Font = new Font("Times New Roman", 10F);
+            mnuTimSach.ForeColor = Color.Black;
+            mnuTimSach.Name = "mnuTimSach";
+            mnuTimSach.Size = new Size(309, 26);
+            mnuTimSach.Text = "🔍 Tìm Kiếm Sách";
+            // 
+            // mnuLocDanhMucTacGia
+            // 
+            mnuLocDanhMucTacGia.BackColor = Color.White;
+            mnuLocDanhMucTacGia.Font = new Font("Times New Roman", 10F);
+            mnuLocDanhMucTacGia.ForeColor = Color.Black;
+            mnuLocDanhMucTacGia.Name = "mnuLocDanhMucTacGia";
+            mnuLocDanhMucTacGia.Size = new Size(309, 26);
+            mnuLocDanhMucTacGia.Text = "\U0001f9e9 Lọc Theo Danh Mục/Tác Giả";
+            // 
+            // mnuThemSuaXoaSach
+            // 
+            mnuThemSuaXoaSach.BackColor = Color.White;
+            mnuThemSuaXoaSach.Font = new Font("Times New Roman", 10F);
+            mnuThemSuaXoaSach.ForeColor = Color.Black;
+            mnuThemSuaXoaSach.Name = "mnuThemSuaXoaSach";
+            mnuThemSuaXoaSach.Size = new Size(309, 26);
+            mnuThemSuaXoaSach.Text = "➕✏️🗑️ Thêm/Sửa/Xóa Sách";
+            // 
+            // mnuXemDanhSachSach
+            // 
+            mnuXemDanhSachSach.BackColor = Color.White;
+            mnuXemDanhSachSach.Font = new Font("Times New Roman", 10F);
+            mnuXemDanhSachSach.ForeColor = Color.Black;
+            mnuXemDanhSachSach.Name = "mnuXemDanhSachSach";
+            mnuXemDanhSachSach.Size = new Size(309, 26);
+            mnuXemDanhSachSach.Text = "📖 Xem Danh Sách Sách";
+            // 
             // MainMenuForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -390,23 +330,11 @@ namespace Ngducanh
         private ToolStripMenuItem mnuGiaoDienChinh;
         private ToolStripMenuItem mnuThoat;
         private ToolStripMenuItem mnuSach;
-        private ToolStripMenuItem mnuXemDanhSachSach;
-        private ToolStripMenuItem mnuThemSuaXoaSach;
-        private ToolStripMenuItem mnuLocDanhMucTacGia;
-        private ToolStripMenuItem mnuTimSach;
-        private ToolStripMenuItem mnuHienThiSachSoLuong;
         private ToolStripMenuItem mnuTheLoai;
-        private ToolStripMenuItem mnuXemDanhSachTheLoai;
-        private ToolStripMenuItem mnuThemSuaXoaTheLoai;
-        private ToolStripMenuItem mnuTimTheLoai;
         private ToolStripMenuItem mnuTacGia;
         private ToolStripMenuItem mnuXemDanhSachTacGia;
-        private ToolStripMenuItem mnuThemSuaXoaTacGia;
-        private ToolStripMenuItem mnuTimTacGia;
         private ToolStripSeparator separator4;
         private ToolStripMenuItem mnuDocGia;
-        private ToolStripMenuItem mnuThemSuaXoaDocGia;
-        private ToolStripMenuItem mnuTimKiemDocGia;
         private ToolStripMenuItem mnuHienThiDanhSachDocGia;
         private ToolStripMenuItem mnuMuonTra;
         private ToolStripMenuItem mnuLapPhieuMuon;
@@ -420,5 +348,11 @@ namespace Ngducanh
         private Panel headerPanel;
         private Label lblTitle;
         private Panel menuContainer;
+        private ToolStripMenuItem mnuXemDanhSachSach;
+        private ToolStripMenuItem mnuThemSuaXoaSach;
+        private ToolStripMenuItem mnuLocDanhMucTacGia;
+        private ToolStripMenuItem mnuTimSach;
+        private ToolStripMenuItem mnuHienThiSachSoLuong;
+        private ToolStripMenuItem mnuXemDanhSachTheLoai;
     }
 }

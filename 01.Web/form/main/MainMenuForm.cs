@@ -63,13 +63,11 @@ namespace Ngducanh
 
             // ====== Gán sự kiện cho các menu QUẢN LÝ THỂ LOẠI ======
             mnuXemDanhSachTheLoai.Click += mnuXemDanhSachTheLoai_Click;
-            mnuThemSuaXoaTheLoai.Click += mnuThemSuaXoaTheLoai_Click;
-            mnuTimTheLoai.Click += mnuTimTheLoai_Click;
+            
 
             // ====== Gán sự kiện cho các menu QUẢN LÝ TÁC GIẢ ======
             mnuXemDanhSachTacGia.Click += mnuXemDanhSachTacGia_Click;
-            mnuThemSuaXoaTacGia.Click += mnuThemSuaXoaTacGia_Click;
-            mnuTimTacGia.Click += mnuTimTacGia_Click;
+            
             mnuSachTreHanNhieuNhat.Click += mnuSachTreHanNhieuNhat_Click;
             mnuLapPhieuMuon.Click += (s, e) => OpenNewBorrowReceiptForm();
             mnuLapPhieuTra.Click += (s, e) => OpenReturnBookForm();

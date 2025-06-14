@@ -25,88 +25,78 @@
             ((System.ComponentModel.ISupportInitialize)dgvAuthors).BeginInit();
             SuspendLayout();
 
-            // 
-            // lblTitle
-            // 
-            lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTitle.Location = new Point(12, 9);
-            lblTitle.Size = new Size(776, 40);
-            lblTitle.Text = "QUẢN LÝ TÁC GIẢ";
+            // ========== Title ==========
+            lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTitle.ForeColor = Color.DarkSlateBlue;
+            lblTitle.Location = new Point(0, 10);
+            lblTitle.Size = new Size(800, 45);
+            lblTitle.Text = "📚 QUẢN LÝ TÁC GIẢ";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
 
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(12, 60);
-            txtSearch.Size = new Size(250, 27);
+            // ========== Search ==========
+            txtSearch.Location = new Point(30, 65);
+            txtSearch.Size = new Size(300, 30);
+            txtSearch.Font = new Font("Segoe UI", 10F);
             txtSearch.PlaceholderText = "Nhập từ khóa tìm kiếm...";
 
-            // 
-            // btnSearch
-            // 
-            btnSearch.Location = new Point(270, 59);
-            btnSearch.Size = new Size(94, 29);
-            btnSearch.Text = "Tìm";
-            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Location = new Point(340, 64);
+            btnSearch.Size = new Size(80, 32);
+            btnSearch.Text = "🔍 Tìm";
+            btnSearch.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnSearch.BackColor = Color.LightSteelBlue;
             btnSearch.Click += btnSearch_Click;
 
-            // 
-            // dgvAuthors
-            // 
-            dgvAuthors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAuthors.Location = new Point(12, 100);
-            dgvAuthors.Name = "dgvAuthors";
-            dgvAuthors.RowHeadersWidth = 51;
-            dgvAuthors.Size = new Size(776, 280);
-            dgvAuthors.TabIndex = 0;
+            // ========== DataGridView ==========
+            dgvAuthors.Location = new Point(30, 110);
+            dgvAuthors.Size = new Size(740, 260);
+            dgvAuthors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAuthors.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvAuthors.EnableHeadersVisualStyles = false;
+            dgvAuthors.ColumnHeadersDefaultCellStyle.BackColor = Color.MediumSlateBlue;
+            dgvAuthors.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvAuthors.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dgvAuthors.DefaultCellStyle.Font = new Font("Segoe UI", 10F);
+            dgvAuthors.DefaultCellStyle.SelectionBackColor = Color.LightSkyBlue;
+            dgvAuthors.RowHeadersVisible = false;
             dgvAuthors.CellContentClick += dgvAuthors_CellContentClick;
 
-            // 
-            // btnAdd
-            // 
-            btnAdd.Location = new Point(12, 400);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(94, 29);
-            btnAdd.Text = "Thêm";
-            btnAdd.UseVisualStyleBackColor = true;
+            // ========== Buttons ==========
+            int btnTop = 390;
+            int btnWidth = 100;
+
+            btnAdd.Text = "➕ Thêm";
+            btnAdd.Location = new Point(150, btnTop);
+            btnAdd.Size = new Size(btnWidth, 35);
+            btnAdd.BackColor = Color.LightGreen;
+            btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Click += btnAdd_Click;
 
-            // 
-            // btnEdit
-            // 
-            btnEdit.Location = new Point(112, 400);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(94, 29);
-            btnEdit.Text = "Sửa";
-            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Text = "✏ Sửa";
+            btnEdit.Location = new Point(270, btnTop);
+            btnEdit.Size = new Size(btnWidth, 35);
+            btnEdit.BackColor = Color.LightSkyBlue;
+            btnEdit.FlatStyle = FlatStyle.Flat;
             btnEdit.Click += btnEdit_Click;
 
-            // 
-            // btnDelete
-            // 
-            btnDelete.Location = new Point(212, 400);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(94, 29);
-            btnDelete.Text = "Xóa";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Text = "🗑 Xoá";
+            btnDelete.Location = new Point(390, btnTop);
+            btnDelete.Size = new Size(btnWidth, 35);
+            btnDelete.BackColor = Color.Salmon;
+            btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Click += btnDelete_Click;
 
-            // 
-            // btnClose
-            // 
-            btnClose.Location = new Point(312, 400);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(94, 29);
-            btnClose.Text = "Đóng";
-            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Text = "↩ Đóng";
+            btnClose.Location = new Point(510, btnTop);
+            btnClose.Size = new Size(btnWidth, 35);
+            btnClose.BackColor = Color.Gainsboro;
+            btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Click += btnClose_Click;
 
-            // 
-            // fManageAuthor
-            // 
+            // ========== Form ==========
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            BackColor = Color.WhiteSmoke;
             Controls.Add(lblTitle);
             Controls.Add(txtSearch);
             Controls.Add(btnSearch);
@@ -115,6 +105,8 @@
             Controls.Add(btnEdit);
             Controls.Add(btnDelete);
             Controls.Add(btnClose);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "fManageAuthor";
             Text = "Quản lý Tác giả";
             Load += fManageAuthor_Load;
@@ -122,5 +114,6 @@
             ResumeLayout(false);
             PerformLayout();
         }
+
     }
 }
