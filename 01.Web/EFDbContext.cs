@@ -55,6 +55,27 @@ namespace QLTV
                  .HasKey(ba => new { ba.BookId, ba.AuthorId });
             model.Entity<BorrowDetail>()
                  .HasKey(bd => new { bd.ReceiptId, bd.BookId });
+            model.Entity<User>()
+                .HasDiscriminator<string>("UserType")
+                .HasValue<Employee>("Employee")
+                .HasValue<Customer>("Customer");
+
+            // 2) Check Constraint
+            model.Entity<User>(entity =>
+            {
+                // 1) Đặt discriminator như bình thường
+                entity.HasDiscriminator<string>("UserType")
+                      .HasValue<Employee>("Employee")
+                      .HasValue<Customer>("Customer");
+
+                // 2) Chèn CHECK CONSTRAINT qua ToTable()
+                entity.ToTable(table => table.HasCheckConstraint(
+                    name: "CK_Users_Password_NotNull_IfEmployee",
+                    sql: "(UserType = 'Customer' AND Password IS NULL)"
+                       + " OR (UserType = 'Employee' AND Password IS NOT NULL)"
+                ));
+            });
+
 
             // ----- Seed data -----
 
@@ -157,7 +178,7 @@ namespace QLTV
                     Username = "nguyenvanvu",
                     Address = "Số 12, ngõ 34 Phố Hoàng Hoa Thám, Quận Ba Đình, Hà Nội",
                     Phone = "0912345678",
-                    Password = "P@ssw0rd1"
+                    UserType = "Customer"
                 },
                 new User
                 {
@@ -167,7 +188,8 @@ namespace QLTV
                     Username = "tranthiba",
                     Address = "Số 45, Đường 3/2, Phường Hưng Lợi, Quận Ninh Kiều, TP. Cần Thơ",
                     Phone = "0987654321",
-                    Password = "B@Password2"
+                    UserType = "Customer"
+
                 },
                 new User
                 {
@@ -177,7 +199,8 @@ namespace QLTV
                     Username = "levanchi",
                     Address = "Số 78, Phố Nguyễn Văn Cừ, Phường Gia Thuỷ, TP. Bắc Ninh",
                     Phone = "0901234567",
-                    Password = "Ch1Secure!"
+                    UserType = "Customer"
+
                 }
             );
 
