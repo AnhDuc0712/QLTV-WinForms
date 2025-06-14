@@ -21,8 +21,6 @@ namespace Ngducanh
         {
             menuMain = new MenuStrip();
             mnuGiaoDienChinh = new ToolStripMenuItem();
-            mnuDangKy = new ToolStripMenuItem();
-            mnuDangNhap = new ToolStripMenuItem();
             mnuThoat = new ToolStripMenuItem();
             mnuSach = new ToolStripMenuItem();
             mnuXemDanhSachSach = new ToolStripMenuItem();
@@ -48,13 +46,7 @@ namespace Ngducanh
             mnuSoLuongSachMuon = new ToolStripMenuItem();
             mnuMuonTra = new ToolStripMenuItem();
             mnuLapPhieuMuon = new ToolStripMenuItem();
-            mnuChonDocGia = new ToolStripMenuItem();
-            mnuChonSachMuon = new ToolStripMenuItem();
-            mnuNgayMuonTra = new ToolStripMenuItem();
             mnuLapPhieuTra = new ToolStripMenuItem();
-            mnuChonDocGiaSachDangMuon = new ToolStripMenuItem();
-            mnuXacNhanTra = new ToolStripMenuItem();
-            mnuGhiNhanPhat = new ToolStripMenuItem();
             mnuLocPhieu = new ToolStripMenuItem();
             headerPanel = new Panel();
             lblTitle = new Label();
@@ -82,29 +74,11 @@ namespace Ngducanh
             // mnuGiaoDienChinh
             // 
             mnuGiaoDienChinh.BackColor = Color.LightGray;
-            mnuGiaoDienChinh.DropDownItems.AddRange(new ToolStripItem[] { mnuDangKy, mnuDangNhap, mnuThoat });
+            mnuGiaoDienChinh.DropDownItems.AddRange(new ToolStripItem[] { mnuThoat });
             mnuGiaoDienChinh.ForeColor = Color.Black;
             mnuGiaoDienChinh.Name = "mnuGiaoDienChinh";
             mnuGiaoDienChinh.Size = new Size(191, 43);
             mnuGiaoDienChinh.Text = "📂 Giao Diện Chính";
-            // 
-            // mnuDangKy
-            // 
-            mnuDangKy.BackColor = Color.White;
-            mnuDangKy.Font = new Font("Times New Roman", 10F);
-            mnuDangKy.ForeColor = Color.Black;
-            mnuDangKy.Name = "mnuDangKy";
-            mnuDangKy.Size = new Size(187, 26);
-            mnuDangKy.Text = "📝 Đăng Ký";
-            // 
-            // mnuDangNhap
-            // 
-            mnuDangNhap.BackColor = Color.White;
-            mnuDangNhap.Font = new Font("Times New Roman", 10F);
-            mnuDangNhap.ForeColor = Color.Black;
-            mnuDangNhap.Name = "mnuDangNhap";
-            mnuDangNhap.Size = new Size(187, 26);
-            mnuDangNhap.Text = "🔑 Đăng Nhập";
             // 
             // mnuThoat
             // 
@@ -112,7 +86,7 @@ namespace Ngducanh
             mnuThoat.Font = new Font("Times New Roman", 10F);
             mnuThoat.ForeColor = Color.Black;
             mnuThoat.Name = "mnuThoat";
-            mnuThoat.Size = new Size(187, 26);
+            mnuThoat.Size = new Size(224, 26);
             mnuThoat.Text = "❌ Thoát";
             // 
             // mnuSach
@@ -330,76 +304,20 @@ namespace Ngducanh
             // mnuLapPhieuMuon
             // 
             mnuLapPhieuMuon.BackColor = Color.White;
-            mnuLapPhieuMuon.DropDownItems.AddRange(new ToolStripItem[] { mnuChonDocGia, mnuChonSachMuon, mnuNgayMuonTra });
             mnuLapPhieuMuon.Font = new Font("Times New Roman", 10F);
             mnuLapPhieuMuon.ForeColor = Color.Black;
             mnuLapPhieuMuon.Name = "mnuLapPhieuMuon";
             mnuLapPhieuMuon.Size = new Size(351, 26);
             mnuLapPhieuMuon.Text = "📤 Lập Phiếu Mượn Sách";
             // 
-            // mnuChonDocGia
-            // 
-            mnuChonDocGia.BackColor = Color.White;
-            mnuChonDocGia.Font = new Font("Times New Roman", 10F);
-            mnuChonDocGia.ForeColor = Color.Black;
-            mnuChonDocGia.Name = "mnuChonDocGia";
-            mnuChonDocGia.Size = new Size(229, 26);
-            mnuChonDocGia.Text = "👤 Chọn Độc Giả";
-            // 
-            // mnuChonSachMuon
-            // 
-            mnuChonSachMuon.BackColor = Color.White;
-            mnuChonSachMuon.Font = new Font("Times New Roman", 10F);
-            mnuChonSachMuon.ForeColor = Color.Black;
-            mnuChonSachMuon.Name = "mnuChonSachMuon";
-            mnuChonSachMuon.Size = new Size(229, 26);
-            mnuChonSachMuon.Text = "📚 Chọn Sách Mượn";
-            // 
-            // mnuNgayMuonTra
-            // 
-            mnuNgayMuonTra.BackColor = Color.White;
-            mnuNgayMuonTra.Font = new Font("Times New Roman", 10F);
-            mnuNgayMuonTra.ForeColor = Color.Black;
-            mnuNgayMuonTra.Name = "mnuNgayMuonTra";
-            mnuNgayMuonTra.Size = new Size(229, 26);
-            mnuNgayMuonTra.Text = "📅 Ngày Mượn/Trả";
-            // 
             // mnuLapPhieuTra
             // 
             mnuLapPhieuTra.BackColor = Color.White;
-            mnuLapPhieuTra.DropDownItems.AddRange(new ToolStripItem[] { mnuChonDocGiaSachDangMuon, mnuXacNhanTra, mnuGhiNhanPhat });
             mnuLapPhieuTra.Font = new Font("Times New Roman", 10F);
             mnuLapPhieuTra.ForeColor = Color.Black;
             mnuLapPhieuTra.Name = "mnuLapPhieuTra";
             mnuLapPhieuTra.Size = new Size(351, 26);
             mnuLapPhieuTra.Text = "📥 Lập Phiếu Trả Sách";
-            // 
-            // mnuChonDocGiaSachDangMuon
-            // 
-            mnuChonDocGiaSachDangMuon.BackColor = Color.White;
-            mnuChonDocGiaSachDangMuon.Font = new Font("Times New Roman", 10F);
-            mnuChonDocGiaSachDangMuon.ForeColor = Color.Black;
-            mnuChonDocGiaSachDangMuon.Name = "mnuChonDocGiaSachDangMuon";
-            mnuChonDocGiaSachDangMuon.Size = new Size(346, 26);
-            mnuChonDocGiaSachDangMuon.Text = "👤📚 Chọn Độc Giả/Sách Đang Mượn";
-            // 
-            // mnuXacNhanTra
-            // 
-            mnuXacNhanTra.BackColor = Color.White;
-            mnuXacNhanTra.Font = new Font("Times New Roman", 10F);
-            mnuXacNhanTra.ForeColor = Color.Black;
-            mnuXacNhanTra.Name = "mnuXacNhanTra";
-            mnuXacNhanTra.Size = new Size(346, 26);
-            mnuXacNhanTra.Text = "✔️ Xác Nhận Trả";
-            // 
-            // mnuGhiNhanPhat
-            // 
-            mnuGhiNhanPhat.BackColor = Color.White;
-            mnuGhiNhanPhat.Font = new Font("Times New Roman", 10F);
-            mnuGhiNhanPhat.ForeColor = Color.Black;
-            mnuGhiNhanPhat.Name = "mnuGhiNhanPhat";
-            mnuGhiNhanPhat.Size = new Size(346, 26);
-            mnuGhiNhanPhat.Text = "⚠️ Ghi Nhận Phạt";
             // 
             // mnuLocPhieu
             // 
@@ -410,7 +328,6 @@ namespace Ngducanh
             mnuLocPhieu.Size = new Size(351, 26);
             mnuLocPhieu.Text = "\U0001f9e9 Lọc Theo Độc Giả/Sách/Trạng Thái";
             mnuLocPhieu.Click += mnuLocPhieu_Click;
-
             // 
             // headerPanel
             // 
@@ -471,8 +388,6 @@ namespace Ngducanh
 
         private MenuStrip menuMain;
         private ToolStripMenuItem mnuGiaoDienChinh;
-        private ToolStripMenuItem mnuDangKy;
-        private ToolStripMenuItem mnuDangNhap;
         private ToolStripMenuItem mnuThoat;
         private ToolStripMenuItem mnuSach;
         private ToolStripMenuItem mnuXemDanhSachSach;
@@ -495,13 +410,7 @@ namespace Ngducanh
         private ToolStripMenuItem mnuHienThiDanhSachDocGia;
         private ToolStripMenuItem mnuMuonTra;
         private ToolStripMenuItem mnuLapPhieuMuon;
-        private ToolStripMenuItem mnuChonDocGia;
-        private ToolStripMenuItem mnuChonSachMuon;
-        private ToolStripMenuItem mnuNgayMuonTra;
         private ToolStripMenuItem mnuLapPhieuTra;
-        private ToolStripMenuItem mnuChonDocGiaSachDangMuon;
-        private ToolStripMenuItem mnuXacNhanTra;
-        private ToolStripMenuItem mnuGhiNhanPhat;
         private ToolStripMenuItem mnuLocPhieu;
         private ToolStripMenuItem mnuBaoCao;
         private ToolStripMenuItem mnuSachDangMuon;
