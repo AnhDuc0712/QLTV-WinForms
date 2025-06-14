@@ -66,8 +66,8 @@ namespace QLTV.form.Reader
         private void btNew_Click(object sender, EventArgs e)
         {
             var f = new fNewReader();
-            if (f.ShowDialog() == DialogResult.OK)
-                LoadReaders();
+            f.MdiParent = this.MdiParent;
+            f.Show();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -78,8 +78,8 @@ namespace QLTV.form.Reader
             if (dataGridView1.Columns[e.ColumnIndex].Name == "Edit")
             {
                 var f = new fEditReader(userId);
-                if (f.ShowDialog() == DialogResult.OK)
-                    LoadReaders();
+                f.MdiParent = this.MdiParent;
+                f.Show();
             }
             else if (dataGridView1.Columns[e.ColumnIndex].Name == "Delete")
             {

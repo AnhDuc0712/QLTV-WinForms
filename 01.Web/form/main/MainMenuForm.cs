@@ -1,6 +1,7 @@
 ﻿using Ngducanh_Quanlysach;
 using QLTV.form.Borrow;
 using QLTV.form.Reader;
+using QLTV.form.Statistical;
 using QLTV.Models;
 using System;
 using System.Drawing;
@@ -148,11 +149,15 @@ namespace Ngducanh
             // f.ShowDialog(this);
         }
 
+
+
+        // sự kiện hiển thị danh sách độc giả 
         private void mnuHienThiDanhSachDocGia_Click(object sender, EventArgs e)
         {
             fManageReader f = new fManageReader();
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.ShowDialog(this);
+            f.MdiParent = this;
+            f.WindowState = FormWindowState.Maximized; // tuỳ, hoặc Normal
+            f.Show();
         }
 
         // --- SỰ KIỆN THOÁT ---
@@ -167,6 +172,7 @@ namespace Ngducanh
             this.Close();
         }
 
+ main
         // --- Các sự kiện không cần thiết ---
         private void mnuXemDanhSachTacGia_Click_1(object sender, EventArgs e) { }
         private void mnuTacGia_Click(object sender, EventArgs e) { }
@@ -180,18 +186,6 @@ namespace Ngducanh
                 e.Graphics.FillRectangle(brush, ClientRectangle);
             }
         }
-
-        private void mnuLocPhieu_Click(object sender, EventArgs e)
-        {
-            foreach (Form child in this.MdiChildren)
-                child.Close();
-
-            var f = new QLTV.form.Borrow.mnuLocDocGiaSachTrangThai(); // đúng namespace và tên class!
-            f.MdiParent = this;
-            f.WindowState = FormWindowState.Maximized;
-            f.Show();
-        }
-
-
+ main
     }
 }
