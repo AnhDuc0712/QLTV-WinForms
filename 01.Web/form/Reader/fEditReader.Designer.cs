@@ -109,6 +109,7 @@
             // txtEmail
             // 
             txtEmail.Font = new Font("Segoe UI", 11F);
+            txtEmail.Location = new Point(140, 121);
 
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(240, 32);

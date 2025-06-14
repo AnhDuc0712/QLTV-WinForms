@@ -409,6 +409,8 @@ namespace Ngducanh
             mnuLocPhieu.Name = "mnuLocPhieu";
             mnuLocPhieu.Size = new Size(351, 26);
             mnuLocPhieu.Text = "\U0001f9e9 Lọc Theo Độc Giả/Sách/Trạng Thái";
+            mnuLocPhieu.Click += mnuLocPhieu_Click;
+
             // 
             // headerPanel
             // 
