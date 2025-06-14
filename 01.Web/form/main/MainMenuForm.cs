@@ -5,6 +5,7 @@ using QLTV.form.Reader;
 using QLTV.form.Statistical;
 
 
+using QLTV.form.BorrowReturn;
 
 using QLTV.Models;
 using System;
@@ -70,6 +71,9 @@ namespace Ngducanh
             mnuThemSuaXoaTacGia.Click += mnuThemSuaXoaTacGia_Click;
             mnuTimTacGia.Click += mnuTimTacGia_Click;
             mnuSachTreHanNhieuNhat.Click += mnuSachTreHanNhieuNhat_Click;
+            mnuLapPhieuMuon.Click += (s, e) => OpenNewBorrowReceiptForm();
+            mnuLapPhieuTra.Click += (s, e) => OpenReturnBookForm();
+
 
 
             // ====== Gán sự kiện cho menu Thoát ======
@@ -275,6 +279,29 @@ namespace Ngducanh
             f.MdiParent = this;
             f.WindowState = FormWindowState.Maximized;
             f.Show();
+        }
+        // Mở form Tạo phiếu mượn
+        private void OpenNewBorrowReceiptForm()
+        {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close(); // hoặc child.Hide();
+            }
+            var form = new fNewBorrowReceipt();
+            form.MdiParent = this; // nếu form chính là MDI
+            form.Show();
+        }
+
+        // Mở form Trả sách
+        private void OpenReturnBookForm()
+        {
+            foreach (Form child in this.MdiChildren)
+            {
+                child.Close(); // hoặc child.Hide();
+            }
+            var form = new fReturnBook();
+            form.MdiParent = this; // nếu form chính là MDI
+            form.Show();
         }
 
 
