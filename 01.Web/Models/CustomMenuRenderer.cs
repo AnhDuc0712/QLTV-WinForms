@@ -2,7 +2,7 @@
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace Ngducanh
+namespace QLTV.Models
 {
     public class CustomMenuRenderer : ToolStripProfessionalRenderer
     {
@@ -30,8 +30,8 @@ namespace Ngducanh
             }
         }
 
-     
-      
+
+
 
         // Vẽ chữ cho các mục menu
         protected override void OnRenderItemText(ToolStripItemTextRenderEventArgs e)
