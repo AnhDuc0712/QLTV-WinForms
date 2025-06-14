@@ -68,6 +68,8 @@ namespace Ngducanh
             mnuXemDanhSachTacGia.Click += mnuXemDanhSachTacGia_Click;
             mnuThemSuaXoaTacGia.Click += mnuThemSuaXoaTacGia_Click;
             mnuTimTacGia.Click += mnuTimTacGia_Click;
+            mnuSachTreHanNhieuNhat.Click += mnuSachTreHanNhieuNhat_Click;
+
 
             // ====== Gán sự kiện cho menu Thoát ======
             mnuThoat.Click += mnuThoat_Click;
@@ -129,15 +131,17 @@ namespace Ngducanh
         private void mnuXemDanhSachTacGia_Click(object sender, EventArgs e)
         {
             var f = new fManageAuthor();
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.ShowDialog(this);
+            f.MdiParent = this;
+            f.WindowState = FormWindowState.Maximized; // tuỳ, hoặc Normal
+            f.Show();
         }
 
         private void mnuThemSuaXoaTacGia_Click(object sender, EventArgs e)
         {
             var f = new fManageAuthor();
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.ShowDialog(this);
+            f.MdiParent = this;
+            f.WindowState = FormWindowState.Maximized; // tuỳ, hoặc Normal
+            f.Show();
         }
 
         private void mnuTimTacGia_Click(object sender, EventArgs e)
@@ -199,6 +203,15 @@ namespace Ngducanh
             f.WindowState = FormWindowState.Maximized; // tuỳ, hoặc Normal
             f.Show();
 
+        }
+
+        // --- THỐNG KÊ SÁCH TRỄ HẠN ---
+        private void mnuSachTreHanNhieuNhat_Click(object sender, EventArgs e)
+        {
+            var f = new fLateBook();
+            f.MdiParent = this;
+            f.WindowState = FormWindowState.Maximized;
+            f.Show();
         }
 
     }
