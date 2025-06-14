@@ -15,6 +15,7 @@ namespace QLTV
         public DbSet<BorrowReceipt> BorrowReceipts { get; set; }
         public DbSet<BorrowDetail> BorrowDetails { get; set; }
 
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer(
