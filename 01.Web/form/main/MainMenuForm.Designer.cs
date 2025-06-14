@@ -298,7 +298,9 @@ namespace Ngducanh
             mnuSachDangMuon.Name = "mnuSachDangMuon";
             mnuSachDangMuon.Size = new Size(284, 26);
             mnuSachDangMuon.Text = "📕 Sách Đang Mượn";
+
             mnuSachDangMuon.Click += mnuSachDangMuon_Click;
+
             // 
             // mnuSachTreHanNhieuNhat
             // 

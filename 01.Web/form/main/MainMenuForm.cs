@@ -1,7 +1,11 @@
 ﻿using Ngducanh_Quanlysach;
 using QLTV.form.Borrow;
 using QLTV.form.Reader;
+
 using QLTV.form.Statistical;
+
+
+
 using QLTV.Models;
 using System;
 using System.Drawing;
@@ -158,6 +162,7 @@ namespace Ngducanh
             f.MdiParent = this;
             f.WindowState = FormWindowState.Maximized; // tuỳ, hoặc Normal
             f.Show();
+
         }
 
         // --- SỰ KIỆN THOÁT ---
@@ -172,7 +177,7 @@ namespace Ngducanh
             this.Close();
         }
 
- main
+
         // --- Các sự kiện không cần thiết ---
         private void mnuXemDanhSachTacGia_Click_1(object sender, EventArgs e) { }
         private void mnuTacGia_Click(object sender, EventArgs e) { }
@@ -186,6 +191,18 @@ namespace Ngducanh
                 e.Graphics.FillRectangle(brush, ClientRectangle);
             }
         }
- main
+
+
+
+        //Sách đang mượn/ số lượng
+        private void mnuSachDangMuon_Click(object sender, EventArgs e)
+        {
+            fBorrowedBooks f = new fBorrowedBooks();
+            f.MdiParent = this;
+            f.WindowState = FormWindowState.Maximized; // tuỳ, hoặc Normal
+            f.Show();
+
+        }
+
     }
 }
