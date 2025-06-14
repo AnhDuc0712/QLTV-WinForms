@@ -1,6 +1,8 @@
 ﻿using Ngducanh_Quanlysach;
 using QLTV.form.Reader;
+
 using QLTV.form.Statistical;
+
 using QLTV.Models;
 using System;
 using System.Drawing;
@@ -151,7 +153,6 @@ namespace Ngducanh
         }
 
 
-
         // sự kiện hiển thị danh sách độc giả 
         private void mnuHienThiDanhSachDocGia_Click(object sender, EventArgs e)
         {
@@ -159,6 +160,7 @@ namespace Ngducanh
             f.MdiParent = this;
             f.WindowState = FormWindowState.Maximized; // tuỳ, hoặc Normal
             f.Show();
+
         }
 
         // --- SỰ KIỆN THOÁT ---
@@ -188,6 +190,7 @@ namespace Ngducanh
             }
         }
 
+
         //Sách đang mượn/ số lượng
         private void mnuSachDangMuon_Click(object sender, EventArgs e)
         {
@@ -197,5 +200,6 @@ namespace Ngducanh
             f.Show();
 
         }
+
     }
 }
