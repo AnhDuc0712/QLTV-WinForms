@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using QLTV.Models;
 using System;
 using System.Windows.Forms;
@@ -71,25 +71,25 @@ namespace Ngducanh_Quanlysach
 
                 dataGridView1.DataSource = result;
 
-                lblTotalLateBooks.Text = "T?ng s? s�ch tr? h?n: " + result.Count;
-                lblTotalUser.Text = "T?ng ??c Gi?: " + db.Users.Count();
+                lblTotalLateBooks.Text = "Tổng số sách trễ hạn: " + result.Count;
+                lblTotalUser.Text = "Tổng Độc Giả: " + db.Users.Count();
 
                 if (dataGridView1.Columns.Count > 0)
                 {
-                    dataGridView1.Columns["HoTen"].HeaderText = "H? T�n";
-                    dataGridView1.Columns["TenSach"].HeaderText = "T�n S�ch";
-                    dataGridView1.Columns["NgayMuon"].HeaderText = "Ng�y M??n";
-                    dataGridView1.Columns["HanTra"].HeaderText = "H?n Tr?";
-                    dataGridView1.Columns["NgayTraThucTe"].HeaderText = "Ng�y Tr? Th?c T?";
-                    dataGridView1.Columns["SoNgayTre"].HeaderText = "S? Ng�y Tr?";
-                    dataGridView1.Columns["TienPhat"].HeaderText = "Ti?n Ph?t";
+                    dataGridView1.Columns["HoTen"].HeaderText = "Họ Tên";
+                    dataGridView1.Columns["TenSach"].HeaderText = "Tên Sách";
+                    dataGridView1.Columns["NgayMuon"].HeaderText = "Ngày Mượn";
+                    dataGridView1.Columns["HanTra"].HeaderText = "Hạn Trả";
+                    dataGridView1.Columns["NgayTraThucTe"].HeaderText = "Ngày Trả Thực Tế";
+                    dataGridView1.Columns["SoNgayTre"].HeaderText = "Số Ngày Trễ";
+                    dataGridView1.Columns["TienPhat"].HeaderText = "Tiền Phạt";
                 }
             }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close(); 
         }
 
         private void fLateBook_Load(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace Ngducanh_Quanlysach
         private void btnFind_Click(object sender, EventArgs e)
         {
             string keyword = txtFind.Text.Trim();
-            LoadLateBooks(keyword);
+            LoadLateBooks(keyword); 
         }
     }
 }

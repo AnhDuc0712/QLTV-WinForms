@@ -1,8 +1,4 @@
-﻿using static System.Net.Mime.MediaTypeNames;
-using System.Windows.Forms;
-using System.Xml.Linq;
-
-namespace Ngducanh_Quanlysach
+﻿namespace Ngducanh_Quanlysach
 {
     partial class fLateBook
     {
