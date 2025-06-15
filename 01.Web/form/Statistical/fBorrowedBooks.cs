@@ -1,4 +1,4 @@
-﻿using QLTV.Models; // Sửa lại namespace nếu cần
+﻿using QLTV.Models;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -30,14 +30,16 @@ namespace QLTV.form.Statistical
                         {
                             BookId = g.Key,
                             Title = g.First().Book.Title,
-                            BorrowCount = g.Count()
+                            BorrowCount = g.Count(),
+                            Readers = string.Join(", ",
+                                g.Select(x => x.BorrowReceipt.User.FullName).Distinct())
                         })
                         .OrderByDescending(x => x.BorrowCount)
                         .ToList();
 
                     dataGridView1.DataSource = result;
 
-                    // Tính tổng số lượt mượn đang có
+                    // Tổng số lượt mượn
                     int total = result.Sum(x => x.BorrowCount);
                     lblTotal.Text = $"Tổng số lượt mượn: {total}";
                 }
@@ -55,7 +57,7 @@ namespace QLTV.form.Statistical
 
         private void lblTotal_Click(object sender, EventArgs e)
         {
-
+            // Không cần xử lý gì cho label này
         }
     }
 }

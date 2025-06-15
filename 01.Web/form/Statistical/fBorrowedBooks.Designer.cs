@@ -9,6 +9,11 @@ namespace QLTV.form.Statistical
         private Label lblTitle;
         private Label lblTotal;
         private Button btClose;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn BookId;
+        private DataGridViewTextBoxColumn Title;
+        private DataGridViewTextBoxColumn BorrowCount;
+        private DataGridViewTextBoxColumn Readers;
 
         private void InitializeComponent()
         {
@@ -19,8 +24,11 @@ namespace QLTV.form.Statistical
             BookId = new DataGridViewTextBoxColumn();
             Title = new DataGridViewTextBoxColumn();
             BorrowCount = new DataGridViewTextBoxColumn();
+            Readers = new DataGridViewTextBoxColumn();
+
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
+
             // 
             // lblTitle
             // 
@@ -61,12 +69,13 @@ namespace QLTV.form.Statistical
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { BookId, Title, BorrowCount });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { BookId, Title, BorrowCount, Readers });
             dataGridView1.Location = new Point(354, 92);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(780, 340);
+            dataGridView1.Size = new Size(950, 340);
             dataGridView1.TabIndex = 4;
+
             // 
             // BookId
             // 
@@ -75,7 +84,7 @@ namespace QLTV.form.Statistical
             BookId.MinimumWidth = 6;
             BookId.Name = "BookId";
             BookId.ReadOnly = true;
-            BookId.Width = 125;
+            BookId.Width = 80;
             // 
             // Title
             // 
@@ -84,7 +93,7 @@ namespace QLTV.form.Statistical
             Title.MinimumWidth = 6;
             Title.Name = "Title";
             Title.ReadOnly = true;
-            Title.Width = 500;
+            Title.Width = 320;
             // 
             // BorrowCount
             // 
@@ -93,11 +102,22 @@ namespace QLTV.form.Statistical
             BorrowCount.MinimumWidth = 6;
             BorrowCount.Name = "BorrowCount";
             BorrowCount.ReadOnly = true;
+            BorrowCount.Width = 90;
+            //
+            // Readers
+            //
+            Readers.DataPropertyName = "Readers";
+            Readers.HeaderText = "Độc giả đang mượn";
+            Readers.MinimumWidth = 6;
+            Readers.Name = "Readers";
+            Readers.ReadOnly = true;
+            Readers.Width = 300;
+
             // 
             // fBorrowedBooks
             // 
             BackColor = Color.White;
-            ClientSize = new Size(1146, 600);
+            ClientSize = new Size(1346, 600);
             Controls.Add(dataGridView1);
             Controls.Add(lblTitle);
             Controls.Add(lblTotal);
@@ -111,10 +131,5 @@ namespace QLTV.form.Statistical
             ResumeLayout(false);
             PerformLayout();
         }
-
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn BookId;
-        private DataGridViewTextBoxColumn Title;
-        private DataGridViewTextBoxColumn BorrowCount;
     }
 }
