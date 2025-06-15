@@ -56,6 +56,27 @@ namespace QLTV
                  .HasKey(ba => new { ba.BookId, ba.AuthorId });
             model.Entity<BorrowDetail>()
                  .HasKey(bd => new { bd.ReceiptId, bd.BookId });
+            model.Entity<User>()
+                .HasDiscriminator<string>("UserType")
+                .HasValue<Employee>("Employee")
+                .HasValue<Customer>("Customer");
+
+            // 2) Check Constraint
+            model.Entity<User>(entity =>
+            {
+                // 1) Đặt discriminator như bình thường
+                entity.HasDiscriminator<string>("UserType")
+                      .HasValue<Employee>("Employee")
+                      .HasValue<Customer>("Customer");
+
+                // 2) Chèn CHECK CONSTRAINT qua ToTable()
+                entity.ToTable(table => table.HasCheckConstraint(
+                    name: "CK_Users_Password_NotNull_IfEmployee",
+                    sql: "(UserType = 'Customer' AND Password IS NULL)"
+                       + " OR (UserType = 'Employee' AND Password IS NOT NULL)"
+                ));
+            });
+
 
             // ----- Seed data -----
 
@@ -75,7 +96,22 @@ namespace QLTV
                 new Category { CategoryId = 3012, Name = "Tự lực – Phát triển bản thân" },
                 new Category { CategoryId = 3013, Name = "Thơ ca" },
                 new Category { CategoryId = 3014, Name = "Du lịch – Khám phá" },
-                new Category { CategoryId = 3015, Name = "Ẩm thực – Nấu ăn" }
+                new Category { CategoryId = 3015, Name = "Ẩm thực – Nấu ăn" },
+                new Category { CategoryId = 3016, Name = "Văn học trẻ" },
+                new Category { CategoryId = 3017, Name = "Tiểu thuyết trinh thám" },
+                new Category { CategoryId = 3018, Name = "Kinh dị – Giật gân" },
+                new Category { CategoryId = 3019, Name = "Thơ cách mạng" },
+                new Category { CategoryId = 3020, Name = "Tôn giáo – Triết học" },
+                new Category { CategoryId = 3021, Name = "Khoa học viễn tưởng" },
+                new Category { CategoryId = 3022, Name = "Lãng mạn – Tình cảm" },
+                new Category { CategoryId = 3023, Name = "Phát triển bản thân" },
+                new Category { CategoryId = 3024, Name = "Kinh doanh – Khởi nghiệp" },
+                new Category { CategoryId = 3025, Name = "Sách kỹ năng mềm" },
+                new Category { CategoryId = 3026, Name = "Văn hóa – Xã hội" },
+                new Category { CategoryId = 3027, Name = "Sách thiếu nhi – Thiếu niên" },
+                new Category { CategoryId = 3028, Name = "Sách luật pháp" },
+                new Category { CategoryId = 3029, Name = "Sách đại học" },
+                new Category { CategoryId = 3030, Name = "Sách chuyên ngành y" }
             );
 
             // Publishers
@@ -87,7 +123,16 @@ namespace QLTV
                 new Publisher { PublisherId = 4005, Name = "NXB Kim Đồng" },
                 new Publisher { PublisherId = 4006, Name = "NXB Thống Kê" },
                 new Publisher { PublisherId = 4007, Name = "NXB Đại học Quốc gia" },
-                new Publisher { PublisherId = 4008, Name = "NXB Công nghệ Thông tin" }
+                new Publisher { PublisherId = 4008, Name = "NXB Công nghệ Thông tin" },
+                new Publisher { PublisherId = 4009, Name = "NXB Hội Nhà văn" },
+                new Publisher { PublisherId = 4010, Name = "NXB Văn học" },
+                new Publisher { PublisherId = 4011, Name = "NXB Phụ nữ" },
+                new Publisher { PublisherId = 4012, Name = "NXB Tri thức" },
+                new Publisher { PublisherId = 4013, Name = "NXB Phương Đông" },
+                new Publisher { PublisherId = 4014, Name = "NXB Văn học Đông Á" },
+                new Publisher { PublisherId = 4015, Name = "NXB Đại học Quốc gia TP.HCM" },
+                new Publisher { PublisherId = 4016, Name = "NXB An ninh quốc gia" }
+
             );
 
             // Authors
@@ -106,7 +151,22 @@ namespace QLTV
                 new Author { AuthorId = 2012, Name = "Fyodor Dostoevsky" },
                 new Author { AuthorId = 2013, Name = "Gabriel Garcia Marquez" },
                 new Author { AuthorId = 2014, Name = "Isaac Asimov" },
-                new Author { AuthorId = 2015, Name = "Sun Tzu" }
+                new Author { AuthorId = 2015, Name = "Sun Tzu" },
+                new Author { AuthorId = 2016, Name = "Ernest Hemingway" },
+                new Author { AuthorId = 2017, Name = "Agatha Christie" },
+                new Author { AuthorId = 2018, Name = "Edgar Allan Poe" },
+                new Author { AuthorId = 2019, Name = "Ralph Waldo Emerson" },
+                new Author { AuthorId = 2020, Name = "Đỗ Phấn" },
+                new Author { AuthorId = 2021, Name = "Arthur C. Clarke" },
+                new Author { AuthorId = 2022, Name = "Nicholas Sparks" },
+                new Author { AuthorId = 2023, Name = "Dale Carnegie" },
+                new Author { AuthorId = 2024, Name = "Robert Kiyosaki" },
+                new Author { AuthorId = 2025, Name = "Stephen R. Covey" },
+                new Author { AuthorId = 2026, Name = "Nguyễn Trãi" },
+                new Author { AuthorId = 2027, Name = "William Shakespeare" },
+                new Author { AuthorId = 2028, Name = "Sigmund Freud" },
+                new Author { AuthorId = 2029, Name = "Noam Chomsky" },
+                new Author { AuthorId = 2030, Name = "Trần Đại Nghĩa" }
             );
 
             // Users (3 bản ghi với địa chỉ chi tiết)
@@ -119,7 +179,7 @@ namespace QLTV
                     Username = "nguyenvanvu",
                     Address = "Số 12, ngõ 34 Phố Hoàng Hoa Thám, Quận Ba Đình, Hà Nội",
                     Phone = "0912345678",
-                    Password = "P@ssw0rd1"
+                    UserType = "Customer"
                 },
                 new User
                 {
@@ -129,7 +189,8 @@ namespace QLTV
                     Username = "tranthiba",
                     Address = "Số 45, Đường 3/2, Phường Hưng Lợi, Quận Ninh Kiều, TP. Cần Thơ",
                     Phone = "0987654321",
-                    Password = "B@Password2"
+                    UserType = "Customer"
+
                 },
                 new User
                 {
@@ -139,8 +200,212 @@ namespace QLTV
                     Username = "levanchi",
                     Address = "Số 78, Phố Nguyễn Văn Cừ, Phường Gia Thuỷ, TP. Bắc Ninh",
                     Phone = "0901234567",
-                    Password = "Ch1Secure!"
+                    UserType = "Customer"
+
+                },
+                new User
+                {
+                    UserId = 1004,
+                    FullName = "Phạm Thị Dung",
+                    Email = "dungpham@gmail.com",
+                    Username = "phamthidung",
+                    Address = "Số 22, Đường Láng Hạ, Phường Láng Hạ, Quận Đống Đa, Hà Nội",
+                    Phone = "0918765432",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1005,
+                    FullName = "Võ Văn An",
+                    Email = "anvo@gmail.com",
+                    Username = "vovan_an",
+                    Address = "Số 99, Đường Trần Phú, Phường 5, TP. Vũng Tàu",
+                    Phone = "0932123456",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1006,
+                    FullName = "Lý Thị Hiền",
+                    Email = "hienly@gmail.com",
+                    Username = "lythihien",
+                    Address = "Số 5, Phố Hoàng Diệu, Phường Hải Châu 1, Quận Hải Châu, Đà Nẵng",
+                    Phone = "0983344556",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1007,
+                    FullName = "Ngô Minh Tuấn",
+                    Email = "tuanngo@gmail.com",
+                    Username = "ngominhtuan",
+                    Address = "Số 150, Đường Cách Mạng Tháng 8, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh",
+                    Phone = "0909988776",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1008,
+                    FullName = "Đặng Thị Lan",
+                    Email = "lan.dang@gmail.com",
+                    Username = "dangthilan",
+                    Address = "Số 10, Đường Hai Bà Trưng, Phường Phạm Ngũ Lão, Quận 1, TP. Hồ Chí Minh",
+                    Phone = "0911223344",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1009,
+                    FullName = "Phan Văn Hòa",
+                    Email = "vanhoa.phan@gmail.com",
+                    Username = "phanvanhoa",
+                    Address = "Số 8, Đường Nguyễn Thị Minh Khai, Phường 1, TP. Vĩnh Long",
+                    Phone = "0977554433",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1010,
+                    FullName = "Trương Thị Mai",
+                    Email = "maitruong@gmail.com",
+                    Username = "truongthimai",
+                    Address = "Số 120, Đường Phan Đình Phùng, Phường Thành Nhất, TP. Buôn Ma Thuột",
+                    Phone = "0911335577",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1011,
+                    FullName = "Bùi Quốc Việt",
+                    Email = "quocviet.bui@gmail.com",
+                    Username = "buiquo cviet",
+                    Address = "Số 33, Phố Lý Thường Kiệt, Phường Phủ Hà, TP. Lạng Sơn",
+                    Phone = "0987665544",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1012,
+                    FullName = "Lê Thị Phương",
+                    Email = "phuongle@gmail.com",
+                    Username = "lethiphuong",
+                    Address = "Số 27, Đường Hùng Vương, Phường Mỹ Xuyên, TP. Sóc Trăng",
+                    Phone = "0968877665",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1013,
+                    FullName = "Đỗ Minh Tú",
+                    Email = "minhtu.do@gmail.com",
+                    Username = "dominhtu",
+                    Address = "Số 55, Đường Trần Hưng Đạo, Phường Lê Lợi, TP. Nam Định",
+                    Phone = "0933445566",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1014,
+                    FullName = "Phạm Minh Quân",
+                    Email = "minhquan.pham@gmail.com",
+                    Username = "phamminhquan",
+                    Address = "Số 18, Đường Lê Lợi, Phường An Lạc, TP. Biên Hòa",
+                    Phone = "0914556677",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1015,
+                    FullName = "Vũ Thị Ngọc",
+                    Email = "ngocvu@gmail.com",
+                    Username = "vuthingoc",
+                    Address = "Số 66, Phố Trần Nhân Tông, Phường Nam Đàn, TP. Thanh Hóa",
+                    Phone = "0988112233",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1016,
+                    FullName = "Nguyễn Quốc Cường",
+                    Email = "quoccuong.nguyen@gmail.com",
+                    Username = "nguyencuong",
+                    Address = "Số 102, Đường Trần Phú, Phường Xuân Phú, TP. Huế",
+                    Phone = "0902334455",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1017,
+                    FullName = "Lê Thúy Hằng",
+                    Email = "thuyhang.le@gmail.com",
+                    Username = "lethuyhang",
+                    Address = "Số 5, Đường Nguyễn Văn Trỗi, Phường Đông Vệ, TP. Thanh Hóa",
+                    Phone = "0977665544",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1018,
+                    FullName = "Trần Anh Tuấn",
+                    Email = "anhtuan.tran@gmail.com",
+                    Username = "trananhtuan",
+                    Address = "Số 250, Đường Nguyễn Thái Học, Phường Phan Chu Trinh, TP. Quy Nhơn",
+                    Phone = "0933667788",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1019,
+                    FullName = "Phan Thị Hạnh",
+                    Email = "hanhphan@gmail.com",
+                    Username = "phanthihanh",
+                    Address = "Số 14, Đường Nguyễn Huệ, Phường Phước Ninh, TP. Đà Nẵng",
+                    Phone = "0901778899",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1020,
+                    FullName = "Trương Văn Sơn",
+                    Email = "sontruong@gmail.com",
+                    Username = "truongvanson",
+                    Address = "Số 77, Phố Phan Đình Phùng, Phường Đội Cấn, Quận Ba Đình, Hà Nội",
+                    Phone = "0977001122",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1021,
+                    FullName = "Lê Minh Tâm",
+                    Email = "leminhtam@gmail.com",
+                    Username = "leminhtam",
+                    Address = "Số 33, Đường Trần Khánh Dư, Phường Trần Hưng Đạo, Quận Hoàn Kiếm, Hà Nội",
+                    Phone = "0912993344",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1022,
+                    FullName = "Đặng Văn Phúc",
+                    Email = "phucdang@gmail.com",
+                    Username = "dangvanphuc",
+                    Address = "Số 55, Đường Đinh Tiên Hoàng, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh",
+                    Phone = "0933100234",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1023,
+                    FullName = "Võ Thị Kiều",
+                    Email = "kieuvo@gmail.com",
+                    Username = "vothikieu",
+                    Address = "Số 99, Đường Lý Tự Trọng, Phường Phú Hòa, TP. Thủ Dầu Một",
+                    Phone = "0988776655",
+                    UserType = "Customer"
                 }
+
+
+
             );
 
             // Books
@@ -174,7 +439,85 @@ namespace QLTV
                 new Book { BookId = 5027, Title = "How to Win Friends & Influence People", CategoryId = 3012, PublisherId = 4001, StockQuantity = 7, ImageUrl = null },
                 new Book { BookId = 5028, Title = "Thơ Viết Cho Tuổi 20", CategoryId = 3013, PublisherId = 4007, StockQuantity = 5, ImageUrl = null },
                 new Book { BookId = 5029, Title = "1001 Địa Điểm Việt Nam", CategoryId = 3014, PublisherId = 4006, StockQuantity = 9, ImageUrl = null },
-                new Book { BookId = 5030, Title = "Cẩm Nang Nấu Ăn Gia Đình", CategoryId = 3015, PublisherId = 4006, StockQuantity = 14, ImageUrl = null }
+                new Book { BookId = 5030, Title = "Cẩm Nang Nấu Ăn Gia Đình", CategoryId = 3015, PublisherId = 4006, StockQuantity = 14, ImageUrl = null },
+                new Book { BookId = 5031, Title = "Ông già và biển cả", CategoryId = 3017, PublisherId = 4009, StockQuantity = 7, ImageUrl = null },
+                new Book { BookId = 5032, Title = "Án mạng trên chuyến tàu tốc hành phương Đông", CategoryId = 3017, PublisherId = 4010, StockQuantity = 5, ImageUrl = null },
+                new Book { BookId = 5033, Title = "Con quạ và các truyện khác", CategoryId = 3018, PublisherId = 4011, StockQuantity = 4, ImageUrl = null },
+                new Book { BookId = 5034, Title = "Tản văn Du ký", CategoryId = 3016, PublisherId = 4009, StockQuantity = 6, ImageUrl = null },
+                new Book { BookId = 5035, Title = "Tinh thần triết học", CategoryId = 3020, PublisherId = 4011, StockQuantity = 3, ImageUrl = null },
+                new Book { BookId = 5036, Title = "2001: A Space Odyssey", CategoryId = 3021, PublisherId = 4012, StockQuantity = 5, ImageUrl = null },
+                new Book { BookId = 5037, Title = "Notebook – Nhật ký tình yêu", CategoryId = 3022, PublisherId = 4013, StockQuantity = 8, ImageUrl = null },
+                new Book { BookId = 5038, Title = "How to Win Friends", CategoryId = 3023, PublisherId = 4012, StockQuantity = 10, ImageUrl = null },
+                new Book { BookId = 5039, Title = "Rich Dad Poor Dad", CategoryId = 3024, PublisherId = 4014, StockQuantity = 7, ImageUrl = null },
+                new Book { BookId = 5040, Title = "7 Thói Quen Hiệu Quả", CategoryId = 3025, PublisherId = 4013, StockQuantity = 6, ImageUrl = null },
+                new Book { BookId = 5041, Title = "Lược sử phát minh", CategoryId = 3026, PublisherId = 4015, StockQuantity = 5, ImageUrl = null },
+                new Book { BookId = 5042, Title = "Harry Potter và Phòng Chứa Bí Ẩn", CategoryId = 3027, PublisherId = 4016, StockQuantity = 7, ImageUrl = null },
+                new Book { BookId = 5043, Title = "Luật Dân sự Việt Nam", CategoryId = 3028, PublisherId = 4015, StockQuantity = 3, ImageUrl = null },
+                new Book { BookId = 5044, Title = "Toán Cao Cấp – Đại cương", CategoryId = 3029, PublisherId = 4015, StockQuantity = 4, ImageUrl = null },
+                new Book { BookId = 5045, Title = "Y học cổ truyền Việt Nam", CategoryId = 3030, PublisherId = 4016, StockQuantity = 6, ImageUrl = null },
+                new Book { BookId = 5046, Title = "Lập Trình C# Toàn Tập", CategoryId = 3005, PublisherId = 4008, StockQuantity = 15, ImageUrl = null },
+                new Book { BookId = 5047, Title = "Thiết Kế Kiến Trúc Phần Mềm", CategoryId = 3005, PublisherId = 4008, StockQuantity = 8, ImageUrl = null },
+                new Book { BookId = 5048, Title = "Giải Thuật và Cấu Trúc Dữ Liệu", CategoryId = 3005, PublisherId = 4008, StockQuantity = 12, ImageUrl = null },
+                new Book { BookId = 5049, Title = "An Ninh Mạng Cơ Bản", CategoryId = 3005, PublisherId = 4014, StockQuantity = 10, ImageUrl = null },
+                new Book { BookId = 5050, Title = "Hướng Dẫn ReactJS", CategoryId = 3005, PublisherId = 4012, StockQuantity = 7, ImageUrl = null },
+                new Book { BookId = 5051, Title = "Kỹ Năng Giao Tiếp Trong Công Việc", CategoryId = 3025, PublisherId = 4013, StockQuantity = 9, ImageUrl = null },
+                new Book { BookId = 5052, Title = "Nghệ Thuật Thuyết Phục", CategoryId = 3025, PublisherId = 4013, StockQuantity = 6, ImageUrl = null },
+                new Book { BookId = 5053, Title = "Quản Trị Mạng CCNA", CategoryId = 3005, PublisherId = 4008, StockQuantity = 5, ImageUrl = null },
+                new Book { BookId = 5054, Title = "Phân Tích Dữ Liệu với Python", CategoryId = 3005, PublisherId = 4009, StockQuantity = 11, ImageUrl = null },
+                new Book { BookId = 5055, Title = "Machine Learning Cơ Bản", CategoryId = 3005, PublisherId = 4014, StockQuantity = 4, ImageUrl = null },
+                new Book { BookId = 5056, Title = "Deep Learning Cơ Bản", CategoryId = 3005, PublisherId = 4014, StockQuantity = 5, ImageUrl = null },
+                new Book { BookId = 5057, Title = "Kỹ Năng Lãnh Đạo", CategoryId = 3025, PublisherId = 4013, StockQuantity = 8, ImageUrl = null },
+                new Book { BookId = 5058, Title = "Phát Triển Ứng Dụng Android", CategoryId = 3005, PublisherId = 4008, StockQuantity = 7, ImageUrl = null },
+                new Book { BookId = 5059, Title = "C# Trong Thực Tiễn", CategoryId = 3005, PublisherId = 4009, StockQuantity = 10, ImageUrl = null },
+                new Book { BookId = 5060, Title = "Docker và Kubernetes", CategoryId = 3005, PublisherId = 4012, StockQuantity = 6, ImageUrl = null },
+                new Book { BookId = 5061, Title = "Phân Tích Hành Vi Người Dùng", CategoryId = 3006, PublisherId = 4011, StockQuantity = 9, ImageUrl = null },
+                new Book { BookId = 5062, Title = "Quản Trị Dự Án Agile", CategoryId = 3024, PublisherId = 4010, StockQuantity = 4, ImageUrl = null },
+                new Book { BookId = 5063, Title = "Kiến Trúc Microservices", CategoryId = 3005, PublisherId = 4008, StockQuantity = 5, ImageUrl = null },
+                new Book { BookId = 5064, Title = "Trò Chuyện Với Stanley", CategoryId = 3023, PublisherId = 4009, StockQuantity = 7, ImageUrl = null },
+                new Book { BookId = 5065, Title = "Hành Trình Về Phương Đông", CategoryId = 3014, PublisherId = 4015, StockQuantity = 3, ImageUrl = null },
+                new Book { BookId = 5066, Title = "Thiết Kế UX/UI Cơ Bản", CategoryId = 3005, PublisherId = 4012, StockQuantity = 8, ImageUrl = null },
+                new Book { BookId = 5067, Title = "Phương Pháp Đặt Câu Hỏi", CategoryId = 3025, PublisherId = 4013, StockQuantity = 6, ImageUrl = null },
+                new Book { BookId = 5068, Title = "Lập Trình Python", CategoryId = 3005, PublisherId = 4008, StockQuantity = 12, ImageUrl = null },
+                new Book { BookId = 5069, Title = "An Toàn Thực Phẩm", CategoryId = 3009, PublisherId = 4006, StockQuantity = 5, ImageUrl = null },
+                new Book { BookId = 5070, Title = "Kỹ Thuật Chụp Ảnh", CategoryId = 3014, PublisherId = 4002, StockQuantity = 7, ImageUrl = null },
+                new Book { BookId = 5071, Title = "Quản Lý Nhân Sự Hiện Đại", CategoryId = 3024, PublisherId = 4010, StockQuantity = 4, ImageUrl = null },
+                new Book { BookId = 5072, Title = "Sức Mạnh Thói Quen", CategoryId = 3012, PublisherId = 4014, StockQuantity = 9, ImageUrl = null },
+                new Book { BookId = 5073, Title = "Ngôn Ngữ Cơ Thể", CategoryId = 3020, PublisherId = 4003, StockQuantity = 3, ImageUrl = null },
+                new Book { BookId = 5074, Title = "Khoa Học Hành Vi", CategoryId = 3003, PublisherId = 4001, StockQuantity = 6, ImageUrl = null },
+                new Book { BookId = 5075, Title = "Thuyết Trình Tuyệt Đỉnh", CategoryId = 3025, PublisherId = 4013, StockQuantity = 8, ImageUrl = null },
+                new Book { BookId = 5076, Title = "Công Nghệ Blockchain", CategoryId = 3005, PublisherId = 4014, StockQuantity = 5, ImageUrl = null },
+                new Book { BookId = 5077, Title = "Luật Hình Sự Cơ Bản", CategoryId = 3028, PublisherId = 4015, StockQuantity = 4, ImageUrl = null },
+                new Book { BookId = 5078, Title = "Viết Kịch Bản Phim", CategoryId = 3016, PublisherId = 4009, StockQuantity = 7, ImageUrl = null },
+                new Book { BookId = 5079, Title = "Âm Nhạc Thế Kỷ 21", CategoryId = 3010, PublisherId = 4002, StockQuantity = 5, ImageUrl = null },
+                new Book { BookId = 5080, Title = "Khởi Nghiệp Tinh Gọn", CategoryId = 3024, PublisherId = 4010, StockQuantity = 6, ImageUrl = null },
+                new Book { BookId = 5081, Title = "Xử Lý Ngôn Ngữ Tự Nhiên", CategoryId = 3005, PublisherId = 4008, StockQuantity = 9, ImageUrl = null },
+                new Book { BookId = 5082, Title = "Psychology of Money", CategoryId = 3006, PublisherId = 4001, StockQuantity = 10, ImageUrl = null },
+                new Book { BookId = 5083, Title = "Nghiên Cứu Thị Trường", CategoryId = 3024, PublisherId = 4012, StockQuantity = 5, ImageUrl = null },
+                new Book { BookId = 5084, Title = "Châm Ngôn Thành Công", CategoryId = 3025, PublisherId = 4013, StockQuantity = 7, ImageUrl = null },
+                new Book { BookId = 5085, Title = "Sách Về Thiền Định", CategoryId = 3006, PublisherId = 4006, StockQuantity = 4, ImageUrl = null },
+                new Book { BookId = 5086, Title = "Lý Thuyết Âm Nhạc", CategoryId = 3010, PublisherId = 4002, StockQuantity = 6, ImageUrl = null },
+                new Book { BookId = 5087, Title = "Dinh Dưỡng Học", CategoryId = 3009, PublisherId = 4006, StockQuantity = 5, ImageUrl = null },
+                new Book { BookId = 5088, Title = "Thủy Văn Cơ Sở", CategoryId = 3029, PublisherId = 4015, StockQuantity = 3, ImageUrl = null },
+                new Book { BookId = 5089, Title = "Lập Trình Web Toàn Tập", CategoryId = 3005, PublisherId = 4008, StockQuantity = 12, ImageUrl = null },
+                new Book { BookId = 5090, Title = "Công Nghệ IoT", CategoryId = 3005, PublisherId = 4014, StockQuantity = 8, ImageUrl = null },
+                new Book { BookId = 5091, Title = "Quản Trị Rủi Ro", CategoryId = 3024, PublisherId = 4010, StockQuantity = 5, ImageUrl = null },
+                new Book { BookId = 5092, Title = "Thơ Tình Việt Nam", CategoryId = 3013, PublisherId = 4002, StockQuantity = 7, ImageUrl = null },
+                new Book { BookId = 5093, Title = "Du Lịch Tây Bắc", CategoryId = 3014, PublisherId = 4015, StockQuantity = 6, ImageUrl = null },
+                new Book { BookId = 5094, Title = "Quản Lý Dữ Liệu Lớn", CategoryId = 3005, PublisherId = 4009, StockQuantity = 4, ImageUrl = null },
+                new Book { BookId = 5095, Title = "Toán Rời Rạc", CategoryId = 3029, PublisherId = 4015, StockQuantity = 5, ImageUrl = null },
+                new Book { BookId = 5096, Title = "Blockchain trong Ngân Hàng", CategoryId = 3005, PublisherId = 4014, StockQuantity = 3, ImageUrl = null },
+                new Book { BookId = 5097, Title = "Xử Lý Ảnh Số", CategoryId = 3005, PublisherId = 4008, StockQuantity = 7, ImageUrl = null },
+                new Book { BookId = 5098, Title = "Phân Tích Tài Chính", CategoryId = 3024, PublisherId = 4010, StockQuantity = 5, ImageUrl = null },
+                new Book { BookId = 5099, Title = "Hạt Giống Tâm Hồn", CategoryId = 3025, PublisherId = 4013, StockQuantity = 8, ImageUrl = null },
+                new Book { BookId = 5100, Title = "Sách Về Chiến Lược", CategoryId = 3024, PublisherId = 4010, StockQuantity = 6, ImageUrl = null },
+                new Book { BookId = 5101, Title = "Thiết Kế Game", CategoryId = 3005, PublisherId = 4008, StockQuantity = 9, ImageUrl = null },
+                new Book { BookId = 5102, Title = "Quản Trị Công Nghệ", CategoryId = 3024, PublisherId = 4010, StockQuantity = 4, ImageUrl = null },
+                new Book { BookId = 5103, Title = "Phát Triển iOS", CategoryId = 3005, PublisherId = 4009, StockQuantity = 7, ImageUrl = null },
+                new Book { BookId = 5104, Title = "Thơ Trẻ", CategoryId = 3013, PublisherId = 4002, StockQuantity = 5, ImageUrl = null },
+                new Book { BookId = 5105, Title = "Ẩm Thực Việt", CategoryId = 3015, PublisherId = 4005, StockQuantity = 10, ImageUrl = null }
+
+
+
             );
 
             // BookAuthor
@@ -203,7 +546,82 @@ namespace QLTV
                 new BookAuthor { BookId = 5007, AuthorId = 2009 },
                 new BookAuthor { BookId = 5010, AuthorId = 2002 },
                 new BookAuthor { BookId = 5016, AuthorId = 2005 },
-                new BookAuthor { BookId = 5018, AuthorId = 2002 }
+                new BookAuthor { BookId = 5018, AuthorId = 2002 },
+                new BookAuthor { BookId = 5031, AuthorId = 2016 },
+                new BookAuthor { BookId = 5032, AuthorId = 2017 },
+                new BookAuthor { BookId = 5033, AuthorId = 2018 },
+                new BookAuthor { BookId = 5034, AuthorId = 2019 },
+                new BookAuthor { BookId = 5035, AuthorId = 2020 },
+                new BookAuthor { BookId = 5036, AuthorId = 2021 },
+                new BookAuthor { BookId = 5037, AuthorId = 2022 },
+                new BookAuthor { BookId = 5038, AuthorId = 2023 },
+                new BookAuthor { BookId = 5039, AuthorId = 2024 },
+                new BookAuthor { BookId = 5040, AuthorId = 2025 },
+                new BookAuthor { BookId = 5041, AuthorId = 2026 },
+                new BookAuthor { BookId = 5042, AuthorId = 2026 },
+                new BookAuthor { BookId = 5043, AuthorId = 2027 },
+                new BookAuthor { BookId = 5044, AuthorId = 2028 },
+                new BookAuthor { BookId = 5045, AuthorId = 2029 },
+                new BookAuthor { BookId = 5046, AuthorId = 2028 },
+                new BookAuthor { BookId = 5047, AuthorId = 2029 },
+                new BookAuthor { BookId = 5048, AuthorId = 2021 },
+                new BookAuthor { BookId = 5049, AuthorId = 2021 },
+                new BookAuthor { BookId = 5050, AuthorId = 2022 },
+                new BookAuthor { BookId = 5051, AuthorId = 2023 },
+                new BookAuthor { BookId = 5052, AuthorId = 2023 },
+                new BookAuthor { BookId = 5053, AuthorId = 2014 },
+                new BookAuthor { BookId = 5054, AuthorId = 2017 },
+                new BookAuthor { BookId = 5055, AuthorId = 2024 },
+                new BookAuthor { BookId = 5056, AuthorId = 2024 },
+                new BookAuthor { BookId = 5057, AuthorId = 2025 },
+                new BookAuthor { BookId = 5058, AuthorId = 2014 },
+                new BookAuthor { BookId = 5059, AuthorId = 2016 },
+                new BookAuthor { BookId = 5060, AuthorId = 2021 },
+                new BookAuthor { BookId = 5061, AuthorId = 2027 },
+                new BookAuthor { BookId = 5062, AuthorId = 2023 },
+                new BookAuthor { BookId = 5063, AuthorId = 2022 },
+                new BookAuthor { BookId = 5064, AuthorId = 2029 },
+                new BookAuthor { BookId = 5065, AuthorId = 2026 },
+                new BookAuthor { BookId = 5066, AuthorId = 2024 },
+                new BookAuthor { BookId = 5067, AuthorId = 2025 },
+                new BookAuthor { BookId = 5068, AuthorId = 2021 },
+                new BookAuthor { BookId = 5069, AuthorId = 2027 },
+                new BookAuthor { BookId = 5070, AuthorId = 2029 },
+                new BookAuthor { BookId = 5071, AuthorId = 2023 },
+                new BookAuthor { BookId = 5072, AuthorId = 2025 },
+                new BookAuthor { BookId = 5073, AuthorId = 2029 },
+                new BookAuthor { BookId = 5074, AuthorId = 2021 },
+                new BookAuthor { BookId = 5075, AuthorId = 2023 },
+                new BookAuthor { BookId = 5076, AuthorId = 2021 },
+                new BookAuthor { BookId = 5077, AuthorId = 2022 },
+                new BookAuthor { BookId = 5078, AuthorId = 2016 },
+                new BookAuthor { BookId = 5079, AuthorId = 2010 },
+                new BookAuthor { BookId = 5080, AuthorId = 2017 },
+                new BookAuthor { BookId = 5081, AuthorId = 2014 },
+                new BookAuthor { BookId = 5082, AuthorId = 2005 },
+                new BookAuthor { BookId = 5083, AuthorId = 2012 },
+                new BookAuthor { BookId = 5084, AuthorId = 2023 },
+                new BookAuthor { BookId = 5085, AuthorId = 2015 },
+                new BookAuthor { BookId = 5086, AuthorId = 2014 },
+                new BookAuthor { BookId = 5087, AuthorId = 2008 },
+                new BookAuthor { BookId = 5088, AuthorId = 2026 },
+                new BookAuthor { BookId = 5089, AuthorId = 2021 },
+                new BookAuthor { BookId = 5090, AuthorId = 2021 },
+                new BookAuthor { BookId = 5091, AuthorId = 2023 },
+                new BookAuthor { BookId = 5092, AuthorId = 2022 },
+                new BookAuthor { BookId = 5093, AuthorId = 2026 },
+                new BookAuthor { BookId = 5094, AuthorId = 2028 },
+                new BookAuthor { BookId = 5095, AuthorId = 2027 },
+                new BookAuthor { BookId = 5096, AuthorId = 2021 },
+                new BookAuthor { BookId = 5097, AuthorId = 2024 },
+                new BookAuthor { BookId = 5098, AuthorId = 2022 },
+                new BookAuthor { BookId = 5099, AuthorId = 2025 },
+                new BookAuthor { BookId = 5100, AuthorId = 2023 },
+                new BookAuthor { BookId = 5101, AuthorId = 2022 },
+                new BookAuthor { BookId = 5102, AuthorId = 2023 },
+                new BookAuthor { BookId = 5103, AuthorId = 2022 },
+                new BookAuthor { BookId = 5104, AuthorId = 2027 },
+                new BookAuthor { BookId = 5105, AuthorId = 2026 }
             );
 
             // BorrowReceipts
@@ -217,7 +635,22 @@ namespace QLTV
                 new BorrowReceipt { ReceiptId = 6007, UserId = 1001, BorrowDate = DateTime.Parse("2025-06-07"), ReturnDate = null, Status = "Borrowed" },
                 new BorrowReceipt { ReceiptId = 6008, UserId = 1002, BorrowDate = DateTime.Parse("2025-06-08"), ReturnDate = DateTime.Parse("2025-06-15"), Status = "Returned" },
                 new BorrowReceipt { ReceiptId = 6009, UserId = 1003, BorrowDate = DateTime.Parse("2025-06-09"), ReturnDate = null, Status = "Borrowed" },
-                new BorrowReceipt { ReceiptId = 6010, UserId = 1001, BorrowDate = DateTime.Parse("2025-06-10"), ReturnDate = null, Status = "Borrowed" }
+                new BorrowReceipt { ReceiptId = 6010, UserId = 1001, BorrowDate = DateTime.Parse("2025-06-10"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6011, UserId = 1004, BorrowDate = DateTime.Parse("2025-06-11"), ReturnDate = DateTime.Parse("2025-06-16"), Status = "Returned" },
+                new BorrowReceipt { ReceiptId = 6012, UserId = 1005, BorrowDate = DateTime.Parse("2025-06-12"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6013, UserId = 1006, BorrowDate = DateTime.Parse("2025-06-13"), ReturnDate = DateTime.Parse("2025-06-20"), Status = "Returned" },
+                new BorrowReceipt { ReceiptId = 6014, UserId = 1007, BorrowDate = DateTime.Parse("2025-06-14"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6015, UserId = 1008, BorrowDate = DateTime.Parse("2025-06-15"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6016, UserId = 1009, BorrowDate = DateTime.Parse("2025-06-16"), ReturnDate = DateTime.Parse("2025-06-22"), Status = "Returned" },
+                new BorrowReceipt { ReceiptId = 6017, UserId = 1010, BorrowDate = DateTime.Parse("2025-06-17"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6018, UserId = 1011, BorrowDate = DateTime.Parse("2025-06-18"), ReturnDate = DateTime.Parse("2025-06-25"), Status = "Returned" },
+                new BorrowReceipt { ReceiptId = 6019, UserId = 1012, BorrowDate = DateTime.Parse("2025-06-19"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6020, UserId = 1013, BorrowDate = DateTime.Parse("2025-06-20"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6021, UserId = 1014, BorrowDate = DateTime.Parse("2025-06-21"), ReturnDate = DateTime.Parse("2025-06-27"), Status = "Returned" },
+                new BorrowReceipt { ReceiptId = 6022, UserId = 1015, BorrowDate = DateTime.Parse("2025-06-22"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6023, UserId = 1016, BorrowDate = DateTime.Parse("2025-06-23"), ReturnDate = DateTime.Parse("2025-06-30"), Status = "Returned" },
+                new BorrowReceipt { ReceiptId = 6024, UserId = 1017, BorrowDate = DateTime.Parse("2025-06-24"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6025, UserId = 1018, BorrowDate = DateTime.Parse("2025-06-25"), ReturnDate = null, Status = "Borrowed" }
             );
 
             // BorrowDetails

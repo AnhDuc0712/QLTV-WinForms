@@ -23,14 +23,14 @@ namespace Ngducanh
                 string username = txtUsername.Text.Trim();
                 string password = txtPassword.Text.Trim();
 
-                var user = db.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
-                if (user != null)
+                var emp = db.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
+                if (emp != null)
                 {
                     lblError.Visible = false;
                     this.Hide();
 
                     // Show MainMenuForm, chỉ mở 1 form duy nhất
-                    using (var mainMenu = new MainMenuForm(user.FullName))
+                    using (var mainMenu = new MainMenuForm(emp.FullName))
                     {
                         mainMenu.ShowDialog();
                     }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QLTV;
 
@@ -11,9 +12,11 @@ using QLTV;
 namespace Ngducanh.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    partial class LibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20250613143457_Database")]
+    partial class Database
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2111,8 +2114,7 @@ namespace Ngducanh.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -2125,34 +2127,20 @@ namespace Ngducanh.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Password")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("UserType")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Users", t =>
-                        {
-                            t.HasCheckConstraint("CK_Users_Password_NotNull_IfEmployee", "(UserType = 'Customer' AND Password IS NULL) OR (UserType = 'Employee' AND Password IS NOT NULL)");
-                        });
-
-                    b.HasDiscriminator<string>("UserType").HasValue("User");
-
-                    b.UseTphMappingStrategy();
+                    b.ToTable("Users");
 
                     b.HasData(
                         new
@@ -2161,8 +2149,8 @@ namespace Ngducanh.Migrations
                             Address = "Số 12, ngõ 34 Phố Hoàng Hoa Thám, Quận Ba Đình, Hà Nội",
                             Email = "vanvu@gmail.com",
                             FullName = "Nguyễn Văn Vũ",
+                            Password = "P@ssw0rd1",
                             Phone = "0912345678",
-                            UserType = "Customer",
                             Username = "nguyenvanvu"
                         },
                         new
@@ -2171,8 +2159,8 @@ namespace Ngducanh.Migrations
                             Address = "Số 45, Đường 3/2, Phường Hưng Lợi, Quận Ninh Kiều, TP. Cần Thơ",
                             Email = "thiba@gmail.com",
                             FullName = "Trần Thị Ba",
+                            Password = "B@Password2",
                             Phone = "0987654321",
-                            UserType = "Customer",
                             Username = "tranthiba"
                         },
                         new
@@ -2181,34 +2169,10 @@ namespace Ngducanh.Migrations
                             Address = "Số 78, Phố Nguyễn Văn Cừ, Phường Gia Thuỷ, TP. Bắc Ninh",
                             Email = "vanchi@gmail.com",
                             FullName = "Lê Văn Chi",
+                            Password = "Ch1Secure!",
                             Phone = "0901234567",
-                            UserType = "Customer",
                             Username = "levanchi"
                         });
-                });
-
-            modelBuilder.Entity("QLTV.Models.Customer", b =>
-                {
-                    b.HasBaseType("QLTV.Models.User");
-
-                    b.ToTable(t =>
-                        {
-                            t.HasCheckConstraint("CK_Users_Password_NotNull_IfEmployee", "(UserType = 'Customer' AND Password IS NULL) OR (UserType = 'Employee' AND Password IS NOT NULL)");
-                        });
-
-                    b.HasDiscriminator().HasValue("Customer");
-                });
-
-            modelBuilder.Entity("QLTV.Models.Employee", b =>
-                {
-                    b.HasBaseType("QLTV.Models.User");
-
-                    b.ToTable(t =>
-                        {
-                            t.HasCheckConstraint("CK_Users_Password_NotNull_IfEmployee", "(UserType = 'Customer' AND Password IS NULL) OR (UserType = 'Employee' AND Password IS NOT NULL)");
-                        });
-
-                    b.HasDiscriminator().HasValue("Employee");
                 });
 
             modelBuilder.Entity("QLTV.Models.Book", b =>

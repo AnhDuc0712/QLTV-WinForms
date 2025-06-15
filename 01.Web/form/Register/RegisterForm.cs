@@ -43,16 +43,19 @@ namespace Ngducanh
                     return;
                 }
 
-                var user = new User
+                var emp = new Employee
                 {
                     Username = username,
                     Password = password,
                     FullName = fullname,
                     Email = email,
                     Phone = phone,
-                    Address = address  // Thêm dòng này
+                    Address = address,  // Thêm dòng này
+                    UserType = "Employee"
+
+
                 };
-                db.Users.Add(user);
+                db.Users.Add(emp);
                 db.SaveChanges();
 
                 MessageBox.Show("Đăng ký thành công!");
