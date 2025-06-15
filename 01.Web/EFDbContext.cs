@@ -201,7 +201,210 @@ namespace QLTV
                     Phone = "0901234567",
                     UserType = "Customer"
 
+                },
+                new User
+                {
+                    UserId = 1004,
+                    FullName = "Phạm Thị Dung",
+                    Email = "dungpham@gmail.com",
+                    Username = "phamthidung",
+                    Address = "Số 22, Đường Láng Hạ, Phường Láng Hạ, Quận Đống Đa, Hà Nội",
+                    Phone = "0918765432",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1005,
+                    FullName = "Võ Văn An",
+                    Email = "anvo@gmail.com",
+                    Username = "vovan_an",
+                    Address = "Số 99, Đường Trần Phú, Phường 5, TP. Vũng Tàu",
+                    Phone = "0932123456",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1006,
+                    FullName = "Lý Thị Hiền",
+                    Email = "hienly@gmail.com",
+                    Username = "lythihien",
+                    Address = "Số 5, Phố Hoàng Diệu, Phường Hải Châu 1, Quận Hải Châu, Đà Nẵng",
+                    Phone = "0983344556",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1007,
+                    FullName = "Ngô Minh Tuấn",
+                    Email = "tuanngo@gmail.com",
+                    Username = "ngominhtuan",
+                    Address = "Số 150, Đường Cách Mạng Tháng 8, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh",
+                    Phone = "0909988776",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1008,
+                    FullName = "Đặng Thị Lan",
+                    Email = "lan.dang@gmail.com",
+                    Username = "dangthilan",
+                    Address = "Số 10, Đường Hai Bà Trưng, Phường Phạm Ngũ Lão, Quận 1, TP. Hồ Chí Minh",
+                    Phone = "0911223344",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1009,
+                    FullName = "Phan Văn Hòa",
+                    Email = "vanhoa.phan@gmail.com",
+                    Username = "phanvanhoa",
+                    Address = "Số 8, Đường Nguyễn Thị Minh Khai, Phường 1, TP. Vĩnh Long",
+                    Phone = "0977554433",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1010,
+                    FullName = "Trương Thị Mai",
+                    Email = "maitruong@gmail.com",
+                    Username = "truongthimai",
+                    Address = "Số 120, Đường Phan Đình Phùng, Phường Thành Nhất, TP. Buôn Ma Thuột",
+                    Phone = "0911335577",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1011,
+                    FullName = "Bùi Quốc Việt",
+                    Email = "quocviet.bui@gmail.com",
+                    Username = "buiquo cviet",
+                    Address = "Số 33, Phố Lý Thường Kiệt, Phường Phủ Hà, TP. Lạng Sơn",
+                    Phone = "0987665544",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1012,
+                    FullName = "Lê Thị Phương",
+                    Email = "phuongle@gmail.com",
+                    Username = "lethiphuong",
+                    Address = "Số 27, Đường Hùng Vương, Phường Mỹ Xuyên, TP. Sóc Trăng",
+                    Phone = "0968877665",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1013,
+                    FullName = "Đỗ Minh Tú",
+                    Email = "minhtu.do@gmail.com",
+                    Username = "dominhtu",
+                    Address = "Số 55, Đường Trần Hưng Đạo, Phường Lê Lợi, TP. Nam Định",
+                    Phone = "0933445566",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1014,
+                    FullName = "Phạm Minh Quân",
+                    Email = "minhquan.pham@gmail.com",
+                    Username = "phamminhquan",
+                    Address = "Số 18, Đường Lê Lợi, Phường An Lạc, TP. Biên Hòa",
+                    Phone = "0914556677",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1015,
+                    FullName = "Vũ Thị Ngọc",
+                    Email = "ngocvu@gmail.com",
+                    Username = "vuthingoc",
+                    Address = "Số 66, Phố Trần Nhân Tông, Phường Nam Đàn, TP. Thanh Hóa",
+                    Phone = "0988112233",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1016,
+                    FullName = "Nguyễn Quốc Cường",
+                    Email = "quoccuong.nguyen@gmail.com",
+                    Username = "nguyencuong",
+                    Address = "Số 102, Đường Trần Phú, Phường Xuân Phú, TP. Huế",
+                    Phone = "0902334455",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1017,
+                    FullName = "Lê Thúy Hằng",
+                    Email = "thuyhang.le@gmail.com",
+                    Username = "lethuyhang",
+                    Address = "Số 5, Đường Nguyễn Văn Trỗi, Phường Đông Vệ, TP. Thanh Hóa",
+                    Phone = "0977665544",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1018,
+                    FullName = "Trần Anh Tuấn",
+                    Email = "anhtuan.tran@gmail.com",
+                    Username = "trananhtuan",
+                    Address = "Số 250, Đường Nguyễn Thái Học, Phường Phan Chu Trinh, TP. Quy Nhơn",
+                    Phone = "0933667788",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1019,
+                    FullName = "Phan Thị Hạnh",
+                    Email = "hanhphan@gmail.com",
+                    Username = "phanthihanh",
+                    Address = "Số 14, Đường Nguyễn Huệ, Phường Phước Ninh, TP. Đà Nẵng",
+                    Phone = "0901778899",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1020,
+                    FullName = "Trương Văn Sơn",
+                    Email = "sontruong@gmail.com",
+                    Username = "truongvanson",
+                    Address = "Số 77, Phố Phan Đình Phùng, Phường Đội Cấn, Quận Ba Đình, Hà Nội",
+                    Phone = "0977001122",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1021,
+                    FullName = "Lê Minh Tâm",
+                    Email = "leminhtam@gmail.com",
+                    Username = "leminhtam",
+                    Address = "Số 33, Đường Trần Khánh Dư, Phường Trần Hưng Đạo, Quận Hoàn Kiếm, Hà Nội",
+                    Phone = "0912993344",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1022,
+                    FullName = "Đặng Văn Phúc",
+                    Email = "phucdang@gmail.com",
+                    Username = "dangvanphuc",
+                    Address = "Số 55, Đường Đinh Tiên Hoàng, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh",
+                    Phone = "0933100234",
+                    UserType = "Customer"
+                },
+                new User
+                {
+                    UserId = 1023,
+                    FullName = "Võ Thị Kiều",
+                    Email = "kieuvo@gmail.com",
+                    Username = "vothikieu",
+                    Address = "Số 99, Đường Lý Tự Trọng, Phường Phú Hòa, TP. Thủ Dầu Một",
+                    Phone = "0988776655",
+                    UserType = "Customer"
                 }
+
+
+
             );
 
             // Books
@@ -431,7 +634,22 @@ namespace QLTV
                 new BorrowReceipt { ReceiptId = 6007, UserId = 1001, BorrowDate = DateTime.Parse("2025-06-07"), ReturnDate = null, Status = "Borrowed" },
                 new BorrowReceipt { ReceiptId = 6008, UserId = 1002, BorrowDate = DateTime.Parse("2025-06-08"), ReturnDate = DateTime.Parse("2025-06-15"), Status = "Returned" },
                 new BorrowReceipt { ReceiptId = 6009, UserId = 1003, BorrowDate = DateTime.Parse("2025-06-09"), ReturnDate = null, Status = "Borrowed" },
-                new BorrowReceipt { ReceiptId = 6010, UserId = 1001, BorrowDate = DateTime.Parse("2025-06-10"), ReturnDate = null, Status = "Borrowed" }
+                new BorrowReceipt { ReceiptId = 6010, UserId = 1001, BorrowDate = DateTime.Parse("2025-06-10"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6011, UserId = 1004, BorrowDate = DateTime.Parse("2025-06-11"), ReturnDate = DateTime.Parse("2025-06-16"), Status = "Returned" },
+                new BorrowReceipt { ReceiptId = 6012, UserId = 1005, BorrowDate = DateTime.Parse("2025-06-12"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6013, UserId = 1006, BorrowDate = DateTime.Parse("2025-06-13"), ReturnDate = DateTime.Parse("2025-06-20"), Status = "Returned" },
+                new BorrowReceipt { ReceiptId = 6014, UserId = 1007, BorrowDate = DateTime.Parse("2025-06-14"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6015, UserId = 1008, BorrowDate = DateTime.Parse("2025-06-15"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6016, UserId = 1009, BorrowDate = DateTime.Parse("2025-06-16"), ReturnDate = DateTime.Parse("2025-06-22"), Status = "Returned" },
+                new BorrowReceipt { ReceiptId = 6017, UserId = 1010, BorrowDate = DateTime.Parse("2025-06-17"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6018, UserId = 1011, BorrowDate = DateTime.Parse("2025-06-18"), ReturnDate = DateTime.Parse("2025-06-25"), Status = "Returned" },
+                new BorrowReceipt { ReceiptId = 6019, UserId = 1012, BorrowDate = DateTime.Parse("2025-06-19"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6020, UserId = 1013, BorrowDate = DateTime.Parse("2025-06-20"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6021, UserId = 1014, BorrowDate = DateTime.Parse("2025-06-21"), ReturnDate = DateTime.Parse("2025-06-27"), Status = "Returned" },
+                new BorrowReceipt { ReceiptId = 6022, UserId = 1015, BorrowDate = DateTime.Parse("2025-06-22"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6023, UserId = 1016, BorrowDate = DateTime.Parse("2025-06-23"), ReturnDate = DateTime.Parse("2025-06-30"), Status = "Returned" },
+                new BorrowReceipt { ReceiptId = 6024, UserId = 1017, BorrowDate = DateTime.Parse("2025-06-24"), ReturnDate = null, Status = "Borrowed" },
+                new BorrowReceipt { ReceiptId = 6025, UserId = 1018, BorrowDate = DateTime.Parse("2025-06-25"), ReturnDate = null, Status = "Borrowed" }
             );
 
             // BorrowDetails
