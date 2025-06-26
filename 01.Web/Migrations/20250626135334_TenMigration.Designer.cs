@@ -9,11 +9,11 @@ using QLTV;
 
 #nullable disable
 
-namespace Ngducanh.Migrations
+namespace FullToping.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20250614143455_Database23")]
-    partial class Database23
+    [Migration("20250626135334_TenMigration")]
+    partial class TenMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -1831,6 +1831,117 @@ namespace Ngducanh.Migrations
                             BorrowDate = new DateTime(2025, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "Borrowed",
                             UserId = 1001
+                        },
+                        new
+                        {
+                            ReceiptId = 6011,
+                            BorrowDate = new DateTime(2025, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ReturnDate = new DateTime(2025, 6, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Returned",
+                            UserId = 1004
+                        },
+                        new
+                        {
+                            ReceiptId = 6012,
+                            BorrowDate = new DateTime(2025, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowed",
+                            UserId = 1005
+                        },
+                        new
+                        {
+                            ReceiptId = 6013,
+                            BorrowDate = new DateTime(2025, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ReturnDate = new DateTime(2025, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Returned",
+                            UserId = 1006
+                        },
+                        new
+                        {
+                            ReceiptId = 6014,
+                            BorrowDate = new DateTime(2025, 6, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowed",
+                            UserId = 1007
+                        },
+                        new
+                        {
+                            ReceiptId = 6015,
+                            BorrowDate = new DateTime(2025, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowed",
+                            UserId = 1008
+                        },
+                        new
+                        {
+                            ReceiptId = 6016,
+                            BorrowDate = new DateTime(2025, 6, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ReturnDate = new DateTime(2025, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Returned",
+                            UserId = 1009
+                        },
+                        new
+                        {
+                            ReceiptId = 6017,
+                            BorrowDate = new DateTime(2025, 6, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowed",
+                            UserId = 1010
+                        },
+                        new
+                        {
+                            ReceiptId = 6018,
+                            BorrowDate = new DateTime(2025, 6, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ReturnDate = new DateTime(2025, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Returned",
+                            UserId = 1011
+                        },
+                        new
+                        {
+                            ReceiptId = 6019,
+                            BorrowDate = new DateTime(2025, 6, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowed",
+                            UserId = 1012
+                        },
+                        new
+                        {
+                            ReceiptId = 6020,
+                            BorrowDate = new DateTime(2025, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowed",
+                            UserId = 1013
+                        },
+                        new
+                        {
+                            ReceiptId = 6021,
+                            BorrowDate = new DateTime(2025, 6, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ReturnDate = new DateTime(2025, 6, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Returned",
+                            UserId = 1014
+                        },
+                        new
+                        {
+                            ReceiptId = 6022,
+                            BorrowDate = new DateTime(2025, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowed",
+                            UserId = 1015
+                        },
+                        new
+                        {
+                            ReceiptId = 6023,
+                            BorrowDate = new DateTime(2025, 6, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ReturnDate = new DateTime(2025, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Returned",
+                            UserId = 1016
+                        },
+                        new
+                        {
+                            ReceiptId = 6024,
+                            BorrowDate = new DateTime(2025, 6, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowed",
+                            UserId = 1017
+                        },
+                        new
+                        {
+                            ReceiptId = 6025,
+                            BorrowDate = new DateTime(2025, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowed",
+                            UserId = 1018
                         });
                 });
 
@@ -2187,6 +2298,206 @@ namespace Ngducanh.Migrations
                             Phone = "0901234567",
                             UserType = "Customer",
                             Username = "levanchi"
+                        },
+                        new
+                        {
+                            UserId = 1004,
+                            Address = "Số 22, Đường Láng Hạ, Phường Láng Hạ, Quận Đống Đa, Hà Nội",
+                            Email = "dungpham@gmail.com",
+                            FullName = "Phạm Thị Dung",
+                            Phone = "0918765432",
+                            UserType = "Customer",
+                            Username = "phamthidung"
+                        },
+                        new
+                        {
+                            UserId = 1005,
+                            Address = "Số 99, Đường Trần Phú, Phường 5, TP. Vũng Tàu",
+                            Email = "anvo@gmail.com",
+                            FullName = "Võ Văn An",
+                            Phone = "0932123456",
+                            UserType = "Customer",
+                            Username = "vovan_an"
+                        },
+                        new
+                        {
+                            UserId = 1006,
+                            Address = "Số 5, Phố Hoàng Diệu, Phường Hải Châu 1, Quận Hải Châu, Đà Nẵng",
+                            Email = "hienly@gmail.com",
+                            FullName = "Lý Thị Hiền",
+                            Phone = "0983344556",
+                            UserType = "Customer",
+                            Username = "lythihien"
+                        },
+                        new
+                        {
+                            UserId = 1007,
+                            Address = "Số 150, Đường Cách Mạng Tháng 8, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh",
+                            Email = "tuanngo@gmail.com",
+                            FullName = "Ngô Minh Tuấn",
+                            Phone = "0909988776",
+                            UserType = "Customer",
+                            Username = "ngominhtuan"
+                        },
+                        new
+                        {
+                            UserId = 1008,
+                            Address = "Số 10, Đường Hai Bà Trưng, Phường Phạm Ngũ Lão, Quận 1, TP. Hồ Chí Minh",
+                            Email = "lan.dang@gmail.com",
+                            FullName = "Đặng Thị Lan",
+                            Phone = "0911223344",
+                            UserType = "Customer",
+                            Username = "dangthilan"
+                        },
+                        new
+                        {
+                            UserId = 1009,
+                            Address = "Số 8, Đường Nguyễn Thị Minh Khai, Phường 1, TP. Vĩnh Long",
+                            Email = "vanhoa.phan@gmail.com",
+                            FullName = "Phan Văn Hòa",
+                            Phone = "0977554433",
+                            UserType = "Customer",
+                            Username = "phanvanhoa"
+                        },
+                        new
+                        {
+                            UserId = 1010,
+                            Address = "Số 120, Đường Phan Đình Phùng, Phường Thành Nhất, TP. Buôn Ma Thuột",
+                            Email = "maitruong@gmail.com",
+                            FullName = "Trương Thị Mai",
+                            Phone = "0911335577",
+                            UserType = "Customer",
+                            Username = "truongthimai"
+                        },
+                        new
+                        {
+                            UserId = 1011,
+                            Address = "Số 33, Phố Lý Thường Kiệt, Phường Phủ Hà, TP. Lạng Sơn",
+                            Email = "quocviet.bui@gmail.com",
+                            FullName = "Bùi Quốc Việt",
+                            Phone = "0987665544",
+                            UserType = "Customer",
+                            Username = "buiquo cviet"
+                        },
+                        new
+                        {
+                            UserId = 1012,
+                            Address = "Số 27, Đường Hùng Vương, Phường Mỹ Xuyên, TP. Sóc Trăng",
+                            Email = "phuongle@gmail.com",
+                            FullName = "Lê Thị Phương",
+                            Phone = "0968877665",
+                            UserType = "Customer",
+                            Username = "lethiphuong"
+                        },
+                        new
+                        {
+                            UserId = 1013,
+                            Address = "Số 55, Đường Trần Hưng Đạo, Phường Lê Lợi, TP. Nam Định",
+                            Email = "minhtu.do@gmail.com",
+                            FullName = "Đỗ Minh Tú",
+                            Phone = "0933445566",
+                            UserType = "Customer",
+                            Username = "dominhtu"
+                        },
+                        new
+                        {
+                            UserId = 1014,
+                            Address = "Số 18, Đường Lê Lợi, Phường An Lạc, TP. Biên Hòa",
+                            Email = "minhquan.pham@gmail.com",
+                            FullName = "Phạm Minh Quân",
+                            Phone = "0914556677",
+                            UserType = "Customer",
+                            Username = "phamminhquan"
+                        },
+                        new
+                        {
+                            UserId = 1015,
+                            Address = "Số 66, Phố Trần Nhân Tông, Phường Nam Đàn, TP. Thanh Hóa",
+                            Email = "ngocvu@gmail.com",
+                            FullName = "Vũ Thị Ngọc",
+                            Phone = "0988112233",
+                            UserType = "Customer",
+                            Username = "vuthingoc"
+                        },
+                        new
+                        {
+                            UserId = 1016,
+                            Address = "Số 102, Đường Trần Phú, Phường Xuân Phú, TP. Huế",
+                            Email = "quoccuong.nguyen@gmail.com",
+                            FullName = "Nguyễn Quốc Cường",
+                            Phone = "0902334455",
+                            UserType = "Customer",
+                            Username = "nguyencuong"
+                        },
+                        new
+                        {
+                            UserId = 1017,
+                            Address = "Số 5, Đường Nguyễn Văn Trỗi, Phường Đông Vệ, TP. Thanh Hóa",
+                            Email = "thuyhang.le@gmail.com",
+                            FullName = "Lê Thúy Hằng",
+                            Phone = "0977665544",
+                            UserType = "Customer",
+                            Username = "lethuyhang"
+                        },
+                        new
+                        {
+                            UserId = 1018,
+                            Address = "Số 250, Đường Nguyễn Thái Học, Phường Phan Chu Trinh, TP. Quy Nhơn",
+                            Email = "anhtuan.tran@gmail.com",
+                            FullName = "Trần Anh Tuấn",
+                            Phone = "0933667788",
+                            UserType = "Customer",
+                            Username = "trananhtuan"
+                        },
+                        new
+                        {
+                            UserId = 1019,
+                            Address = "Số 14, Đường Nguyễn Huệ, Phường Phước Ninh, TP. Đà Nẵng",
+                            Email = "hanhphan@gmail.com",
+                            FullName = "Phan Thị Hạnh",
+                            Phone = "0901778899",
+                            UserType = "Customer",
+                            Username = "phanthihanh"
+                        },
+                        new
+                        {
+                            UserId = 1020,
+                            Address = "Số 77, Phố Phan Đình Phùng, Phường Đội Cấn, Quận Ba Đình, Hà Nội",
+                            Email = "sontruong@gmail.com",
+                            FullName = "Trương Văn Sơn",
+                            Phone = "0977001122",
+                            UserType = "Customer",
+                            Username = "truongvanson"
+                        },
+                        new
+                        {
+                            UserId = 1021,
+                            Address = "Số 33, Đường Trần Khánh Dư, Phường Trần Hưng Đạo, Quận Hoàn Kiếm, Hà Nội",
+                            Email = "leminhtam@gmail.com",
+                            FullName = "Lê Minh Tâm",
+                            Phone = "0912993344",
+                            UserType = "Customer",
+                            Username = "leminhtam"
+                        },
+                        new
+                        {
+                            UserId = 1022,
+                            Address = "Số 55, Đường Đinh Tiên Hoàng, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh",
+                            Email = "phucdang@gmail.com",
+                            FullName = "Đặng Văn Phúc",
+                            Phone = "0933100234",
+                            UserType = "Customer",
+                            Username = "dangvanphuc"
+                        },
+                        new
+                        {
+                            UserId = 1023,
+                            Address = "Số 99, Đường Lý Tự Trọng, Phường Phú Hòa, TP. Thủ Dầu Một",
+                            Email = "kieuvo@gmail.com",
+                            FullName = "Võ Thị Kiều",
+                            Phone = "0988776655",
+                            UserType = "Customer",
+                            Username = "vothikieu"
                         });
                 });
 

@@ -2,10 +2,10 @@
 
 #nullable disable
 
-namespace Ngducanh.Migrations
+namespace FullToping.Migrations
 {
     /// <inheritdoc />
-    public partial class DatabaseUpdate : Migration
+    public partial class TenMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

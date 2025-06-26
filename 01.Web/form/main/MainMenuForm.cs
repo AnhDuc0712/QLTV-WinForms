@@ -57,15 +57,15 @@ namespace Ngducanh
 
             // ====== Gán sự kiện cho các menu QUẢN LÝ SÁCH ======
             mnuXemDanhSachSach.Click += mnuXemDanhSachSach_Click;
-           
+
 
             // ====== Gán sự kiện cho các menu QUẢN LÝ THỂ LOẠI ======
             mnuXemDanhSachTheLoai.Click += mnuXemDanhSachTheLoai_Click;
-            
+
 
             // ====== Gán sự kiện cho các menu QUẢN LÝ TÁC GIẢ ======
             mnuXemDanhSachTacGia.Click += mnuXemDanhSachTacGia_Click;
-            
+
             mnuSachTreHanNhieuNhat.Click += mnuSachTreHanNhieuNhat_Click;
             mnuLapPhieuMuon.Click += (s, e) => OpenNewBorrowReceiptForm();
             mnuLapPhieuTra.Click += (s, e) => OpenReturnBookForm();
@@ -91,7 +91,7 @@ namespace Ngducanh
 
             var f = new fBookManager();
             f.MdiParent = this;
-            f.WindowState = FormWindowState.Maximized;
+            f.WindowState = FormWindowState.Normal;
             f.Show();
         }
 
@@ -300,6 +300,19 @@ namespace Ngducanh
             form.Show();
         }
 
+        private void menuMain_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
 
+        }
+
+        private void mnuXemDanhSachSach_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

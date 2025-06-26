@@ -1,76 +1,115 @@
-﻿namespace Ngducanh
+﻿using Siticone.Desktop.UI.WinForms;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace Ngducanh
 {
     partial class fNewAuthor
     {
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
+        private SiticoneShadowForm shadowForm;
+        private SiticoneElipse siticoneElipse1;
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null)) components.Dispose();
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
             base.Dispose(disposing);
         }
 
         private void InitializeComponent()
         {
-            this.lblName = new Label();
-            this.txtName = new TextBox();
-            this.btnSave = new Button();
-            this.btnCancel = new Button();
-
+            components = new System.ComponentModel.Container();
+            shadowForm = new SiticoneShadowForm(components);
+            siticoneElipse1 = new SiticoneElipse(components);
+            txtName = new SiticoneTextBox();
+            btnSave = new SiticoneButton();
+            btnCancel = new SiticoneButton();
+            toolTip1 = new ToolTip(components);
             SuspendLayout();
-
-            // ===== Label =====
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            this.lblName.Location = new Point(30, 35);
-            this.lblName.Text = "Tên tác giả:";
-
-            // ===== TextBox =====
-            this.txtName.Font = new Font("Segoe UI", 10F);
-            this.txtName.Location = new Point(130, 32);
-            this.txtName.Size = new Size(300, 30);
-            this.txtName.PlaceholderText = "Nhập tên tác giả...";
-
-            // ===== Button Save =====
-            this.btnSave.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            this.btnSave.Text = "💾 Lưu";
-            this.btnSave.BackColor = Color.MediumSeaGreen;
-            this.btnSave.ForeColor = Color.White;
-            this.btnSave.FlatStyle = FlatStyle.Flat;
-            this.btnSave.Location = new Point(130, 90);
-            this.btnSave.Size = new Size(100, 36);
-            this.btnSave.Click += new EventHandler(this.btnSave_Click);
-
-            // ===== Button Cancel =====
-            this.btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            this.btnCancel.Text = "✖ Huỷ";
-            this.btnCancel.BackColor = Color.Gainsboro;
-            this.btnCancel.FlatStyle = FlatStyle.Flat;
-            this.btnCancel.Location = new Point(240, 90);
-            this.btnCancel.Size = new Size(100, 36);
-            this.btnCancel.Click += new EventHandler(this.btnCancel_Click);
-
-            // ===== Form =====
-            this.AutoScaleDimensions = new SizeF(8F, 20F);
-            this.AutoScaleMode = AutoScaleMode.Font;
-            this.ClientSize = new Size(460, 160);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnCancel);
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.StartPosition = FormStartPosition.CenterParent;
-            this.Name = "fNewAuthor";
-            this.Text = "Thêm tác giả";
-            this.Load += new EventHandler(this.fNewAuthor_Load);
-
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            // 
+            // shadowForm
+            // 
+            shadowForm.TargetForm = this;
+            // 
+            // siticoneElipse1
+            // 
+            siticoneElipse1.TargetControl = this;
+            // 
+            // txtName
+            // 
+            txtName.BorderRadius = 10;
+            txtName.DefaultText = "";
+            txtName.FillColor = Color.FromArgb(28, 31, 38);
+            txtName.Font = new Font("Segoe UI", 10F);
+            txtName.ForeColor = Color.WhiteSmoke;
+            txtName.Location = new Point(73, 13);
+            txtName.Margin = new Padding(3, 4, 3, 4);
+            txtName.Name = "txtName";
+            txtName.PasswordChar = '\0';
+            txtName.PlaceholderText = "Nhập tên tác giả...";
+            txtName.SelectedText = "";
+            txtName.Size = new Size(300, 30);
+            txtName.TabIndex = 1;
+            // 
+            // btnSave
+            // 
+            btnSave.BorderRadius = 10;
+            btnSave.FillColor = Color.FromArgb(41, 121, 255);
+            btnSave.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnSave.ForeColor = Color.White;
+            btnSave.HoverState.FillColor = Color.FromArgb(30, 100, 200);
+            btnSave.Location = new Point(24, 60);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(100, 36);
+            btnSave.TabIndex = 2;
+            btnSave.Text = "💾 Lưu";
+            btnSave.Click += btnSave_Click;
+            // 
+            // btnCancel
+            // 
+            btnCancel.BorderRadius = 10;
+            btnCancel.FillColor = Color.FromArgb(192, 0, 0);
+            btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnCancel.ForeColor = Color.White;
+            btnCancel.HoverState.FillColor = Color.FromArgb(160, 0, 0);
+            btnCancel.Location = new Point(298, 60);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(100, 36);
+            btnCancel.TabIndex = 3;
+            btnCancel.Text = "✖ Huỷ";
+            btnCancel.Click += btnCancel_Click;
+            // 
+            // toolTip1
+            // 
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 100;
+            toolTip1.ReshowDelay = 50;
+            // 
+            // fNewAuthor
+            // 
+            BackColor = Color.FromArgb(13, 17, 23);
+            ClientSize = new Size(423, 124);
+            Controls.Add(txtName);
+            Controls.Add(btnSave);
+            Controls.Add(btnCancel);
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            Name = "fNewAuthor";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Thêm tác giả";
+            Load += fNewAuthor_Load;
+            ResumeLayout(false);
         }
+
+        #region Windows Form Designer generated code
+        private SiticoneTextBox txtName;
+        private SiticoneButton btnSave;
+        private SiticoneButton btnCancel;
+        private ToolTip toolTip1;
+        #endregion
     }
 }

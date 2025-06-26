@@ -15,7 +15,6 @@ namespace QLTV
         public DbSet<BorrowReceipt> BorrowReceipts { get; set; }
         public DbSet<BorrowDetail> BorrowDetails { get; set; }
 
-
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer(
@@ -26,56 +25,45 @@ namespace QLTV
 
         protected override void OnModelCreating(ModelBuilder model)
         {
-            // ----- Cấu hình Identity seed cho mỗi bảng -----
-            model.Entity<User>()
-                 .Property(u => u.UserId)
-                 .UseIdentityColumn(seed: 1001, increment: 1);
+            // ----- Cấu hình Identity seed thành bắt đầu từ 1 -----
+            model.Entity<User>().Property(u => u.UserId).UseIdentityColumn(1, 1);
+            model.Entity<Author>().Property(a => a.AuthorId).UseIdentityColumn(1, 1);
+            model.Entity<Category>().Property(c => c.CategoryId).UseIdentityColumn(1, 1);
+            model.Entity<Publisher>().Property(p => p.PublisherId).UseIdentityColumn(1, 1);
+            model.Entity<Book>().Property(b => b.BookId).UseIdentityColumn(1, 1);
+            model.Entity<BorrowReceipt>().Property(br => br.ReceiptId).UseIdentityColumn(1, 1);
 
-            model.Entity<Author>()
-                 .Property(a => a.AuthorId)
-                 .UseIdentityColumn(seed: 2001, increment: 1);
+            // Composite keys
+            model.Entity<BookAuthor>().HasKey(ba => new { ba.BookId, ba.AuthorId });
+            model.Entity<BorrowDetail>().HasKey(bd => new { bd.ReceiptId, bd.BookId });
 
-            model.Entity<Category>()
-                 .Property(c => c.CategoryId)
-                 .UseIdentityColumn(seed: 3001, increment: 1);
-
-            model.Entity<Publisher>()
-                 .Property(p => p.PublisherId)
-                 .UseIdentityColumn(seed: 4001, increment: 1);
-
-            model.Entity<Book>()
-                 .Property(b => b.BookId)
-                 .UseIdentityColumn(seed: 5001, increment: 1);
-
-            model.Entity<BorrowReceipt>()
-                 .Property(br => br.ReceiptId)
-                 .UseIdentityColumn(seed: 6001, increment: 1);
-
-            // ----- Composite keys -----
-            model.Entity<BookAuthor>()
-                 .HasKey(ba => new { ba.BookId, ba.AuthorId });
-            model.Entity<BorrowDetail>()
-                 .HasKey(bd => new { bd.ReceiptId, bd.BookId });
             model.Entity<User>()
                 .HasDiscriminator<string>("UserType")
                 .HasValue<Employee>("Employee")
                 .HasValue<Customer>("Customer");
 
-            // 2) Check Constraint
             model.Entity<User>(entity =>
             {
-                // 1) Đặt discriminator như bình thường
                 entity.HasDiscriminator<string>("UserType")
                       .HasValue<Employee>("Employee")
                       .HasValue<Customer>("Customer");
 
-                // 2) Chèn CHECK CONSTRAINT qua ToTable()
                 entity.ToTable(table => table.HasCheckConstraint(
                     name: "CK_Users_Password_NotNull_IfEmployee",
                     sql: "(UserType = 'Customer' AND Password IS NULL)"
                        + " OR (UserType = 'Employee' AND Password IS NOT NULL)"
                 ));
             });
+
+            // ----- Cập nhật trạng thái mượn trả -----
+            model.Entity<BorrowReceipt>()
+                  .Property(b => b.Status)
+                  .HasConversion<string>();
+
+            // Gợi ý enum trạng thái cho dễ quản lý phía client:
+            // Borrowed = "Borrowed"
+            // Returned = "Returned"
+            // NotFullyReturned = "NotFullyReturned" // mới thêm
 
 
             // ----- Seed data -----

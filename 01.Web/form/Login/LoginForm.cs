@@ -3,6 +3,11 @@ using System.Linq;
 using System.Windows.Forms;
 using QLTV.Models;
 using QLTV;
+using Siticone.Desktop.UI.WinForms;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
 
 namespace Ngducanh
 {
@@ -12,6 +17,7 @@ namespace Ngducanh
 
         public LoginForm()
         {
+
             InitializeComponent();
         }
 
@@ -61,7 +67,7 @@ namespace Ngducanh
         private void LoginForm_Load(object sender, EventArgs e) { }
 
         // Sự kiện "Quên mật khẩu"
-        private void label3_Click(object sender, EventArgs e)
+        private void lblForgot_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Vui lòng liên hệ quản trị viên để lấy lại mật khẩu.", "Quên mật khẩu");
         }
@@ -75,6 +81,21 @@ namespace Ngducanh
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
             lblError.Visible = false;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void LoginForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

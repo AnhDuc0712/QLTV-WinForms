@@ -1,12 +1,16 @@
-﻿namespace Ngducanh
+﻿using Siticone.Desktop.UI.WinForms;
+using Krypton.Toolkit;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace Ngducanh
 {
     partial class fEditCategory
     {
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
+        private SiticoneShadowForm shadowForm;
+        private SiticoneElipse siticoneElipse1;
 
         protected override void Dispose(bool disposing)
         {
@@ -17,69 +21,112 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
         private void InitializeComponent()
         {
-            lblName = new Label();
-            txtName = new TextBox();
-            btnSave = new Button();
-            btnCancel = new Button();
+            components = new System.ComponentModel.Container();
+            shadowForm = new SiticoneShadowForm(components);
+            siticoneElipse1 = new SiticoneElipse(components);
+            lblTitle = new KryptonLabel();
+            txtName = new SiticoneTextBox();
+            btnSave = new SiticoneButton();
+            btnCancel = new SiticoneButton();
+            toolTip1 = new ToolTip(components);
             SuspendLayout();
             // 
-            // lblName
+            // shadowForm
             // 
-            lblName.AutoSize = true;
-            lblName.Location = new Point(20, 65);
-            lblName.Name = "lblName";
-            lblName.Size = new Size(102, 23);
-            lblName.TabIndex = 4;
-            lblName.Text = "Tên thể loại:";
+            shadowForm.TargetForm = this;
+            // 
+            // siticoneElipse1
+            // 
+            siticoneElipse1.TargetControl = this;
+            // 
+            // lblTitle
+            // 
+            lblTitle.StateCommon.ShortText.Color1 = Color.White;
+            lblTitle.StateCommon.ShortText.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblTitle.Location = new Point(0, 10);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(498, 30);
+            lblTitle.TabIndex = 0;
+            lblTitle.Values.Text = "Thêm / Sửa thể loại";
+            lblTitle.StateCommon.ShortText.TextH = PaletteRelativeAlign.Center; // Căn giữa ngang
             // 
             // txtName
             // 
-            txtName.Location = new Point(130, 62);
+            txtName.BorderRadius = 12;
+            txtName.DefaultText = "";
+            txtName.FillColor = Color.FromArgb(28, 31, 38);
+            txtName.Font = new Font("Segoe UI", 12F);
+            txtName.ForeColor = Color.WhiteSmoke;
+            txtName.Location = new Point(55, 50); // Điều chỉnh vị trí để fit với lblTitle
+            txtName.Margin = new Padding(3, 4, 3, 4);
             txtName.Name = "txtName";
-            txtName.Size = new Size(400, 30);
+            txtName.PasswordChar = '\0';
+            txtName.PlaceholderText = "Nhập tên thể loại...";
+            txtName.SelectedText = "";
+            txtName.Size = new Size(400, 35);
             txtName.TabIndex = 1;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(130, 110);
+            btnSave.BorderRadius = 12;
+            btnSave.FillColor = Color.FromArgb(0, 150, 136); // Màu teal
+            btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnSave.ForeColor = Color.White;
+            btnSave.HoverState.FillColor = Color.FromArgb(0, 120, 110);
+            btnSave.Location = new Point(55, 100);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(100, 35);
             btnSave.TabIndex = 2;
-            btnSave.Text = "Lưu";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Text = "💾 Lưu";
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(250, 110);
+            btnCancel.BorderRadius = 12;
+            btnCancel.FillColor = Color.FromArgb(192, 0, 0);
+            btnCancel.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnCancel.ForeColor = Color.White;
+            btnCancel.HoverState.FillColor = Color.FromArgb(160, 0, 0);
+            btnCancel.Location = new Point(355, 100);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(100, 35);
             btnCancel.TabIndex = 3;
-            btnCancel.Text = "Hủy";
-            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Text = "✖ Hủy";
+            // 
+            // toolTip1
+            // 
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 100;
+            toolTip1.ReshowDelay = 50;
             // 
             // fEditCategory
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(560, 160);
+            BackColor = Color.FromArgb(13, 17, 23);
+            ClientSize = new Size(498, 159);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Controls.Add(txtName);
-            Controls.Add(lblName);
+            Controls.Add(lblTitle);
             Font = new Font("Segoe UI", 10F);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
+            FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "fEditCategory";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Thêm / Sửa thể loại";
+            Load += fEditCategory_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
+        #region Windows Form Designer generated code
+        private KryptonLabel lblTitle;
+        private SiticoneTextBox txtName;
+        private SiticoneButton btnSave;
+        private SiticoneButton btnCancel;
+        private ToolTip toolTip1;
         #endregion
     }
 }

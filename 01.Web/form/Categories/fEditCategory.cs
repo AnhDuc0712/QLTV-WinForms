@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Siticone.Desktop.UI.WinForms;
+using System;
 using System.Windows.Forms;
-using System.Xml.Linq;
+using Microsoft.EntityFrameworkCore;
 using QLTV;
+using QLTV.Models;
+using System.Drawing.Text;
 
 namespace Ngducanh
 {
@@ -31,6 +34,10 @@ namespace Ngducanh
             {
                 txtName.Text = cat.Name;
             }
+            else
+            {
+                MessageBox.Show("Thể loại không tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -43,23 +50,52 @@ namespace Ngducanh
                 return;
             }
 
+        
+
             using var ctx = new LibraryContext();
+            try
+            {
+                if (_categoryId.HasValue)
+                {
+                    var cat = ctx.Categories.Find(_categoryId.Value);
+                    if (cat != null)
+                    {
+                        cat.Name = name;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thể loại không tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    var cat = new Category { Name = name };
+                    ctx.Categories.Add(cat);
+                }
+
+                ctx.SaveChanges();
+                DialogResult = DialogResult.OK;
+                MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi lưu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void fEditCategory_Load(object sender, EventArgs e)
+        {
+            // Thêm thời gian hiện tại (04:15 PM +07, Saturday, June 21, 2025) vào tiêu đề
+            lblTitle.Values.ExtraText = $" - {DateTime.Now:hh:mm tt zzz, dddd, MMMM dd, yyyy}";
             if (_categoryId.HasValue)
             {
-                var cat = ctx.Categories.Find(_categoryId.Value);
-                if (cat != null)
-                {
-                    cat.Name = name;
-                }
+                this.Text = "Sửa thể loại";
             }
             else
             {
-                var cat = new QLTV.Models.Category { Name = name };
-                ctx.Categories.Add(cat);
+                this.Text = "Thêm thể loại";
             }
-
-            ctx.SaveChanges();
-            DialogResult = DialogResult.OK;
         }
     }
 }

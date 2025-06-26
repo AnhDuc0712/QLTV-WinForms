@@ -18,10 +18,8 @@
 
         private void InitializeComponent()
         {
-
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-
             lblName = new Label();
             txtName = new TextBox();
             btFind = new Button();
@@ -83,7 +81,6 @@
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.White;
-
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
@@ -101,7 +98,6 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-
             dataGridView1.Location = new Point(35, 70);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
@@ -128,9 +124,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-
             BackColor = Color.FromArgb(224, 224, 224);
-
             ClientSize = new Size(980, 540);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
@@ -143,6 +137,7 @@
             Name = "fManageReader";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Quản lý độc giả";
+            Load += fManageReader_Load_1;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

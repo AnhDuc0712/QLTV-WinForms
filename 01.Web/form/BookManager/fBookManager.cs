@@ -1,36 +1,49 @@
-﻿using Microsoft.EntityFrameworkCore;
-using QLTV.Models;
-using QLTV;
+﻿using Siticone.Desktop.UI.WinForms;
 using System;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
+using QLTV;
+using QLTV.Models;
 
 namespace Ngducanh_Quanlysach
 {
     public partial class fBookManager : Form
     {
-        private object gruopBox1;
-
         public fBookManager()
         {
             InitializeComponent();
 
+            // Giới hạn nhập số cho ComboBox
             cBAddStockQuantity.KeyPress += NumericComboBox_KeyPress;
-            cBEditBookID.KeyPress += NumericComboBox_KeyPress;
             cBEditStockQuantity.KeyPress += NumericComboBox_KeyPress;
+
+            // Thêm tooltip để hướng dẫn
+            toolTip1.SetToolTip(cBEditBookID, "Nhập hoặc chọn mã sách");
+            toolTip1.SetToolTip(cBEditStockQuantity, "Nhập hoặc chọn số lượng");
+            toolTip1.SetToolTip(cBEditPublisherID, "Chọn nhà xuất bản");
+            toolTip1.SetToolTip(cBEditCategories, "Chọn loại sách");
+            toolTip1.SetToolTip(cBAddBookID, "Nhập hoặc chọn mã sách");
+            toolTip1.SetToolTip(cBAddStockQuantity, "Nhập hoặc chọn số lượng");
+            toolTip1.SetToolTip(cBAddPublisherID, "Chọn nhà xuất bản");
+            toolTip1.SetToolTip(cBAddCategories, "Chọn loại sách");
         }
 
         private void fBookManager_Load(object sender, EventArgs e)
         {
             InitializeComboBoxes();
             RefreshDataGridView();
+            UpdateBookCount(); // Cập nhật số lượng sách khi load
+            // Gắn sự kiện hiện ảnh khi chọn dòng
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
         }
 
         private void InitializeComboBoxes()
         {
             using (var db = new LibraryContext())
             {
-
                 var categories = db.Categories.ToList();
                 cBEditCategories.DataSource = categories;
                 cBEditCategories.DisplayMember = "Name";
@@ -39,13 +52,11 @@ namespace Ngducanh_Quanlysach
                 cBAddCategories.DisplayMember = "Name";
                 cBAddCategories.ValueMember = "CategoryId";
 
-
                 var publishers = db.Publishers.ToList();
                 if (!publishers.Any())
                 {
                     MessageBox.Show("Không có dữ liệu Nhà xuất bản trong database. Vui lòng thêm dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
                 cBEditPublisherID.DataSource = publishers;
                 cBEditPublisherID.DisplayMember = "Name";
                 cBEditPublisherID.ValueMember = "PublisherId";
@@ -68,13 +79,15 @@ namespace Ngducanh_Quanlysach
                         c.PublisherId,
                         c.StockQuantity
                     }).ToList();
+                UpdateBookCount(); // Cập nhật số lượng sau khi refresh
             }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             panelAdd.Visible = true;
-            txtAddBookTitle.Text = cBAddStockQuantity.Text = "";
+            txtAddBookTitle.Text = "";
+            cBAddStockQuantity.Text = "";
             cBAddCategories.SelectedIndex = -1;
             cBAddPublisherID.SelectedIndex = -1;
             cBAddBookID.Text = "";
@@ -88,24 +101,48 @@ namespace Ngducanh_Quanlysach
                 try
                 {
                     if (!int.TryParse(cBEditBookID.Text, out int bookId) || bookId <= 0)
-                        throw new Exception("Mã sách không hợp lệ!");
+                    {
+                        toolTip1.Show("Vui lòng nhập mã sách hợp lệ!", cBEditBookID, 0, 0, 2000);
+                        return;
+                    }
                     if (cBEditPublisherID.SelectedValue == null || !int.TryParse(cBEditPublisherID.SelectedValue.ToString(), out int publisherId) || publisherId <= 0)
-                        throw new Exception("Vui lòng chọn nhà xuất bản hợp lệ!");
+                    {
+                        toolTip1.Show("Vui lòng chọn nhà xuất bản hợp lệ!", cBEditPublisherID, 0, 0, 2000);
+                        return;
+                    }
                     if (cBEditCategories.SelectedValue == null || !int.TryParse(cBEditCategories.SelectedValue.ToString(), out int categoryId) || categoryId <= 0)
-                        throw new Exception("Vui lòng chọn loại sách hợp lệ!");
+                    {
+                        toolTip1.Show("Vui lòng chọn loại sách hợp lệ!", cBEditCategories, 0, 0, 2000);
+                        return;
+                    }
                     if (!int.TryParse(cBEditStockQuantity.Text, out int stockQuantity) || stockQuantity < 0)
-                        throw new Exception("Số lượng không hợp lệ!");
-                    if (string.IsNullOrWhiteSpace(txtTitle.Text))
-                        throw new Exception("Vui lòng nhập tên sách!");
+                    {
+                        toolTip1.Show("Vui lòng nhập số lượng hợp lệ!", cBEditStockQuantity, 0, 0, 2000);
+                        return;
+                    }
+                    if (string.IsNullOrWhiteSpace(txtEditTitle.Text))
+                    {
+                        toolTip1.Show("Vui lòng nhập tên sách!", txtEditTitle, 0, 0, 2000);
+                        return;
+                    }
+                    if (string.IsNullOrWhiteSpace(pictureBoxEdit.ImageLocation) || !File.Exists(pictureBoxEdit.ImageLocation))
+                    {
+                        toolTip1.Show("Vui lòng chọn hình ảnh hợp lệ!", pictureBoxEdit, 0, 0, 2000);
+                        return;
+                    }
 
                     var book = db.Books.Find(bookId);
                     if (book == null)
-                        throw new Exception("Sách không tồn tại!");
+                    {
+                        toolTip1.Show("Sách không tồn tại!", cBEditBookID, 0, 0, 2000);
+                        return;
+                    }
 
                     book.PublisherId = publisherId;
                     book.CategoryId = categoryId;
                     book.StockQuantity = stockQuantity;
-                    book.Title = txtTitle.Text;
+                    book.Title = txtEditTitle.Text;
+                    book.ImageUrl = pictureBoxEdit.ImageLocation;
 
                     db.Books.Update(book);
                     db.SaveChanges();
@@ -125,18 +162,35 @@ namespace Ngducanh_Quanlysach
             }
         }
 
-        private void btAddSave_Click(object sender, EventArgs e)
+        private void btnAddSave_Click(object sender, EventArgs e)
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(txtAddBookTitle.Text))
-                    throw new Exception("Vui lòng nhập tên sách!");
+                {
+                    toolTip1.Show("Vui lòng nhập tên sách!", txtAddBookTitle, 0, 0, 2000);
+                    return;
+                }
                 if (cBAddPublisherID.SelectedValue == null || !int.TryParse(cBAddPublisherID.SelectedValue.ToString(), out int publisherId) || publisherId <= 0)
-                    throw new Exception("Vui lòng chọn nhà xuất bản hợp lệ!");
+                {
+                    toolTip1.Show("Vui lòng chọn nhà xuất bản hợp lệ!", cBAddPublisherID, 0, 0, 2000);
+                    return;
+                }
                 if (cBAddCategories.SelectedValue == null || !int.TryParse(cBAddCategories.SelectedValue.ToString(), out int categoryId) || categoryId <= 0)
-                    throw new Exception("Vui lòng chọn loại sách hợp lệ!");
+                {
+                    toolTip1.Show("Vui lòng chọn loại sách hợp lệ!", cBAddCategories, 0, 0, 2000);
+                    return;
+                }
                 if (!int.TryParse(cBAddStockQuantity.Text, out int stockQty) || stockQty < 0)
-                    throw new Exception("Số lượng không hợp lệ!");
+                {
+                    toolTip1.Show("Vui lòng nhập số lượng hợp lệ!", cBAddStockQuantity, 0, 0, 2000);
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(pictureBoxAdd.ImageLocation) || !File.Exists(pictureBoxAdd.ImageLocation))
+                {
+                    toolTip1.Show("Vui lòng chọn hình ảnh hợp lệ!", pictureBoxAdd, 0, 0, 2000);
+                    return;
+                }
 
                 using (var db = new LibraryContext())
                 {
@@ -145,7 +199,8 @@ namespace Ngducanh_Quanlysach
                         Title = txtAddBookTitle.Text,
                         PublisherId = publisherId,
                         CategoryId = categoryId,
-                        StockQuantity = stockQty
+                        StockQuantity = stockQty,
+                        ImageUrl = pictureBoxAdd.ImageLocation
                     };
 
                     db.Books.Add(newBook);
@@ -175,7 +230,7 @@ namespace Ngducanh_Quanlysach
         {
             if (string.IsNullOrWhiteSpace(txtBookTitle.Text))
             {
-                toolTip1.Show("Vui lòng nhập tên sách để tìm!", btnFind, 0, 0, 1000);
+                toolTip1.Show("Vui lòng nhập tên sách để tìm!", txtBookTitle, 0, 0, 1000);
                 return;
             }
 
@@ -194,15 +249,14 @@ namespace Ngducanh_Quanlysach
 
                 dataGridView1.DataSource = books;
                 if (!books.Any())
-                    toolTip1.Show("Không tìm thấy sách!", btnFind, 0, 0, 1000);
+                    toolTip1.Show("Không tìm thấy sách!", txtBookTitle, 0, 0, 1000);
+                UpdateBookCount(); // Cập nhật số lượng sau khi tìm
             }
         }
 
         private void btnEditClose_Click(object sender, EventArgs e)
         {
-
             panelEdit.Visible = false;
-
         }
 
         private void btnAddClose_Click(object sender, EventArgs e)
@@ -220,31 +274,7 @@ namespace Ngducanh_Quanlysach
         {
             if (e.RowIndex < 0) return;
 
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "Delete")
-            {
-                try
-                {
-                    int bookId = (int)dataGridView1.Rows[e.RowIndex].Cells["BookId"].Value;
-                    using (var db = new LibraryContext())
-                    {
-                        var book = db.Books.Find(bookId);
-                        if (book == null) throw new Exception("Sách không tồn tại!");
-
-                        if (MessageBox.Show($"Bạn muốn xóa sách: {book.Title}?", "Xác nhận xóa",
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                            db.Books.Remove(book);
-                            db.SaveChanges();
-                            RefreshDataGridView();
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Lỗi khi xóa: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else if (dataGridView1.Columns[e.ColumnIndex].Name == "Edit")
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Edit")
             {
                 try
                 {
@@ -255,10 +285,11 @@ namespace Ngducanh_Quanlysach
                         if (book == null) throw new Exception("Sách không tồn tại!");
 
                         cBEditBookID.Text = book.BookId.ToString();
-                        txtTitle.Text = book.Title;
+                        txtEditTitle.Text = book.Title;
                         cBEditPublisherID.SelectedValue = book.PublisherId;
                         cBEditCategories.SelectedValue = book.CategoryId;
                         cBEditStockQuantity.Text = book.StockQuantity.ToString();
+                        pictureBoxEdit.ImageLocation = book.ImageUrl;
                         panelEdit.Visible = true;
                     }
                 }
@@ -267,26 +298,107 @@ namespace Ngducanh_Quanlysach
                     MessageBox.Show($"Lỗi khi mở form sửa: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            else if (dataGridView1.Columns[e.ColumnIndex].Name == "Delete") // Xử lý xóa
+            {
+                int bookId = (int)dataGridView1.Rows[e.RowIndex].Cells["BookId"].Value;
+                if (MessageBox.Show($"Xóa sách #{bookId}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (var db = new LibraryContext())
+                        {
+                            var book = db.Books.Find(bookId);
+                            if (book != null)
+                            {
+                                db.Books.Remove(book);
+                                db.SaveChanges();
+                                RefreshDataGridView();
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi khi xóa: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
-        private void txtTitle_TextChanged(object sender, EventArgs e)
+        private void pictureBoxAdd_Click(object sender, EventArgs e)
+        {
+            using OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxAdd.ImageLocation = ofd.FileName;
+            }
+        }
+
+        private void pictureBoxEdit_Click(object sender, EventArgs e)
+        {
+            using OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxEdit.ImageLocation = ofd.FileName;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            // Có thể để trống hoặc mở ảnh lớn nếu chủ công thích
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null && dataGridView1.CurrentRow.Cells["BookId"].Value != null)
+            {
+                try
+                {
+                    int bookId = Convert.ToInt32(dataGridView1.CurrentRow.Cells["BookId"].Value);
+                    using (var db = new LibraryContext())
+                    {
+                        var book = db.Books.Find(bookId);
+                        if (book != null && !string.IsNullOrWhiteSpace(book.ImageUrl) && File.Exists(book.ImageUrl))
+                        {
+                            pictureBox1.ImageLocation = book.ImageUrl;
+                            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                        }
+                        else
+                        {
+                            pictureBox1.Image = null;
+                        }
+                    }
+                }
+                catch
+                {
+                    pictureBox1.Image = null;
+                }
+            }
+        }
+
+        private void panelAdd_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void cBAddCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label10_Click(object sender, EventArgs e)
+        private void UpdateBookCount()
         {
-
-        }
-
-        private void lblMenu_Click(object sender, EventArgs e)
-        {
-
+            try
+            {
+                using var db = new LibraryContext();
+                int count = db.Books.Count();
+                lblBookCount.Values.Text = $"Số sách: {count}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tính số lượng: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

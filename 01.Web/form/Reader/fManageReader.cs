@@ -102,5 +102,10 @@ namespace QLTV.form.Reader
                 }
             }
         }
+
+        private void fManageReader_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,264 +1,280 @@
-﻿namespace Ngducanh
+﻿using Siticone.Desktop.UI.WinForms;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace Ngducanh
 {
     partial class RegisterForm
     {
         private System.ComponentModel.IContainer components = null;
+        private SiticoneShadowForm shadowForm;
+        private SiticoneElipse siticoneElipse1;
+        private SiticoneControlBox siticoneControlBox1;
+        private SiticonePanel panelMain;
+        private SiticonePanel panelBody;
+        private SiticoneTextBox txtFullName;
+        private SiticoneTextBox txtUsername;
+        private SiticoneTextBox txtPassword;
+        private SiticoneTextBox txtConfirmPassword;
+        private SiticoneTextBox txtEmail;
+        private SiticoneTextBox txtPhone;
+        private SiticoneTextBox txtAddress;
+        private SiticoneButton btnRegister;
+        private SiticoneButton btnCancel;
+        private Label lblTitle;
+        private Label lblError;
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
         private void InitializeComponent()
         {
-            panel = new Panel();
-            label6 = new Label();
-            txtAddress = new TextBox();
+            components = new System.ComponentModel.Container();
+            shadowForm = new SiticoneShadowForm(components);
+            siticoneElipse1 = new SiticoneElipse(components);
+            siticoneControlBox1 = new SiticoneControlBox();
+            panelMain = new SiticonePanel();
+            panelBody = new SiticonePanel();
             lblTitle = new Label();
-            label1 = new Label();
-            txtUsername = new TextBox();
-            label2 = new Label();
-            txtPassword = new TextBox();
-            label3 = new Label();
-            txtFullName = new TextBox();
-            label4 = new Label();
-            txtEmail = new TextBox();
-            label5 = new Label();
-            txtPhone = new TextBox();
-            btnRegister = new Button();
-            btnCancel = new Button();
+            txtFullName = new SiticoneTextBox();
+            txtUsername = new SiticoneTextBox();
+            txtPassword = new SiticoneTextBox();
+            txtConfirmPassword = new SiticoneTextBox();
+            txtEmail = new SiticoneTextBox();
+            txtPhone = new SiticoneTextBox();
+            txtAddress = new SiticoneTextBox();
             lblError = new Label();
-            panel.SuspendLayout();
+            btnRegister = new SiticoneButton();
+            btnCancel = new SiticoneButton();
+            panelMain.SuspendLayout();
+            panelBody.SuspendLayout();
             SuspendLayout();
             // 
-            // panel
+            // shadowForm
             // 
-            panel.BackColor = Color.White;
-            panel.BorderStyle = BorderStyle.FixedSingle;
-            panel.Controls.Add(label6);
-            panel.Controls.Add(txtAddress);
-            panel.Controls.Add(lblTitle);
-            panel.Controls.Add(label1);
-            panel.Controls.Add(txtUsername);
-            panel.Controls.Add(label2);
-            panel.Controls.Add(txtPassword);
-            panel.Controls.Add(label3);
-            panel.Controls.Add(txtFullName);
-            panel.Controls.Add(label4);
-            panel.Controls.Add(txtEmail);
-            panel.Controls.Add(label5);
-            panel.Controls.Add(txtPhone);
-            panel.Controls.Add(btnRegister);
-            panel.Controls.Add(btnCancel);
-            panel.Controls.Add(lblError);
-            panel.Dock = DockStyle.Fill;
-            panel.Location = new Point(0, 0);
-            panel.Name = "panel";
-            panel.Size = new Size(450, 350);
-            panel.TabIndex = 0;
-            panel.Paint += panel1_Paint;
+            shadowForm.TargetForm = this;
             // 
-            // label6
+            // siticoneElipse1
             // 
-            label6.Font = new Font("Segoe UI", 10F);
-            label6.Location = new Point(30, 259);
-            label6.Name = "label6";
-            label6.Size = new Size(93, 23);
-            label6.TabIndex = 9;
-            label6.Text = "Địa chỉ:";
-            label6.Click += label6_Click;
+            siticoneElipse1.TargetControl = this;
             // 
-            // txtAddress
+            // siticoneControlBox1
             // 
-            txtAddress.Location = new Point(150, 259);
-            txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(250, 27);
-            txtAddress.TabIndex = 14;
-            txtAddress.TextChanged += txtAddress_TextChanged;
+            siticoneControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            siticoneControlBox1.FillColor = Color.FromArgb(13, 17, 23);
+            siticoneControlBox1.IconColor = Color.White;
+            siticoneControlBox1.Location = new Point(387, 4);
+            siticoneControlBox1.Name = "siticoneControlBox1";
+            siticoneControlBox1.Size = new Size(30, 30);
+            siticoneControlBox1.TabIndex = 0;
+            // 
+            // panelMain
+            // 
+            panelMain.BorderRadius = 20;
+            panelMain.Controls.Add(siticoneControlBox1);
+            panelMain.Controls.Add(panelBody);
+            panelMain.FillColor = Color.FromArgb(22, 27, 34);
+            panelMain.Location = new Point(15, 15);
+            panelMain.Name = "panelMain";
+            panelMain.Size = new Size(420, 580);
+            panelMain.TabIndex = 0;
+            // 
+            // panelBody
+            // 
+            panelBody.BackColor = Color.Transparent;
+            panelBody.Controls.Add(lblTitle);
+            panelBody.Controls.Add(txtFullName);
+            panelBody.Controls.Add(txtUsername);
+            panelBody.Controls.Add(txtPassword);
+            panelBody.Controls.Add(txtConfirmPassword);
+            panelBody.Controls.Add(txtEmail);
+            panelBody.Controls.Add(txtPhone);
+            panelBody.Controls.Add(txtAddress);
+            panelBody.Controls.Add(lblError);
+            panelBody.Controls.Add(btnRegister);
+            panelBody.Controls.Add(btnCancel);
+            panelBody.Location = new Point(30, 40);
+            panelBody.Name = "panelBody";
+            panelBody.Size = new Size(360, 520);
+            panelBody.TabIndex = 1;
             // 
             // lblTitle
             // 
-            lblTitle.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            lblTitle.ForeColor = Color.FromArgb(0, 102, 204);
-            lblTitle.Location = new Point(0, 8);
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblTitle.ForeColor = Color.White;
+            lblTitle.Location = new Point(140, 5);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(450, 40);
+            lblTitle.Size = new Size(110, 32);
             lblTitle.TabIndex = 0;
-            lblTitle.Text = "ĐĂNG KÝ TÀI KHOẢN THƯ VIỆN";
-            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 10F);
-            label1.Location = new Point(30, 55);
-            label1.Name = "label1";
-            label1.Size = new Size(86, 23);
-            label1.TabIndex = 1;
-            label1.Text = "Tài khoản:";
-            // 
-            // txtUsername
-            // 
-            txtUsername.Font = new Font("Segoe UI", 10F);
-            txtUsername.Location = new Point(150, 52);
-            txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(250, 30);
-            txtUsername.TabIndex = 2;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 10F);
-            label2.Location = new Point(30, 95);
-            label2.Name = "label2";
-            label2.Size = new Size(86, 23);
-            label2.TabIndex = 3;
-            label2.Text = "Mật khẩu:";
-            // 
-            // txtPassword
-            // 
-            txtPassword.Font = new Font("Segoe UI", 10F);
-            txtPassword.Location = new Point(150, 92);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(250, 30);
-            txtPassword.TabIndex = 4;
-            txtPassword.UseSystemPasswordChar = true;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 10F);
-            label3.Location = new Point(30, 135);
-            label3.Name = "label3";
-            label3.Size = new Size(88, 23);
-            label3.TabIndex = 5;
-            label3.Text = "Họ và tên:";
+            lblTitle.Text = "Đăng Ký";
             // 
             // txtFullName
             // 
+            txtFullName.BorderRadius = 10;
+            txtFullName.DefaultText = "";
+            txtFullName.FillColor = Color.FromArgb(28, 31, 38);
             txtFullName.Font = new Font("Segoe UI", 10F);
-            txtFullName.Location = new Point(150, 132);
+            txtFullName.ForeColor = Color.WhiteSmoke;
+            txtFullName.Location = new Point(40, 40);
+            txtFullName.Margin = new Padding(3, 4, 3, 4);
             txtFullName.Name = "txtFullName";
-            txtFullName.Size = new Size(250, 30);
-            txtFullName.TabIndex = 6;
+            txtFullName.PasswordChar = '\0';
+            txtFullName.PlaceholderText = "Họ tên đầy đủ";
+            txtFullName.SelectedText = "";
+            txtFullName.Size = new Size(280, 40);
+            txtFullName.TabIndex = 1;
             // 
-            // label4
+            // txtUsername
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 10F);
-            label4.Location = new Point(30, 175);
-            label4.Name = "label4";
-            label4.Size = new Size(55, 23);
-            label4.TabIndex = 7;
-            label4.Text = "Email:";
+            txtUsername.BorderRadius = 10;
+            txtUsername.DefaultText = "";
+            txtUsername.FillColor = Color.FromArgb(28, 31, 38);
+            txtUsername.Font = new Font("Segoe UI", 10F);
+            txtUsername.ForeColor = Color.WhiteSmoke;
+            txtUsername.Location = new Point(40, 90);
+            txtUsername.Margin = new Padding(3, 4, 3, 4);
+            txtUsername.Name = "txtUsername";
+            txtUsername.PasswordChar = '\0';
+            txtUsername.PlaceholderText = "Tên đăng nhập";
+            txtUsername.SelectedText = "";
+            txtUsername.Size = new Size(280, 40);
+            txtUsername.TabIndex = 2;
+            // 
+            // txtPassword
+            // 
+            txtPassword.BorderRadius = 10;
+            txtPassword.DefaultText = "";
+            txtPassword.FillColor = Color.FromArgb(28, 31, 38);
+            txtPassword.Font = new Font("Segoe UI", 10F);
+            txtPassword.ForeColor = Color.WhiteSmoke;
+            txtPassword.Location = new Point(40, 140);
+            txtPassword.Margin = new Padding(3, 4, 3, 4);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '●';
+            txtPassword.PlaceholderText = "Mật khẩu";
+            txtPassword.SelectedText = "";
+            txtPassword.Size = new Size(280, 40);
+            txtPassword.TabIndex = 3;
+            // 
+            // txtConfirmPassword
+            // 
+            txtConfirmPassword.BorderRadius = 10;
+            txtConfirmPassword.DefaultText = "";
+            txtConfirmPassword.FillColor = Color.FromArgb(28, 31, 38);
+            txtConfirmPassword.Font = new Font("Segoe UI", 10F);
+            txtConfirmPassword.ForeColor = Color.WhiteSmoke;
+            txtConfirmPassword.Location = new Point(40, 190);
+            txtConfirmPassword.Margin = new Padding(3, 4, 3, 4);
+            txtConfirmPassword.Name = "txtConfirmPassword";
+            txtConfirmPassword.PasswordChar = '●';
+            txtConfirmPassword.PlaceholderText = "Nhập lại mật khẩu";
+            txtConfirmPassword.SelectedText = "";
+            txtConfirmPassword.Size = new Size(280, 40);
+            txtConfirmPassword.TabIndex = 4;
             // 
             // txtEmail
             // 
+            txtEmail.BorderRadius = 10;
+            txtEmail.DefaultText = "";
+            txtEmail.FillColor = Color.FromArgb(28, 31, 38);
             txtEmail.Font = new Font("Segoe UI", 10F);
-            txtEmail.Location = new Point(150, 172);
+            txtEmail.ForeColor = Color.WhiteSmoke;
+            txtEmail.Location = new Point(40, 240);
+            txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(250, 30);
-            txtEmail.TabIndex = 8;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 10F);
-            label5.Location = new Point(30, 215);
-            label5.Name = "label5";
-            label5.Size = new Size(93, 23);
-            label5.TabIndex = 9;
-            label5.Text = "Điện thoại:";
+            txtEmail.PasswordChar = '\0';
+            txtEmail.PlaceholderText = "Email";
+            txtEmail.SelectedText = "";
+            txtEmail.Size = new Size(280, 40);
+            txtEmail.TabIndex = 5;
             // 
             // txtPhone
             // 
+            txtPhone.BorderRadius = 10;
+            txtPhone.DefaultText = "";
+            txtPhone.FillColor = Color.FromArgb(28, 31, 38);
             txtPhone.Font = new Font("Segoe UI", 10F);
-            txtPhone.Location = new Point(150, 212);
+            txtPhone.ForeColor = Color.WhiteSmoke;
+            txtPhone.Location = new Point(40, 290);
+            txtPhone.Margin = new Padding(3, 4, 3, 4);
             txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(250, 30);
-            txtPhone.TabIndex = 10;
+            txtPhone.PasswordChar = '\0';
+            txtPhone.PlaceholderText = "Số điện thoại";
+            txtPhone.SelectedText = "";
+            txtPhone.Size = new Size(280, 40);
+            txtPhone.TabIndex = 6;
             // 
-            // btnRegister
+            // txtAddress
             // 
-            btnRegister.BackColor = Color.FromArgb(0, 153, 51);
-            btnRegister.FlatStyle = FlatStyle.Flat;
-            btnRegister.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnRegister.ForeColor = Color.White;
-            btnRegister.Location = new Point(100, 299);
-            btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(110, 36);
-            btnRegister.TabIndex = 11;
-            btnRegister.Text = "Đăng ký";
-            btnRegister.UseVisualStyleBackColor = false;
-            btnRegister.Click += btnRegister_Click;
-            // 
-            // btnCancel
-            // 
-            btnCancel.BackColor = Color.WhiteSmoke;
-            btnCancel.FlatStyle = FlatStyle.Flat;
-            btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnCancel.ForeColor = Color.FromArgb(0, 153, 51);
-            btnCancel.Location = new Point(251, 299);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(110, 36);
-            btnCancel.TabIndex = 12;
-            btnCancel.Text = "Hủy";
-            btnCancel.UseVisualStyleBackColor = false;
-            btnCancel.Click += btnCancel_Click;
+            txtAddress.BorderRadius = 10;
+            txtAddress.DefaultText = "";
+            txtAddress.FillColor = Color.FromArgb(28, 31, 38);
+            txtAddress.Font = new Font("Segoe UI", 10F);
+            txtAddress.ForeColor = Color.WhiteSmoke;
+            txtAddress.Location = new Point(40, 340);
+            txtAddress.Margin = new Padding(3, 4, 3, 4);
+            txtAddress.Name = "txtAddress";
+            txtAddress.PasswordChar = '\0';
+            txtAddress.PlaceholderText = "Địa chỉ";
+            txtAddress.SelectedText = "";
+            txtAddress.Size = new Size(280, 40);
+            txtAddress.TabIndex = 7;
             // 
             // lblError
             // 
             lblError.AutoSize = true;
             lblError.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblError.ForeColor = Color.Red;
-            lblError.Location = new Point(100, 315);
+            lblError.Location = new Point(40, 385);
             lblError.Name = "lblError";
             lblError.Size = new Size(0, 20);
-            lblError.TabIndex = 13;
+            lblError.TabIndex = 8;
             lblError.Visible = false;
+            // 
+            // btnRegister
+            // 
+            btnRegister.BorderRadius = 10;
+            btnRegister.FillColor = Color.FromArgb(0, 192, 96);
+            btnRegister.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnRegister.ForeColor = Color.White;
+            btnRegister.Location = new Point(40, 410);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(130, 45);
+            btnRegister.TabIndex = 9;
+            btnRegister.Text = "ĐĂNG KÝ";
+            btnRegister.Click += btnRegister_Click;
+            // 
+            // btnCancel
+            // 
+            btnCancel.BorderRadius = 10;
+            btnCancel.FillColor = Color.FromArgb(50, 50, 60);
+            btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnCancel.ForeColor = Color.WhiteSmoke;
+            btnCancel.Location = new Point(190, 410);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(130, 45);
+            btnCancel.TabIndex = 10;
+            btnCancel.Text = "QUAY LẠI";
+            btnCancel.Click += btnCancel_Click;
             // 
             // RegisterForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(450, 350);
-            Controls.Add(panel);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
-            MaximizeBox = false;
-            MinimizeBox = false;
+            BackColor = Color.FromArgb(13, 17, 23);
+            ClientSize = new Size(450, 610);
+            Controls.Add(panelMain);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "RegisterForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Đăng ký tài khoản thư viện";
-            panel.ResumeLayout(false);
-            panel.PerformLayout();
+            Text = "RegisterForm";
+            panelMain.ResumeLayout(false);
+            panelBody.ResumeLayout(false);
+            panelBody.PerformLayout();
             ResumeLayout(false);
         }
-
-        #endregion
-
-        private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtFullName;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label lblError;
-        private TextBox txtAddress;
-        private Label label6;
     }
 }

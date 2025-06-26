@@ -62,5 +62,10 @@ namespace QLTV.form.Reader
         {
             this.Close();
         }
+
+        private void fNewReader_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
