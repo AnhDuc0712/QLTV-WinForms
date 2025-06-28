@@ -604,32 +604,33 @@ namespace QLTV
 
             // BorrowReceipts
             model.Entity<BorrowReceipt>().HasData(
-                new BorrowReceipt { ReceiptId = 1, UserId = 1, BorrowDate = DateTime.Parse("2025-06-01"), ReturnDate = DateTime.Parse("2025-06-05"), Status = "Returned" },
-                new BorrowReceipt { ReceiptId = 2, UserId = 2, BorrowDate = DateTime.Parse("2025-06-02"), ReturnDate = DateTime.Parse("2025-06-10"), Status = "Returned" },
-                new BorrowReceipt { ReceiptId = 3, UserId = 3, BorrowDate = DateTime.Parse("2025-06-03"), ReturnDate = null, Status = "Borrowed" },
-                new BorrowReceipt { ReceiptId = 4, UserId = 1, BorrowDate = DateTime.Parse("2025-06-04"), ReturnDate = null, Status = "Borrowed" },
-                new BorrowReceipt { ReceiptId = 5, UserId = 2, BorrowDate = DateTime.Parse("2025-06-05"), ReturnDate = DateTime.Parse("2025-06-12"), Status = "Returned" },
-                new BorrowReceipt { ReceiptId = 6, UserId = 3, BorrowDate = DateTime.Parse("2025-06-06"), ReturnDate = null, Status = "Borrowed" },
-                new BorrowReceipt { ReceiptId = 7, UserId = 1, BorrowDate = DateTime.Parse("2025-06-07"), ReturnDate = null, Status = "Borrowed" },
-                new BorrowReceipt { ReceiptId = 8, UserId = 2, BorrowDate = DateTime.Parse("2025-06-08"), ReturnDate = DateTime.Parse("2025-06-15"), Status = "Returned" },
-                new BorrowReceipt { ReceiptId = 9, UserId = 3, BorrowDate = DateTime.Parse("2025-06-09"), ReturnDate = null, Status = "Borrowed" },
-                new BorrowReceipt { ReceiptId = 10, UserId = 1, BorrowDate = DateTime.Parse("2025-06-10"), ReturnDate = null, Status = "Borrowed" },
-                new BorrowReceipt { ReceiptId = 11, UserId = 4, BorrowDate = DateTime.Parse("2025-06-11"), ReturnDate = DateTime.Parse("2025-06-16"), Status = "Returned" },
-                new BorrowReceipt { ReceiptId = 12, UserId = 5, BorrowDate = DateTime.Parse("2025-06-12"), ReturnDate = null, Status = "Borrowed" },
-                new BorrowReceipt { ReceiptId = 13, UserId = 6, BorrowDate = DateTime.Parse("2025-06-13"), ReturnDate = DateTime.Parse("2025-06-20"), Status = "Returned" },
-                new BorrowReceipt { ReceiptId = 14, UserId = 7, BorrowDate = DateTime.Parse("2025-06-14"), ReturnDate = null, Status = "Borrowed" },
-                new BorrowReceipt { ReceiptId = 15, UserId = 8, BorrowDate = DateTime.Parse("2025-06-15"), ReturnDate = null, Status = "Borrowed" },
-                new BorrowReceipt { ReceiptId = 16, UserId = 9, BorrowDate = DateTime.Parse("2025-06-16"), ReturnDate = DateTime.Parse("2025-06-22"), Status = "Returned" },
-                new BorrowReceipt { ReceiptId = 17, UserId = 10, BorrowDate = DateTime.Parse("2025-06-17"), ReturnDate = null, Status = "Borrowed" },
-                new BorrowReceipt { ReceiptId = 18, UserId = 11, BorrowDate = DateTime.Parse("2025-06-18"), ReturnDate = DateTime.Parse("2025-06-25"), Status = "Returned" },
-                new BorrowReceipt { ReceiptId = 19, UserId = 12, BorrowDate = DateTime.Parse("2025-06-19"), ReturnDate = null, Status = "Borrowed" },
-                new BorrowReceipt { ReceiptId = 20, UserId = 13, BorrowDate = DateTime.Parse("2025-06-20"), ReturnDate = null, Status = "Borrowed" },
-                new BorrowReceipt { ReceiptId = 21, UserId = 14, BorrowDate = DateTime.Parse("2025-06-21"), ReturnDate = DateTime.Parse("2025-06-27"), Status = "Returned" },
-                new BorrowReceipt { ReceiptId = 22, UserId = 15, BorrowDate = DateTime.Parse("2025-06-22"), ReturnDate = null, Status = "Borrowed" },
-                new BorrowReceipt { ReceiptId = 23, UserId = 16, BorrowDate = DateTime.Parse("2025-06-23"), ReturnDate = DateTime.Parse("2025-06-30"), Status = "Returned" },
-                new BorrowReceipt { ReceiptId = 24, UserId = 17, BorrowDate = DateTime.Parse("2025-06-24"), ReturnDate = null, Status = "Borrowed" },
-                new BorrowReceipt { ReceiptId = 25, UserId = 18, BorrowDate = DateTime.Parse("2025-06-25"), ReturnDate = null, Status = "Borrowed" }
-            );
+    new BorrowReceipt { ReceiptId = 1, UserId = 1, BorrowDate = DateTime.Parse("2025-06-01"), ReturnDate = DateTime.Parse("2025-06-05"), Status = "Returned" },
+    new BorrowReceipt { ReceiptId = 2, UserId = 2, BorrowDate = DateTime.Parse("2025-06-02"), ReturnDate = DateTime.Parse("2025-06-10"), Status = "Returned" },
+    new BorrowReceipt { ReceiptId = 3, UserId = 3, BorrowDate = DateTime.Parse("2025-06-03"), ReturnDate = DateTime.Parse("2025-06-05"), Status = "Overdue" },
+    new BorrowReceipt { ReceiptId = 4, UserId = 1, BorrowDate = DateTime.Parse("2025-06-04"), ReturnDate = DateTime.Parse("2025-06-05"), Status = "NotFullyReturned" },
+    new BorrowReceipt { ReceiptId = 5, UserId = 2, BorrowDate = DateTime.Parse("2025-06-05"), ReturnDate = DateTime.Parse("2025-06-12"), Status = "Returned" },
+    new BorrowReceipt { ReceiptId = 6, UserId = 3, BorrowDate = DateTime.Parse("2025-06-06"), ReturnDate = DateTime.Parse("2025-06-10"), Status = "Borrowing" },
+    new BorrowReceipt { ReceiptId = 7, UserId = 1, BorrowDate = DateTime.Parse("2025-06-07"), ReturnDate = DateTime.Parse("2025-06-12"), Status = "Borrowing" },
+    new BorrowReceipt { ReceiptId = 8, UserId = 2, BorrowDate = DateTime.Parse("2025-06-08"), ReturnDate = DateTime.Parse("2025-06-15"), Status = "Returned" },
+    new BorrowReceipt { ReceiptId = 9, UserId = 3, BorrowDate = DateTime.Parse("2025-06-09"), ReturnDate = DateTime.Parse("2025-06-12"), Status = "Borrowing" },
+    new BorrowReceipt { ReceiptId = 10, UserId = 1, BorrowDate = DateTime.Parse("2025-06-10"), ReturnDate = DateTime.Parse("2025-06-15"), Status = "Borrowing" },
+    new BorrowReceipt { ReceiptId = 11, UserId = 4, BorrowDate = DateTime.Parse("2025-06-11"), ReturnDate = DateTime.Parse("2025-06-16"), Status = "Returned" },
+    new BorrowReceipt { ReceiptId = 12, UserId = 5, BorrowDate = DateTime.Parse("2025-06-12"), ReturnDate = DateTime.Parse("2025-06-17"), Status = "Borrowing" },
+    new BorrowReceipt { ReceiptId = 13, UserId = 6, BorrowDate = DateTime.Parse("2025-06-13"), ReturnDate = DateTime.Parse("2025-06-20"), Status = "Returned" },
+    new BorrowReceipt { ReceiptId = 14, UserId = 7, BorrowDate = DateTime.Parse("2025-06-14"), ReturnDate = DateTime.Parse("2025-06-19"), Status = "Borrowing" },
+    new BorrowReceipt { ReceiptId = 15, UserId = 8, BorrowDate = DateTime.Parse("2025-06-15"), ReturnDate = DateTime.Parse("2025-06-20"), Status = "NotFullyReturned" },
+    new BorrowReceipt { ReceiptId = 16, UserId = 9, BorrowDate = DateTime.Parse("2025-06-16"), ReturnDate = DateTime.Parse("2025-06-22"), Status = "Returned" },
+    new BorrowReceipt { ReceiptId = 17, UserId = 10, BorrowDate = DateTime.Parse("2025-06-17"), ReturnDate = DateTime.Parse("2025-06-23"), Status = "Borrowing" },
+    new BorrowReceipt { ReceiptId = 18, UserId = 11, BorrowDate = DateTime.Parse("2025-06-18"), ReturnDate = DateTime.Parse("2025-06-25"), Status = "Returned" },
+    new BorrowReceipt { ReceiptId = 19, UserId = 12, BorrowDate = DateTime.Parse("2025-06-19"), ReturnDate = DateTime.Parse("2025-06-24"), Status = "Overdue" },
+    new BorrowReceipt { ReceiptId = 20, UserId = 13, BorrowDate = DateTime.Parse("2025-06-20"), ReturnDate = DateTime.Parse("2025-06-26"), Status = "NotFullyReturned" },
+    new BorrowReceipt { ReceiptId = 21, UserId = 14, BorrowDate = DateTime.Parse("2025-06-21"), ReturnDate = DateTime.Parse("2025-06-27"), Status = "Returned" },
+    new BorrowReceipt { ReceiptId = 22, UserId = 15, BorrowDate = DateTime.Parse("2025-06-22"), ReturnDate = DateTime.Parse("2025-06-30"), Status = "Borrowing" },
+    new BorrowReceipt { ReceiptId = 23, UserId = 16, BorrowDate = DateTime.Parse("2025-06-23"), ReturnDate = DateTime.Parse("2025-06-30"), Status = "Returned" },
+    new BorrowReceipt { ReceiptId = 24, UserId = 17, BorrowDate = DateTime.Parse("2025-06-24"), ReturnDate = DateTime.Parse("2025-07-01"), Status = "Borrowing" },
+    new BorrowReceipt { ReceiptId = 25, UserId = 18, BorrowDate = DateTime.Parse("2025-06-25"), ReturnDate = DateTime.Parse("2025-07-02"), Status = "Borrowing" }
+);
+
 
             // BorrowDetails
             model.Entity<BorrowDetail>().HasData(
