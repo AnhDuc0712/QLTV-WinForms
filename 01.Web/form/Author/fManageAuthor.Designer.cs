@@ -23,6 +23,8 @@ namespace Ngducanh
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             shadowForm = new SiticoneShadowForm(components);
             siticoneElipse1 = new SiticoneElipse(components);
             lblTitle = new Label();
@@ -50,7 +52,7 @@ namespace Ngducanh
             lblTitle.BackColor = Color.FromArgb(22, 27, 34);
             lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(0, 10);
+            lblTitle.Location = new Point(12, 32);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(1024, 45);
             lblTitle.TabIndex = 0;
@@ -62,103 +64,118 @@ namespace Ngducanh
             txtSearch.BorderRadius = 10;
             txtSearch.DefaultText = "";
             txtSearch.FillColor = Color.FromArgb(28, 31, 38);
-            txtSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
+            txtSearch.Font = new Font("Segoe UI", 12F);
             txtSearch.ForeColor = Color.WhiteSmoke;
-            txtSearch.Location = new Point(20, 70);
+            txtSearch.Location = new Point(20, 81);
+            txtSearch.Margin = new Padding(3, 4, 3, 4);
             txtSearch.Name = "txtSearch";
+            txtSearch.PasswordChar = '\0';
+            txtSearch.PlaceholderText = "Nhập từ khóa tìm kiếm...";
+            txtSearch.SelectedText = "";
             txtSearch.Size = new Size(300, 30);
             txtSearch.TabIndex = 1;
-            txtSearch.PlaceholderText = "Nhập từ khóa tìm kiếm...";
             // 
             // btnSearch
             // 
             btnSearch.BorderRadius = 10;
+            btnSearch.FillColor = Color.FromArgb(41, 121, 255);
             btnSearch.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnSearch.Location = new Point(330, 70);
+            btnSearch.ForeColor = Color.White;
+            btnSearch.HoverState.FillColor = Color.FromArgb(30, 100, 200);
+            btnSearch.Location = new Point(326, 80);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(80, 30);
             btnSearch.TabIndex = 2;
             btnSearch.Text = "🔍 Tìm";
-            btnSearch.FillColor = Color.FromArgb(41, 121, 255);
-            btnSearch.ForeColor = Color.White;
-            btnSearch.HoverState.FillColor = Color.FromArgb(30, 100, 200);
             btnSearch.Click += btnSearch_Click;
             // 
             // dgvAuthors
             // 
             dgvAuthors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAuthors.BackgroundColor = Color.FromArgb(22, 27, 34);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(41, 121, 255);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvAuthors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAuthors.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
-            dgvAuthors.ForeColor = Color.WhiteSmoke;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(30, 100, 200);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvAuthors.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvAuthors.EnableHeadersVisualStyles = false;
+            dgvAuthors.Font = new Font("Segoe UI", 10F);
             dgvAuthors.GridColor = Color.FromArgb(28, 31, 38);
-            dgvAuthors.Location = new Point(20, 120);
+            dgvAuthors.Location = new Point(28, 134);
             dgvAuthors.Name = "dgvAuthors";
             dgvAuthors.RowHeadersVisible = false;
+            dgvAuthors.RowHeadersWidth = 51;
             dgvAuthors.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvAuthors.Size = new Size(984, 400);
             dgvAuthors.TabIndex = 3;
-            dgvAuthors.EnableHeadersVisualStyles = false;
-            dgvAuthors.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(41, 121, 255);
-            dgvAuthors.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvAuthors.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dgvAuthors.DefaultCellStyle.SelectionBackColor = Color.FromArgb(30, 100, 200);
             dgvAuthors.CellContentClick += dgvAuthors_CellContentClick;
             // 
             // btnAdd
             // 
             btnAdd.BorderRadius = 10;
+            btnAdd.FillColor = Color.FromArgb(41, 121, 255);
             btnAdd.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnAdd.Location = new Point(150, 540);
+            btnAdd.ForeColor = Color.White;
+            btnAdd.HoverState.FillColor = Color.FromArgb(30, 100, 200);
+            btnAdd.Location = new Point(143, 554);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(100, 35);
             btnAdd.TabIndex = 4;
             btnAdd.Text = "➕ Thêm";
-            btnAdd.FillColor = Color.FromArgb(41, 121, 255);
-            btnAdd.ForeColor = Color.White;
-            btnAdd.HoverState.FillColor = Color.FromArgb(30, 100, 200);
             btnAdd.Click += btnAdd_Click;
             // 
             // btnEdit
             // 
             btnEdit.BorderRadius = 10;
+            btnEdit.FillColor = Color.FromArgb(41, 121, 255);
             btnEdit.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnEdit.Location = new Point(270, 540);
+            btnEdit.ForeColor = Color.White;
+            btnEdit.HoverState.FillColor = Color.FromArgb(30, 100, 200);
+            btnEdit.Location = new Point(263, 554);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(100, 35);
             btnEdit.TabIndex = 5;
             btnEdit.Text = "✏ Sửa";
-            btnEdit.FillColor = Color.FromArgb(41, 121, 255);
-            btnEdit.ForeColor = Color.White;
-            btnEdit.HoverState.FillColor = Color.FromArgb(30, 100, 200);
             btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
             btnDelete.BorderRadius = 10;
+            btnDelete.FillColor = Color.FromArgb(192, 0, 0);
             btnDelete.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnDelete.Location = new Point(390, 540);
+            btnDelete.ForeColor = Color.White;
+            btnDelete.HoverState.FillColor = Color.FromArgb(160, 0, 0);
+            btnDelete.Location = new Point(382, 554);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(100, 35);
             btnDelete.TabIndex = 6;
             btnDelete.Text = "🗑 Xoá";
-            btnDelete.FillColor = Color.FromArgb(192, 0, 0);
-            btnDelete.ForeColor = Color.White;
-            btnDelete.HoverState.FillColor = Color.FromArgb(160, 0, 0);
             btnDelete.Click += btnDelete_Click;
             // 
             // btnClose
             // 
             btnClose.BorderRadius = 10;
+            btnClose.FillColor = Color.FromArgb(192, 0, 0);
             btnClose.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnClose.Location = new Point(510, 540);
+            btnClose.ForeColor = Color.White;
+            btnClose.HoverState.FillColor = Color.FromArgb(160, 0, 0);
+            btnClose.Location = new Point(502, 554);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(100, 35);
             btnClose.TabIndex = 7;
             btnClose.Text = "↩ Đóng";
-            btnClose.FillColor = Color.FromArgb(192, 0, 0);
-            btnClose.ForeColor = Color.White;
-            btnClose.HoverState.FillColor = Color.FromArgb(160, 0, 0);
             btnClose.Click += btnClose_Click;
             // 
             // toolTip1
@@ -187,7 +204,6 @@ namespace Ngducanh
             Load += fManageAuthor_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAuthors).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #region Windows Form Designer generated code

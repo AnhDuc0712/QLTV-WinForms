@@ -22,8 +22,9 @@ namespace QLTV.form.Reader
         {
             using (var db = new LibraryContext())
             {
+                // Chỉ hiện tài khoản độc giả (UserType == "Customer")
                 var list = db.Users
-                    .Where(u => u.FullName.Contains(keyword))
+                    .Where(u => u.FullName.Contains(keyword) && u.UserType == "Customer")
                     .Select(u => new { u.UserId, u.FullName, u.Email, u.Phone, u.Address })
                     .ToList();
                 dataGridView1.DataSource = list;
@@ -66,10 +67,8 @@ namespace QLTV.form.Reader
         private void btNew_Click(object sender, EventArgs e)
         {
             var f = new fNewReader();
-
             f.MdiParent = this.MdiParent;
             f.Show();
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -80,10 +79,8 @@ namespace QLTV.form.Reader
             if (dataGridView1.Columns[e.ColumnIndex].Name == "Edit")
             {
                 var f = new fEditReader(userId);
-
                 f.MdiParent = this.MdiParent;
                 f.Show();
-
             }
             else if (dataGridView1.Columns[e.ColumnIndex].Name == "Delete")
             {
@@ -101,11 +98,6 @@ namespace QLTV.form.Reader
                     }
                 }
             }
-        }
-
-        private void fManageReader_Load_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

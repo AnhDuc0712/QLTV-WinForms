@@ -27,13 +27,13 @@ namespace Ngducanh
                 .Where(a => a.Name.Contains(keyword))
                 .Select(a => new
                 {
-                    a.AuthorId,
-                    a.Name
+                    MaTacGia = a.AuthorId,
+                    TenTacGia = a.Name
                 }).ToList();
 
+            dgvAuthors.DataSource = null; // Xóa binding cũ nếu có
+            dgvAuthors.AutoGenerateColumns = true;
             dgvAuthors.DataSource = authors;
-            dgvAuthors.Columns[0].HeaderText = "Mã tác giả";
-            dgvAuthors.Columns[1].HeaderText = "Tên tác giả";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -47,7 +47,8 @@ namespace Ngducanh
         {
             if (dgvAuthors.CurrentRow != null)
             {
-                int authorId = (int)dgvAuthors.CurrentRow.Cells["AuthorId"].Value;
+                // Lấy đúng tên cột đã đặt lại ở Select phía trên
+                int authorId = Convert.ToInt32(dgvAuthors.CurrentRow.Cells["MaTacGia"].Value);
                 var f = new fEditAuthor(authorId);
                 f.FormClosed += (s, args) => LoadAuthors(txtSearch.Text);
                 f.ShowDialog();
@@ -58,7 +59,7 @@ namespace Ngducanh
         {
             if (dgvAuthors.CurrentRow != null)
             {
-                int authorId = (int)dgvAuthors.CurrentRow.Cells["AuthorId"].Value;
+                int authorId = Convert.ToInt32(dgvAuthors.CurrentRow.Cells["MaTacGia"].Value);
                 var author = _context.Authors.Find(authorId);
 
                 if (author != null && MessageBox.Show("Xóa tác giả này?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -80,8 +81,16 @@ namespace Ngducanh
             this.Close();
         }
 
+        // Đảm bảo giải phóng context khi đóng form
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            _context.Dispose();
+            base.OnFormClosed(e);
+        }
+
         private void dgvAuthors_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Bỏ trống hoặc dùng cho sự kiện double click để edit nhanh
         }
     }
 }

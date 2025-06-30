@@ -16,11 +16,9 @@ namespace Ngducanh_Quanlysach
         {
             InitializeComponent();
 
-            // Giới hạn nhập số cho ComboBox
             cBAddStockQuantity.KeyPress += NumericComboBox_KeyPress;
             cBEditStockQuantity.KeyPress += NumericComboBox_KeyPress;
 
-            // Thêm tooltip để hướng dẫn
             toolTip1.SetToolTip(cBEditBookID, "Nhập hoặc chọn mã sách");
             toolTip1.SetToolTip(cBEditStockQuantity, "Nhập hoặc chọn số lượng");
             toolTip1.SetToolTip(cBEditPublisherID, "Chọn nhà xuất bản");
@@ -35,8 +33,7 @@ namespace Ngducanh_Quanlysach
         {
             InitializeComboBoxes();
             RefreshDataGridView();
-            UpdateBookCount(); // Cập nhật số lượng sách khi load
-            // Gắn sự kiện hiện ảnh khi chọn dòng
+            UpdateBookCount();
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
         }
 
@@ -66,20 +63,53 @@ namespace Ngducanh_Quanlysach
             }
         }
 
+        // ----- HÀM QUAN TRỌNG: HIỆN ẢNH ĐẠI DIỆN TRONG DATAGRIDVIEW -----
         private void RefreshDataGridView()
         {
             using (var db = new LibraryContext())
             {
-                dataGridView1.DataSource = db.Books
+                var booksList = db.Books
                     .Select(c => new
                     {
                         c.BookId,
                         c.Title,
                         c.CategoryId,
                         c.PublisherId,
-                        c.StockQuantity
-                    }).ToList();
-                UpdateBookCount(); // Cập nhật số lượng sau khi refresh
+                        c.StockQuantity,
+                        c.ImageUrl
+                    })
+                    .ToList();
+
+                dataGridView1.DataSource = booksList;
+
+                // Thêm cột ảnh vào DataGridView nếu chưa có
+                const string colImageName = "Ảnh";
+                if (dataGridView1.Columns[colImageName] == null)
+                {
+                    DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
+                    imgCol.Name = colImageName;
+                    imgCol.HeaderText = "Ảnh";
+                    imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                    imgCol.Width = 80;
+                    dataGridView1.Columns.Insert(0, imgCol);
+                }
+
+                // Gán ảnh cho từng dòng
+                for (int i = 0; i < booksList.Count; i++)
+                {
+                    var row = dataGridView1.Rows[i];
+                    string imagePath = booksList[i].ImageUrl;
+                    if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                    {
+                        row.Cells[colImageName].Value = Image.FromFile(imagePath);
+                    }
+                    else
+                    {
+                        row.Cells[colImageName].Value = null; // hoặc ảnh mặc định
+                    }
+                }
+                dataGridView1.Columns[colImageName].ReadOnly = true;
+                UpdateBookCount();
             }
         }
 
@@ -244,13 +274,40 @@ namespace Ngducanh_Quanlysach
                         c.Title,
                         c.CategoryId,
                         c.PublisherId,
-                        c.StockQuantity
+                        c.StockQuantity,
+                        c.ImageUrl
                     }).ToList();
 
                 dataGridView1.DataSource = books;
+
+                // Thêm cột ảnh (nếu cần)
+                const string colImageName = "Ảnh";
+                if (dataGridView1.Columns[colImageName] == null)
+                {
+                    DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
+                    imgCol.Name = colImageName;
+                    imgCol.HeaderText = "Ảnh";
+                    imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                    imgCol.Width = 80;
+                    dataGridView1.Columns.Insert(0, imgCol);
+                }
+
+                // Gán ảnh cho từng dòng
+                for (int i = 0; i < books.Count; i++)
+                {
+                    var row = dataGridView1.Rows[i];
+                    string imagePath = books[i].ImageUrl;
+                    if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                        row.Cells[colImageName].Value = Image.FromFile(imagePath);
+                    else
+                        row.Cells[colImageName].Value = null;
+                }
+
+                dataGridView1.Columns[colImageName].ReadOnly = true;
+
                 if (!books.Any())
                     toolTip1.Show("Không tìm thấy sách!", txtBookTitle, 0, 0, 1000);
-                UpdateBookCount(); // Cập nhật số lượng sau khi tìm
+                UpdateBookCount();
             }
         }
 
@@ -298,7 +355,7 @@ namespace Ngducanh_Quanlysach
                     MessageBox.Show($"Lỗi khi mở form sửa: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (dataGridView1.Columns[e.ColumnIndex].Name == "Delete") // Xử lý xóa
+            else if (dataGridView1.Columns[e.ColumnIndex].Name == "Delete")
             {
                 int bookId = (int)dataGridView1.Rows[e.RowIndex].Cells["BookId"].Value;
                 if (MessageBox.Show($"Xóa sách #{bookId}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
@@ -346,7 +403,7 @@ namespace Ngducanh_Quanlysach
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            // Có thể để trống hoặc mở ảnh lớn nếu chủ công thích
+            // Để trống hoặc mở ảnh lớn nếu cần
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)

@@ -20,6 +20,7 @@ namespace Ngducanh
 
         private void fEditAuthor_Load(object sender, EventArgs e)
         {
+            // Lấy thông tin tác giả theo Id
             _author = _context.Authors.FirstOrDefault(a => a.AuthorId == _authorId);
             if (_author == null)
             {
@@ -40,6 +41,7 @@ namespace Ngducanh
                 return;
             }
 
+            // Cập nhật tên tác giả
             _author.Name = name;
             _context.SaveChanges();
 
@@ -50,6 +52,13 @@ namespace Ngducanh
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        // Giải phóng tài nguyên context khi đóng form
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            _context.Dispose();
+            base.OnFormClosed(e);
         }
     }
 }

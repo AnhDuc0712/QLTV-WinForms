@@ -116,9 +116,8 @@
             label1.ForeColor = Color.Blue;
             label1.Location = new Point(12, 507);
             label1.Name = "label1";
-            label1.Size = new Size(285, 24);
+            label1.Size = new Size(0, 24);
             label1.TabIndex = 9;
-            label1.Text = "ae mình cứ thế thôi hẹ hẹ hẹ";
             // 
             // fManageReader
             // 
@@ -137,7 +136,7 @@
             Name = "fManageReader";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Quản lý độc giả";
-            Load += fManageReader_Load_1;
+            
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
