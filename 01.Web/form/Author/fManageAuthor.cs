@@ -34,6 +34,8 @@ namespace Ngducanh
             dgvAuthors.DataSource = null; // Xóa binding cũ nếu có
             dgvAuthors.AutoGenerateColumns = true;
             dgvAuthors.DataSource = authors;
+
+            lblTotalAuthors.Text = "Tổng số tác giả:" + authors.Count;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

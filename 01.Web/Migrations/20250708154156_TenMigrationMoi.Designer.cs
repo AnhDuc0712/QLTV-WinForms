@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QLTV;
 
@@ -11,9 +12,11 @@ using QLTV;
 namespace FullToping.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    partial class LibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20250708154156_TenMigrationMoi")]
+    partial class TenMigrationMoi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,7 +40,7 @@ namespace FullToping.Migrations
 
                     b.HasKey("AuthorId");
 
-                    b.ToTable("Authors", (string)null);
+                    b.ToTable("Authors");
 
                     b.HasData(
                         new
@@ -223,7 +226,7 @@ namespace FullToping.Migrations
 
                     b.HasIndex("PublisherId");
 
-                    b.ToTable("Books", (string)null);
+                    b.ToTable("Books");
 
                     b.HasData(
                         new
@@ -1080,7 +1083,7 @@ namespace FullToping.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.ToTable("BookAuthors", (string)null);
+                    b.ToTable("BookAuthors");
 
                     b.HasData(
                         new
@@ -1603,7 +1606,7 @@ namespace FullToping.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("BorrowDetails", (string)null);
+                    b.ToTable("BorrowDetails");
 
                     b.HasData(
                         new
@@ -1752,7 +1755,7 @@ namespace FullToping.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("BorrowReceipts", (string)null);
+                    b.ToTable("BorrowReceipts");
 
                     b.HasData(
                         new
@@ -1972,7 +1975,7 @@ namespace FullToping.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
@@ -2142,7 +2145,7 @@ namespace FullToping.Migrations
 
                     b.HasKey("PublisherId");
 
-                    b.ToTable("Publishers", (string)null);
+                    b.ToTable("Publishers");
 
                     b.HasData(
                         new
@@ -2271,7 +2274,7 @@ namespace FullToping.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Users", null, t =>
+                    b.ToTable("Users", t =>
                         {
                             t.HasCheckConstraint("CK_Users_Password_NotNull_IfEmployee", "(UserType = 'Customer' AND Password IS NULL) OR (UserType = 'Employee' AND Password IS NOT NULL)");
                         });

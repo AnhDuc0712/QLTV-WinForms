@@ -35,6 +35,7 @@ namespace Ngducanh
             btnEdit = new SiticoneButton();
             btnDelete = new SiticoneButton();
             btnClose = new SiticoneButton();
+            lblTotalAuthors = new Label();
             toolTip1 = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)dgvAuthors).BeginInit();
             SuspendLayout();
@@ -49,10 +50,10 @@ namespace Ngducanh
             // 
             // lblTitle
             // 
-            lblTitle.BackColor = Color.FromArgb(22, 27, 34);
+            lblTitle.BackColor = Color.FromArgb(247, 249, 251);
             lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(12, 32);
+            lblTitle.ForeColor = Color.FromArgb(26, 26, 26);
+            lblTitle.Location = new Point(191, 54);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(1024, 45);
             lblTitle.TabIndex = 0;
@@ -63,10 +64,10 @@ namespace Ngducanh
             // 
             txtSearch.BorderRadius = 10;
             txtSearch.DefaultText = "";
-            txtSearch.FillColor = Color.FromArgb(28, 31, 38);
+            txtSearch.FillColor = Color.FromArgb(232, 236, 239);
             txtSearch.Font = new Font("Segoe UI", 12F);
-            txtSearch.ForeColor = Color.WhiteSmoke;
-            txtSearch.Location = new Point(20, 81);
+            txtSearch.ForeColor = Color.FromArgb(26, 26, 26);
+            txtSearch.Location = new Point(253, 118);
             txtSearch.Margin = new Padding(3, 4, 3, 4);
             txtSearch.Name = "txtSearch";
             txtSearch.PasswordChar = '\0';
@@ -78,11 +79,11 @@ namespace Ngducanh
             // btnSearch
             // 
             btnSearch.BorderRadius = 10;
-            btnSearch.FillColor = Color.FromArgb(41, 121, 255);
+            btnSearch.FillColor = Color.FromArgb(42, 46, 69);
             btnSearch.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnSearch.ForeColor = Color.White;
-            btnSearch.HoverState.FillColor = Color.FromArgb(30, 100, 200);
-            btnSearch.Location = new Point(326, 80);
+            btnSearch.ForeColor = Color.FromArgb(255, 215, 0);
+            btnSearch.HoverState.FillColor = Color.FromArgb(60, 64, 87);
+            btnSearch.Location = new Point(634, 118);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(80, 30);
             btnSearch.TabIndex = 2;
@@ -92,28 +93,28 @@ namespace Ngducanh
             // dgvAuthors
             // 
             dgvAuthors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvAuthors.BackgroundColor = Color.FromArgb(22, 27, 34);
+            dgvAuthors.BackgroundColor = Color.FromArgb(232, 236, 239);
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(41, 121, 255);
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(42, 46, 69);
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 215, 0);
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvAuthors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvAuthors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(247, 249, 251);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(30, 100, 200);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(26, 26, 26);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(60, 64, 87);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(255, 215, 0);
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvAuthors.DefaultCellStyle = dataGridViewCellStyle2;
             dgvAuthors.EnableHeadersVisualStyles = false;
             dgvAuthors.Font = new Font("Segoe UI", 10F);
-            dgvAuthors.GridColor = Color.FromArgb(28, 31, 38);
-            dgvAuthors.Location = new Point(28, 134);
+            dgvAuthors.GridColor = Color.FromArgb(232, 236, 239);
+            dgvAuthors.Location = new Point(191, 165);
             dgvAuthors.Name = "dgvAuthors";
             dgvAuthors.RowHeadersVisible = false;
             dgvAuthors.RowHeadersWidth = 51;
@@ -125,11 +126,11 @@ namespace Ngducanh
             // btnAdd
             // 
             btnAdd.BorderRadius = 10;
-            btnAdd.FillColor = Color.FromArgb(41, 121, 255);
+            btnAdd.FillColor = Color.FromArgb(42, 46, 69);
             btnAdd.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnAdd.ForeColor = Color.White;
-            btnAdd.HoverState.FillColor = Color.FromArgb(30, 100, 200);
-            btnAdd.Location = new Point(143, 554);
+            btnAdd.ForeColor = Color.FromArgb(255, 215, 0);
+            btnAdd.HoverState.FillColor = Color.FromArgb(60, 64, 87);
+            btnAdd.Location = new Point(191, 586);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(100, 35);
             btnAdd.TabIndex = 4;
@@ -139,11 +140,11 @@ namespace Ngducanh
             // btnEdit
             // 
             btnEdit.BorderRadius = 10;
-            btnEdit.FillColor = Color.FromArgb(41, 121, 255);
+            btnEdit.FillColor = Color.FromArgb(42, 46, 69);
             btnEdit.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnEdit.ForeColor = Color.White;
-            btnEdit.HoverState.FillColor = Color.FromArgb(30, 100, 200);
-            btnEdit.Location = new Point(263, 554);
+            btnEdit.ForeColor = Color.FromArgb(255, 215, 0);
+            btnEdit.HoverState.FillColor = Color.FromArgb(60, 64, 87);
+            btnEdit.Location = new Point(491, 586);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(100, 35);
             btnEdit.TabIndex = 5;
@@ -153,11 +154,11 @@ namespace Ngducanh
             // btnDelete
             // 
             btnDelete.BorderRadius = 10;
-            btnDelete.FillColor = Color.FromArgb(192, 0, 0);
+            btnDelete.FillColor = Color.FromArgb(232, 236, 239);
             btnDelete.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnDelete.ForeColor = Color.White;
-            btnDelete.HoverState.FillColor = Color.FromArgb(160, 0, 0);
-            btnDelete.Location = new Point(382, 554);
+            btnDelete.ForeColor = Color.FromArgb(26, 26, 26);
+            btnDelete.HoverState.FillColor = Color.FromArgb(200, 204, 207);
+            btnDelete.Location = new Point(837, 586);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(100, 35);
             btnDelete.TabIndex = 6;
@@ -167,16 +168,28 @@ namespace Ngducanh
             // btnClose
             // 
             btnClose.BorderRadius = 10;
-            btnClose.FillColor = Color.FromArgb(192, 0, 0);
+            btnClose.FillColor = Color.FromArgb(232, 236, 239);
             btnClose.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnClose.ForeColor = Color.White;
-            btnClose.HoverState.FillColor = Color.FromArgb(160, 0, 0);
-            btnClose.Location = new Point(502, 554);
+            btnClose.ForeColor = Color.FromArgb(26, 26, 26);
+            btnClose.HoverState.FillColor = Color.FromArgb(200, 204, 207);
+            btnClose.Location = new Point(1075, 586);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(100, 35);
             btnClose.TabIndex = 7;
             btnClose.Text = "↩ Đóng";
             btnClose.Click += btnClose_Click;
+            // 
+            // lblTotalAuthors
+            // 
+            lblTotalAuthors.AutoSize = true;
+            lblTotalAuthors.BackColor = Color.FromArgb(247, 249, 251);
+            lblTotalAuthors.Font = new Font("Segoe UI", 12F);
+            lblTotalAuthors.ForeColor = Color.FromArgb(26, 26, 26);
+            lblTotalAuthors.Location = new Point(864, 120);
+            lblTotalAuthors.Name = "lblTotalAuthors";
+            lblTotalAuthors.Size = new Size(120, 28);
+            lblTotalAuthors.TabIndex = 8;
+            lblTotalAuthors.Text = "Tổng tác giả";
             // 
             // toolTip1
             // 
@@ -186,8 +199,9 @@ namespace Ngducanh
             // 
             // fManageAuthor
             // 
-            BackColor = Color.FromArgb(13, 17, 23);
-            ClientSize = new Size(1024, 768);
+            BackColor = Color.FromArgb(247, 249, 251);
+            ClientSize = new Size(1343, 633);
+            Controls.Add(lblTotalAuthors);
             Controls.Add(btnClose);
             Controls.Add(btnDelete);
             Controls.Add(btnEdit);
@@ -204,6 +218,7 @@ namespace Ngducanh
             Load += fManageAuthor_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAuthors).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #region Windows Form Designer generated code
@@ -215,6 +230,7 @@ namespace Ngducanh
         private SiticoneButton btnEdit;
         private SiticoneButton btnDelete;
         private SiticoneButton btnClose;
+        private Label lblTotalAuthors;
         private ToolTip toolTip1;
         #endregion
     }

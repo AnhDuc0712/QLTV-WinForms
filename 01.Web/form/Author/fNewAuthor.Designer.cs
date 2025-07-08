@@ -43,9 +43,9 @@ namespace Ngducanh
             // 
             txtName.BorderRadius = 10;
             txtName.DefaultText = "";
-            txtName.FillColor = Color.FromArgb(28, 31, 38);
+            txtName.FillColor = Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
             txtName.Font = new Font("Segoe UI", 10F);
-            txtName.ForeColor = Color.WhiteSmoke;
+            txtName.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
             txtName.Location = new Point(73, 13);
             txtName.Margin = new Padding(3, 4, 3, 4);
             txtName.Name = "txtName";
@@ -58,10 +58,10 @@ namespace Ngducanh
             // btnSave
             // 
             btnSave.BorderRadius = 10;
-            btnSave.FillColor = Color.FromArgb(41, 121, 255);
+            btnSave.FillColor = Color.FromArgb(42, 46, 69); // #2A2E45 (Xanh đen sâu thẳm)
             btnSave.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnSave.ForeColor = Color.White;
-            btnSave.HoverState.FillColor = Color.FromArgb(30, 100, 200);
+            btnSave.ForeColor = Color.FromArgb(255, 215, 0); // #FFD700 (Vàng ánh kim)
+            btnSave.HoverState.FillColor = Color.FromArgb(60, 64, 87); // Tối hơn #2A2E45 khi hover
             btnSave.Location = new Point(24, 60);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(100, 36);
@@ -72,10 +72,10 @@ namespace Ngducanh
             // btnCancel
             // 
             btnCancel.BorderRadius = 10;
-            btnCancel.FillColor = Color.FromArgb(192, 0, 0);
+            btnCancel.FillColor = Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
             btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnCancel.ForeColor = Color.White;
-            btnCancel.HoverState.FillColor = Color.FromArgb(160, 0, 0);
+            btnCancel.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
+            btnCancel.HoverState.FillColor = Color.FromArgb(200, 204, 207); // Tối hơn #E8ECEF khi hover
             btnCancel.Location = new Point(298, 60);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(100, 36);
@@ -91,7 +91,7 @@ namespace Ngducanh
             // 
             // fNewAuthor
             // 
-            BackColor = Color.FromArgb(13, 17, 23);
+            BackColor = Color.FromArgb(247, 249, 251); // #F7F9FB (Trắng xám nhạt)
             ClientSize = new Size(423, 124);
             Controls.Add(txtName);
             Controls.Add(btnSave);

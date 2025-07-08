@@ -17,6 +17,7 @@ namespace QLTV.form.Statistical
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fBorrowedBooks));
             lblTitle = new Label();
             lblTotal = new Label();
             btClose = new Button();
@@ -25,10 +26,8 @@ namespace QLTV.form.Statistical
             Title = new DataGridViewTextBoxColumn();
             BorrowCount = new DataGridViewTextBoxColumn();
             Readers = new DataGridViewTextBoxColumn();
-
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-
             // 
             // lblTitle
             // 
@@ -75,7 +74,7 @@ namespace QLTV.form.Statistical
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(950, 340);
             dataGridView1.TabIndex = 4;
-
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // BookId
             // 
@@ -103,16 +102,15 @@ namespace QLTV.form.Statistical
             BorrowCount.Name = "BorrowCount";
             BorrowCount.ReadOnly = true;
             BorrowCount.Width = 90;
-            //
+            // 
             // Readers
-            //
+            // 
             Readers.DataPropertyName = "Readers";
-            Readers.HeaderText = "Độc giả đang mượn";
+            Readers.HeaderText = "Người mượn";
             Readers.MinimumWidth = 6;
             Readers.Name = "Readers";
             Readers.ReadOnly = true;
             Readers.Width = 300;
-
             // 
             // fBorrowedBooks
             // 

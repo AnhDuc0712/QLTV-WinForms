@@ -28,7 +28,7 @@ namespace Ngducanh_Quanlysach
             btnFind = new SiticoneButton();
             dataGridView1 = new DataGridView();
             Edit = new DataGridViewButtonColumn();
-            Delete = new DataGridViewButtonColumn(); // Thêm cột Xóa
+            Delete = new DataGridViewButtonColumn();
             btnAdd = new SiticoneButton();
             lblMenu = new Label();
             lblBookCount = new Krypton.Toolkit.KryptonLabel();
@@ -76,11 +76,11 @@ namespace Ngducanh_Quanlysach
             // btnFind
             // 
             btnFind.BorderRadius = 10;
-            btnFind.FillColor = Color.FromArgb(41, 121, 255);
+            btnFind.FillColor = Color.FromArgb(42, 46, 69);
             btnFind.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnFind.ForeColor = Color.White;
-            btnFind.HoverState.FillColor = Color.FromArgb(30, 100, 200);
-            btnFind.Location = new Point(485, 126);
+            btnFind.ForeColor = Color.FromArgb(255, 215, 0);
+            btnFind.HoverState.FillColor = Color.FromArgb(60, 64, 87);
+            btnFind.Location = new Point(536, 135);
             btnFind.Name = "btnFind";
             btnFind.Size = new Size(94, 29);
             btnFind.TabIndex = 2;
@@ -90,12 +90,12 @@ namespace Ngducanh_Quanlysach
             // dataGridView1
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.FromArgb(22, 27, 34);
+            dataGridView1.BackgroundColor = Color.FromArgb(232, 236, 239);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Edit, Delete });
             dataGridView1.Font = new Font("Segoe UI", 10F);
-            dataGridView1.GridColor = Color.FromArgb(28, 31, 38);
-            dataGridView1.Location = new Point(266, 160);
+            dataGridView1.GridColor = Color.FromArgb(232, 236, 239);
+            dataGridView1.Location = new Point(277, 172);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(800, 300);
@@ -112,7 +112,7 @@ namespace Ngducanh_Quanlysach
             // 
             // Delete
             // 
-            Delete.HeaderText = "Xóa"; // Thêm cột Xóa
+            Delete.HeaderText = "Xóa";
             Delete.MinimumWidth = 6;
             Delete.Name = "Delete";
             Delete.Text = "Xóa";
@@ -121,11 +121,11 @@ namespace Ngducanh_Quanlysach
             // btnAdd
             // 
             btnAdd.BorderRadius = 10;
-            btnAdd.FillColor = Color.FromArgb(41, 121, 255);
+            btnAdd.FillColor = Color.FromArgb(42, 46, 69);
             btnAdd.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnAdd.ForeColor = Color.White;
-            btnAdd.HoverState.FillColor = Color.FromArgb(30, 100, 200);
-            btnAdd.Location = new Point(600, 90);
+            btnAdd.ForeColor = Color.FromArgb(255, 215, 0);
+            btnAdd.HoverState.FillColor = Color.FromArgb(60, 64, 87);
+            btnAdd.Location = new Point(721, 135);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(109, 29);
             btnAdd.TabIndex = 9;
@@ -134,10 +134,10 @@ namespace Ngducanh_Quanlysach
             // 
             // lblMenu
             // 
-            lblMenu.BackColor = Color.FromArgb(22, 27, 34);
+            lblMenu.BackColor = Color.FromArgb(247, 249, 251);
             lblMenu.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblMenu.ForeColor = Color.White;
-            lblMenu.Location = new Point(300, 10);
+            lblMenu.ForeColor = Color.FromArgb(26, 26, 26);
+            lblMenu.Location = new Point(513, 53);
             lblMenu.Name = "lblMenu";
             lblMenu.Size = new Size(300, 40);
             lblMenu.TabIndex = 0;
@@ -146,22 +146,22 @@ namespace Ngducanh_Quanlysach
             // 
             // lblBookCount
             // 
-            lblBookCount.StateCommon.ShortText.Color1 = Color.LightGreen;
-            lblBookCount.StateCommon.ShortText.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblBookCount.Location = new Point(600, 20);
+            lblBookCount.Location = new Point(889, 130);
             lblBookCount.Name = "lblBookCount";
-            lblBookCount.Size = new Size(200, 30);
+            lblBookCount.Size = new Size(126, 36);
+            lblBookCount.StateCommon.ShortText.Color1 = Color.FromArgb(255, 215, 0);
+            lblBookCount.StateCommon.ShortText.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblBookCount.TabIndex = 1;
             lblBookCount.Values.Text = "Số sách: 0";
             // 
             // btnClose
             // 
             btnClose.BorderRadius = 10;
-            btnClose.FillColor = Color.FromArgb(192, 0, 0);
+            btnClose.FillColor = Color.FromArgb(232, 236, 239);
             btnClose.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnClose.ForeColor = Color.White;
-            btnClose.HoverState.FillColor = Color.FromArgb(160, 0, 0);
-            btnClose.Location = new Point(715, 90);
+            btnClose.ForeColor = Color.FromArgb(26, 26, 26);
+            btnClose.HoverState.FillColor = Color.FromArgb(200, 204, 207);
+            btnClose.Location = new Point(1145, 282);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(109, 29);
             btnClose.TabIndex = 16;
@@ -172,10 +172,10 @@ namespace Ngducanh_Quanlysach
             // 
             txtBookTitle.BorderRadius = 10;
             txtBookTitle.DefaultText = "";
-            txtBookTitle.FillColor = Color.FromArgb(28, 31, 38);
+            txtBookTitle.FillColor = Color.FromArgb(232, 236, 239);
             txtBookTitle.Font = new Font("Segoe UI", 12F);
-            txtBookTitle.ForeColor = Color.WhiteSmoke;
-            txtBookTitle.Location = new Point(296, 89);
+            txtBookTitle.ForeColor = Color.FromArgb(26, 26, 26);
+            txtBookTitle.Location = new Point(284, 135);
             txtBookTitle.Margin = new Padding(3, 4, 3, 4);
             txtBookTitle.Name = "txtBookTitle";
             txtBookTitle.PasswordChar = '\0';
@@ -196,8 +196,8 @@ namespace Ngducanh_Quanlysach
             panelEdit.Controls.Add(btnEditClose);
             panelEdit.Controls.Add(btnSave);
             panelEdit.Controls.Add(txtEditTitle);
-            panelEdit.FillColor = Color.FromArgb(22, 27, 34);
-            panelEdit.Location = new Point(12, 11);
+            panelEdit.FillColor = Color.FromArgb(247, 249, 251);
+            panelEdit.Location = new Point(21, 157);
             panelEdit.Name = "panelEdit";
             panelEdit.Size = new Size(250, 449);
             panelEdit.TabIndex = 21;
@@ -207,7 +207,7 @@ namespace Ngducanh_Quanlysach
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label2.ForeColor = Color.White;
+            label2.ForeColor = Color.FromArgb(26, 26, 26);
             label2.Location = new Point(107, 285);
             label2.Name = "label2";
             label2.Size = new Size(50, 28);
@@ -216,7 +216,7 @@ namespace Ngducanh_Quanlysach
             // 
             // pictureBoxEdit
             // 
-            pictureBoxEdit.BackColor = Color.White;
+            pictureBoxEdit.BackColor = Color.FromArgb(232, 236, 239);
             pictureBoxEdit.Location = new Point(10, 316);
             pictureBoxEdit.Name = "pictureBoxEdit";
             pictureBoxEdit.Size = new Size(237, 75);
@@ -230,11 +230,11 @@ namespace Ngducanh_Quanlysach
             cBEditBookID.BorderRadius = 10;
             cBEditBookID.DrawMode = DrawMode.OwnerDrawFixed;
             cBEditBookID.DropDownStyle = ComboBoxStyle.DropDownList;
-            cBEditBookID.FillColor = Color.FromArgb(28, 31, 38);
-            cBEditBookID.FocusedColor = Color.FromArgb(94, 148, 255);
-            cBEditBookID.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cBEditBookID.FillColor = Color.FromArgb(232, 236, 239);
+            cBEditBookID.FocusedColor = Color.FromArgb(42, 46, 69);
+            cBEditBookID.FocusedState.BorderColor = Color.FromArgb(42, 46, 69);
             cBEditBookID.Font = new Font("Segoe UI", 10F);
-            cBEditBookID.ForeColor = Color.WhiteSmoke;
+            cBEditBookID.ForeColor = Color.FromArgb(26, 26, 26);
             cBEditBookID.FormattingEnabled = true;
             cBEditBookID.ItemHeight = 30;
             cBEditBookID.Location = new Point(20, 246);
@@ -248,11 +248,11 @@ namespace Ngducanh_Quanlysach
             cBEditStockQuantity.BorderRadius = 10;
             cBEditStockQuantity.DrawMode = DrawMode.OwnerDrawFixed;
             cBEditStockQuantity.DropDownStyle = ComboBoxStyle.DropDownList;
-            cBEditStockQuantity.FillColor = Color.FromArgb(28, 31, 38);
-            cBEditStockQuantity.FocusedColor = Color.FromArgb(94, 148, 255);
-            cBEditStockQuantity.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cBEditStockQuantity.FillColor = Color.FromArgb(232, 236, 239);
+            cBEditStockQuantity.FocusedColor = Color.FromArgb(42, 46, 69);
+            cBEditStockQuantity.FocusedState.BorderColor = Color.FromArgb(42, 46, 69);
             cBEditStockQuantity.Font = new Font("Segoe UI", 10F);
-            cBEditStockQuantity.ForeColor = Color.WhiteSmoke;
+            cBEditStockQuantity.ForeColor = Color.FromArgb(26, 26, 26);
             cBEditStockQuantity.FormattingEnabled = true;
             cBEditStockQuantity.ItemHeight = 30;
             cBEditStockQuantity.Location = new Point(20, 194);
@@ -266,11 +266,11 @@ namespace Ngducanh_Quanlysach
             cBEditPublisherID.BorderRadius = 10;
             cBEditPublisherID.DrawMode = DrawMode.OwnerDrawFixed;
             cBEditPublisherID.DropDownStyle = ComboBoxStyle.DropDownList;
-            cBEditPublisherID.FillColor = Color.FromArgb(28, 31, 38);
-            cBEditPublisherID.FocusedColor = Color.FromArgb(94, 148, 255);
-            cBEditPublisherID.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cBEditPublisherID.FillColor = Color.FromArgb(232, 236, 239);
+            cBEditPublisherID.FocusedColor = Color.FromArgb(42, 46, 69);
+            cBEditPublisherID.FocusedState.BorderColor = Color.FromArgb(42, 46, 69);
             cBEditPublisherID.Font = new Font("Segoe UI", 10F);
-            cBEditPublisherID.ForeColor = Color.WhiteSmoke;
+            cBEditPublisherID.ForeColor = Color.FromArgb(26, 26, 26);
             cBEditPublisherID.FormattingEnabled = true;
             cBEditPublisherID.ItemHeight = 30;
             cBEditPublisherID.Location = new Point(20, 82);
@@ -284,11 +284,11 @@ namespace Ngducanh_Quanlysach
             cBEditCategories.BorderRadius = 10;
             cBEditCategories.DrawMode = DrawMode.OwnerDrawFixed;
             cBEditCategories.DropDownStyle = ComboBoxStyle.DropDownList;
-            cBEditCategories.FillColor = Color.FromArgb(28, 31, 38);
-            cBEditCategories.FocusedColor = Color.FromArgb(94, 148, 255);
-            cBEditCategories.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cBEditCategories.FillColor = Color.FromArgb(232, 236, 239);
+            cBEditCategories.FocusedColor = Color.FromArgb(42, 46, 69);
+            cBEditCategories.FocusedState.BorderColor = Color.FromArgb(42, 46, 69);
             cBEditCategories.Font = new Font("Segoe UI", 10F);
-            cBEditCategories.ForeColor = Color.WhiteSmoke;
+            cBEditCategories.ForeColor = Color.FromArgb(26, 26, 26);
             cBEditCategories.FormattingEnabled = true;
             cBEditCategories.ItemHeight = 30;
             cBEditCategories.Location = new Point(20, 139);
@@ -299,10 +299,10 @@ namespace Ngducanh_Quanlysach
             // btnEditClose
             // 
             btnEditClose.BorderRadius = 10;
-            btnEditClose.FillColor = Color.FromArgb(192, 0, 0);
+            btnEditClose.FillColor = Color.FromArgb(232, 236, 239);
             btnEditClose.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnEditClose.ForeColor = Color.White;
-            btnEditClose.HoverState.FillColor = Color.FromArgb(160, 0, 0);
+            btnEditClose.ForeColor = Color.FromArgb(26, 26, 26);
+            btnEditClose.HoverState.FillColor = Color.FromArgb(200, 204, 207);
             btnEditClose.Location = new Point(150, 397);
             btnEditClose.Name = "btnEditClose";
             btnEditClose.Size = new Size(90, 29);
@@ -313,10 +313,10 @@ namespace Ngducanh_Quanlysach
             // btnSave
             // 
             btnSave.BorderRadius = 10;
-            btnSave.FillColor = Color.FromArgb(41, 121, 255);
+            btnSave.FillColor = Color.FromArgb(42, 46, 69);
             btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnSave.ForeColor = Color.White;
-            btnSave.HoverState.FillColor = Color.FromArgb(30, 100, 200);
+            btnSave.ForeColor = Color.FromArgb(255, 215, 0);
+            btnSave.HoverState.FillColor = Color.FromArgb(60, 64, 87);
             btnSave.Location = new Point(20, 397);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(90, 29);
@@ -328,9 +328,9 @@ namespace Ngducanh_Quanlysach
             // 
             txtEditTitle.BorderRadius = 10;
             txtEditTitle.DefaultText = "";
-            txtEditTitle.FillColor = Color.FromArgb(28, 31, 38);
+            txtEditTitle.FillColor = Color.FromArgb(232, 236, 239);
             txtEditTitle.Font = new Font("Segoe UI", 12F);
-            txtEditTitle.ForeColor = Color.WhiteSmoke;
+            txtEditTitle.ForeColor = Color.FromArgb(26, 26, 26);
             txtEditTitle.Location = new Point(20, 36);
             txtEditTitle.Margin = new Padding(3, 4, 3, 4);
             txtEditTitle.Name = "txtEditTitle";
@@ -352,8 +352,8 @@ namespace Ngducanh_Quanlysach
             panelAdd.Controls.Add(btnAddClose);
             panelAdd.Controls.Add(btnAddSave);
             panelAdd.Controls.Add(txtAddBookTitle);
-            panelAdd.FillColor = Color.FromArgb(22, 27, 34);
-            panelAdd.Location = new Point(12, 466);
+            panelAdd.FillColor = Color.FromArgb(247, 249, 251);
+            panelAdd.Location = new Point(274, 478);
             panelAdd.Name = "panelAdd";
             panelAdd.Size = new Size(1054, 132);
             panelAdd.TabIndex = 22;
@@ -364,7 +364,7 @@ namespace Ngducanh_Quanlysach
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label1.ForeColor = Color.White;
+            label1.ForeColor = Color.FromArgb(26, 26, 26);
             label1.Location = new Point(904, 103);
             label1.Name = "label1";
             label1.Size = new Size(50, 28);
@@ -373,7 +373,7 @@ namespace Ngducanh_Quanlysach
             // 
             // pictureBoxAdd
             // 
-            pictureBoxAdd.BackColor = Color.White;
+            pictureBoxAdd.BackColor = Color.FromArgb(232, 236, 239);
             pictureBoxAdd.Location = new Point(795, 7);
             pictureBoxAdd.Name = "pictureBoxAdd";
             pictureBoxAdd.Size = new Size(256, 93);
@@ -387,11 +387,11 @@ namespace Ngducanh_Quanlysach
             cBAddBookID.BorderRadius = 10;
             cBAddBookID.DrawMode = DrawMode.OwnerDrawFixed;
             cBAddBookID.DropDownStyle = ComboBoxStyle.DropDownList;
-            cBAddBookID.FillColor = Color.FromArgb(28, 31, 38);
-            cBAddBookID.FocusedColor = Color.FromArgb(94, 148, 255);
-            cBAddBookID.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cBAddBookID.FillColor = Color.FromArgb(232, 236, 239);
+            cBAddBookID.FocusedColor = Color.FromArgb(42, 46, 69);
+            cBAddBookID.FocusedState.BorderColor = Color.FromArgb(42, 46, 69);
             cBAddBookID.Font = new Font("Segoe UI", 10F);
-            cBAddBookID.ForeColor = Color.WhiteSmoke;
+            cBAddBookID.ForeColor = Color.FromArgb(26, 26, 26);
             cBAddBookID.FormattingEnabled = true;
             cBAddBookID.ItemHeight = 30;
             cBAddBookID.Location = new Point(576, 7);
@@ -405,11 +405,11 @@ namespace Ngducanh_Quanlysach
             cBAddStockQuantity.BorderRadius = 10;
             cBAddStockQuantity.DrawMode = DrawMode.OwnerDrawFixed;
             cBAddStockQuantity.DropDownStyle = ComboBoxStyle.DropDownList;
-            cBAddStockQuantity.FillColor = Color.FromArgb(28, 31, 38);
-            cBAddStockQuantity.FocusedColor = Color.FromArgb(94, 148, 255);
-            cBAddStockQuantity.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cBAddStockQuantity.FillColor = Color.FromArgb(232, 236, 239);
+            cBAddStockQuantity.FocusedColor = Color.FromArgb(42, 46, 69);
+            cBAddStockQuantity.FocusedState.BorderColor = Color.FromArgb(42, 46, 69);
             cBAddStockQuantity.Font = new Font("Segoe UI", 10F);
-            cBAddStockQuantity.ForeColor = Color.WhiteSmoke;
+            cBAddStockQuantity.ForeColor = Color.FromArgb(26, 26, 26);
             cBAddStockQuantity.FormattingEnabled = true;
             cBAddStockQuantity.ItemHeight = 30;
             cBAddStockQuantity.Location = new Point(576, 49);
@@ -423,11 +423,11 @@ namespace Ngducanh_Quanlysach
             cBAddCategories.BorderRadius = 10;
             cBAddCategories.DrawMode = DrawMode.OwnerDrawFixed;
             cBAddCategories.DropDownStyle = ComboBoxStyle.DropDownList;
-            cBAddCategories.FillColor = Color.FromArgb(28, 31, 38);
-            cBAddCategories.FocusedColor = Color.FromArgb(94, 148, 255);
-            cBAddCategories.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cBAddCategories.FillColor = Color.FromArgb(232, 236, 239);
+            cBAddCategories.FocusedColor = Color.FromArgb(42, 46, 69);
+            cBAddCategories.FocusedState.BorderColor = Color.FromArgb(42, 46, 69);
             cBAddCategories.Font = new Font("Segoe UI", 10F);
-            cBAddCategories.ForeColor = Color.WhiteSmoke;
+            cBAddCategories.ForeColor = Color.FromArgb(26, 26, 26);
             cBAddCategories.FormattingEnabled = true;
             cBAddCategories.ItemHeight = 30;
             cBAddCategories.Location = new Point(388, 49);
@@ -442,11 +442,11 @@ namespace Ngducanh_Quanlysach
             cBAddPublisherID.BorderRadius = 10;
             cBAddPublisherID.DrawMode = DrawMode.OwnerDrawFixed;
             cBAddPublisherID.DropDownStyle = ComboBoxStyle.DropDownList;
-            cBAddPublisherID.FillColor = Color.FromArgb(28, 31, 38);
-            cBAddPublisherID.FocusedColor = Color.FromArgb(94, 148, 255);
-            cBAddPublisherID.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cBAddPublisherID.FillColor = Color.FromArgb(232, 236, 239);
+            cBAddPublisherID.FocusedColor = Color.FromArgb(42, 46, 69);
+            cBAddPublisherID.FocusedState.BorderColor = Color.FromArgb(42, 46, 69);
             cBAddPublisherID.Font = new Font("Segoe UI", 10F);
-            cBAddPublisherID.ForeColor = Color.WhiteSmoke;
+            cBAddPublisherID.ForeColor = Color.FromArgb(26, 26, 26);
             cBAddPublisherID.FormattingEnabled = true;
             cBAddPublisherID.ItemHeight = 30;
             cBAddPublisherID.Location = new Point(388, 7);
@@ -457,10 +457,10 @@ namespace Ngducanh_Quanlysach
             // btnAddClose
             // 
             btnAddClose.BorderRadius = 10;
-            btnAddClose.FillColor = Color.FromArgb(192, 0, 0);
+            btnAddClose.FillColor = Color.FromArgb(232, 236, 239);
             btnAddClose.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnAddClose.ForeColor = Color.White;
-            btnAddClose.HoverState.FillColor = Color.FromArgb(160, 0, 0);
+            btnAddClose.ForeColor = Color.FromArgb(26, 26, 26);
+            btnAddClose.HoverState.FillColor = Color.FromArgb(200, 204, 207);
             btnAddClose.Location = new Point(10, 14);
             btnAddClose.Name = "btnAddClose";
             btnAddClose.Size = new Size(90, 29);
@@ -471,10 +471,10 @@ namespace Ngducanh_Quanlysach
             // btnAddSave
             // 
             btnAddSave.BorderRadius = 10;
-            btnAddSave.FillColor = Color.FromArgb(41, 121, 255);
+            btnAddSave.FillColor = Color.FromArgb(42, 46, 69);
             btnAddSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnAddSave.ForeColor = Color.White;
-            btnAddSave.HoverState.FillColor = Color.FromArgb(30, 100, 200);
+            btnAddSave.ForeColor = Color.FromArgb(255, 215, 0);
+            btnAddSave.HoverState.FillColor = Color.FromArgb(60, 64, 87);
             btnAddSave.Location = new Point(10, 71);
             btnAddSave.Name = "btnAddSave";
             btnAddSave.Size = new Size(90, 29);
@@ -486,9 +486,9 @@ namespace Ngducanh_Quanlysach
             // 
             txtAddBookTitle.BorderRadius = 10;
             txtAddBookTitle.DefaultText = "";
-            txtAddBookTitle.FillColor = Color.FromArgb(28, 31, 38);
+            txtAddBookTitle.FillColor = Color.FromArgb(232, 236, 239);
             txtAddBookTitle.Font = new Font("Segoe UI", 12F);
-            txtAddBookTitle.ForeColor = Color.WhiteSmoke;
+            txtAddBookTitle.ForeColor = Color.FromArgb(26, 26, 26);
             txtAddBookTitle.Location = new Point(150, 27);
             txtAddBookTitle.Margin = new Padding(3, 4, 3, 4);
             txtAddBookTitle.Name = "txtAddBookTitle";
@@ -511,8 +511,8 @@ namespace Ngducanh_Quanlysach
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.White;
-            pictureBox1.Location = new Point(916, 10);
+            pictureBox1.BackColor = Color.FromArgb(232, 236, 239);
+            pictureBox1.Location = new Point(1121, 90);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(150, 150);
             pictureBox1.TabIndex = 23;
@@ -521,8 +521,8 @@ namespace Ngducanh_Quanlysach
             // 
             // fBookManager
             // 
-            BackColor = Color.FromArgb(13, 17, 23);
-            ClientSize = new Size(1196, 771);
+            BackColor = Color.FromArgb(247, 249, 251);
+            ClientSize = new Size(1343, 633);
             Controls.Add(pictureBox1);
             Controls.Add(panelAdd);
             Controls.Add(panelEdit);
@@ -548,6 +548,7 @@ namespace Ngducanh_Quanlysach
             ((System.ComponentModel.ISupportInitialize)pictureBoxAdd).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #region Windows Form Designer generated code
@@ -580,7 +581,7 @@ namespace Ngducanh_Quanlysach
         private SiticoneTextBox txtAddBookTitle;
         private ToolTip toolTip1;
         private DataGridViewButtonColumn Edit;
-        private DataGridViewButtonColumn Delete; // Thêm cột Xóa
+        private DataGridViewButtonColumn Delete;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private PictureBox pictureBox1;
         #endregion

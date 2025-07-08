@@ -28,8 +28,6 @@ namespace Ngducanh
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
@@ -61,8 +59,8 @@ namespace Ngducanh
             // siticoneControlBox1
             // 
             siticoneControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            siticoneControlBox1.FillColor = Color.FromArgb(13, 17, 23);
-            siticoneControlBox1.IconColor = Color.White;
+            siticoneControlBox1.FillColor = Color.FromArgb(247, 249, 251); // #F7F9FB (Trắng xám nhạt)
+            siticoneControlBox1.IconColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
             siticoneControlBox1.Location = new Point(387, 4);
             siticoneControlBox1.Name = "siticoneControlBox1";
             siticoneControlBox1.Size = new Size(30, 30);
@@ -73,7 +71,7 @@ namespace Ngducanh
             panel1.BorderRadius = 20;
             panel1.Controls.Add(siticoneControlBox1);
             panel1.Controls.Add(panel2);
-            panel1.FillColor = Color.FromArgb(22, 27, 34);
+            panel1.FillColor = Color.FromArgb(247, 249, 251); // #F7F9FB (Trắng xám nhạt)
             panel1.Location = new Point(15, 15);
             panel1.Name = "panel1";
             panel1.Size = new Size(420, 340);
@@ -99,7 +97,7 @@ namespace Ngducanh
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblTitle.ForeColor = Color.White;
+            lblTitle.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
             lblTitle.Location = new Point(60, 5);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(261, 32);
@@ -110,9 +108,9 @@ namespace Ngducanh
             // 
             txtUsername.BorderRadius = 10;
             txtUsername.DefaultText = "";
-            txtUsername.FillColor = Color.FromArgb(28, 31, 38);
+            txtUsername.FillColor = Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
             txtUsername.Font = new Font("Segoe UI", 10F);
-            txtUsername.ForeColor = Color.WhiteSmoke;
+            txtUsername.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
             txtUsername.Location = new Point(40, 40);
             txtUsername.Margin = new Padding(3, 4, 3, 4);
             txtUsername.Name = "txtUsername";
@@ -126,9 +124,9 @@ namespace Ngducanh
             // 
             txtPassword.BorderRadius = 10;
             txtPassword.DefaultText = "";
-            txtPassword.FillColor = Color.FromArgb(28, 31, 38);
+            txtPassword.FillColor = Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
             txtPassword.Font = new Font("Segoe UI", 10F);
-            txtPassword.ForeColor = Color.WhiteSmoke;
+            txtPassword.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
             txtPassword.Location = new Point(40, 90);
             txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
@@ -143,9 +141,9 @@ namespace Ngducanh
             checkBox1.AutoSize = true;
             checkBox1.CheckedState.BorderRadius = 0;
             checkBox1.CheckedState.BorderThickness = 0;
-            checkBox1.CheckedState.FillColor = Color.FromArgb(41, 121, 255);
+            checkBox1.CheckedState.FillColor = Color.FromArgb(42, 46, 69); // #2A2E45 (Xanh đen sâu thẳm)
             checkBox1.Font = new Font("Segoe UI", 9F);
-            checkBox1.ForeColor = Color.WhiteSmoke;
+            checkBox1.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
             checkBox1.Location = new Point(40, 140);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(129, 24);
@@ -157,9 +155,10 @@ namespace Ngducanh
             // btnLogin
             // 
             btnLogin.BorderRadius = 10;
-            btnLogin.FillColor = Color.FromArgb(41, 121, 255);
+            btnLogin.FillColor = Color.FromArgb(42, 46, 69); // #2A2E45 (Xanh đen sâu thẳm)
             btnLogin.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnLogin.ForeColor = Color.White;
+            btnLogin.ForeColor = Color.FromArgb(255, 215, 0); // #FFD700 (Vàng ánh kim)
+            btnLogin.HoverState.FillColor = Color.FromArgb(60, 64, 87); // Tối hơn #2A2E45 khi hover
             btnLogin.Location = new Point(40, 170);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(280, 45);
@@ -169,12 +168,13 @@ namespace Ngducanh
             // 
             // btnRegister
             // 
-            btnRegister.BorderColor = Color.White;
+            btnRegister.BorderColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
             btnRegister.BorderRadius = 10;
             btnRegister.BorderThickness = 1;
             btnRegister.FillColor = Color.Transparent;
             btnRegister.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnRegister.ForeColor = Color.White;
+            btnRegister.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
+            btnRegister.HoverState.FillColor = Color.FromArgb(232, 236, 239); // #E8ECEF khi hover
             btnRegister.Location = new Point(40, 225);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(280, 40);
@@ -187,7 +187,7 @@ namespace Ngducanh
             lblForgot.AutoSize = true;
             lblForgot.Cursor = Cursors.Hand;
             lblForgot.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic);
-            lblForgot.ForeColor = Color.FromArgb(100, 149, 237);
+            lblForgot.ForeColor = Color.FromArgb(42, 46, 69); // #2A2E45 (Xanh đen sâu thẳm)
             lblForgot.Location = new Point(40, 270);
             lblForgot.Name = "lblForgot";
             lblForgot.Size = new Size(125, 20);
@@ -199,7 +199,7 @@ namespace Ngducanh
             // 
             lblError.AutoSize = true;
             lblError.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblError.ForeColor = Color.Red;
+            lblError.ForeColor = Color.FromArgb(255, 0, 0); // Giữ màu đỏ để nổi bật lỗi
             lblError.Location = new Point(110, 410);
             lblError.Name = "lblError";
             lblError.Size = new Size(200, 20);
@@ -208,9 +208,10 @@ namespace Ngducanh
             // 
             // LoginForm
             // 
-            BackColor = Color.FromArgb(13, 17, 23);
+            BackColor = Color.FromArgb(247, 249, 251); // #F7F9FB (Trắng xám nhạt)
             ClientSize = new Size(450, 370);
             Controls.Add(panel1);
+            Controls.Add(lblError);
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -222,6 +223,6 @@ namespace Ngducanh
             ResumeLayout(false);
         }
 
-        #endregion
+
     }
 }

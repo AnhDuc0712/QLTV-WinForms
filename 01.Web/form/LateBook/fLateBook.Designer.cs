@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using QLTV;              // dùng được LibraryContext
-using QLTV.Models;      // nếu có model
+using QLTV;
+using QLTV.Models;
 using System.Xml.Linq;
 
 namespace Ngducanh_Quanlysach
@@ -20,8 +20,6 @@ namespace Ngducanh_Quanlysach
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
         private void InitializeComponent()
         {
             btnFind = new Button();
@@ -32,25 +30,47 @@ namespace Ngducanh_Quanlysach
             txtFind = new TextBox();
             lblTotalLateBooks = new Label();
             lblTotalUser = new Label();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
 
             // btnFind
-            btnFind.Font = new System.Drawing.Font("Times New Roman", 12F, FontStyle.Bold);
+            btnFind.BackColor = Color.FromArgb(42, 46, 69); // #2A2E45 (Xanh đen sâu thẳm)
+            btnFind.FlatStyle = FlatStyle.Flat;
+            btnFind.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
+            btnFind.ForeColor = Color.FromArgb(255, 215, 0); // #FFD700 (Vàng ánh kim)
             btnFind.Location = new Point(530, 115);
             btnFind.Name = "btnFind";
             btnFind.Size = new Size(94, 34);
             btnFind.TabIndex = 2;
             btnFind.Text = "Tìm 🔍";
-            btnFind.UseVisualStyleBackColor = true;
+            btnFind.UseVisualStyleBackColor = false;
             btnFind.Click += btnFind_Click;
+            btnFind.MouseEnter += (s, e) => btnFind.BackColor = Color.FromArgb(60, 64, 87); // Tối hơn #2A2E45 khi hover
+            btnFind.MouseLeave += (s, e) => btnFind.BackColor = Color.FromArgb(42, 46, 69); // Trở lại #2A2E45 khi không hover
 
             // dataGridView1
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView1.BackgroundColor = Color.Gainsboro;
+            dataGridView1.BackgroundColor = Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Font = new System.Drawing.Font("Times New Roman", 12F, FontStyle.Bold);
-            dataGridView1.GridColor = Color.Gainsboro;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(42, 46, 69); // #2A2E45 (Xanh đen sâu thẳm)
+            dataGridViewCellStyle1.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 215, 0); // #FFD700 (Vàng ánh kim)
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(247, 249, 251); // #F7F9FB (Trắng xám nhạt)
+            dataGridViewCellStyle2.Font = new Font("Times New Roman", 12F);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(60, 64, 87); // Tối hơn #2A2E45 khi chọn
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(255, 215, 0); // #FFD700 (Vàng ánh kim)
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
+            dataGridView1.GridColor = Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
             dataGridView1.Location = new Point(48, 170);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
@@ -60,8 +80,9 @@ namespace Ngducanh_Quanlysach
 
             // lblFindTitle
             lblFindTitle.AutoSize = true;
-            lblFindTitle.BackColor = Color.White;
-            lblFindTitle.Font = new System.Drawing.Font("Times New Roman", 13.8F, FontStyle.Bold);
+            lblFindTitle.BackColor = Color.FromArgb(247, 249, 251); // #F7F9FB (Trắng xám nhạt)
+            lblFindTitle.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold);
+            lblFindTitle.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
             lblFindTitle.Location = new Point(48, 118);
             lblFindTitle.Name = "lblFindTitle";
             lblFindTitle.Size = new Size(113, 25);
@@ -69,9 +90,9 @@ namespace Ngducanh_Quanlysach
             lblFindTitle.Text = "Tìm kiếm:";
 
             // lblMenu
-            lblMenu.BackColor = Color.LightGray;
-            lblMenu.Font = new System.Drawing.Font("Segoe UI", 18F, FontStyle.Bold);
-            lblMenu.ForeColor = Color.Black;
+            lblMenu.BackColor = Color.FromArgb(247, 249, 251); // #F7F9FB (Trắng xám nhạt)
+            lblMenu.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            lblMenu.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
             lblMenu.Location = new Point(330, 10);
             lblMenu.Name = "lblMenu";
             lblMenu.Size = new Size(400, 40);
@@ -80,19 +101,24 @@ namespace Ngducanh_Quanlysach
             lblMenu.TextAlign = ContentAlignment.MiddleCenter;
 
             // btnClose
-            btnClose.BackColor = Color.LightGray;
-            btnClose.Font = new System.Drawing.Font("Times New Roman", 12F, FontStyle.Bold);
+            btnClose.BackColor = Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
+            btnClose.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
             btnClose.Location = new Point(729, 114);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(94, 34);
             btnClose.TabIndex = 16;
             btnClose.Text = "Đóng ❌";
-            btnClose.UseVisualStyleBackColor = true;
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.MouseEnter += (s, e) => btnClose.BackColor = Color.FromArgb(200, 204, 207); // Tối hơn #E8ECEF khi hover
+            btnClose.MouseLeave += (s, e) => btnClose.BackColor = Color.FromArgb(232, 236, 239); // Trở lại #E8ECEF khi không hover
             btnClose.Click += btnClose_Click;
 
             // txtFind
-            txtFind.BackColor = Color.White;
-            txtFind.Font = new System.Drawing.Font("Times New Roman", 13.8F, FontStyle.Bold);
+            txtFind.BackColor = Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
+            txtFind.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold);
+            txtFind.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
             txtFind.Location = new Point(180, 115);
             txtFind.Name = "txtFind";
             txtFind.Size = new Size(330, 34);
@@ -100,7 +126,8 @@ namespace Ngducanh_Quanlysach
 
             // lblTotalLateBooks
             lblTotalLateBooks.AutoSize = true;
-            lblTotalLateBooks.Font = new System.Drawing.Font("Segoe UI", 12F, FontStyle.Bold);
+            lblTotalLateBooks.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblTotalLateBooks.ForeColor = Color.FromArgb(255, 215, 0); // #FFD700 (Vàng ánh kim)
             lblTotalLateBooks.Location = new Point(48, 60);
             lblTotalLateBooks.Name = "lblTotalLateBooks";
             lblTotalLateBooks.Size = new Size(232, 28);
@@ -108,8 +135,9 @@ namespace Ngducanh_Quanlysach
             lblTotalLateBooks.Text = "Tổng số sách trễ hạn: 0";
 
             // lblTotalUser
-            lblTotalUser.AutoSize = true;
-            lblTotalUser.Font = new System.Drawing.Font("Segoe UI", 12F, FontStyle.Bold);
+            lblTotalLateBooks.AutoSize = true;
+            lblTotalUser.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblTotalUser.ForeColor = Color.FromArgb(255, 215, 0); // #FFD700 (Vàng ánh kim)
             lblTotalUser.Location = new Point(320, 60);
             lblTotalUser.Name = "lblTotalUser";
             lblTotalUser.Size = new Size(159, 28);
@@ -119,7 +147,7 @@ namespace Ngducanh_Quanlysach
             // fLateBook
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Gainsboro;
+            BackColor = Color.FromArgb(247, 249, 251); // #F7F9FB (Trắng xám nhạt)
             ClientSize = new Size(1000, 420);
             Controls.Add(lblTotalUser);
             Controls.Add(lblTotalLateBooks);
@@ -138,8 +166,7 @@ namespace Ngducanh_Quanlysach
             PerformLayout();
         }
 
-        #endregion
-
+        #region Windows Form Designer generated code
         private Button btnFind;
         private DataGridView dataGridView1;
         private Label lblFindTitle;
@@ -148,5 +175,6 @@ namespace Ngducanh_Quanlysach
         private TextBox txtFind;
         private Label lblTotalLateBooks;
         private Label lblTotalUser;
+        #endregion
     }
 }

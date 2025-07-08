@@ -296,6 +296,7 @@ namespace Ngducanh
                 child.Close(); // hoặc child.Hide();
             }
             var form = new fReturnBook();
+            FormWindowState state = FormWindowState.Normal; // hoặc Normal tuỳ ý
             form.MdiParent = this; // nếu form chính là MDI
             form.Show();
         }
@@ -311,6 +312,11 @@ namespace Ngducanh
         }
 
         private void lblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mnuLapPhieuTra_Click(object sender, EventArgs e)
         {
 
         }

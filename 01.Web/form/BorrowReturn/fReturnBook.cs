@@ -125,5 +125,10 @@ namespace QLTV.form.BorrowReturn
                 lblFineTotal.Text = $"💰 Tổng tiền phạt: {totalFine:N0} VNĐ";
             }
         }
+
+        private void dgvBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

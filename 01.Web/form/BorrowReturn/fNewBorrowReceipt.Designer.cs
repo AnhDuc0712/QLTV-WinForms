@@ -59,7 +59,7 @@ namespace QLTV.form.BorrowReturn
             lblTitle.Location = new Point(221, 12);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(409, 46);
-            lblTitle.StateCommon.ShortText.Color1 = Color.White;
+            lblTitle.StateCommon.ShortText.Color1 = Color.FromArgb(26, 26, 26);
             lblTitle.StateCommon.ShortText.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lblTitle.StateCommon.ShortText.TextH = PaletteRelativeAlign.Center;
             lblTitle.StateCommon.ShortText.TextV = PaletteRelativeAlign.Center;
@@ -71,7 +71,7 @@ namespace QLTV.form.BorrowReturn
             lblReceiptCount.Location = new Point(569, 288);
             lblReceiptCount.Name = "lblReceiptCount";
             lblReceiptCount.Size = new Size(140, 36);
-            lblReceiptCount.StateCommon.ShortText.Color1 = Color.LightGreen;
+            lblReceiptCount.StateCommon.ShortText.Color1 = Color.FromArgb(255, 215, 0);
             lblReceiptCount.StateCommon.ShortText.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblReceiptCount.TabIndex = 1;
             lblReceiptCount.Values.Text = "Số phiếu: 0";
@@ -81,7 +81,7 @@ namespace QLTV.form.BorrowReturn
             lblDocGia.Location = new Point(93, 72);
             lblDocGia.Name = "lblDocGia";
             lblDocGia.Size = new Size(92, 32);
-            lblDocGia.StateCommon.ShortText.Color1 = Color.White;
+            lblDocGia.StateCommon.ShortText.Color1 = Color.FromArgb(26, 26, 26);
             lblDocGia.StateCommon.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblDocGia.TabIndex = 2;
             lblDocGia.Values.Text = "Độc giả:";
@@ -92,11 +92,11 @@ namespace QLTV.form.BorrowReturn
             cbDocGia.BorderRadius = 10;
             cbDocGia.DrawMode = DrawMode.OwnerDrawFixed;
             cbDocGia.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbDocGia.FillColor = Color.FromArgb(28, 31, 38);
-            cbDocGia.FocusedColor = Color.FromArgb(94, 148, 255);
-            cbDocGia.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbDocGia.FillColor = Color.FromArgb(232, 236, 239);
+            cbDocGia.FocusedColor = Color.FromArgb(42, 46, 69);
+            cbDocGia.FocusedState.BorderColor = Color.FromArgb(42, 46, 69);
             cbDocGia.Font = new Font("Segoe UI", 10F);
-            cbDocGia.ForeColor = Color.WhiteSmoke;
+            cbDocGia.ForeColor = Color.FromArgb(26, 26, 26);
             cbDocGia.FormattingEnabled = true;
             cbDocGia.ItemHeight = 30;
             cbDocGia.Location = new Point(191, 72);
@@ -109,7 +109,7 @@ namespace QLTV.form.BorrowReturn
             lblTimDocGia.Location = new Point(444, 76);
             lblTimDocGia.Name = "lblTimDocGia";
             lblTimDocGia.Size = new Size(136, 32);
-            lblTimDocGia.StateCommon.ShortText.Color1 = Color.White;
+            lblTimDocGia.StateCommon.ShortText.Color1 = Color.FromArgb(26, 26, 26);
             lblTimDocGia.StateCommon.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblTimDocGia.TabIndex = 4;
             lblTimDocGia.Values.Text = "Mã Độc Giả :";
@@ -119,20 +119,20 @@ namespace QLTV.form.BorrowReturn
             txtTimDocGia.Location = new Point(586, 76);
             txtTimDocGia.Name = "txtTimDocGia";
             txtTimDocGia.Size = new Size(100, 33);
-            txtTimDocGia.StateCommon.Back.Color1 = Color.FromArgb(28, 31, 38);
-            txtTimDocGia.StateCommon.Border.Color1 = Color.FromArgb(94, 148, 255);
+            txtTimDocGia.StateCommon.Back.Color1 = Color.FromArgb(232, 236, 239);
+            txtTimDocGia.StateCommon.Border.Color1 = Color.FromArgb(42, 46, 69);
             txtTimDocGia.StateCommon.Border.DrawBorders = PaletteDrawBorders.Top | PaletteDrawBorders.Bottom | PaletteDrawBorders.Left | PaletteDrawBorders.Right;
             txtTimDocGia.StateCommon.Border.Rounding = 10F;
-            txtTimDocGia.StateCommon.Content.Color1 = Color.WhiteSmoke;
+            txtTimDocGia.StateCommon.Content.Color1 = Color.FromArgb(26, 26, 26);
             txtTimDocGia.TabIndex = 5;
             // 
             // btnTimDocGia
             // 
             btnTimDocGia.BorderRadius = 10;
-            btnTimDocGia.FillColor = Color.FromArgb(41, 121, 255);
+            btnTimDocGia.FillColor = Color.FromArgb(42, 46, 69);
             btnTimDocGia.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnTimDocGia.ForeColor = Color.White;
-            btnTimDocGia.HoverState.FillColor = Color.FromArgb(30, 100, 200);
+            btnTimDocGia.ForeColor = Color.FromArgb(255, 215, 0);
+            btnTimDocGia.HoverState.FillColor = Color.FromArgb(60, 64, 87);
             btnTimDocGia.Location = new Point(698, 74);
             btnTimDocGia.Name = "btnTimDocGia";
             btnTimDocGia.Size = new Size(40, 30);
@@ -145,15 +145,15 @@ namespace QLTV.form.BorrowReturn
             lblSach.Location = new Point(12, 139);
             lblSach.Name = "lblSach";
             lblSach.Size = new Size(117, 32);
-            lblSach.StateCommon.ShortText.Color1 = Color.White;
+            lblSach.StateCommon.ShortText.Color1 = Color.FromArgb(26, 26, 26);
             lblSach.StateCommon.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblSach.TabIndex = 7;
             lblSach.Values.Text = "Chọn sách:";
             // 
             // lstSach
             // 
-            lstSach.BackColor = Color.FromArgb(22, 27, 34);
-            lstSach.ForeColor = Color.WhiteSmoke;
+            lstSach.BackColor = Color.FromArgb(232, 236, 239);
+            lstSach.ForeColor = Color.FromArgb(26, 26, 26);
             lstSach.FormattingEnabled = true;
             lstSach.Location = new Point(130, 139);
             lstSach.Name = "lstSach";
@@ -166,7 +166,7 @@ namespace QLTV.form.BorrowReturn
             lblTimSach.Location = new Point(536, 139);
             lblTimSach.Name = "lblTimSach";
             lblTimSach.Size = new Size(106, 32);
-            lblTimSach.StateCommon.ShortText.Color1 = Color.White;
+            lblTimSach.StateCommon.ShortText.Color1 = Color.FromArgb(26, 26, 26);
             lblTimSach.StateCommon.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblTimSach.TabIndex = 9;
             lblTimSach.Values.Text = "Mã Sách :";
@@ -176,19 +176,19 @@ namespace QLTV.form.BorrowReturn
             txtTimSach.Location = new Point(641, 138);
             txtTimSach.Name = "txtTimSach";
             txtTimSach.Size = new Size(100, 33);
-            txtTimSach.StateCommon.Back.Color1 = Color.FromArgb(28, 31, 38);
-            txtTimSach.StateCommon.Border.Color1 = Color.FromArgb(94, 148, 255);
+            txtTimSach.StateCommon.Back.Color1 = Color.FromArgb(232, 236, 239);
+            txtTimSach.StateCommon.Border.Color1 = Color.FromArgb(42, 46, 69);
             txtTimSach.StateCommon.Border.Rounding = 10F;
-            txtTimSach.StateCommon.Content.Color1 = Color.WhiteSmoke;
+            txtTimSach.StateCommon.Content.Color1 = Color.FromArgb(26, 26, 26);
             txtTimSach.TabIndex = 10;
             // 
             // btnTimSach
             // 
             btnTimSach.BorderRadius = 10;
-            btnTimSach.FillColor = Color.FromArgb(41, 121, 255);
+            btnTimSach.FillColor = Color.FromArgb(42, 46, 69);
             btnTimSach.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnTimSach.ForeColor = Color.White;
-            btnTimSach.HoverState.FillColor = Color.FromArgb(30, 100, 200);
+            btnTimSach.ForeColor = Color.FromArgb(255, 215, 0);
+            btnTimSach.HoverState.FillColor = Color.FromArgb(60, 64, 87);
             btnTimSach.Location = new Point(747, 139);
             btnTimSach.Name = "btnTimSach";
             btnTimSach.Size = new Size(40, 30);
@@ -201,7 +201,7 @@ namespace QLTV.form.BorrowReturn
             lblNgayMuon.Location = new Point(34, 259);
             lblNgayMuon.Name = "lblNgayMuon";
             lblNgayMuon.Size = new Size(134, 32);
-            lblNgayMuon.StateCommon.ShortText.Color1 = Color.White;
+            lblNgayMuon.StateCommon.ShortText.Color1 = Color.FromArgb(26, 26, 26);
             lblNgayMuon.StateCommon.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblNgayMuon.TabIndex = 12;
             lblNgayMuon.Values.Text = "Ngày mượn:";
@@ -209,7 +209,7 @@ namespace QLTV.form.BorrowReturn
             // dtpNgayMuon
             // 
             dtpNgayMuon.CalendarFont = new Font("Segoe UI", 10F);
-            dtpNgayMuon.CalendarMonthBackground = Color.FromArgb(28, 31, 38);
+            dtpNgayMuon.CalendarMonthBackground = Color.FromArgb(232, 236, 239);
             dtpNgayMuon.Location = new Point(34, 297);
             dtpNgayMuon.Name = "dtpNgayMuon";
             dtpNgayMuon.Size = new Size(200, 27);
@@ -220,7 +220,7 @@ namespace QLTV.form.BorrowReturn
             lblHanTra.Location = new Point(350, 259);
             lblHanTra.Name = "lblHanTra";
             lblHanTra.Size = new Size(91, 32);
-            lblHanTra.StateCommon.ShortText.Color1 = Color.White;
+            lblHanTra.StateCommon.ShortText.Color1 = Color.FromArgb(26, 26, 26);
             lblHanTra.StateCommon.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblHanTra.TabIndex = 14;
             lblHanTra.Values.Text = "Hạn trả:";
@@ -228,6 +228,7 @@ namespace QLTV.form.BorrowReturn
             // dtpHanTra
             // 
             dtpHanTra.CalendarFont = new Font("Segoe UI", 10F);
+            dtpHanTra.CalendarMonthBackground = Color.FromArgb(232, 236, 239);
             dtpHanTra.Location = new Point(330, 297);
             dtpHanTra.Name = "dtpHanTra";
             dtpHanTra.Size = new Size(200, 27);
@@ -236,10 +237,10 @@ namespace QLTV.form.BorrowReturn
             // btnTaoPhieuMuon
             // 
             btnTaoPhieuMuon.BorderRadius = 15;
-            btnTaoPhieuMuon.FillColor = Color.FromArgb(0, 150, 136);
+            btnTaoPhieuMuon.FillColor = Color.FromArgb(42, 46, 69);
             btnTaoPhieuMuon.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnTaoPhieuMuon.ForeColor = Color.White;
-            btnTaoPhieuMuon.HoverState.FillColor = Color.FromArgb(0, 120, 110);
+            btnTaoPhieuMuon.ForeColor = Color.FromArgb(255, 215, 0);
+            btnTaoPhieuMuon.HoverState.FillColor = Color.FromArgb(60, 64, 87);
             btnTaoPhieuMuon.Location = new Point(569, 219);
             btnTaoPhieuMuon.Name = "btnTaoPhieuMuon";
             btnTaoPhieuMuon.Size = new Size(200, 40);
@@ -255,7 +256,7 @@ namespace QLTV.form.BorrowReturn
             // 
             // fNewBorrowReceipt
             // 
-            BackColor = Color.FromArgb(13, 17, 23);
+            BackColor = Color.FromArgb(247, 249, 251);
             ClientSize = new Size(1024, 768);
             Controls.Add(btnTaoPhieuMuon);
             Controls.Add(dtpHanTra);

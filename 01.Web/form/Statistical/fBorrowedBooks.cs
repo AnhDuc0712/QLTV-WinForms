@@ -59,5 +59,10 @@ namespace QLTV.form.Statistical
         {
             // Không cần xử lý gì cho label này
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
