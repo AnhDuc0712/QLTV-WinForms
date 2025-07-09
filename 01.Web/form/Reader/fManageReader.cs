@@ -63,6 +63,23 @@ namespace QLTV.form.Reader
         {
             LoadReaders(txtName.Text.Trim());
         }
+        private void btFind_MouseEnter(object sender, EventArgs e)
+        {
+            btFind.BackColor = System.Drawing.Color.FromArgb(60, 64, 87);
+        }
+        private void btFind_MouseLeave(object sender, EventArgs e)
+        {
+            btFind.BackColor = System.Drawing.Color.FromArgb(42, 46, 69);
+        }
+        private void btNew_MouseEnter(object sender, EventArgs e)
+        {
+            btNew.BackColor = System.Drawing.Color.FromArgb(60, 64, 87);
+        }
+        private void btNew_MouseLeave(object sender, EventArgs e)
+        {
+            btNew.BackColor = System.Drawing.Color.FromArgb(42, 46, 69);
+        }
+
 
         private void btNew_Click(object sender, EventArgs e)
         {

@@ -33,6 +33,16 @@ namespace QLTV.form.Reader
                 MessageBox.Show("Hãy nhập địa chỉ!");
                 txtAddress.Focus(); return;
             }
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                MessageBox.Show("Hãy nhập tên đăng nhập!");
+                txtUsername.Focus(); return;
+            }
+            if (string.IsNullOrWhiteSpace(txtUserType.Text))
+            {
+                MessageBox.Show("Hãy nhập loại người dùng!");
+                txtUserType.Focus(); return;
+            }
 
             try
             {
@@ -43,7 +53,10 @@ namespace QLTV.form.Reader
                         FullName = txtFullName.Text.Trim(),
                         Email = txtEmail.Text.Trim(),
                         Phone = txtPhone.Text.Trim(),
-                        Address = txtAddress.Text.Trim()
+                        Address = txtAddress.Text.Trim(),
+                        Username = txtUsername.Text.Trim(),
+                        UserType = txtUserType.Text.Trim(),
+                        Password = null 
                     };
                     db.Users.Add(user);
                     db.SaveChanges();
@@ -54,9 +67,10 @@ namespace QLTV.form.Reader
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.ToString());
             }
         }
+
 
         private void btClose_Click(object sender, EventArgs e)
         {
@@ -65,7 +79,26 @@ namespace QLTV.form.Reader
 
         private void fNewReader_Load(object sender, EventArgs e)
         {
+            txtUserType.Text = "Customer";
+            txtUserType.ReadOnly = true; // Nếu không cho người dùng sửa
 
         }
+        private void btSave_MouseEnter(object sender, EventArgs e)
+        {
+            btSave.BackColor = System.Drawing.Color.FromArgb(60, 64, 87);
+        }
+        private void btSave_MouseLeave(object sender, EventArgs e)
+        {
+            btSave.BackColor = System.Drawing.Color.FromArgb(42, 46, 69);
+        }
+        private void btClose_MouseEnter(object sender, EventArgs e)
+        {
+            btClose.BackColor = System.Drawing.Color.FromArgb(200, 204, 207);
+        }
+        private void btClose_MouseLeave(object sender, EventArgs e)
+        {
+            btClose.BackColor = System.Drawing.Color.FromArgb(232, 236, 239);
+        }
+
     }
 }

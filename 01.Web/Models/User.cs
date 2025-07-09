@@ -26,7 +26,7 @@ namespace QLTV.Models
         public virtual ICollection<BorrowReceipt> BorrowReceipts { get; set; }
 
         [Required, StringLength(50)]
-        public string Username { get; set; }
+        public string? Username { get; set; }
 
         // Bỏ [Required] để Password có thể NULL (dành cho Customer)
         [StringLength(100)]

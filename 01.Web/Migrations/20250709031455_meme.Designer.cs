@@ -9,18 +9,18 @@ using QLTV;
 
 #nullable disable
 
-namespace FullToping.Migrations
+namespace QLTV.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20250620051805_FirstAdd")]
-    partial class FirstAdd
+    [Migration("20250709031455_meme")]
+    partial class meme
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.6")
+                .HasAnnotation("ProductVersion", "9.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -31,7 +31,7 @@ namespace FullToping.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AuthorId"), 2001L);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AuthorId"));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -45,152 +45,152 @@ namespace FullToping.Migrations
                     b.HasData(
                         new
                         {
-                            AuthorId = 2001,
+                            AuthorId = 1,
                             Name = "Nguyễn Nhật Ánh"
                         },
                         new
                         {
-                            AuthorId = 2002,
+                            AuthorId = 2,
                             Name = "Hermione Granger"
                         },
                         new
                         {
-                            AuthorId = 2003,
+                            AuthorId = 3,
                             Name = "Paulo Coelho"
                         },
                         new
                         {
-                            AuthorId = 2004,
+                            AuthorId = 4,
                             Name = "Stephen Hawking"
                         },
                         new
                         {
-                            AuthorId = 2005,
+                            AuthorId = 5,
                             Name = "Yuval Noah Harari"
                         },
                         new
                         {
-                            AuthorId = 2006,
+                            AuthorId = 6,
                             Name = "J.K. Rowling"
                         },
                         new
                         {
-                            AuthorId = 2007,
+                            AuthorId = 7,
                             Name = "Daniel Kahneman"
                         },
                         new
                         {
-                            AuthorId = 2008,
+                            AuthorId = 8,
                             Name = "Tony Robbins"
                         },
                         new
                         {
-                            AuthorId = 2009,
+                            AuthorId = 9,
                             Name = "Malcolm Gladwell"
                         },
                         new
                         {
-                            AuthorId = 2010,
+                            AuthorId = 10,
                             Name = "George Orwell"
                         },
                         new
                         {
-                            AuthorId = 2011,
+                            AuthorId = 11,
                             Name = "Harper Lee"
                         },
                         new
                         {
-                            AuthorId = 2012,
+                            AuthorId = 12,
                             Name = "Fyodor Dostoevsky"
                         },
                         new
                         {
-                            AuthorId = 2013,
+                            AuthorId = 13,
                             Name = "Gabriel Garcia Marquez"
                         },
                         new
                         {
-                            AuthorId = 2014,
+                            AuthorId = 14,
                             Name = "Isaac Asimov"
                         },
                         new
                         {
-                            AuthorId = 2015,
+                            AuthorId = 15,
                             Name = "Sun Tzu"
                         },
                         new
                         {
-                            AuthorId = 2016,
+                            AuthorId = 16,
                             Name = "Ernest Hemingway"
                         },
                         new
                         {
-                            AuthorId = 2017,
+                            AuthorId = 17,
                             Name = "Agatha Christie"
                         },
                         new
                         {
-                            AuthorId = 2018,
+                            AuthorId = 18,
                             Name = "Edgar Allan Poe"
                         },
                         new
                         {
-                            AuthorId = 2019,
+                            AuthorId = 19,
                             Name = "Ralph Waldo Emerson"
                         },
                         new
                         {
-                            AuthorId = 2020,
+                            AuthorId = 20,
                             Name = "Đỗ Phấn"
                         },
                         new
                         {
-                            AuthorId = 2021,
+                            AuthorId = 21,
                             Name = "Arthur C. Clarke"
                         },
                         new
                         {
-                            AuthorId = 2022,
+                            AuthorId = 22,
                             Name = "Nicholas Sparks"
                         },
                         new
                         {
-                            AuthorId = 2023,
+                            AuthorId = 23,
                             Name = "Dale Carnegie"
                         },
                         new
                         {
-                            AuthorId = 2024,
+                            AuthorId = 24,
                             Name = "Robert Kiyosaki"
                         },
                         new
                         {
-                            AuthorId = 2025,
+                            AuthorId = 25,
                             Name = "Stephen R. Covey"
                         },
                         new
                         {
-                            AuthorId = 2026,
+                            AuthorId = 26,
                             Name = "Nguyễn Trãi"
                         },
                         new
                         {
-                            AuthorId = 2027,
+                            AuthorId = 27,
                             Name = "William Shakespeare"
                         },
                         new
                         {
-                            AuthorId = 2028,
+                            AuthorId = 28,
                             Name = "Sigmund Freud"
                         },
                         new
                         {
-                            AuthorId = 2029,
+                            AuthorId = 29,
                             Name = "Noam Chomsky"
                         },
                         new
                         {
-                            AuthorId = 2030,
+                            AuthorId = 30,
                             Name = "Trần Đại Nghĩa"
                         });
                 });
@@ -201,7 +201,7 @@ namespace FullToping.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookId"), 5001L);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookId"));
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -231,841 +231,841 @@ namespace FullToping.Migrations
                     b.HasData(
                         new
                         {
-                            BookId = 5001,
-                            CategoryId = 3007,
-                            PublisherId = 4005,
+                            BookId = 1,
+                            CategoryId = 7,
+                            PublisherId = 5,
                             StockQuantity = 12,
                             Title = "Dế Mèn Phiêu Lưu Ký"
                         },
                         new
                         {
-                            BookId = 5002,
-                            CategoryId = 3002,
-                            PublisherId = 4002,
+                            BookId = 2,
+                            CategoryId = 2,
+                            PublisherId = 2,
                             StockQuantity = 8,
                             Title = "Hoàng Tử Bé"
                         },
                         new
                         {
-                            BookId = 5003,
-                            CategoryId = 3001,
-                            PublisherId = 4004,
+                            BookId = 3,
+                            CategoryId = 1,
+                            PublisherId = 4,
                             StockQuantity = 5,
                             Title = "Nhà Giả Kim"
                         },
                         new
                         {
-                            BookId = 5004,
-                            CategoryId = 3003,
-                            PublisherId = 4003,
+                            BookId = 4,
+                            CategoryId = 3,
+                            PublisherId = 3,
                             StockQuantity = 3,
                             Title = "Lược Sử Thời Gian"
                         },
                         new
                         {
-                            BookId = 5005,
-                            CategoryId = 3004,
-                            PublisherId = 4003,
+                            BookId = 5,
+                            CategoryId = 4,
+                            PublisherId = 3,
                             StockQuantity = 4,
                             Title = "Sapiens: Lược Sử Loài Người"
                         },
                         new
                         {
-                            BookId = 5006,
-                            CategoryId = 3007,
-                            PublisherId = 4005,
+                            BookId = 6,
+                            CategoryId = 7,
+                            PublisherId = 5,
                             StockQuantity = 6,
                             Title = "Harry Potter và Hòn Đá Phù Thủy"
                         },
                         new
                         {
-                            BookId = 5007,
-                            CategoryId = 3006,
-                            PublisherId = 4008,
+                            BookId = 7,
+                            CategoryId = 6,
+                            PublisherId = 8,
                             StockQuantity = 10,
                             Title = "Tư Duy, Nhanh và Chậm"
                         },
                         new
                         {
-                            BookId = 5008,
-                            CategoryId = 3005,
-                            PublisherId = 4008,
+                            BookId = 8,
+                            CategoryId = 5,
+                            PublisherId = 8,
                             StockQuantity = 2,
                             Title = "Cấu Trúc Dữ Liệu và Giải Thuật"
                         },
                         new
                         {
-                            BookId = 5009,
-                            CategoryId = 3001,
-                            PublisherId = 4002,
+                            BookId = 9,
+                            CategoryId = 1,
+                            PublisherId = 2,
                             StockQuantity = 5,
                             Title = "Trên Đường"
                         },
                         new
                         {
-                            BookId = 5010,
-                            CategoryId = 3006,
-                            PublisherId = 4001,
+                            BookId = 10,
+                            CategoryId = 6,
+                            PublisherId = 1,
                             StockQuantity = 4,
                             Title = "21 Bài Học Cho Thế Kỷ 21"
                         },
                         new
                         {
-                            BookId = 5011,
-                            CategoryId = 3002,
-                            PublisherId = 4002,
+                            BookId = 11,
+                            CategoryId = 2,
+                            PublisherId = 2,
                             StockQuantity = 7,
                             Title = "1984"
                         },
                         new
                         {
-                            BookId = 5012,
-                            CategoryId = 3002,
-                            PublisherId = 4002,
+                            BookId = 12,
+                            CategoryId = 2,
+                            PublisherId = 2,
                             StockQuantity = 5,
                             Title = "To Kill a Mockingbird"
                         },
                         new
                         {
-                            BookId = 5013,
-                            CategoryId = 3001,
-                            PublisherId = 4003,
+                            BookId = 13,
+                            CategoryId = 1,
+                            PublisherId = 3,
                             StockQuantity = 6,
                             Title = "Tội Ác và Hình Phạt"
                         },
                         new
                         {
-                            BookId = 5014,
-                            CategoryId = 3001,
-                            PublisherId = 4001,
+                            BookId = 14,
+                            CategoryId = 1,
+                            PublisherId = 1,
                             StockQuantity = 4,
                             Title = "Nửa Xuân"
                         },
                         new
                         {
-                            BookId = 5015,
-                            CategoryId = 3006,
-                            PublisherId = 4008,
+                            BookId = 15,
+                            CategoryId = 6,
+                            PublisherId = 8,
                             StockQuantity = 9,
                             Title = "The Power of Habit"
                         },
                         new
                         {
-                            BookId = 5016,
-                            CategoryId = 3006,
-                            PublisherId = 4001,
+                            BookId = 16,
+                            CategoryId = 6,
+                            PublisherId = 1,
                             StockQuantity = 11,
                             Title = "Đi Tìm Lẽ Sống"
                         },
                         new
                         {
-                            BookId = 5017,
-                            CategoryId = 3004,
-                            PublisherId = 4003,
+                            BookId = 17,
+                            CategoryId = 4,
+                            PublisherId = 3,
                             StockQuantity = 3,
                             Title = "Chiến Tranh và Hòa Bình"
                         },
                         new
                         {
-                            BookId = 5018,
-                            CategoryId = 3008,
-                            PublisherId = 4008,
+                            BookId = 18,
+                            CategoryId = 8,
+                            PublisherId = 8,
                             StockQuantity = 8,
                             Title = "Bí Quyết Làm Giàu"
                         },
                         new
                         {
-                            BookId = 5019,
-                            CategoryId = 3005,
-                            PublisherId = 4008,
+                            BookId = 19,
+                            CategoryId = 5,
+                            PublisherId = 8,
                             StockQuantity = 2,
                             Title = "Artificial Intelligence Basics"
                         },
                         new
                         {
-                            BookId = 5020,
-                            CategoryId = 3004,
-                            PublisherId = 4002,
+                            BookId = 20,
+                            CategoryId = 4,
+                            PublisherId = 2,
                             StockQuantity = 7,
                             Title = "The Art of War"
                         },
                         new
                         {
-                            BookId = 5021,
-                            CategoryId = 3011,
-                            PublisherId = 4004,
+                            BookId = 21,
+                            CategoryId = 11,
+                            PublisherId = 4,
                             StockQuantity = 20,
                             Title = "One Piece – Tập 1"
                         },
                         new
                         {
-                            BookId = 5022,
-                            CategoryId = 3012,
-                            PublisherId = 4008,
+                            BookId = 22,
+                            CategoryId = 12,
+                            PublisherId = 8,
                             StockQuantity = 15,
                             Title = "Atomic Habits"
                         },
                         new
                         {
-                            BookId = 5023,
-                            CategoryId = 3013,
-                            PublisherId = 4002,
+                            BookId = 23,
+                            CategoryId = 13,
+                            PublisherId = 2,
                             StockQuantity = 8,
                             Title = "Thơ Trẻ – Cố Quận"
                         },
                         new
                         {
-                            BookId = 5024,
-                            CategoryId = 3014,
-                            PublisherId = 4003,
+                            BookId = 24,
+                            CategoryId = 14,
+                            PublisherId = 3,
                             StockQuantity = 10,
                             Title = "Lonely Planet Việt Nam"
                         },
                         new
                         {
-                            BookId = 5025,
-                            CategoryId = 3015,
-                            PublisherId = 4005,
+                            BookId = 25,
+                            CategoryId = 15,
+                            PublisherId = 5,
                             StockQuantity = 12,
                             Title = "MasterChef – Công Thức Nấu Ăn"
                         },
                         new
                         {
-                            BookId = 5026,
-                            CategoryId = 3011,
-                            PublisherId = 4005,
+                            BookId = 26,
+                            CategoryId = 11,
+                            PublisherId = 5,
                             StockQuantity = 25,
                             Title = "Doraemon – Tập 1"
                         },
                         new
                         {
-                            BookId = 5027,
-                            CategoryId = 3012,
-                            PublisherId = 4001,
+                            BookId = 27,
+                            CategoryId = 12,
+                            PublisherId = 1,
                             StockQuantity = 7,
                             Title = "How to Win Friends & Influence People"
                         },
                         new
                         {
-                            BookId = 5028,
-                            CategoryId = 3013,
-                            PublisherId = 4007,
+                            BookId = 28,
+                            CategoryId = 13,
+                            PublisherId = 7,
                             StockQuantity = 5,
                             Title = "Thơ Viết Cho Tuổi 20"
                         },
                         new
                         {
-                            BookId = 5029,
-                            CategoryId = 3014,
-                            PublisherId = 4006,
+                            BookId = 29,
+                            CategoryId = 14,
+                            PublisherId = 6,
                             StockQuantity = 9,
                             Title = "1001 Địa Điểm Việt Nam"
                         },
                         new
                         {
-                            BookId = 5030,
-                            CategoryId = 3015,
-                            PublisherId = 4006,
+                            BookId = 30,
+                            CategoryId = 15,
+                            PublisherId = 6,
                             StockQuantity = 14,
                             Title = "Cẩm Nang Nấu Ăn Gia Đình"
                         },
                         new
                         {
-                            BookId = 5031,
-                            CategoryId = 3017,
-                            PublisherId = 4009,
+                            BookId = 31,
+                            CategoryId = 17,
+                            PublisherId = 9,
                             StockQuantity = 7,
                             Title = "Ông già và biển cả"
                         },
                         new
                         {
-                            BookId = 5032,
-                            CategoryId = 3017,
-                            PublisherId = 4010,
+                            BookId = 32,
+                            CategoryId = 17,
+                            PublisherId = 10,
                             StockQuantity = 5,
                             Title = "Án mạng trên chuyến tàu tốc hành phương Đông"
                         },
                         new
                         {
-                            BookId = 5033,
-                            CategoryId = 3018,
-                            PublisherId = 4011,
+                            BookId = 33,
+                            CategoryId = 18,
+                            PublisherId = 11,
                             StockQuantity = 4,
                             Title = "Con quạ và các truyện khác"
                         },
                         new
                         {
-                            BookId = 5034,
-                            CategoryId = 3016,
-                            PublisherId = 4009,
+                            BookId = 34,
+                            CategoryId = 16,
+                            PublisherId = 9,
                             StockQuantity = 6,
                             Title = "Tản văn Du ký"
                         },
                         new
                         {
-                            BookId = 5035,
-                            CategoryId = 3020,
-                            PublisherId = 4011,
+                            BookId = 35,
+                            CategoryId = 20,
+                            PublisherId = 11,
                             StockQuantity = 3,
                             Title = "Tinh thần triết học"
                         },
                         new
                         {
-                            BookId = 5036,
-                            CategoryId = 3021,
-                            PublisherId = 4012,
+                            BookId = 36,
+                            CategoryId = 21,
+                            PublisherId = 12,
                             StockQuantity = 5,
                             Title = "2001: A Space Odyssey"
                         },
                         new
                         {
-                            BookId = 5037,
-                            CategoryId = 3022,
-                            PublisherId = 4013,
+                            BookId = 37,
+                            CategoryId = 22,
+                            PublisherId = 13,
                             StockQuantity = 8,
                             Title = "Notebook – Nhật ký tình yêu"
                         },
                         new
                         {
-                            BookId = 5038,
-                            CategoryId = 3023,
-                            PublisherId = 4012,
+                            BookId = 38,
+                            CategoryId = 23,
+                            PublisherId = 12,
                             StockQuantity = 10,
                             Title = "How to Win Friends"
                         },
                         new
                         {
-                            BookId = 5039,
-                            CategoryId = 3024,
-                            PublisherId = 4014,
+                            BookId = 39,
+                            CategoryId = 24,
+                            PublisherId = 14,
                             StockQuantity = 7,
                             Title = "Rich Dad Poor Dad"
                         },
                         new
                         {
-                            BookId = 5040,
-                            CategoryId = 3025,
-                            PublisherId = 4013,
+                            BookId = 40,
+                            CategoryId = 25,
+                            PublisherId = 13,
                             StockQuantity = 6,
                             Title = "7 Thói Quen Hiệu Quả"
                         },
                         new
                         {
-                            BookId = 5041,
-                            CategoryId = 3026,
-                            PublisherId = 4015,
+                            BookId = 41,
+                            CategoryId = 26,
+                            PublisherId = 15,
                             StockQuantity = 5,
                             Title = "Lược sử phát minh"
                         },
                         new
                         {
-                            BookId = 5042,
-                            CategoryId = 3027,
-                            PublisherId = 4016,
+                            BookId = 42,
+                            CategoryId = 27,
+                            PublisherId = 16,
                             StockQuantity = 7,
                             Title = "Harry Potter và Phòng Chứa Bí Ẩn"
                         },
                         new
                         {
-                            BookId = 5043,
-                            CategoryId = 3028,
-                            PublisherId = 4015,
+                            BookId = 43,
+                            CategoryId = 28,
+                            PublisherId = 15,
                             StockQuantity = 3,
                             Title = "Luật Dân sự Việt Nam"
                         },
                         new
                         {
-                            BookId = 5044,
-                            CategoryId = 3029,
-                            PublisherId = 4015,
+                            BookId = 44,
+                            CategoryId = 29,
+                            PublisherId = 15,
                             StockQuantity = 4,
                             Title = "Toán Cao Cấp – Đại cương"
                         },
                         new
                         {
-                            BookId = 5045,
-                            CategoryId = 3030,
-                            PublisherId = 4016,
+                            BookId = 45,
+                            CategoryId = 30,
+                            PublisherId = 16,
                             StockQuantity = 6,
                             Title = "Y học cổ truyền Việt Nam"
                         },
                         new
                         {
-                            BookId = 5046,
-                            CategoryId = 3005,
-                            PublisherId = 4008,
+                            BookId = 46,
+                            CategoryId = 5,
+                            PublisherId = 8,
                             StockQuantity = 15,
                             Title = "Lập Trình C# Toàn Tập"
                         },
                         new
                         {
-                            BookId = 5047,
-                            CategoryId = 3005,
-                            PublisherId = 4008,
+                            BookId = 47,
+                            CategoryId = 5,
+                            PublisherId = 8,
                             StockQuantity = 8,
                             Title = "Thiết Kế Kiến Trúc Phần Mềm"
                         },
                         new
                         {
-                            BookId = 5048,
-                            CategoryId = 3005,
-                            PublisherId = 4008,
+                            BookId = 48,
+                            CategoryId = 5,
+                            PublisherId = 8,
                             StockQuantity = 12,
                             Title = "Giải Thuật và Cấu Trúc Dữ Liệu"
                         },
                         new
                         {
-                            BookId = 5049,
-                            CategoryId = 3005,
-                            PublisherId = 4014,
+                            BookId = 49,
+                            CategoryId = 5,
+                            PublisherId = 14,
                             StockQuantity = 10,
                             Title = "An Ninh Mạng Cơ Bản"
                         },
                         new
                         {
-                            BookId = 5050,
-                            CategoryId = 3005,
-                            PublisherId = 4012,
+                            BookId = 50,
+                            CategoryId = 5,
+                            PublisherId = 12,
                             StockQuantity = 7,
                             Title = "Hướng Dẫn ReactJS"
                         },
                         new
                         {
-                            BookId = 5051,
-                            CategoryId = 3025,
-                            PublisherId = 4013,
+                            BookId = 51,
+                            CategoryId = 25,
+                            PublisherId = 13,
                             StockQuantity = 9,
                             Title = "Kỹ Năng Giao Tiếp Trong Công Việc"
                         },
                         new
                         {
-                            BookId = 5052,
-                            CategoryId = 3025,
-                            PublisherId = 4013,
+                            BookId = 52,
+                            CategoryId = 25,
+                            PublisherId = 13,
                             StockQuantity = 6,
                             Title = "Nghệ Thuật Thuyết Phục"
                         },
                         new
                         {
-                            BookId = 5053,
-                            CategoryId = 3005,
-                            PublisherId = 4008,
+                            BookId = 53,
+                            CategoryId = 5,
+                            PublisherId = 8,
                             StockQuantity = 5,
                             Title = "Quản Trị Mạng CCNA"
                         },
                         new
                         {
-                            BookId = 5054,
-                            CategoryId = 3005,
-                            PublisherId = 4009,
+                            BookId = 54,
+                            CategoryId = 5,
+                            PublisherId = 9,
                             StockQuantity = 11,
                             Title = "Phân Tích Dữ Liệu với Python"
                         },
                         new
                         {
-                            BookId = 5055,
-                            CategoryId = 3005,
-                            PublisherId = 4014,
+                            BookId = 55,
+                            CategoryId = 5,
+                            PublisherId = 14,
                             StockQuantity = 4,
                             Title = "Machine Learning Cơ Bản"
                         },
                         new
                         {
-                            BookId = 5056,
-                            CategoryId = 3005,
-                            PublisherId = 4014,
+                            BookId = 56,
+                            CategoryId = 5,
+                            PublisherId = 14,
                             StockQuantity = 5,
                             Title = "Deep Learning Cơ Bản"
                         },
                         new
                         {
-                            BookId = 5057,
-                            CategoryId = 3025,
-                            PublisherId = 4013,
+                            BookId = 57,
+                            CategoryId = 25,
+                            PublisherId = 13,
                             StockQuantity = 8,
                             Title = "Kỹ Năng Lãnh Đạo"
                         },
                         new
                         {
-                            BookId = 5058,
-                            CategoryId = 3005,
-                            PublisherId = 4008,
+                            BookId = 58,
+                            CategoryId = 5,
+                            PublisherId = 8,
                             StockQuantity = 7,
                             Title = "Phát Triển Ứng Dụng Android"
                         },
                         new
                         {
-                            BookId = 5059,
-                            CategoryId = 3005,
-                            PublisherId = 4009,
+                            BookId = 59,
+                            CategoryId = 5,
+                            PublisherId = 9,
                             StockQuantity = 10,
                             Title = "C# Trong Thực Tiễn"
                         },
                         new
                         {
-                            BookId = 5060,
-                            CategoryId = 3005,
-                            PublisherId = 4012,
+                            BookId = 60,
+                            CategoryId = 5,
+                            PublisherId = 12,
                             StockQuantity = 6,
                             Title = "Docker và Kubernetes"
                         },
                         new
                         {
-                            BookId = 5061,
-                            CategoryId = 3006,
-                            PublisherId = 4011,
+                            BookId = 61,
+                            CategoryId = 6,
+                            PublisherId = 11,
                             StockQuantity = 9,
                             Title = "Phân Tích Hành Vi Người Dùng"
                         },
                         new
                         {
-                            BookId = 5062,
-                            CategoryId = 3024,
-                            PublisherId = 4010,
+                            BookId = 62,
+                            CategoryId = 24,
+                            PublisherId = 10,
                             StockQuantity = 4,
                             Title = "Quản Trị Dự Án Agile"
                         },
                         new
                         {
-                            BookId = 5063,
-                            CategoryId = 3005,
-                            PublisherId = 4008,
+                            BookId = 63,
+                            CategoryId = 5,
+                            PublisherId = 8,
                             StockQuantity = 5,
                             Title = "Kiến Trúc Microservices"
                         },
                         new
                         {
-                            BookId = 5064,
-                            CategoryId = 3023,
-                            PublisherId = 4009,
+                            BookId = 64,
+                            CategoryId = 23,
+                            PublisherId = 9,
                             StockQuantity = 7,
                             Title = "Trò Chuyện Với Stanley"
                         },
                         new
                         {
-                            BookId = 5065,
-                            CategoryId = 3014,
-                            PublisherId = 4015,
+                            BookId = 65,
+                            CategoryId = 14,
+                            PublisherId = 15,
                             StockQuantity = 3,
                             Title = "Hành Trình Về Phương Đông"
                         },
                         new
                         {
-                            BookId = 5066,
-                            CategoryId = 3005,
-                            PublisherId = 4012,
+                            BookId = 66,
+                            CategoryId = 5,
+                            PublisherId = 12,
                             StockQuantity = 8,
                             Title = "Thiết Kế UX/UI Cơ Bản"
                         },
                         new
                         {
-                            BookId = 5067,
-                            CategoryId = 3025,
-                            PublisherId = 4013,
+                            BookId = 67,
+                            CategoryId = 25,
+                            PublisherId = 13,
                             StockQuantity = 6,
                             Title = "Phương Pháp Đặt Câu Hỏi"
                         },
                         new
                         {
-                            BookId = 5068,
-                            CategoryId = 3005,
-                            PublisherId = 4008,
+                            BookId = 68,
+                            CategoryId = 5,
+                            PublisherId = 8,
                             StockQuantity = 12,
                             Title = "Lập Trình Python"
                         },
                         new
                         {
-                            BookId = 5069,
-                            CategoryId = 3009,
-                            PublisherId = 4006,
+                            BookId = 69,
+                            CategoryId = 9,
+                            PublisherId = 6,
                             StockQuantity = 5,
                             Title = "An Toàn Thực Phẩm"
                         },
                         new
                         {
-                            BookId = 5070,
-                            CategoryId = 3014,
-                            PublisherId = 4002,
+                            BookId = 70,
+                            CategoryId = 14,
+                            PublisherId = 2,
                             StockQuantity = 7,
                             Title = "Kỹ Thuật Chụp Ảnh"
                         },
                         new
                         {
-                            BookId = 5071,
-                            CategoryId = 3024,
-                            PublisherId = 4010,
+                            BookId = 71,
+                            CategoryId = 24,
+                            PublisherId = 10,
                             StockQuantity = 4,
                             Title = "Quản Lý Nhân Sự Hiện Đại"
                         },
                         new
                         {
-                            BookId = 5072,
-                            CategoryId = 3012,
-                            PublisherId = 4014,
+                            BookId = 72,
+                            CategoryId = 12,
+                            PublisherId = 14,
                             StockQuantity = 9,
                             Title = "Sức Mạnh Thói Quen"
                         },
                         new
                         {
-                            BookId = 5073,
-                            CategoryId = 3020,
-                            PublisherId = 4003,
+                            BookId = 73,
+                            CategoryId = 20,
+                            PublisherId = 3,
                             StockQuantity = 3,
                             Title = "Ngôn Ngữ Cơ Thể"
                         },
                         new
                         {
-                            BookId = 5074,
-                            CategoryId = 3003,
-                            PublisherId = 4001,
+                            BookId = 74,
+                            CategoryId = 3,
+                            PublisherId = 1,
                             StockQuantity = 6,
                             Title = "Khoa Học Hành Vi"
                         },
                         new
                         {
-                            BookId = 5075,
-                            CategoryId = 3025,
-                            PublisherId = 4013,
+                            BookId = 75,
+                            CategoryId = 25,
+                            PublisherId = 13,
                             StockQuantity = 8,
                             Title = "Thuyết Trình Tuyệt Đỉnh"
                         },
                         new
                         {
-                            BookId = 5076,
-                            CategoryId = 3005,
-                            PublisherId = 4014,
+                            BookId = 76,
+                            CategoryId = 5,
+                            PublisherId = 14,
                             StockQuantity = 5,
                             Title = "Công Nghệ Blockchain"
                         },
                         new
                         {
-                            BookId = 5077,
-                            CategoryId = 3028,
-                            PublisherId = 4015,
+                            BookId = 77,
+                            CategoryId = 28,
+                            PublisherId = 15,
                             StockQuantity = 4,
                             Title = "Luật Hình Sự Cơ Bản"
                         },
                         new
                         {
-                            BookId = 5078,
-                            CategoryId = 3016,
-                            PublisherId = 4009,
+                            BookId = 78,
+                            CategoryId = 16,
+                            PublisherId = 9,
                             StockQuantity = 7,
                             Title = "Viết Kịch Bản Phim"
                         },
                         new
                         {
-                            BookId = 5079,
-                            CategoryId = 3010,
-                            PublisherId = 4002,
+                            BookId = 79,
+                            CategoryId = 10,
+                            PublisherId = 2,
                             StockQuantity = 5,
                             Title = "Âm Nhạc Thế Kỷ 21"
                         },
                         new
                         {
-                            BookId = 5080,
-                            CategoryId = 3024,
-                            PublisherId = 4010,
+                            BookId = 80,
+                            CategoryId = 24,
+                            PublisherId = 10,
                             StockQuantity = 6,
                             Title = "Khởi Nghiệp Tinh Gọn"
                         },
                         new
                         {
-                            BookId = 5081,
-                            CategoryId = 3005,
-                            PublisherId = 4008,
+                            BookId = 81,
+                            CategoryId = 5,
+                            PublisherId = 8,
                             StockQuantity = 9,
                             Title = "Xử Lý Ngôn Ngữ Tự Nhiên"
                         },
                         new
                         {
-                            BookId = 5082,
-                            CategoryId = 3006,
-                            PublisherId = 4001,
+                            BookId = 82,
+                            CategoryId = 6,
+                            PublisherId = 1,
                             StockQuantity = 10,
                             Title = "Psychology of Money"
                         },
                         new
                         {
-                            BookId = 5083,
-                            CategoryId = 3024,
-                            PublisherId = 4012,
+                            BookId = 83,
+                            CategoryId = 24,
+                            PublisherId = 12,
                             StockQuantity = 5,
                             Title = "Nghiên Cứu Thị Trường"
                         },
                         new
                         {
-                            BookId = 5084,
-                            CategoryId = 3025,
-                            PublisherId = 4013,
+                            BookId = 84,
+                            CategoryId = 25,
+                            PublisherId = 13,
                             StockQuantity = 7,
                             Title = "Châm Ngôn Thành Công"
                         },
                         new
                         {
-                            BookId = 5085,
-                            CategoryId = 3006,
-                            PublisherId = 4006,
+                            BookId = 85,
+                            CategoryId = 6,
+                            PublisherId = 6,
                             StockQuantity = 4,
                             Title = "Sách Về Thiền Định"
                         },
                         new
                         {
-                            BookId = 5086,
-                            CategoryId = 3010,
-                            PublisherId = 4002,
+                            BookId = 86,
+                            CategoryId = 10,
+                            PublisherId = 2,
                             StockQuantity = 6,
                             Title = "Lý Thuyết Âm Nhạc"
                         },
                         new
                         {
-                            BookId = 5087,
-                            CategoryId = 3009,
-                            PublisherId = 4006,
+                            BookId = 87,
+                            CategoryId = 9,
+                            PublisherId = 6,
                             StockQuantity = 5,
                             Title = "Dinh Dưỡng Học"
                         },
                         new
                         {
-                            BookId = 5088,
-                            CategoryId = 3029,
-                            PublisherId = 4015,
+                            BookId = 88,
+                            CategoryId = 29,
+                            PublisherId = 15,
                             StockQuantity = 3,
                             Title = "Thủy Văn Cơ Sở"
                         },
                         new
                         {
-                            BookId = 5089,
-                            CategoryId = 3005,
-                            PublisherId = 4008,
+                            BookId = 89,
+                            CategoryId = 5,
+                            PublisherId = 8,
                             StockQuantity = 12,
                             Title = "Lập Trình Web Toàn Tập"
                         },
                         new
                         {
-                            BookId = 5090,
-                            CategoryId = 3005,
-                            PublisherId = 4014,
+                            BookId = 90,
+                            CategoryId = 5,
+                            PublisherId = 14,
                             StockQuantity = 8,
                             Title = "Công Nghệ IoT"
                         },
                         new
                         {
-                            BookId = 5091,
-                            CategoryId = 3024,
-                            PublisherId = 4010,
+                            BookId = 91,
+                            CategoryId = 24,
+                            PublisherId = 10,
                             StockQuantity = 5,
                             Title = "Quản Trị Rủi Ro"
                         },
                         new
                         {
-                            BookId = 5092,
-                            CategoryId = 3013,
-                            PublisherId = 4002,
+                            BookId = 92,
+                            CategoryId = 13,
+                            PublisherId = 2,
                             StockQuantity = 7,
                             Title = "Thơ Tình Việt Nam"
                         },
                         new
                         {
-                            BookId = 5093,
-                            CategoryId = 3014,
-                            PublisherId = 4015,
+                            BookId = 93,
+                            CategoryId = 14,
+                            PublisherId = 15,
                             StockQuantity = 6,
                             Title = "Du Lịch Tây Bắc"
                         },
                         new
                         {
-                            BookId = 5094,
-                            CategoryId = 3005,
-                            PublisherId = 4009,
+                            BookId = 94,
+                            CategoryId = 5,
+                            PublisherId = 9,
                             StockQuantity = 4,
                             Title = "Quản Lý Dữ Liệu Lớn"
                         },
                         new
                         {
-                            BookId = 5095,
-                            CategoryId = 3029,
-                            PublisherId = 4015,
+                            BookId = 95,
+                            CategoryId = 29,
+                            PublisherId = 15,
                             StockQuantity = 5,
                             Title = "Toán Rời Rạc"
                         },
                         new
                         {
-                            BookId = 5096,
-                            CategoryId = 3005,
-                            PublisherId = 4014,
+                            BookId = 96,
+                            CategoryId = 5,
+                            PublisherId = 14,
                             StockQuantity = 3,
                             Title = "Blockchain trong Ngân Hàng"
                         },
                         new
                         {
-                            BookId = 5097,
-                            CategoryId = 3005,
-                            PublisherId = 4008,
+                            BookId = 97,
+                            CategoryId = 5,
+                            PublisherId = 8,
                             StockQuantity = 7,
                             Title = "Xử Lý Ảnh Số"
                         },
                         new
                         {
-                            BookId = 5098,
-                            CategoryId = 3024,
-                            PublisherId = 4010,
+                            BookId = 98,
+                            CategoryId = 24,
+                            PublisherId = 10,
                             StockQuantity = 5,
                             Title = "Phân Tích Tài Chính"
                         },
                         new
                         {
-                            BookId = 5099,
-                            CategoryId = 3025,
-                            PublisherId = 4013,
+                            BookId = 99,
+                            CategoryId = 25,
+                            PublisherId = 13,
                             StockQuantity = 8,
                             Title = "Hạt Giống Tâm Hồn"
                         },
                         new
                         {
-                            BookId = 5100,
-                            CategoryId = 3024,
-                            PublisherId = 4010,
+                            BookId = 100,
+                            CategoryId = 24,
+                            PublisherId = 10,
                             StockQuantity = 6,
                             Title = "Sách Về Chiến Lược"
                         },
                         new
                         {
-                            BookId = 5101,
-                            CategoryId = 3005,
-                            PublisherId = 4008,
+                            BookId = 101,
+                            CategoryId = 5,
+                            PublisherId = 8,
                             StockQuantity = 9,
                             Title = "Thiết Kế Game"
                         },
                         new
                         {
-                            BookId = 5102,
-                            CategoryId = 3024,
-                            PublisherId = 4010,
+                            BookId = 102,
+                            CategoryId = 24,
+                            PublisherId = 10,
                             StockQuantity = 4,
                             Title = "Quản Trị Công Nghệ"
                         },
                         new
                         {
-                            BookId = 5103,
-                            CategoryId = 3005,
-                            PublisherId = 4009,
+                            BookId = 103,
+                            CategoryId = 5,
+                            PublisherId = 9,
                             StockQuantity = 7,
                             Title = "Phát Triển iOS"
                         },
                         new
                         {
-                            BookId = 5104,
-                            CategoryId = 3013,
-                            PublisherId = 4002,
+                            BookId = 104,
+                            CategoryId = 13,
+                            PublisherId = 2,
                             StockQuantity = 5,
                             Title = "Thơ Trẻ"
                         },
                         new
                         {
-                            BookId = 5105,
-                            CategoryId = 3015,
-                            PublisherId = 4005,
+                            BookId = 105,
+                            CategoryId = 15,
+                            PublisherId = 5,
                             StockQuantity = 10,
                             Title = "Ẩm Thực Việt"
                         });
@@ -1088,503 +1088,503 @@ namespace FullToping.Migrations
                     b.HasData(
                         new
                         {
-                            BookId = 5001,
-                            AuthorId = 2001
+                            BookId = 1,
+                            AuthorId = 1
                         },
                         new
                         {
-                            BookId = 5002,
-                            AuthorId = 2003
+                            BookId = 2,
+                            AuthorId = 3
                         },
                         new
                         {
-                            BookId = 5003,
-                            AuthorId = 2003
+                            BookId = 3,
+                            AuthorId = 3
                         },
                         new
                         {
-                            BookId = 5004,
-                            AuthorId = 2004
+                            BookId = 4,
+                            AuthorId = 4
                         },
                         new
                         {
-                            BookId = 5005,
-                            AuthorId = 2005
+                            BookId = 5,
+                            AuthorId = 5
                         },
                         new
                         {
-                            BookId = 5006,
-                            AuthorId = 2006
+                            BookId = 6,
+                            AuthorId = 6
                         },
                         new
                         {
-                            BookId = 5007,
-                            AuthorId = 2007
+                            BookId = 7,
+                            AuthorId = 7
                         },
                         new
                         {
-                            BookId = 5008,
-                            AuthorId = 2014
+                            BookId = 8,
+                            AuthorId = 14
                         },
                         new
                         {
-                            BookId = 5009,
-                            AuthorId = 2001
+                            BookId = 9,
+                            AuthorId = 1
                         },
                         new
                         {
-                            BookId = 5010,
-                            AuthorId = 2005
+                            BookId = 10,
+                            AuthorId = 5
                         },
                         new
                         {
-                            BookId = 5011,
-                            AuthorId = 2010
+                            BookId = 11,
+                            AuthorId = 10
                         },
                         new
                         {
-                            BookId = 5012,
-                            AuthorId = 2011
+                            BookId = 12,
+                            AuthorId = 11
                         },
                         new
                         {
-                            BookId = 5013,
-                            AuthorId = 2012
+                            BookId = 13,
+                            AuthorId = 12
                         },
                         new
                         {
-                            BookId = 5014,
-                            AuthorId = 2001
+                            BookId = 14,
+                            AuthorId = 1
                         },
                         new
                         {
-                            BookId = 5015,
-                            AuthorId = 2008
+                            BookId = 15,
+                            AuthorId = 8
                         },
                         new
                         {
-                            BookId = 5016,
-                            AuthorId = 2002
+                            BookId = 16,
+                            AuthorId = 2
                         },
                         new
                         {
-                            BookId = 5017,
-                            AuthorId = 2009
+                            BookId = 17,
+                            AuthorId = 9
                         },
                         new
                         {
-                            BookId = 5018,
-                            AuthorId = 2008
+                            BookId = 18,
+                            AuthorId = 8
                         },
                         new
                         {
-                            BookId = 5019,
-                            AuthorId = 2014
+                            BookId = 19,
+                            AuthorId = 14
                         },
                         new
                         {
-                            BookId = 5020,
-                            AuthorId = 2015
+                            BookId = 20,
+                            AuthorId = 15
                         },
                         new
                         {
-                            BookId = 5003,
-                            AuthorId = 2011
+                            BookId = 3,
+                            AuthorId = 11
                         },
                         new
                         {
-                            BookId = 5007,
-                            AuthorId = 2009
+                            BookId = 7,
+                            AuthorId = 9
                         },
                         new
                         {
-                            BookId = 5010,
-                            AuthorId = 2002
+                            BookId = 10,
+                            AuthorId = 2
                         },
                         new
                         {
-                            BookId = 5016,
-                            AuthorId = 2005
+                            BookId = 16,
+                            AuthorId = 5
                         },
                         new
                         {
-                            BookId = 5018,
-                            AuthorId = 2002
+                            BookId = 18,
+                            AuthorId = 2
                         },
                         new
                         {
-                            BookId = 5031,
-                            AuthorId = 2016
+                            BookId = 31,
+                            AuthorId = 16
                         },
                         new
                         {
-                            BookId = 5032,
-                            AuthorId = 2017
+                            BookId = 32,
+                            AuthorId = 17
                         },
                         new
                         {
-                            BookId = 5033,
-                            AuthorId = 2018
+                            BookId = 33,
+                            AuthorId = 18
                         },
                         new
                         {
-                            BookId = 5034,
-                            AuthorId = 2019
+                            BookId = 34,
+                            AuthorId = 19
                         },
                         new
                         {
-                            BookId = 5035,
-                            AuthorId = 2020
+                            BookId = 35,
+                            AuthorId = 20
                         },
                         new
                         {
-                            BookId = 5036,
-                            AuthorId = 2021
+                            BookId = 36,
+                            AuthorId = 21
                         },
                         new
                         {
-                            BookId = 5037,
-                            AuthorId = 2022
+                            BookId = 37,
+                            AuthorId = 22
                         },
                         new
                         {
-                            BookId = 5038,
-                            AuthorId = 2023
+                            BookId = 38,
+                            AuthorId = 23
                         },
                         new
                         {
-                            BookId = 5039,
-                            AuthorId = 2024
+                            BookId = 39,
+                            AuthorId = 24
                         },
                         new
                         {
-                            BookId = 5040,
-                            AuthorId = 2025
+                            BookId = 40,
+                            AuthorId = 25
                         },
                         new
                         {
-                            BookId = 5041,
-                            AuthorId = 2026
+                            BookId = 41,
+                            AuthorId = 26
                         },
                         new
                         {
-                            BookId = 5042,
-                            AuthorId = 2026
+                            BookId = 42,
+                            AuthorId = 26
                         },
                         new
                         {
-                            BookId = 5043,
-                            AuthorId = 2027
+                            BookId = 43,
+                            AuthorId = 27
                         },
                         new
                         {
-                            BookId = 5044,
-                            AuthorId = 2028
+                            BookId = 44,
+                            AuthorId = 28
                         },
                         new
                         {
-                            BookId = 5045,
-                            AuthorId = 2029
+                            BookId = 45,
+                            AuthorId = 29
                         },
                         new
                         {
-                            BookId = 5046,
-                            AuthorId = 2028
+                            BookId = 46,
+                            AuthorId = 28
                         },
                         new
                         {
-                            BookId = 5047,
-                            AuthorId = 2029
+                            BookId = 47,
+                            AuthorId = 29
                         },
                         new
                         {
-                            BookId = 5048,
-                            AuthorId = 2021
+                            BookId = 48,
+                            AuthorId = 21
                         },
                         new
                         {
-                            BookId = 5049,
-                            AuthorId = 2021
+                            BookId = 49,
+                            AuthorId = 21
                         },
                         new
                         {
-                            BookId = 5050,
-                            AuthorId = 2022
+                            BookId = 50,
+                            AuthorId = 22
                         },
                         new
                         {
-                            BookId = 5051,
-                            AuthorId = 2023
+                            BookId = 51,
+                            AuthorId = 23
                         },
                         new
                         {
-                            BookId = 5052,
-                            AuthorId = 2023
+                            BookId = 52,
+                            AuthorId = 23
                         },
                         new
                         {
-                            BookId = 5053,
-                            AuthorId = 2014
+                            BookId = 53,
+                            AuthorId = 14
                         },
                         new
                         {
-                            BookId = 5054,
-                            AuthorId = 2017
+                            BookId = 54,
+                            AuthorId = 17
                         },
                         new
                         {
-                            BookId = 5055,
-                            AuthorId = 2024
+                            BookId = 55,
+                            AuthorId = 24
                         },
                         new
                         {
-                            BookId = 5056,
-                            AuthorId = 2024
+                            BookId = 56,
+                            AuthorId = 24
                         },
                         new
                         {
-                            BookId = 5057,
-                            AuthorId = 2025
+                            BookId = 57,
+                            AuthorId = 25
                         },
                         new
                         {
-                            BookId = 5058,
-                            AuthorId = 2014
+                            BookId = 58,
+                            AuthorId = 14
                         },
                         new
                         {
-                            BookId = 5059,
-                            AuthorId = 2016
+                            BookId = 59,
+                            AuthorId = 16
                         },
                         new
                         {
-                            BookId = 5060,
-                            AuthorId = 2021
+                            BookId = 60,
+                            AuthorId = 21
                         },
                         new
                         {
-                            BookId = 5061,
-                            AuthorId = 2027
+                            BookId = 61,
+                            AuthorId = 27
                         },
                         new
                         {
-                            BookId = 5062,
-                            AuthorId = 2023
+                            BookId = 62,
+                            AuthorId = 23
                         },
                         new
                         {
-                            BookId = 5063,
-                            AuthorId = 2022
+                            BookId = 63,
+                            AuthorId = 22
                         },
                         new
                         {
-                            BookId = 5064,
-                            AuthorId = 2029
+                            BookId = 64,
+                            AuthorId = 29
                         },
                         new
                         {
-                            BookId = 5065,
-                            AuthorId = 2026
+                            BookId = 65,
+                            AuthorId = 26
                         },
                         new
                         {
-                            BookId = 5066,
-                            AuthorId = 2024
+                            BookId = 66,
+                            AuthorId = 24
                         },
                         new
                         {
-                            BookId = 5067,
-                            AuthorId = 2025
+                            BookId = 67,
+                            AuthorId = 25
                         },
                         new
                         {
-                            BookId = 5068,
-                            AuthorId = 2021
+                            BookId = 68,
+                            AuthorId = 21
                         },
                         new
                         {
-                            BookId = 5069,
-                            AuthorId = 2027
+                            BookId = 69,
+                            AuthorId = 27
                         },
                         new
                         {
-                            BookId = 5070,
-                            AuthorId = 2029
+                            BookId = 70,
+                            AuthorId = 29
                         },
                         new
                         {
-                            BookId = 5071,
-                            AuthorId = 2023
+                            BookId = 71,
+                            AuthorId = 23
                         },
                         new
                         {
-                            BookId = 5072,
-                            AuthorId = 2025
+                            BookId = 72,
+                            AuthorId = 25
                         },
                         new
                         {
-                            BookId = 5073,
-                            AuthorId = 2029
+                            BookId = 73,
+                            AuthorId = 29
                         },
                         new
                         {
-                            BookId = 5074,
-                            AuthorId = 2021
+                            BookId = 74,
+                            AuthorId = 21
                         },
                         new
                         {
-                            BookId = 5075,
-                            AuthorId = 2023
+                            BookId = 75,
+                            AuthorId = 23
                         },
                         new
                         {
-                            BookId = 5076,
-                            AuthorId = 2021
+                            BookId = 76,
+                            AuthorId = 21
                         },
                         new
                         {
-                            BookId = 5077,
-                            AuthorId = 2022
+                            BookId = 77,
+                            AuthorId = 22
                         },
                         new
                         {
-                            BookId = 5078,
-                            AuthorId = 2016
+                            BookId = 78,
+                            AuthorId = 16
                         },
                         new
                         {
-                            BookId = 5079,
-                            AuthorId = 2010
+                            BookId = 79,
+                            AuthorId = 10
                         },
                         new
                         {
-                            BookId = 5080,
-                            AuthorId = 2017
+                            BookId = 80,
+                            AuthorId = 17
                         },
                         new
                         {
-                            BookId = 5081,
-                            AuthorId = 2014
+                            BookId = 81,
+                            AuthorId = 14
                         },
                         new
                         {
-                            BookId = 5082,
-                            AuthorId = 2005
+                            BookId = 82,
+                            AuthorId = 5
                         },
                         new
                         {
-                            BookId = 5083,
-                            AuthorId = 2012
+                            BookId = 83,
+                            AuthorId = 12
                         },
                         new
                         {
-                            BookId = 5084,
-                            AuthorId = 2023
+                            BookId = 84,
+                            AuthorId = 23
                         },
                         new
                         {
-                            BookId = 5085,
-                            AuthorId = 2015
+                            BookId = 85,
+                            AuthorId = 15
                         },
                         new
                         {
-                            BookId = 5086,
-                            AuthorId = 2014
+                            BookId = 86,
+                            AuthorId = 14
                         },
                         new
                         {
-                            BookId = 5087,
-                            AuthorId = 2008
+                            BookId = 87,
+                            AuthorId = 8
                         },
                         new
                         {
-                            BookId = 5088,
-                            AuthorId = 2026
+                            BookId = 88,
+                            AuthorId = 26
                         },
                         new
                         {
-                            BookId = 5089,
-                            AuthorId = 2021
+                            BookId = 89,
+                            AuthorId = 21
                         },
                         new
                         {
-                            BookId = 5090,
-                            AuthorId = 2021
+                            BookId = 90,
+                            AuthorId = 21
                         },
                         new
                         {
-                            BookId = 5091,
-                            AuthorId = 2023
+                            BookId = 91,
+                            AuthorId = 23
                         },
                         new
                         {
-                            BookId = 5092,
-                            AuthorId = 2022
+                            BookId = 92,
+                            AuthorId = 22
                         },
                         new
                         {
-                            BookId = 5093,
-                            AuthorId = 2026
+                            BookId = 93,
+                            AuthorId = 26
                         },
                         new
                         {
-                            BookId = 5094,
-                            AuthorId = 2028
+                            BookId = 94,
+                            AuthorId = 28
                         },
                         new
                         {
-                            BookId = 5095,
-                            AuthorId = 2027
+                            BookId = 95,
+                            AuthorId = 27
                         },
                         new
                         {
-                            BookId = 5096,
-                            AuthorId = 2021
+                            BookId = 96,
+                            AuthorId = 21
                         },
                         new
                         {
-                            BookId = 5097,
-                            AuthorId = 2024
+                            BookId = 97,
+                            AuthorId = 24
                         },
                         new
                         {
-                            BookId = 5098,
-                            AuthorId = 2022
+                            BookId = 98,
+                            AuthorId = 22
                         },
                         new
                         {
-                            BookId = 5099,
-                            AuthorId = 2025
+                            BookId = 99,
+                            AuthorId = 25
                         },
                         new
                         {
-                            BookId = 5100,
-                            AuthorId = 2023
+                            BookId = 100,
+                            AuthorId = 23
                         },
                         new
                         {
-                            BookId = 5101,
-                            AuthorId = 2022
+                            BookId = 101,
+                            AuthorId = 22
                         },
                         new
                         {
-                            BookId = 5102,
-                            AuthorId = 2023
+                            BookId = 102,
+                            AuthorId = 23
                         },
                         new
                         {
-                            BookId = 5103,
-                            AuthorId = 2022
+                            BookId = 103,
+                            AuthorId = 22
                         },
                         new
                         {
-                            BookId = 5104,
-                            AuthorId = 2027
+                            BookId = 104,
+                            AuthorId = 27
                         },
                         new
                         {
-                            BookId = 5105,
-                            AuthorId = 2026
+                            BookId = 105,
+                            AuthorId = 26
                         });
                 });
 
@@ -1611,121 +1611,121 @@ namespace FullToping.Migrations
                     b.HasData(
                         new
                         {
-                            ReceiptId = 6001,
-                            BookId = 5001,
+                            ReceiptId = 1,
+                            BookId = 1,
                             ActualReturnDate = new DateTime(2025, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FineAmount = 0m
                         },
                         new
                         {
-                            ReceiptId = 6001,
-                            BookId = 5002,
+                            ReceiptId = 1,
+                            BookId = 2,
                             ActualReturnDate = new DateTime(2025, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FineAmount = 0m
                         },
                         new
                         {
-                            ReceiptId = 6002,
-                            BookId = 5003,
+                            ReceiptId = 2,
+                            BookId = 3,
                             ActualReturnDate = new DateTime(2025, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FineAmount = 0m
                         },
                         new
                         {
-                            ReceiptId = 6002,
-                            BookId = 5004,
+                            ReceiptId = 2,
+                            BookId = 4,
                             ActualReturnDate = new DateTime(2025, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FineAmount = 0m
                         },
                         new
                         {
-                            ReceiptId = 6003,
-                            BookId = 5005
+                            ReceiptId = 3,
+                            BookId = 5
                         },
                         new
                         {
-                            ReceiptId = 6003,
-                            BookId = 5006
+                            ReceiptId = 3,
+                            BookId = 6
                         },
                         new
                         {
-                            ReceiptId = 6004,
-                            BookId = 5007
+                            ReceiptId = 4,
+                            BookId = 7
                         },
                         new
                         {
-                            ReceiptId = 6005,
-                            BookId = 5008,
+                            ReceiptId = 5,
+                            BookId = 8,
                             ActualReturnDate = new DateTime(2025, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FineAmount = 15000m
                         },
                         new
                         {
-                            ReceiptId = 6005,
-                            BookId = 5009,
+                            ReceiptId = 5,
+                            BookId = 9,
                             ActualReturnDate = new DateTime(2025, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FineAmount = 20000m
                         },
                         new
                         {
-                            ReceiptId = 6005,
-                            BookId = 5010,
+                            ReceiptId = 5,
+                            BookId = 10,
                             ActualReturnDate = new DateTime(2025, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FineAmount = 2.00m
                         },
                         new
                         {
-                            ReceiptId = 6006,
-                            BookId = 5011
+                            ReceiptId = 6,
+                            BookId = 11
                         },
                         new
                         {
-                            ReceiptId = 6006,
-                            BookId = 5012
+                            ReceiptId = 6,
+                            BookId = 12
                         },
                         new
                         {
-                            ReceiptId = 6007,
-                            BookId = 5013
+                            ReceiptId = 7,
+                            BookId = 13
                         },
                         new
                         {
-                            ReceiptId = 6007,
-                            BookId = 5014
+                            ReceiptId = 7,
+                            BookId = 14
                         },
                         new
                         {
-                            ReceiptId = 6008,
-                            BookId = 5015,
+                            ReceiptId = 8,
+                            BookId = 15,
                             ActualReturnDate = new DateTime(2025, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FineAmount = 0m
                         },
                         new
                         {
-                            ReceiptId = 6008,
-                            BookId = 5016,
+                            ReceiptId = 8,
+                            BookId = 16,
                             ActualReturnDate = new DateTime(2025, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FineAmount = 0m
                         },
                         new
                         {
-                            ReceiptId = 6009,
-                            BookId = 5017
+                            ReceiptId = 9,
+                            BookId = 17
                         },
                         new
                         {
-                            ReceiptId = 6009,
-                            BookId = 5018
+                            ReceiptId = 9,
+                            BookId = 18
                         },
                         new
                         {
-                            ReceiptId = 6010,
-                            BookId = 5019
+                            ReceiptId = 10,
+                            BookId = 19
                         },
                         new
                         {
-                            ReceiptId = 6010,
-                            BookId = 5020
+                            ReceiptId = 10,
+                            BookId = 20
                         });
                 });
 
@@ -1735,7 +1735,7 @@ namespace FullToping.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReceiptId"), 6001L);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReceiptId"));
 
                     b.Property<DateTime>("BorrowDate")
                         .HasColumnType("datetime2");
@@ -1760,188 +1760,203 @@ namespace FullToping.Migrations
                     b.HasData(
                         new
                         {
-                            ReceiptId = 6001,
+                            ReceiptId = 1,
                             BorrowDate = new DateTime(2025, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ReturnDate = new DateTime(2025, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "Returned",
-                            UserId = 1001
+                            UserId = 1
                         },
                         new
                         {
-                            ReceiptId = 6002,
+                            ReceiptId = 2,
                             BorrowDate = new DateTime(2025, 6, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ReturnDate = new DateTime(2025, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "Returned",
-                            UserId = 1002
+                            UserId = 2
                         },
                         new
                         {
-                            ReceiptId = 6003,
+                            ReceiptId = 3,
                             BorrowDate = new DateTime(2025, 6, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Borrowed",
-                            UserId = 1003
+                            ReturnDate = new DateTime(2025, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Overdue",
+                            UserId = 3
                         },
                         new
                         {
-                            ReceiptId = 6004,
+                            ReceiptId = 4,
                             BorrowDate = new DateTime(2025, 6, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Borrowed",
-                            UserId = 1001
+                            ReturnDate = new DateTime(2025, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "NotFullyReturned",
+                            UserId = 1
                         },
                         new
                         {
-                            ReceiptId = 6005,
+                            ReceiptId = 5,
                             BorrowDate = new DateTime(2025, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ReturnDate = new DateTime(2025, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "Returned",
-                            UserId = 1002
+                            UserId = 2
                         },
                         new
                         {
-                            ReceiptId = 6006,
+                            ReceiptId = 6,
                             BorrowDate = new DateTime(2025, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Borrowed",
-                            UserId = 1003
+                            ReturnDate = new DateTime(2025, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowing",
+                            UserId = 3
                         },
                         new
                         {
-                            ReceiptId = 6007,
+                            ReceiptId = 7,
                             BorrowDate = new DateTime(2025, 6, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Borrowed",
-                            UserId = 1001
+                            ReturnDate = new DateTime(2025, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowing",
+                            UserId = 1
                         },
                         new
                         {
-                            ReceiptId = 6008,
+                            ReceiptId = 8,
                             BorrowDate = new DateTime(2025, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ReturnDate = new DateTime(2025, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "Returned",
-                            UserId = 1002
+                            UserId = 2
                         },
                         new
                         {
-                            ReceiptId = 6009,
+                            ReceiptId = 9,
                             BorrowDate = new DateTime(2025, 6, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Borrowed",
-                            UserId = 1003
+                            ReturnDate = new DateTime(2025, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowing",
+                            UserId = 3
                         },
                         new
                         {
-                            ReceiptId = 6010,
+                            ReceiptId = 10,
                             BorrowDate = new DateTime(2025, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Borrowed",
-                            UserId = 1001
+                            ReturnDate = new DateTime(2025, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowing",
+                            UserId = 1
                         },
                         new
                         {
-                            ReceiptId = 6011,
+                            ReceiptId = 11,
                             BorrowDate = new DateTime(2025, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ReturnDate = new DateTime(2025, 6, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "Returned",
-                            UserId = 1004
+                            UserId = 4
                         },
                         new
                         {
-                            ReceiptId = 6012,
+                            ReceiptId = 12,
                             BorrowDate = new DateTime(2025, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Borrowed",
-                            UserId = 1005
+                            ReturnDate = new DateTime(2025, 6, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowing",
+                            UserId = 5
                         },
                         new
                         {
-                            ReceiptId = 6013,
+                            ReceiptId = 13,
                             BorrowDate = new DateTime(2025, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ReturnDate = new DateTime(2025, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "Returned",
-                            UserId = 1006
+                            UserId = 6
                         },
                         new
                         {
-                            ReceiptId = 6014,
+                            ReceiptId = 14,
                             BorrowDate = new DateTime(2025, 6, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Borrowed",
-                            UserId = 1007
+                            ReturnDate = new DateTime(2025, 6, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowing",
+                            UserId = 7
                         },
                         new
                         {
-                            ReceiptId = 6015,
+                            ReceiptId = 15,
                             BorrowDate = new DateTime(2025, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Borrowed",
-                            UserId = 1008
+                            ReturnDate = new DateTime(2025, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "NotFullyReturned",
+                            UserId = 8
                         },
                         new
                         {
-                            ReceiptId = 6016,
+                            ReceiptId = 16,
                             BorrowDate = new DateTime(2025, 6, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ReturnDate = new DateTime(2025, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "Returned",
-                            UserId = 1009
+                            UserId = 9
                         },
                         new
                         {
-                            ReceiptId = 6017,
+                            ReceiptId = 17,
                             BorrowDate = new DateTime(2025, 6, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Borrowed",
-                            UserId = 1010
+                            ReturnDate = new DateTime(2025, 6, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowing",
+                            UserId = 10
                         },
                         new
                         {
-                            ReceiptId = 6018,
+                            ReceiptId = 18,
                             BorrowDate = new DateTime(2025, 6, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ReturnDate = new DateTime(2025, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "Returned",
-                            UserId = 1011
+                            UserId = 11
                         },
                         new
                         {
-                            ReceiptId = 6019,
+                            ReceiptId = 19,
                             BorrowDate = new DateTime(2025, 6, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Borrowed",
-                            UserId = 1012
+                            ReturnDate = new DateTime(2025, 6, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Overdue",
+                            UserId = 12
                         },
                         new
                         {
-                            ReceiptId = 6020,
+                            ReceiptId = 20,
                             BorrowDate = new DateTime(2025, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Borrowed",
-                            UserId = 1013
+                            ReturnDate = new DateTime(2025, 6, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "NotFullyReturned",
+                            UserId = 13
                         },
                         new
                         {
-                            ReceiptId = 6021,
+                            ReceiptId = 21,
                             BorrowDate = new DateTime(2025, 6, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ReturnDate = new DateTime(2025, 6, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "Returned",
-                            UserId = 1014
+                            UserId = 14
                         },
                         new
                         {
-                            ReceiptId = 6022,
+                            ReceiptId = 22,
                             BorrowDate = new DateTime(2025, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Borrowed",
-                            UserId = 1015
+                            ReturnDate = new DateTime(2025, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowing",
+                            UserId = 15
                         },
                         new
                         {
-                            ReceiptId = 6023,
+                            ReceiptId = 23,
                             BorrowDate = new DateTime(2025, 6, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ReturnDate = new DateTime(2025, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Status = "Returned",
-                            UserId = 1016
+                            UserId = 16
                         },
                         new
                         {
-                            ReceiptId = 6024,
+                            ReceiptId = 24,
                             BorrowDate = new DateTime(2025, 6, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Borrowed",
-                            UserId = 1017
+                            ReturnDate = new DateTime(2025, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowing",
+                            UserId = 17
                         },
                         new
                         {
-                            ReceiptId = 6025,
+                            ReceiptId = 25,
                             BorrowDate = new DateTime(2025, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Status = "Borrowed",
-                            UserId = 1018
+                            ReturnDate = new DateTime(2025, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "Borrowing",
+                            UserId = 18
                         });
                 });
 
@@ -1951,7 +1966,7 @@ namespace FullToping.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"), 3001L);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -1965,152 +1980,152 @@ namespace FullToping.Migrations
                     b.HasData(
                         new
                         {
-                            CategoryId = 3001,
+                            CategoryId = 1,
                             Name = "Văn học Việt Nam"
                         },
                         new
                         {
-                            CategoryId = 3002,
+                            CategoryId = 2,
                             Name = "Văn học nước ngoài"
                         },
                         new
                         {
-                            CategoryId = 3003,
+                            CategoryId = 3,
                             Name = "Nghiên cứu khoa học"
                         },
                         new
                         {
-                            CategoryId = 3004,
+                            CategoryId = 4,
                             Name = "Lịch sử – Địa lý"
                         },
                         new
                         {
-                            CategoryId = 3005,
+                            CategoryId = 5,
                             Name = "Công nghệ thông tin"
                         },
                         new
                         {
-                            CategoryId = 3006,
+                            CategoryId = 6,
                             Name = "Tâm lý – Kỹ năng sống"
                         },
                         new
                         {
-                            CategoryId = 3007,
+                            CategoryId = 7,
                             Name = "Thiếu nhi"
                         },
                         new
                         {
-                            CategoryId = 3008,
+                            CategoryId = 8,
                             Name = "Kinh tế – Quản trị"
                         },
                         new
                         {
-                            CategoryId = 3009,
+                            CategoryId = 9,
                             Name = "Y học – Sức khỏe"
                         },
                         new
                         {
-                            CategoryId = 3010,
+                            CategoryId = 10,
                             Name = "Nghệ thuật – Kiến trúc"
                         },
                         new
                         {
-                            CategoryId = 3011,
+                            CategoryId = 11,
                             Name = "Truyện tranh – Manga"
                         },
                         new
                         {
-                            CategoryId = 3012,
+                            CategoryId = 12,
                             Name = "Tự lực – Phát triển bản thân"
                         },
                         new
                         {
-                            CategoryId = 3013,
+                            CategoryId = 13,
                             Name = "Thơ ca"
                         },
                         new
                         {
-                            CategoryId = 3014,
+                            CategoryId = 14,
                             Name = "Du lịch – Khám phá"
                         },
                         new
                         {
-                            CategoryId = 3015,
+                            CategoryId = 15,
                             Name = "Ẩm thực – Nấu ăn"
                         },
                         new
                         {
-                            CategoryId = 3016,
+                            CategoryId = 16,
                             Name = "Văn học trẻ"
                         },
                         new
                         {
-                            CategoryId = 3017,
+                            CategoryId = 17,
                             Name = "Tiểu thuyết trinh thám"
                         },
                         new
                         {
-                            CategoryId = 3018,
+                            CategoryId = 18,
                             Name = "Kinh dị – Giật gân"
                         },
                         new
                         {
-                            CategoryId = 3019,
+                            CategoryId = 19,
                             Name = "Thơ cách mạng"
                         },
                         new
                         {
-                            CategoryId = 3020,
+                            CategoryId = 20,
                             Name = "Tôn giáo – Triết học"
                         },
                         new
                         {
-                            CategoryId = 3021,
+                            CategoryId = 21,
                             Name = "Khoa học viễn tưởng"
                         },
                         new
                         {
-                            CategoryId = 3022,
+                            CategoryId = 22,
                             Name = "Lãng mạn – Tình cảm"
                         },
                         new
                         {
-                            CategoryId = 3023,
+                            CategoryId = 23,
                             Name = "Phát triển bản thân"
                         },
                         new
                         {
-                            CategoryId = 3024,
+                            CategoryId = 24,
                             Name = "Kinh doanh – Khởi nghiệp"
                         },
                         new
                         {
-                            CategoryId = 3025,
+                            CategoryId = 25,
                             Name = "Sách kỹ năng mềm"
                         },
                         new
                         {
-                            CategoryId = 3026,
+                            CategoryId = 26,
                             Name = "Văn hóa – Xã hội"
                         },
                         new
                         {
-                            CategoryId = 3027,
+                            CategoryId = 27,
                             Name = "Sách thiếu nhi – Thiếu niên"
                         },
                         new
                         {
-                            CategoryId = 3028,
+                            CategoryId = 28,
                             Name = "Sách luật pháp"
                         },
                         new
                         {
-                            CategoryId = 3029,
+                            CategoryId = 29,
                             Name = "Sách đại học"
                         },
                         new
                         {
-                            CategoryId = 3030,
+                            CategoryId = 30,
                             Name = "Sách chuyên ngành y"
                         });
                 });
@@ -2121,7 +2136,7 @@ namespace FullToping.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PublisherId"), 4001L);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PublisherId"));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -2135,82 +2150,82 @@ namespace FullToping.Migrations
                     b.HasData(
                         new
                         {
-                            PublisherId = 4001,
+                            PublisherId = 1,
                             Name = "NXB Giáo dục Việt Nam"
                         },
                         new
                         {
-                            PublisherId = 4002,
+                            PublisherId = 2,
                             Name = "NXB Văn hóa – Thông tin"
                         },
                         new
                         {
-                            PublisherId = 4003,
+                            PublisherId = 3,
                             Name = "NXB Khoa học và Kỹ thuật"
                         },
                         new
                         {
-                            PublisherId = 4004,
+                            PublisherId = 4,
                             Name = "NXB Trẻ"
                         },
                         new
                         {
-                            PublisherId = 4005,
+                            PublisherId = 5,
                             Name = "NXB Kim Đồng"
                         },
                         new
                         {
-                            PublisherId = 4006,
+                            PublisherId = 6,
                             Name = "NXB Thống Kê"
                         },
                         new
                         {
-                            PublisherId = 4007,
+                            PublisherId = 7,
                             Name = "NXB Đại học Quốc gia"
                         },
                         new
                         {
-                            PublisherId = 4008,
+                            PublisherId = 8,
                             Name = "NXB Công nghệ Thông tin"
                         },
                         new
                         {
-                            PublisherId = 4009,
+                            PublisherId = 9,
                             Name = "NXB Hội Nhà văn"
                         },
                         new
                         {
-                            PublisherId = 4010,
+                            PublisherId = 10,
                             Name = "NXB Văn học"
                         },
                         new
                         {
-                            PublisherId = 4011,
+                            PublisherId = 11,
                             Name = "NXB Phụ nữ"
                         },
                         new
                         {
-                            PublisherId = 4012,
+                            PublisherId = 12,
                             Name = "NXB Tri thức"
                         },
                         new
                         {
-                            PublisherId = 4013,
+                            PublisherId = 13,
                             Name = "NXB Phương Đông"
                         },
                         new
                         {
-                            PublisherId = 4014,
+                            PublisherId = 14,
                             Name = "NXB Văn học Đông Á"
                         },
                         new
                         {
-                            PublisherId = 4015,
+                            PublisherId = 15,
                             Name = "NXB Đại học Quốc gia TP.HCM"
                         },
                         new
                         {
-                            PublisherId = 4016,
+                            PublisherId = 16,
                             Name = "NXB An ninh quốc gia"
                         });
                 });
@@ -2221,7 +2236,7 @@ namespace FullToping.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1001L);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -2271,7 +2286,7 @@ namespace FullToping.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = 1001,
+                            UserId = 1,
                             Address = "Số 12, ngõ 34 Phố Hoàng Hoa Thám, Quận Ba Đình, Hà Nội",
                             Email = "vanvu@gmail.com",
                             FullName = "Nguyễn Văn Vũ",
@@ -2281,7 +2296,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1002,
+                            UserId = 2,
                             Address = "Số 45, Đường 3/2, Phường Hưng Lợi, Quận Ninh Kiều, TP. Cần Thơ",
                             Email = "thiba@gmail.com",
                             FullName = "Trần Thị Ba",
@@ -2291,7 +2306,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1003,
+                            UserId = 3,
                             Address = "Số 78, Phố Nguyễn Văn Cừ, Phường Gia Thuỷ, TP. Bắc Ninh",
                             Email = "vanchi@gmail.com",
                             FullName = "Lê Văn Chi",
@@ -2301,7 +2316,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1004,
+                            UserId = 4,
                             Address = "Số 22, Đường Láng Hạ, Phường Láng Hạ, Quận Đống Đa, Hà Nội",
                             Email = "dungpham@gmail.com",
                             FullName = "Phạm Thị Dung",
@@ -2311,7 +2326,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1005,
+                            UserId = 5,
                             Address = "Số 99, Đường Trần Phú, Phường 5, TP. Vũng Tàu",
                             Email = "anvo@gmail.com",
                             FullName = "Võ Văn An",
@@ -2321,7 +2336,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1006,
+                            UserId = 6,
                             Address = "Số 5, Phố Hoàng Diệu, Phường Hải Châu 1, Quận Hải Châu, Đà Nẵng",
                             Email = "hienly@gmail.com",
                             FullName = "Lý Thị Hiền",
@@ -2331,7 +2346,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1007,
+                            UserId = 7,
                             Address = "Số 150, Đường Cách Mạng Tháng 8, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh",
                             Email = "tuanngo@gmail.com",
                             FullName = "Ngô Minh Tuấn",
@@ -2341,7 +2356,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1008,
+                            UserId = 8,
                             Address = "Số 10, Đường Hai Bà Trưng, Phường Phạm Ngũ Lão, Quận 1, TP. Hồ Chí Minh",
                             Email = "lan.dang@gmail.com",
                             FullName = "Đặng Thị Lan",
@@ -2351,7 +2366,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1009,
+                            UserId = 9,
                             Address = "Số 8, Đường Nguyễn Thị Minh Khai, Phường 1, TP. Vĩnh Long",
                             Email = "vanhoa.phan@gmail.com",
                             FullName = "Phan Văn Hòa",
@@ -2361,7 +2376,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1010,
+                            UserId = 10,
                             Address = "Số 120, Đường Phan Đình Phùng, Phường Thành Nhất, TP. Buôn Ma Thuột",
                             Email = "maitruong@gmail.com",
                             FullName = "Trương Thị Mai",
@@ -2371,7 +2386,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1011,
+                            UserId = 11,
                             Address = "Số 33, Phố Lý Thường Kiệt, Phường Phủ Hà, TP. Lạng Sơn",
                             Email = "quocviet.bui@gmail.com",
                             FullName = "Bùi Quốc Việt",
@@ -2381,7 +2396,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1012,
+                            UserId = 12,
                             Address = "Số 27, Đường Hùng Vương, Phường Mỹ Xuyên, TP. Sóc Trăng",
                             Email = "phuongle@gmail.com",
                             FullName = "Lê Thị Phương",
@@ -2391,7 +2406,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1013,
+                            UserId = 13,
                             Address = "Số 55, Đường Trần Hưng Đạo, Phường Lê Lợi, TP. Nam Định",
                             Email = "minhtu.do@gmail.com",
                             FullName = "Đỗ Minh Tú",
@@ -2401,7 +2416,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1014,
+                            UserId = 14,
                             Address = "Số 18, Đường Lê Lợi, Phường An Lạc, TP. Biên Hòa",
                             Email = "minhquan.pham@gmail.com",
                             FullName = "Phạm Minh Quân",
@@ -2411,7 +2426,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1015,
+                            UserId = 15,
                             Address = "Số 66, Phố Trần Nhân Tông, Phường Nam Đàn, TP. Thanh Hóa",
                             Email = "ngocvu@gmail.com",
                             FullName = "Vũ Thị Ngọc",
@@ -2421,7 +2436,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1016,
+                            UserId = 16,
                             Address = "Số 102, Đường Trần Phú, Phường Xuân Phú, TP. Huế",
                             Email = "quoccuong.nguyen@gmail.com",
                             FullName = "Nguyễn Quốc Cường",
@@ -2431,7 +2446,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1017,
+                            UserId = 17,
                             Address = "Số 5, Đường Nguyễn Văn Trỗi, Phường Đông Vệ, TP. Thanh Hóa",
                             Email = "thuyhang.le@gmail.com",
                             FullName = "Lê Thúy Hằng",
@@ -2441,7 +2456,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1018,
+                            UserId = 18,
                             Address = "Số 250, Đường Nguyễn Thái Học, Phường Phan Chu Trinh, TP. Quy Nhơn",
                             Email = "anhtuan.tran@gmail.com",
                             FullName = "Trần Anh Tuấn",
@@ -2451,7 +2466,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1019,
+                            UserId = 19,
                             Address = "Số 14, Đường Nguyễn Huệ, Phường Phước Ninh, TP. Đà Nẵng",
                             Email = "hanhphan@gmail.com",
                             FullName = "Phan Thị Hạnh",
@@ -2461,7 +2476,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1020,
+                            UserId = 20,
                             Address = "Số 77, Phố Phan Đình Phùng, Phường Đội Cấn, Quận Ba Đình, Hà Nội",
                             Email = "sontruong@gmail.com",
                             FullName = "Trương Văn Sơn",
@@ -2471,7 +2486,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1021,
+                            UserId = 21,
                             Address = "Số 33, Đường Trần Khánh Dư, Phường Trần Hưng Đạo, Quận Hoàn Kiếm, Hà Nội",
                             Email = "leminhtam@gmail.com",
                             FullName = "Lê Minh Tâm",
@@ -2481,7 +2496,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1022,
+                            UserId = 22,
                             Address = "Số 55, Đường Đinh Tiên Hoàng, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh",
                             Email = "phucdang@gmail.com",
                             FullName = "Đặng Văn Phúc",
@@ -2491,7 +2506,7 @@ namespace FullToping.Migrations
                         },
                         new
                         {
-                            UserId = 1023,
+                            UserId = 23,
                             Address = "Số 99, Đường Lý Tự Trọng, Phường Phú Hòa, TP. Thủ Dầu Một",
                             Email = "kieuvo@gmail.com",
                             FullName = "Võ Thị Kiều",

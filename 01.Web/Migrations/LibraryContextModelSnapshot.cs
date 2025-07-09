@@ -8,7 +8,7 @@ using QLTV;
 
 #nullable disable
 
-namespace FullToping.Migrations
+namespace QLTV.Migrations
 {
     [DbContext(typeof(LibraryContext))]
     partial class LibraryContextModelSnapshot : ModelSnapshot
@@ -37,7 +37,7 @@ namespace FullToping.Migrations
 
                     b.HasKey("AuthorId");
 
-                    b.ToTable("Authors", (string)null);
+                    b.ToTable("Authors");
 
                     b.HasData(
                         new
@@ -223,7 +223,7 @@ namespace FullToping.Migrations
 
                     b.HasIndex("PublisherId");
 
-                    b.ToTable("Books", (string)null);
+                    b.ToTable("Books");
 
                     b.HasData(
                         new
@@ -1080,7 +1080,7 @@ namespace FullToping.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.ToTable("BookAuthors", (string)null);
+                    b.ToTable("BookAuthors");
 
                     b.HasData(
                         new
@@ -1603,7 +1603,7 @@ namespace FullToping.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("BorrowDetails", (string)null);
+                    b.ToTable("BorrowDetails");
 
                     b.HasData(
                         new
@@ -1752,7 +1752,7 @@ namespace FullToping.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("BorrowReceipts", (string)null);
+                    b.ToTable("BorrowReceipts");
 
                     b.HasData(
                         new
@@ -1972,7 +1972,7 @@ namespace FullToping.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
@@ -2142,7 +2142,7 @@ namespace FullToping.Migrations
 
                     b.HasKey("PublisherId");
 
-                    b.ToTable("Publishers", (string)null);
+                    b.ToTable("Publishers");
 
                     b.HasData(
                         new
@@ -2271,7 +2271,7 @@ namespace FullToping.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Users", null, t =>
+                    b.ToTable("Users", t =>
                         {
                             t.HasCheckConstraint("CK_Users_Password_NotNull_IfEmployee", "(UserType = 'Customer' AND Password IS NULL) OR (UserType = 'Employee' AND Password IS NOT NULL)");
                         });

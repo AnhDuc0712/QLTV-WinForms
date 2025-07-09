@@ -25,6 +25,7 @@ namespace QLTV.form.Reader
                     txtEmail.Text = user.Email;
                     txtPhone.Text = user.Phone;
                     txtAddress.Text = user.Address;
+
                 }
                 else
                 {
@@ -90,5 +91,22 @@ namespace QLTV.form.Reader
         {
 
         }
+        private void btSave_MouseEnter(object sender, EventArgs e)
+        {
+            btSave.BackColor = System.Drawing.Color.LightGreen;
+        }
+        private void btSave_MouseLeave(object sender, EventArgs e)
+        {
+            btSave.BackColor = System.Drawing.SystemColors.Control;
+        }
+        private void btClose_MouseEnter(object sender, EventArgs e)
+        {
+            btClose.BackColor = System.Drawing.Color.LightCoral;
+        }
+        private void btClose_MouseLeave(object sender, EventArgs e)
+        {
+            btClose.BackColor = System.Drawing.SystemColors.Control;
+        }
+
     }
 }
