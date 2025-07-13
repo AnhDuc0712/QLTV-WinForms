@@ -47,8 +47,7 @@ namespace Ngducanh_Quanlysach
             btnFind.Text = "Tìm 🔍";
             btnFind.UseVisualStyleBackColor = false;
             btnFind.Click += btnFind_Click;
-            btnFind.MouseEnter += (s, e) => btnFind.BackColor = Color.FromArgb(60, 64, 87); // Tối hơn #2A2E45 khi hover
-            btnFind.MouseLeave += (s, e) => btnFind.BackColor = Color.FromArgb(42, 46, 69); // Trở lại #2A2E45 khi không hover
+
 
             // dataGridView1
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -111,8 +110,6 @@ namespace Ngducanh_Quanlysach
             btnClose.TabIndex = 16;
             btnClose.Text = "Đóng ❌";
             btnClose.UseVisualStyleBackColor = false;
-            btnClose.MouseEnter += (s, e) => btnClose.BackColor = Color.FromArgb(200, 204, 207); // Tối hơn #E8ECEF khi hover
-            btnClose.MouseLeave += (s, e) => btnClose.BackColor = Color.FromArgb(232, 236, 239); // Trở lại #E8ECEF khi không hover
             btnClose.Click += btnClose_Click;
 
             // txtFind

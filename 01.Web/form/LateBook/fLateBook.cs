@@ -1,7 +1,8 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using QLTV;
 using QLTV.Models;
 using System;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -12,6 +13,8 @@ namespace Ngducanh_Quanlysach
         public fLateBook()
         {
             InitializeComponent();
+            btnFind.MouseEnter += BtnFind_MouseEnter;
+            btnFind.MouseLeave += BtnFind_MouseLeave;
         }
 
         private int TinhSoNgayTre(DateTime? hanTra, DateTime? ngayTraThucTe)
@@ -22,10 +25,21 @@ namespace Ngducanh_Quanlysach
             return (ngayTraThucTe.Value - hanTra.Value).Days;
         }
 
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Có thể xử lý khi người dùng click vào cell
         }
+        private void BtnFind_MouseEnter(object sender, EventArgs e)
+        {
+            btnFind.BackColor = Color.FromArgb(60, 64, 87);  // màu hover
+        }
+
+        private void BtnFind_MouseLeave(object sender, EventArgs e)
+        {
+            btnFind.BackColor = Color.FromArgb(42, 46, 69);  // màu bình thường
+        }
+
 
         private void LoadLateBooks(string keyword = "")
         {
@@ -66,10 +80,12 @@ namespace Ngducanh_Quanlysach
                     x.HanTra,
                     x.NgayTraThucTe,
                     SoNgayTre = TinhSoNgayTre(x.HanTra, x.NgayTraThucTe),
-                    x.TienPhat
+                    TienPhat = TinhSoNgayTre(x.HanTra, x.NgayTraThucTe) * 1000
                 }).ToList();
 
                 dataGridView1.DataSource = result;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
 
                 lblTotalLateBooks.Text = "Tổng số sách trễ hạn: " + result.Count;
                 lblTotalUser.Text = "Tổng độc giả: " + db.Users.Count();
@@ -80,9 +96,12 @@ namespace Ngducanh_Quanlysach
                     dataGridView1.Columns["TenSach"].HeaderText = "Tên sách";
                     dataGridView1.Columns["NgayMuon"].HeaderText = "Ngày mượn";
                     dataGridView1.Columns["HanTra"].HeaderText = "Hạn trả";
-                    dataGridView1.Columns["NgayTraThucTe"].HeaderText = "Ngày trả thực tế";
+                    dataGridView1.Columns["NgayTraThucTe"].Visible = false;
                     dataGridView1.Columns["SoNgayTre"].HeaderText = "Số ngày trễ";
                     dataGridView1.Columns["TienPhat"].HeaderText = "Tiền phạt";
+                    var ci = new CultureInfo("vi-VN");
+                    dataGridView1.Columns["TienPhat"].DefaultCellStyle.Format = "C0";
+                    dataGridView1.Columns["TienPhat"].DefaultCellStyle.Format = "#,##0 \"VNĐ\"";
                 }
             }
         }
