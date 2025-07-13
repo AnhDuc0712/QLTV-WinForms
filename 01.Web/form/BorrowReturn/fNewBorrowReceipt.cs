@@ -14,10 +14,6 @@ namespace QLTV.form.BorrowReturn
         public fNewBorrowReceipt()
         {
             InitializeComponent();
-            // 🔥 Mở rộng form toàn màn hình
-            this.WindowState = FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.Sizable;
-            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void fNewBorrowReceipt_Load(object sender, EventArgs e)
@@ -37,7 +33,7 @@ namespace QLTV.form.BorrowReturn
             cbDocGia.DisplayMember = "FullName";
             cbDocGia.ValueMember = "UserId";
             cbDocGia.DropDownStyle = ComboBoxStyle.DropDown; // Cho phép nhập tay
-          
+
         }
 
         private void LoadSach()
@@ -159,6 +155,11 @@ namespace QLTV.form.BorrowReturn
             {
                 MessageBox.Show($"Lỗi khi tính số lượng: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void lblReceiptCount_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

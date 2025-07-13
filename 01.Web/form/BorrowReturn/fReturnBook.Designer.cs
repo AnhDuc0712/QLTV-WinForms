@@ -127,7 +127,7 @@ namespace QLTV.form.BorrowReturn
             dgvBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvBooks.Size = new Size(1232, 357);
             dgvBooks.TabIndex = 5;
-            dgvBooks.CellContentClick += dgvBooks_CellContentClick;
+       
             // 
             // lblNgayTra
             // 

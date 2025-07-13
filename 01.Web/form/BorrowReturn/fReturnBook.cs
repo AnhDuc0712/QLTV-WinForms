@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using QLTV.Models;
 using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -8,13 +9,12 @@ namespace QLTV.form.BorrowReturn
 {
     public partial class fReturnBook : Form
     {
+        private BindingList<ReturnBookViewModel> bookList;
+
         public fReturnBook()
         {
             InitializeComponent();
-            // 🔥 Mở rộng form toàn màn hình
-            this.WindowState = FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.Sizable;
-            this.StartPosition = FormStartPosition.CenterScreen;
+            dgvBooks.CellClick += dgvBooks_CellClick;
         }
 
         public class ReturnBookViewModel
@@ -32,7 +32,7 @@ namespace QLTV.form.BorrowReturn
         private void fReturnBook_Load(object sender, EventArgs e)
         {
             dtpNgayTra.Value = DateTime.Now;
-            dgvBooks.AllowUserToAddRows = false;
+            dtpNgayTra.ValueChanged += (s, ev) => btnLoad.PerformClick();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -56,55 +56,68 @@ namespace QLTV.form.BorrowReturn
                         TênSách = bd.Book.Title,
                         NgàyMượn = bd.BorrowReceipt.BorrowDate,
                         HạnTrả = bd.BorrowReceipt.ReturnDate,
-                        NgàyTrảThựcTế = bd.ActualReturnDate,
-                        TiềnPhạt = bd.FineAmount,
+                        NgàyTrảThựcTế = null,
+                        TiềnPhạt = 0,
                         ĐãTrả = false
-                    })
-                    .ToList();
+                    }).ToList();
 
-                dgvBooks.DataSource = books;
-
-                // Xóa và thêm lại cột checkbox "ĐãTrả"
-                if (dgvBooks.Columns.Contains("ĐãTrả"))
-                    dgvBooks.Columns.Remove("ĐãTrả");
-
-                var checkBoxCol = new DataGridViewCheckBoxColumn
+                foreach (var book in books)
                 {
-                    Name = "ĐãTrả",
-                    HeaderText = "Đã trả",
-                    DataPropertyName = "ĐãTrả",
-                    TrueValue = true,
-                    FalseValue = false
-                };
-                dgvBooks.Columns.Add(checkBoxCol);
-                dgvBooks.Columns["ĐãTrả"].ReadOnly = false;
+                    if (book.HạnTrả.HasValue)
+                    {
+                        var overdueDays = (dtpNgayTra.Value - book.HạnTrả.Value).Days;
+                        if (overdueDays > 0)
+                        {
+                            book.TiềnPhạt = overdueDays * 1000;
+                        }
+                    }
+                }
 
-                // Tắt thêm dòng
-                dgvBooks.AllowUserToAddRows = false;
+                bookList = new BindingList<ReturnBookViewModel>(books);
+                dgvBooks.DataSource = bookList;
 
-                // Tổng tiền phạt ban đầu
-                decimal totalFine = books
-                    .Where(b => b.NgàyTrảThựcTế != null && b.TiềnPhạt != null)
-                    .Sum(b => b.TiềnPhạt ?? 0);
+                // Thêm cột nếu chưa có
+                if (!dgvBooks.Columns.Contains("ĐãTrả"))
+                {
+                    var checkCol = new DataGridViewCheckBoxColumn();
+                    checkCol.Name = "ĐãTrả";
+                    checkCol.HeaderText = "Đã Trả";
+                    checkCol.DataPropertyName = "ĐãTrả";
+                    checkCol.TrueValue = true;
+                    checkCol.FalseValue = false;
+                    checkCol.ReadOnly = true;
+                    dgvBooks.Columns.Add(checkCol);
+                }
 
-                lblFineTotal.Text = $"💰 Tổng tiền phạt: {totalFine:N0} VNĐ";
+                UpdateTotalFine();
             }
-            // Cho phép chỉnh sửa checkbox
-            dgvBooks.ReadOnly = false;
-            dgvBooks.Columns["ĐãTrả"].ReadOnly = false;
-            dgvBooks.Columns["ĐãTrả"].Frozen = false;
+        }
 
-            // Chọn cả dòng khi click
-            dgvBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        private void dgvBooks_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || dgvBooks.Columns[e.ColumnIndex].Name != "ĐãTrả") return;
 
-            // Cho phép người dùng chỉnh
-            dgvBooks.EditMode = DataGridViewEditMode.EditOnEnter;
+            var book = bookList[e.RowIndex];
+            if (!book.ĐãTrả)
+            {
+                book.ĐãTrả = true;
+                ToolTip tt = new ToolTip();
+                tt.Show($"Đã trả sách. Phạt: {book.TiềnPhạt:N0} VNĐ", dgvBooks, 500, 0, 2000);
+            }
 
+            UpdateTotalFine();
+            dgvBooks.Refresh();
+        }
+
+        private void UpdateTotalFine()
+        {
+            decimal totalFine = bookList.Where(b => !b.ĐãTrả).Sum(b => b.TiềnPhạt ?? 0);
+            lblFineTotal.Text = $"💰 Tổng tiền phạt: {totalFine:N0} VNĐ";
         }
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            if (dgvBooks.Rows.Count == 0)
+            if (bookList.All(b => !b.ĐãTrả))
             {
                 MessageBox.Show("Không có sách nào để xác nhận trả!", "Thông báo");
                 return;
@@ -114,71 +127,33 @@ namespace QLTV.form.BorrowReturn
             {
                 decimal totalFine = 0;
 
-                foreach (DataGridViewRow row in dgvBooks.Rows)
+                foreach (var book in bookList.Where(b => b.ĐãTrả))
                 {
-                    if (row.IsNewRow) continue;
-
-                    bool isReturned = Convert.ToBoolean(row.Cells["ĐãTrả"].Value);
-                    if (!isReturned) continue;
-
-                    int receiptId = Convert.ToInt32(row.Cells["ReceiptId"].Value);
-                    int bookId = Convert.ToInt32(row.Cells["BookId"].Value);
-
                     var detail = db.BorrowDetails
                         .Include(d => d.BorrowReceipt)
-                        .FirstOrDefault(x => x.ReceiptId == receiptId && x.BookId == bookId);
+                        .FirstOrDefault(x => x.ReceiptId == book.ReceiptId && x.BookId == book.BookId);
 
                     if (detail != null && detail.ActualReturnDate == null)
                     {
                         detail.ActualReturnDate = dtpNgayTra.Value;
-
                         TimeSpan timeSpan = detail.ActualReturnDate.Value - (detail.BorrowReceipt.ReturnDate ?? DateTime.Now);
                         int lateDays = Math.Max(0, timeSpan.Days);
                         detail.FineAmount = lateDays * 1000;
                         totalFine += detail.FineAmount ?? 0;
 
-                        var book = db.Books.FirstOrDefault(b => b.BookId == bookId);
-                        if (book != null)
+                        var bookDb = db.Books.FirstOrDefault(b => b.BookId == book.BookId);
+                        if (bookDb != null)
                         {
-                            book.StockQuantity += 1;
-                            db.Books.Update(book);
+                            bookDb.StockQuantity += 1;
+                            db.Books.Update(bookDb);
                         }
                     }
                 }
 
-                // Cập nhật trạng thái phiếu mượn
-                var allReceipts = dgvBooks.Rows
-                    .Cast<DataGridViewRow>()
-                    .Where(r => !r.IsNewRow)
-                    .Select(r => Convert.ToInt32(r.Cells["ReceiptId"].Value))
-                    .Distinct();
-
-                foreach (var receiptId in allReceipts)
-                {
-                    var allDetails = db.BorrowDetails.Where(d => d.ReceiptId == receiptId).ToList();
-                    bool allReturned = allDetails.All(d => d.ActualReturnDate != null);
-
-                    var receipt = db.BorrowReceipts.FirstOrDefault(r => r.ReceiptId == receiptId);
-                    if (receipt != null)
-                    {
-                        receipt.Status = allReturned ? "Returned" : "NotFullyReturned"; // Hoặc dùng số nếu là int
-                        db.BorrowReceipts.Update(receipt);
-                    }
-                }
-
                 db.SaveChanges();
-
                 MessageBox.Show($"Đã xác nhận trả sách!\nTổng tiền phạt: {totalFine:N0} VNĐ", "Thông báo");
-
-                // Load lại danh sách
-                btnLoad_Click(null, null);
-                lblFineTotal.Text = $"💰 Tổng tiền phạt: {totalFine:N0} VNĐ";
+                btnLoad.PerformClick();
             }
-        }
-
-        private void dgvBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Không dùng hiện tại, có thể xoá nếu không cần
         }
     }
 }

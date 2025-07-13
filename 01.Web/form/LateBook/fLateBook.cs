@@ -91,8 +91,6 @@ namespace Ngducanh_Quanlysach
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 
-                lblTotalLateBooks.Text = "Tổng số sách trễ hạn: " + result.Count;
-                lblTotalUser.Text = "Tổng độc giả: " + db.Users.Count();
 
                 if (dataGridView1.Columns.Count > 0)
                 {
@@ -127,3 +125,4 @@ namespace Ngducanh_Quanlysach
         }
     }
 }
+//push lên đii

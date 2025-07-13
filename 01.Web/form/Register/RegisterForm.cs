@@ -17,28 +17,63 @@ namespace Ngducanh
         {
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
+            string repassword = txtConfirmPassword.Text.Trim();
             string fullname = txtFullName.Text.Trim();
             string email = txtEmail.Text.Trim();
             string phone = txtPhone.Text.Trim();
             string address = txtAddress.Text.Trim();
-
 
             lblError.Visible = false;
 
             // Kiểm tra dữ liệu nhập vào
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(fullname))
             {
-                lblError.Text = "Vui lòng nhập đầy đủ các trường bắt buộc!";
+                lblError.Text = "Vui lòng nhập đầy đủ các thông tin bắt buộc!";
+                lblError.Visible = true;
+                return;
+            }
+            if (!email.Contains("@") || !email.Contains("."))
+            {
+                lblError.Text = "Email không hợp lệ!";
+                lblError.Visible = true;
+                return;
+            }
+            if (phone.Length < 8 ||  !phone.All(char.IsDigit))
+            {
+                lblError.Text = "Số điện thoại phải từ trên 8 số!";
+                lblError.Visible = true;
+                return;
+            }
+            else if(phone.Length > 10 || !phone.All(char.IsDigit))
+            {
+                lblError.Text = " Số điên thoại phải ít hơn 10 số !";
+                lblError.Visible = true;
+                return;
+            }
+            if (repassword != password)
+            {
+                lblError.Text = "Mật khẩu không khớp!";
                 lblError.Visible = true;
                 return;
             }
 
             using (var db = new LibraryContext())
             {
-                // Kiểm tra tài khoản trùng
-                if (db.Users.Any(u => u.Username == username))
+                // Kiểm tra trùng Username, Email, Phone
+                var existedUser = db.Users.FirstOrDefault(u =>
+                                        u.Username == username ||
+                                        u.Email == email ||
+                                        u.Phone == phone);
+
+                if (existedUser != null)
                 {
-                    lblError.Text = "Tài khoản đã tồn tại!";
+                    if (existedUser.Username == username)
+                        lblError.Text = "Tài khoản đã tồn tại!";
+                    else if (existedUser.Email == email)
+                        lblError.Text = "Email đã tồn tại!";
+                    else
+                        lblError.Text = "Số điện thoại đã tồn tại!";
+
                     lblError.Visible = true;
                     return;
                 }
@@ -50,11 +85,10 @@ namespace Ngducanh
                     FullName = fullname,
                     Email = email,
                     Phone = phone,
-                    Address = address,  // Thêm dòng này
+                    Address = address,
                     UserType = "Employee"
-
-
                 };
+
                 db.Users.Add(emp);
                 db.SaveChanges();
 
@@ -79,6 +113,16 @@ namespace Ngducanh
         }
 
         private void txtAddress_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFullName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtConfirmPassword_TextChanged(object sender, EventArgs e)
         {
 
         }

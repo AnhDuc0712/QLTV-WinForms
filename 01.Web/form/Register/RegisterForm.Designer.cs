@@ -65,8 +65,8 @@ namespace Ngducanh
             // siticoneControlBox1
             // 
             siticoneControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            siticoneControlBox1.FillColor = Color.FromArgb(247, 249, 251); // #F7F9FB (Trắng xám nhạt)
-            siticoneControlBox1.IconColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
+            siticoneControlBox1.FillColor = Color.FromArgb(247, 249, 251);
+            siticoneControlBox1.IconColor = Color.FromArgb(26, 26, 26);
             siticoneControlBox1.Location = new Point(387, 4);
             siticoneControlBox1.Name = "siticoneControlBox1";
             siticoneControlBox1.Size = new Size(30, 30);
@@ -77,7 +77,7 @@ namespace Ngducanh
             panelMain.BorderRadius = 20;
             panelMain.Controls.Add(siticoneControlBox1);
             panelMain.Controls.Add(panelBody);
-            panelMain.FillColor = Color.FromArgb(247, 249, 251); // #F7F9FB (Trắng xám nhạt)
+            panelMain.FillColor = Color.FromArgb(247, 249, 251);
             panelMain.Location = new Point(15, 15);
             panelMain.Name = "panelMain";
             panelMain.Size = new Size(420, 580);
@@ -106,7 +106,7 @@ namespace Ngducanh
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblTitle.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
+            lblTitle.ForeColor = Color.FromArgb(26, 26, 26);
             lblTitle.Location = new Point(140, 5);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(110, 32);
@@ -117,9 +117,9 @@ namespace Ngducanh
             // 
             txtFullName.BorderRadius = 10;
             txtFullName.DefaultText = "";
-            txtFullName.FillColor = Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
+            txtFullName.FillColor = Color.FromArgb(232, 236, 239);
             txtFullName.Font = new Font("Segoe UI", 10F);
-            txtFullName.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
+            txtFullName.ForeColor = Color.FromArgb(26, 26, 26);
             txtFullName.Location = new Point(40, 40);
             txtFullName.Margin = new Padding(3, 4, 3, 4);
             txtFullName.Name = "txtFullName";
@@ -128,14 +128,15 @@ namespace Ngducanh
             txtFullName.SelectedText = "";
             txtFullName.Size = new Size(280, 40);
             txtFullName.TabIndex = 1;
+            txtFullName.TextChanged += txtFullName_TextChanged;
             // 
             // txtUsername
             // 
             txtUsername.BorderRadius = 10;
             txtUsername.DefaultText = "";
-            txtUsername.FillColor = Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
+            txtUsername.FillColor = Color.FromArgb(232, 236, 239);
             txtUsername.Font = new Font("Segoe UI", 10F);
-            txtUsername.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
+            txtUsername.ForeColor = Color.FromArgb(26, 26, 26);
             txtUsername.Location = new Point(40, 90);
             txtUsername.Margin = new Padding(3, 4, 3, 4);
             txtUsername.Name = "txtUsername";
@@ -149,9 +150,9 @@ namespace Ngducanh
             // 
             txtPassword.BorderRadius = 10;
             txtPassword.DefaultText = "";
-            txtPassword.FillColor = Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
+            txtPassword.FillColor = Color.FromArgb(232, 236, 239);
             txtPassword.Font = new Font("Segoe UI", 10F);
-            txtPassword.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
+            txtPassword.ForeColor = Color.FromArgb(26, 26, 26);
             txtPassword.Location = new Point(40, 140);
             txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
@@ -165,9 +166,9 @@ namespace Ngducanh
             // 
             txtConfirmPassword.BorderRadius = 10;
             txtConfirmPassword.DefaultText = "";
-            txtConfirmPassword.FillColor = Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
+            txtConfirmPassword.FillColor = Color.FromArgb(232, 236, 239);
             txtConfirmPassword.Font = new Font("Segoe UI", 10F);
-            txtConfirmPassword.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
+            txtConfirmPassword.ForeColor = Color.FromArgb(26, 26, 26);
             txtConfirmPassword.Location = new Point(40, 190);
             txtConfirmPassword.Margin = new Padding(3, 4, 3, 4);
             txtConfirmPassword.Name = "txtConfirmPassword";
@@ -176,14 +177,15 @@ namespace Ngducanh
             txtConfirmPassword.SelectedText = "";
             txtConfirmPassword.Size = new Size(280, 40);
             txtConfirmPassword.TabIndex = 4;
+            txtConfirmPassword.TextChanged += txtConfirmPassword_TextChanged;
             // 
             // txtEmail
             // 
             txtEmail.BorderRadius = 10;
             txtEmail.DefaultText = "";
-            txtEmail.FillColor = Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
+            txtEmail.FillColor = Color.FromArgb(232, 236, 239);
             txtEmail.Font = new Font("Segoe UI", 10F);
-            txtEmail.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
+            txtEmail.ForeColor = Color.FromArgb(26, 26, 26);
             txtEmail.Location = new Point(40, 240);
             txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Name = "txtEmail";
@@ -197,9 +199,9 @@ namespace Ngducanh
             // 
             txtPhone.BorderRadius = 10;
             txtPhone.DefaultText = "";
-            txtPhone.FillColor = Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
+            txtPhone.FillColor = Color.FromArgb(232, 236, 239);
             txtPhone.Font = new Font("Segoe UI", 10F);
-            txtPhone.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
+            txtPhone.ForeColor = Color.FromArgb(26, 26, 26);
             txtPhone.Location = new Point(40, 290);
             txtPhone.Margin = new Padding(3, 4, 3, 4);
             txtPhone.Name = "txtPhone";
@@ -213,9 +215,9 @@ namespace Ngducanh
             // 
             txtAddress.BorderRadius = 10;
             txtAddress.DefaultText = "";
-            txtAddress.FillColor = Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
+            txtAddress.FillColor = Color.FromArgb(232, 236, 239);
             txtAddress.Font = new Font("Segoe UI", 10F);
-            txtAddress.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
+            txtAddress.ForeColor = Color.FromArgb(26, 26, 26);
             txtAddress.Location = new Point(40, 340);
             txtAddress.Margin = new Padding(3, 4, 3, 4);
             txtAddress.Name = "txtAddress";
@@ -229,7 +231,7 @@ namespace Ngducanh
             // 
             lblError.AutoSize = true;
             lblError.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblError.ForeColor = Color.FromArgb(255, 0, 0); // Giữ màu đỏ để nổi bật lỗi
+            lblError.ForeColor = Color.FromArgb(255, 0, 0);
             lblError.Location = new Point(40, 385);
             lblError.Name = "lblError";
             lblError.Size = new Size(0, 20);
@@ -239,10 +241,10 @@ namespace Ngducanh
             // btnRegister
             // 
             btnRegister.BorderRadius = 10;
-            btnRegister.FillColor = Color.FromArgb(42, 46, 69); // #2A2E45 (Xanh đen sâu thẳm)
+            btnRegister.FillColor = Color.FromArgb(42, 46, 69);
             btnRegister.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnRegister.ForeColor = Color.FromArgb(255, 215, 0); // #FFD700 (Vàng ánh kim)
-            btnRegister.HoverState.FillColor = Color.FromArgb(60, 64, 87); // Tối hơn #2A2E45 khi hover
+            btnRegister.ForeColor = Color.FromArgb(255, 215, 0);
+            btnRegister.HoverState.FillColor = Color.FromArgb(60, 64, 87);
             btnRegister.Location = new Point(40, 410);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(130, 45);
@@ -253,10 +255,10 @@ namespace Ngducanh
             // btnCancel
             // 
             btnCancel.BorderRadius = 10;
-            btnCancel.FillColor = Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
+            btnCancel.FillColor = Color.FromArgb(232, 236, 239);
             btnCancel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnCancel.ForeColor = Color.FromArgb(26, 26, 26); // #1A1A1A (Đen đậm)
-            btnCancel.HoverState.FillColor = Color.FromArgb(200, 204, 207); // Tối hơn #E8ECEF khi hover
+            btnCancel.ForeColor = Color.FromArgb(26, 26, 26);
+            btnCancel.HoverState.FillColor = Color.FromArgb(200, 204, 207);
             btnCancel.Location = new Point(190, 410);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(130, 45);
@@ -266,7 +268,7 @@ namespace Ngducanh
             // 
             // RegisterForm
             // 
-            BackColor = Color.FromArgb(247, 249, 251); // #F7F9FB (Trắng xám nhạt)
+            BackColor = Color.FromArgb(247, 249, 251);
             ClientSize = new Size(450, 610);
             Controls.Add(panelMain);
             FormBorderStyle = FormBorderStyle.None;

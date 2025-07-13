@@ -30,8 +30,6 @@ namespace Ngducanh_Quanlysach
             lblMenu = new Label();
             btnClose = new Button();
             txtFind = new TextBox();
-            lblTotalLateBooks = new Label();
-            lblTotalUser = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -41,7 +39,7 @@ namespace Ngducanh_Quanlysach
             btnFind.FlatStyle = FlatStyle.Flat;
             btnFind.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
             btnFind.ForeColor = Color.FromArgb(255, 215, 0);
-            btnFind.Location = new Point(915, 115);
+            btnFind.Location = new Point(784, 93);
             btnFind.Name = "btnFind";
             btnFind.Size = new Size(94, 34);
             btnFind.TabIndex = 2;
@@ -72,10 +70,10 @@ namespace Ngducanh_Quanlysach
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
             dataGridView1.GridColor = Color.FromArgb(232, 236, 239);
-            dataGridView1.Location = new Point(130, 193);
+            dataGridView1.Location = new Point(130, 151);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1039, 432);
+            dataGridView1.Size = new Size(905, 363);
             dataGridView1.TabIndex = 3;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -85,7 +83,7 @@ namespace Ngducanh_Quanlysach
             lblFindTitle.BackColor = Color.FromArgb(247, 249, 251);
             lblFindTitle.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold);
             lblFindTitle.ForeColor = Color.FromArgb(26, 26, 26);
-            lblFindTitle.Location = new Point(130, 127);
+            lblFindTitle.Location = new Point(91, 93);
             lblFindTitle.Name = "lblFindTitle";
             lblFindTitle.Size = new Size(113, 25);
             lblFindTitle.TabIndex = 7;
@@ -109,7 +107,7 @@ namespace Ngducanh_Quanlysach
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
             btnClose.ForeColor = Color.FromArgb(26, 26, 26);
-            btnClose.Location = new Point(1075, 118);
+            btnClose.Location = new Point(941, 93);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(94, 34);
             btnClose.TabIndex = 16;
@@ -122,40 +120,17 @@ namespace Ngducanh_Quanlysach
             txtFind.BackColor = Color.FromArgb(232, 236, 239);
             txtFind.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold);
             txtFind.ForeColor = Color.FromArgb(26, 26, 26);
-            txtFind.Location = new Point(264, 118);
+            txtFind.Location = new Point(210, 90);
             txtFind.Name = "txtFind";
             txtFind.Size = new Size(330, 34);
             txtFind.TabIndex = 17;
-            // 
-            // lblTotalLateBooks
-            // 
-            lblTotalLateBooks.AutoSize = true;
-            lblTotalLateBooks.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblTotalLateBooks.ForeColor = Color.FromArgb(255, 215, 0);
-            lblTotalLateBooks.Location = new Point(48, 60);
-            lblTotalLateBooks.Name = "lblTotalLateBooks";
-            lblTotalLateBooks.Size = new Size(232, 28);
-            lblTotalLateBooks.TabIndex = 18;
-            lblTotalLateBooks.Text = "Tổng số sách trễ hạn: 0";
-            // 
-            // lblTotalUser
-            // 
-            lblTotalUser.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblTotalUser.ForeColor = Color.FromArgb(255, 215, 0);
-            lblTotalUser.Location = new Point(320, 60);
-            lblTotalUser.Name = "lblTotalUser";
-            lblTotalUser.Size = new Size(159, 28);
-            lblTotalUser.TabIndex = 19;
-            lblTotalUser.Text = "Tổng độc giả: 0";
             // 
             // fLateBook
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 249, 251);
-            ClientSize = new Size(1269, 656);
-            Controls.Add(lblTotalUser);
-            Controls.Add(lblTotalLateBooks);
+            ClientSize = new Size(1112, 548);
             Controls.Add(txtFind);
             Controls.Add(btnClose);
             Controls.Add(lblMenu);
@@ -178,7 +153,6 @@ namespace Ngducanh_Quanlysach
         private Label lblMenu;
         private Button btnClose;
         private TextBox txtFind;
-        private Label lblTotalLateBooks;
         private Label lblTotalUser;
         #endregion
     }
