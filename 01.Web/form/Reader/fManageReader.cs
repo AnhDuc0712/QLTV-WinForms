@@ -11,6 +11,10 @@ namespace QLTV.form.Reader
         {
             InitializeComponent();
             this.Load += fManageReader_Load;
+            // 🔥 Mở rộng form toàn màn hình
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void fManageReader_Load(object sender, EventArgs e)

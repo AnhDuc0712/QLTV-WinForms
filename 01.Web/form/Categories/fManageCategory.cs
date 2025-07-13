@@ -45,6 +45,10 @@ namespace Ngducanh
                     UseColumnTextForButtonValue = true,
                     Width = 70
                 });
+                // 🔥 Mở rộng form toàn màn hình
+                this.WindowState = FormWindowState.Maximized;
+                this.FormBorderStyle = FormBorderStyle.Sizable;
+                this.StartPosition = FormStartPosition.CenterScreen;
             }
 
             // Gán sự kiện

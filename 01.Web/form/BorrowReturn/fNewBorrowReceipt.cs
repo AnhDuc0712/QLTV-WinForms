@@ -14,6 +14,10 @@ namespace QLTV.form.BorrowReturn
         public fNewBorrowReceipt()
         {
             InitializeComponent();
+            // 🔥 Mở rộng form toàn màn hình
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void fNewBorrowReceipt_Load(object sender, EventArgs e)

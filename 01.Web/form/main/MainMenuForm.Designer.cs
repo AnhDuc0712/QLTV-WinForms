@@ -441,4 +441,5 @@ namespace Ngducanh
         public override Color MenuItemPressedGradientEnd => Color.FromArgb(200, 204, 207); // Tối hơn #E8ECEF
         public override Color ToolStripDropDownBackground => Color.FromArgb(232, 236, 239); // #E8ECEF (Xám bạc)
     }
+
 }

@@ -11,6 +11,10 @@ namespace QLTV.form.BorrowReturn
         public fReturnBook()
         {
             InitializeComponent();
+            // 🔥 Mở rộng form toàn màn hình
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         public class ReturnBookViewModel
@@ -28,6 +32,7 @@ namespace QLTV.form.BorrowReturn
         private void fReturnBook_Load(object sender, EventArgs e)
         {
             dtpNgayTra.Value = DateTime.Now;
+            dgvBooks.AllowUserToAddRows = false;
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -59,16 +64,42 @@ namespace QLTV.form.BorrowReturn
 
                 dgvBooks.DataSource = books;
 
-                if (dgvBooks.Columns["ĐãTrả"] != null)
-                    dgvBooks.Columns["ĐãTrả"].ReadOnly = false;
+                // Xóa và thêm lại cột checkbox "ĐãTrả"
+                if (dgvBooks.Columns.Contains("ĐãTrả"))
+                    dgvBooks.Columns.Remove("ĐãTrả");
 
-                // Cập nhật tổng tiền phạt ban đầu
+                var checkBoxCol = new DataGridViewCheckBoxColumn
+                {
+                    Name = "ĐãTrả",
+                    HeaderText = "Đã trả",
+                    DataPropertyName = "ĐãTrả",
+                    TrueValue = true,
+                    FalseValue = false
+                };
+                dgvBooks.Columns.Add(checkBoxCol);
+                dgvBooks.Columns["ĐãTrả"].ReadOnly = false;
+
+                // Tắt thêm dòng
+                dgvBooks.AllowUserToAddRows = false;
+
+                // Tổng tiền phạt ban đầu
                 decimal totalFine = books
                     .Where(b => b.NgàyTrảThựcTế != null && b.TiềnPhạt != null)
                     .Sum(b => b.TiềnPhạt ?? 0);
 
                 lblFineTotal.Text = $"💰 Tổng tiền phạt: {totalFine:N0} VNĐ";
             }
+            // Cho phép chỉnh sửa checkbox
+            dgvBooks.ReadOnly = false;
+            dgvBooks.Columns["ĐãTrả"].ReadOnly = false;
+            dgvBooks.Columns["ĐãTrả"].Frozen = false;
+
+            // Chọn cả dòng khi click
+            dgvBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            // Cho phép người dùng chỉnh
+            dgvBooks.EditMode = DataGridViewEditMode.EditOnEnter;
+
         }
 
         private void btnXacNhan_Click(object sender, EventArgs e)
@@ -115,12 +146,31 @@ namespace QLTV.form.BorrowReturn
                     }
                 }
 
+                // Cập nhật trạng thái phiếu mượn
+                var allReceipts = dgvBooks.Rows
+                    .Cast<DataGridViewRow>()
+                    .Where(r => !r.IsNewRow)
+                    .Select(r => Convert.ToInt32(r.Cells["ReceiptId"].Value))
+                    .Distinct();
+
+                foreach (var receiptId in allReceipts)
+                {
+                    var allDetails = db.BorrowDetails.Where(d => d.ReceiptId == receiptId).ToList();
+                    bool allReturned = allDetails.All(d => d.ActualReturnDate != null);
+
+                    var receipt = db.BorrowReceipts.FirstOrDefault(r => r.ReceiptId == receiptId);
+                    if (receipt != null)
+                    {
+                        receipt.Status = allReturned ? "Returned" : "NotFullyReturned"; // Hoặc dùng số nếu là int
+                        db.BorrowReceipts.Update(receipt);
+                    }
+                }
+
                 db.SaveChanges();
 
-                // ✅ Hiển thị tổng tiền phạt ngay sau xác nhận
                 MessageBox.Show($"Đã xác nhận trả sách!\nTổng tiền phạt: {totalFine:N0} VNĐ", "Thông báo");
 
-                // ✅ Load lại danh sách và cập nhật tổng tiền phạt trên giao diện
+                // Load lại danh sách
                 btnLoad_Click(null, null);
                 lblFineTotal.Text = $"💰 Tổng tiền phạt: {totalFine:N0} VNĐ";
             }
@@ -128,7 +178,7 @@ namespace QLTV.form.BorrowReturn
 
         private void dgvBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            // Không dùng hiện tại, có thể xoá nếu không cần
         }
     }
 }

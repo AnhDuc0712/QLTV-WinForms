@@ -19,6 +19,7 @@ namespace Ngducanh
         {
 
             InitializeComponent();
+
         }
 
         // Sự kiện đăng nhập
@@ -94,6 +95,11 @@ namespace Ngducanh
         }
 
         private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

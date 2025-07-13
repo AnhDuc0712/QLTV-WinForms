@@ -14,6 +14,10 @@ namespace QLTV.form.Borrow
             InitializeComponent();
             this.Load += fFilterBorrow_Load;
             btnFilter.Click += btnFilter_Click;
+            // 🔥 Mở rộng form toàn màn hình
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void fFilterBorrow_Load(object sender, EventArgs e)

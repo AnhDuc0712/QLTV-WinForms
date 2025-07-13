@@ -12,6 +12,10 @@ namespace Ngducanh_Quanlysach
         public fLateBook()
         {
             InitializeComponent();
+            // 🔥 Mở rộng form toàn màn hình
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private int TinhSoNgayTre(DateTime? hanTra, DateTime? ngayTraThucTe)

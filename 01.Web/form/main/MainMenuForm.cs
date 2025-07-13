@@ -27,6 +27,11 @@ namespace Ngducanh
         {
             InitializeComponent();
             this.IsMdiContainer = true;
+
+            // 🔥 Mở rộng form toàn màn hình
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         public MainMenuForm(string username)
@@ -320,5 +325,6 @@ namespace Ngducanh
         {
 
         }
+
     }
 }

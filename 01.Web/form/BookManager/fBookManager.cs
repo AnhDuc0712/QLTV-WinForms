@@ -27,6 +27,11 @@ namespace Ngducanh_Quanlysach
             toolTip1.SetToolTip(cBAddStockQuantity, "Nhập hoặc chọn số lượng");
             toolTip1.SetToolTip(cBAddPublisherID, "Chọn nhà xuất bản");
             toolTip1.SetToolTip(cBAddCategories, "Chọn loại sách");
+
+            // 🔥 Mở rộng form toàn màn hình
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void fBookManager_Load(object sender, EventArgs e)

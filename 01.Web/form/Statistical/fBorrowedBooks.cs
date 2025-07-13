@@ -10,6 +10,10 @@ namespace QLTV.form.Statistical
         public fBorrowedBooks()
         {
             InitializeComponent();
+            // 🔥 Mở rộng form toàn màn hình
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void fBorrowedBooks_Load(object sender, EventArgs e)
