@@ -16,22 +16,17 @@ namespace Ngducanh_Quanlysach
         {
             InitializeComponent();
 
-            cBAddStockQuantity.KeyPress += NumericComboBox_KeyPress;
-            cBEditStockQuantity.KeyPress += NumericComboBox_KeyPress;
+            txtAddStockQuantity.KeyPress += NumericComboBox_KeyPress;
+            txtEditStockQuantity.KeyPress += NumericComboBox_KeyPress;
 
-            toolTip1.SetToolTip(cBEditBookID, "Nhập hoặc chọn mã sách");
-            toolTip1.SetToolTip(cBEditStockQuantity, "Nhập hoặc chọn số lượng");
+            toolTip1.SetToolTip(txtEditBookID, "Nhập hoặc chọn mã sách");
+            toolTip1.SetToolTip(txtEditStockQuantity, "Nhập hoặc chọn số lượng");
             toolTip1.SetToolTip(cBEditPublisherID, "Chọn nhà xuất bản");
             toolTip1.SetToolTip(cBEditCategories, "Chọn loại sách");
-            toolTip1.SetToolTip(cBAddBookID, "Nhập hoặc chọn mã sách");
-            toolTip1.SetToolTip(cBAddStockQuantity, "Nhập hoặc chọn số lượng");
+            //toolTip1.SetToolTip(txtAddBookID, "Nhập hoặc chọn mã sách");
+            toolTip1.SetToolTip(txtAddStockQuantity, "Nhập hoặc chọn số lượng");
             toolTip1.SetToolTip(cBAddPublisherID, "Chọn nhà xuất bản");
             toolTip1.SetToolTip(cBAddCategories, "Chọn loại sách");
-
-            // 🔥 Mở rộng form toàn màn hình
-            this.WindowState = FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.Sizable;
-            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void fBookManager_Load(object sender, EventArgs e)
@@ -47,9 +42,16 @@ namespace Ngducanh_Quanlysach
             using (var db = new LibraryContext())
             {
                 var categories = db.Categories.ToList();
+                cBEditCategories.DropDownStyle = ComboBoxStyle.DropDown;
+                cBEditCategories.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                cBEditCategories.AutoCompleteSource = AutoCompleteSource.ListItems;
                 cBEditCategories.DataSource = categories;
                 cBEditCategories.DisplayMember = "Name";
                 cBEditCategories.ValueMember = "CategoryId";
+
+                cBAddCategories.DropDownStyle = ComboBoxStyle.DropDown;
+                cBAddCategories.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                cBAddCategories.AutoCompleteSource = AutoCompleteSource.ListItems;
                 cBAddCategories.DataSource = categories;
                 cBAddCategories.DisplayMember = "Name";
                 cBAddCategories.ValueMember = "CategoryId";
@@ -59,14 +61,23 @@ namespace Ngducanh_Quanlysach
                 {
                     MessageBox.Show("Không có dữ liệu Nhà xuất bản trong database. Vui lòng thêm dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
+                cBEditPublisherID.DropDownStyle = ComboBoxStyle.DropDown;
+                cBEditPublisherID.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                cBEditPublisherID.AutoCompleteSource = AutoCompleteSource.ListItems;
                 cBEditPublisherID.DataSource = publishers;
                 cBEditPublisherID.DisplayMember = "Name";
                 cBEditPublisherID.ValueMember = "PublisherId";
+
+                cBAddPublisherID.DropDownStyle = ComboBoxStyle.DropDown;
+                cBAddPublisherID.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                cBAddPublisherID.AutoCompleteSource = AutoCompleteSource.ListItems;
                 cBAddPublisherID.DataSource = publishers;
                 cBAddPublisherID.DisplayMember = "Name";
                 cBAddPublisherID.ValueMember = "PublisherId";
             }
         }
+
 
         // ----- HÀM QUAN TRỌNG: HIỆN ẢNH ĐẠI DIỆN TRONG DATAGRIDVIEW -----
         private void RefreshDataGridView()
@@ -122,11 +133,11 @@ namespace Ngducanh_Quanlysach
         {
             panelAdd.Visible = true;
             txtAddBookTitle.Text = "";
-            cBAddStockQuantity.Text = "";
+            txtAddStockQuantity.Text = "";
             cBAddCategories.SelectedIndex = -1;
             cBAddPublisherID.SelectedIndex = -1;
-            cBAddBookID.Text = "";
-            cBAddBookID.Enabled = false;
+            //cBAddBookID.Text = "";
+            //cBAddBookID.Enabled = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -135,9 +146,9 @@ namespace Ngducanh_Quanlysach
             {
                 try
                 {
-                    if (!int.TryParse(cBEditBookID.Text, out int bookId) || bookId <= 0)
+                    if (!int.TryParse(txtEditBookID.Text, out int bookId) || bookId <= 0)
                     {
-                        toolTip1.Show("Vui lòng nhập mã sách hợp lệ!", cBEditBookID, 0, 0, 2000);
+                        toolTip1.Show("Vui lòng nhập mã sách hợp lệ!", txtEditBookID, 0, 0, 2000);
                         return;
                     }
                     if (cBEditPublisherID.SelectedValue == null || !int.TryParse(cBEditPublisherID.SelectedValue.ToString(), out int publisherId) || publisherId <= 0)
@@ -150,9 +161,9 @@ namespace Ngducanh_Quanlysach
                         toolTip1.Show("Vui lòng chọn loại sách hợp lệ!", cBEditCategories, 0, 0, 2000);
                         return;
                     }
-                    if (!int.TryParse(cBEditStockQuantity.Text, out int stockQuantity) || stockQuantity < 0)
+                    if (!int.TryParse(txtEditStockQuantity.Text, out int stockQuantity) || stockQuantity < 0)
                     {
-                        toolTip1.Show("Vui lòng nhập số lượng hợp lệ!", cBEditStockQuantity, 0, 0, 2000);
+                        toolTip1.Show("Vui lòng nhập số lượng hợp lệ!", txtEditStockQuantity, 0, 0, 2000);
                         return;
                     }
                     if (string.IsNullOrWhiteSpace(txtEditTitle.Text))
@@ -169,7 +180,7 @@ namespace Ngducanh_Quanlysach
                     var book = db.Books.Find(bookId);
                     if (book == null)
                     {
-                        toolTip1.Show("Sách không tồn tại!", cBEditBookID, 0, 0, 2000);
+                        toolTip1.Show("Sách không tồn tại!", txtEditBookID, 0, 0, 2000);
                         return;
                     }
 
@@ -216,9 +227,9 @@ namespace Ngducanh_Quanlysach
                     toolTip1.Show("Vui lòng chọn loại sách hợp lệ!", cBAddCategories, 0, 0, 2000);
                     return;
                 }
-                if (!int.TryParse(cBAddStockQuantity.Text, out int stockQty) || stockQty < 0)
+                if (!int.TryParse(txtAddStockQuantity.Text, out int stockQty) || stockQty < 0)
                 {
-                    toolTip1.Show("Vui lòng nhập số lượng hợp lệ!", cBAddStockQuantity, 0, 0, 2000);
+                    toolTip1.Show("Vui lòng nhập số lượng hợp lệ!", txtAddStockQuantity, 0, 0, 2000);
                     return;
                 }
                 if (string.IsNullOrWhiteSpace(pictureBoxAdd.ImageLocation) || !File.Exists(pictureBoxAdd.ImageLocation))
@@ -346,11 +357,11 @@ namespace Ngducanh_Quanlysach
                         var book = db.Books.Find(bookId);
                         if (book == null) throw new Exception("Sách không tồn tại!");
 
-                        cBEditBookID.Text = book.BookId.ToString();
+                        txtEditBookID.Text = book.BookId.ToString();
                         txtEditTitle.Text = book.Title;
                         cBEditPublisherID.SelectedValue = book.PublisherId;
                         cBEditCategories.SelectedValue = book.CategoryId;
-                        cBEditStockQuantity.Text = book.StockQuantity.ToString();
+                        txtEditStockQuantity.Text = book.StockQuantity.ToString();
                         pictureBoxEdit.ImageLocation = book.ImageUrl;
                         panelEdit.Visible = true;
                     }
@@ -461,6 +472,11 @@ namespace Ngducanh_Quanlysach
             {
                 MessageBox.Show($"Lỗi khi tính số lượng: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

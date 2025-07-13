@@ -56,7 +56,7 @@ namespace QLTV.form.BorrowReturn
             // 
             // lblTitle
             // 
-            lblTitle.Location = new Point(221, 12);
+            lblTitle.Location = new Point(536, 22);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(409, 46);
             lblTitle.StateCommon.ShortText.Color1 = Color.FromArgb(26, 26, 26);
@@ -68,7 +68,7 @@ namespace QLTV.form.BorrowReturn
             // 
             // lblReceiptCount
             // 
-            lblReceiptCount.Location = new Point(569, 288);
+            lblReceiptCount.Location = new Point(798, 453);
             lblReceiptCount.Name = "lblReceiptCount";
             lblReceiptCount.Size = new Size(140, 36);
             lblReceiptCount.StateCommon.ShortText.Color1 = Color.FromArgb(255, 215, 0);
@@ -78,7 +78,7 @@ namespace QLTV.form.BorrowReturn
             // 
             // lblDocGia
             // 
-            lblDocGia.Location = new Point(93, 72);
+            lblDocGia.Location = new Point(168, 110);
             lblDocGia.Name = "lblDocGia";
             lblDocGia.Size = new Size(92, 32);
             lblDocGia.StateCommon.ShortText.Color1 = Color.FromArgb(26, 26, 26);
@@ -99,14 +99,14 @@ namespace QLTV.form.BorrowReturn
             cbDocGia.ForeColor = Color.FromArgb(26, 26, 26);
             cbDocGia.FormattingEnabled = true;
             cbDocGia.ItemHeight = 30;
-            cbDocGia.Location = new Point(191, 72);
+            cbDocGia.Location = new Point(313, 110);
             cbDocGia.Name = "cbDocGia";
             cbDocGia.Size = new Size(250, 36);
             cbDocGia.TabIndex = 3;
             // 
             // lblTimDocGia
             // 
-            lblTimDocGia.Location = new Point(444, 76);
+            lblTimDocGia.Location = new Point(725, 114);
             lblTimDocGia.Name = "lblTimDocGia";
             lblTimDocGia.Size = new Size(136, 32);
             lblTimDocGia.StateCommon.ShortText.Color1 = Color.FromArgb(26, 26, 26);
@@ -116,7 +116,7 @@ namespace QLTV.form.BorrowReturn
             // 
             // txtTimDocGia
             // 
-            txtTimDocGia.Location = new Point(586, 76);
+            txtTimDocGia.Location = new Point(854, 110);
             txtTimDocGia.Name = "txtTimDocGia";
             txtTimDocGia.Size = new Size(100, 33);
             txtTimDocGia.StateCommon.Back.Color1 = Color.FromArgb(232, 236, 239);
@@ -133,7 +133,7 @@ namespace QLTV.form.BorrowReturn
             btnTimDocGia.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnTimDocGia.ForeColor = Color.FromArgb(255, 215, 0);
             btnTimDocGia.HoverState.FillColor = Color.FromArgb(60, 64, 87);
-            btnTimDocGia.Location = new Point(698, 74);
+            btnTimDocGia.Location = new Point(970, 112);
             btnTimDocGia.Name = "btnTimDocGia";
             btnTimDocGia.Size = new Size(40, 30);
             btnTimDocGia.TabIndex = 6;
@@ -142,7 +142,7 @@ namespace QLTV.form.BorrowReturn
             // 
             // lblSach
             // 
-            lblSach.Location = new Point(12, 139);
+            lblSach.Location = new Point(168, 187);
             lblSach.Name = "lblSach";
             lblSach.Size = new Size(117, 32);
             lblSach.StateCommon.ShortText.Color1 = Color.FromArgb(26, 26, 26);
@@ -155,7 +155,7 @@ namespace QLTV.form.BorrowReturn
             lstSach.BackColor = Color.FromArgb(232, 236, 239);
             lstSach.ForeColor = Color.FromArgb(26, 26, 26);
             lstSach.FormattingEnabled = true;
-            lstSach.Location = new Point(130, 139);
+            lstSach.Location = new Point(313, 187);
             lstSach.Name = "lstSach";
             lstSach.SelectionMode = SelectionMode.MultiExtended;
             lstSach.Size = new Size(400, 104);
@@ -163,7 +163,7 @@ namespace QLTV.form.BorrowReturn
             // 
             // lblTimSach
             // 
-            lblTimSach.Location = new Point(536, 139);
+            lblTimSach.Location = new Point(740, 205);
             lblTimSach.Name = "lblTimSach";
             lblTimSach.Size = new Size(106, 32);
             lblTimSach.StateCommon.ShortText.Color1 = Color.FromArgb(26, 26, 26);
@@ -173,7 +173,7 @@ namespace QLTV.form.BorrowReturn
             // 
             // txtTimSach
             // 
-            txtTimSach.Location = new Point(641, 138);
+            txtTimSach.Location = new Point(845, 205);
             txtTimSach.Name = "txtTimSach";
             txtTimSach.Size = new Size(100, 33);
             txtTimSach.StateCommon.Back.Color1 = Color.FromArgb(232, 236, 239);
@@ -189,7 +189,7 @@ namespace QLTV.form.BorrowReturn
             btnTimSach.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnTimSach.ForeColor = Color.FromArgb(255, 215, 0);
             btnTimSach.HoverState.FillColor = Color.FromArgb(60, 64, 87);
-            btnTimSach.Location = new Point(747, 139);
+            btnTimSach.Location = new Point(958, 205);
             btnTimSach.Name = "btnTimSach";
             btnTimSach.Size = new Size(40, 30);
             btnTimSach.TabIndex = 11;
@@ -198,7 +198,7 @@ namespace QLTV.form.BorrowReturn
             // 
             // lblNgayMuon
             // 
-            lblNgayMuon.Location = new Point(34, 259);
+            lblNgayMuon.Location = new Point(130, 297);
             lblNgayMuon.Name = "lblNgayMuon";
             lblNgayMuon.Size = new Size(134, 32);
             lblNgayMuon.StateCommon.ShortText.Color1 = Color.FromArgb(26, 26, 26);
@@ -210,14 +210,14 @@ namespace QLTV.form.BorrowReturn
             // 
             dtpNgayMuon.CalendarFont = new Font("Segoe UI", 10F);
             dtpNgayMuon.CalendarMonthBackground = Color.FromArgb(232, 236, 239);
-            dtpNgayMuon.Location = new Point(34, 297);
+            dtpNgayMuon.Location = new Point(130, 353);
             dtpNgayMuon.Name = "dtpNgayMuon";
             dtpNgayMuon.Size = new Size(200, 27);
             dtpNgayMuon.TabIndex = 13;
             // 
             // lblHanTra
             // 
-            lblHanTra.Location = new Point(350, 259);
+            lblHanTra.Location = new Point(481, 297);
             lblHanTra.Name = "lblHanTra";
             lblHanTra.Size = new Size(91, 32);
             lblHanTra.StateCommon.ShortText.Color1 = Color.FromArgb(26, 26, 26);
@@ -229,7 +229,7 @@ namespace QLTV.form.BorrowReturn
             // 
             dtpHanTra.CalendarFont = new Font("Segoe UI", 10F);
             dtpHanTra.CalendarMonthBackground = Color.FromArgb(232, 236, 239);
-            dtpHanTra.Location = new Point(330, 297);
+            dtpHanTra.Location = new Point(469, 353);
             dtpHanTra.Name = "dtpHanTra";
             dtpHanTra.Size = new Size(200, 27);
             dtpHanTra.TabIndex = 15;
@@ -241,7 +241,7 @@ namespace QLTV.form.BorrowReturn
             btnTaoPhieuMuon.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnTaoPhieuMuon.ForeColor = Color.FromArgb(255, 215, 0);
             btnTaoPhieuMuon.HoverState.FillColor = Color.FromArgb(60, 64, 87);
-            btnTaoPhieuMuon.Location = new Point(569, 219);
+            btnTaoPhieuMuon.Location = new Point(754, 384);
             btnTaoPhieuMuon.Name = "btnTaoPhieuMuon";
             btnTaoPhieuMuon.Size = new Size(200, 40);
             btnTaoPhieuMuon.TabIndex = 16;
@@ -257,7 +257,7 @@ namespace QLTV.form.BorrowReturn
             // fNewBorrowReceipt
             // 
             BackColor = Color.FromArgb(247, 249, 251);
-            ClientSize = new Size(1024, 768);
+            ClientSize = new Size(1270, 723);
             Controls.Add(btnTaoPhieuMuon);
             Controls.Add(dtpHanTra);
             Controls.Add(lblHanTra);
